@@ -1,0 +1,116 @@
+{
+  "array1KItems": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer", "minimum": 0 },
+        "name": { "type": "string", "minLength": 1, "maxLength": 50 },
+        "value": { "type": "number", "minimum": 0 },
+        "active": { "type": "boolean" }
+      },
+      "required": ["id", "name"]
+    },
+    "minItems": 1000,
+    "maxItems": 1000
+  },
+  "array10KItems": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer", "minimum": 0 },
+        "value": { "type": "number" }
+      },
+      "required": ["id"]
+    },
+    "minItems": 10000,
+    "maxItems": 10000
+  },
+  "array100KItems": {
+    "type": "array",
+    "items": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20
+    },
+    "minItems": 100000,
+    "maxItems": 100000
+  },
+  "arrayUniqueItems1K": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "value": { "type": "number" }
+      },
+      "required": ["id"]
+    },
+    "uniqueItems": true,
+    "minItems": 1000,
+    "maxItems": 1000
+  },
+  "arrayComplexItems": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "email": { "type": "string", "format": "email" },
+        "created": { "type": "string", "format": "date-time" },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "tags": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 }
+            },
+            "score": { "type": "number", "minimum": 0, "maximum": 100 }
+          }
+        }
+      },
+      "required": ["id", "email", "created"]
+    },
+    "minItems": 5000
+  },
+  "arrayNestedArrays": {
+    "type": "array",
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "minItems": 10,
+        "maxItems": 10
+      },
+      "minItems": 10,
+      "maxItems": 10
+    },
+    "minItems": 100,
+    "maxItems": 100
+  },
+  "arrayMixedTypes1K": {
+    "type": "array",
+    "items": {
+      "anyOf": [
+        { "type": "string", "minLength": 1 },
+        { "type": "number" },
+        { "type": "boolean" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "type": "string" },
+            "value": {}
+          },
+          "required": ["type"]
+        }
+      ]
+    },
+    "minItems": 1000
+  }
+}

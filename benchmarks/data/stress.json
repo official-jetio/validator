@@ -1,0 +1,180 @@
+{
+  "deepNesting": {
+    "valid": [
+      {
+        "level1": {
+          "level2": {
+            "level3": {
+              "level4": {
+                "level5": {
+                  "level6": {
+                    "level7": {
+                      "level8": {
+                        "level9": {
+                          "level10": {
+                            "level11": {
+                              "level12": {
+                                "level13": {
+                                  "level14": {
+                                    "level15": {
+                                      "level16": {
+                                        "level17": {
+                                          "level18": {
+                                            "level19": {
+                                              "level20": {
+                                                "value": "deep"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "level1": {
+          "level2": {
+            "level3": {}
+          }
+        }
+      }
+    ]
+  },
+  "wideObject": {
+    "valid": [
+      {
+        "prop1": "string",
+        "prop2": "string",
+        "prop3": "string",
+        "prop4": "string",
+        "prop5": "string",
+        "prop6": "value",
+        "prop7": "value",
+        "prop8": "value",
+        "prop9": "value",
+        "prop10": "value",
+        "prop11": 42,
+        "prop12": 42,
+        "prop13": 42,
+        "prop14": 42,
+        "prop15": 42,
+        "prop16": true,
+        "prop17": true,
+        "prop18": true,
+        "prop19": true,
+        "prop20": true,
+        "prop21": "test@example.com",
+        "prop22": "test@example.com",
+        "prop23": "test@example.com",
+        "prop24": "test@example.com",
+        "prop25": "test@example.com",
+        "prop26": "value",
+        "prop27": "value",
+        "prop28": "value",
+        "prop29": "value",
+        "prop30": "value",
+        "prop31": 10,
+        "prop32": 10,
+        "prop33": 10,
+        "prop34": 10,
+        "prop35": 10,
+        "prop36": 5,
+        "prop37": 5,
+        "prop38": 5,
+        "prop39": 5,
+        "prop40": 5,
+        "prop41": [
+          "a",
+          "b"
+        ],
+        "prop42": [
+          "a",
+          "b"
+        ],
+        "prop43": [
+          "a",
+          "b"
+        ],
+        "prop44": [
+          "a",
+          "b"
+        ],
+        "prop45": [
+          "a",
+          "b"
+        ],
+        "prop46": {},
+        "prop47": {},
+        "prop48": {},
+        "prop49": {},
+        "prop50": {}
+      }
+    ],
+    "invalid": [
+      {
+        "prop1": 123
+      }
+    ]
+  },
+  "largeEnum": {
+    "valid": [
+      {
+        "statusCode": "code_42",
+        "category": 50
+      }
+    ],
+    "invalid": [
+      {
+        "statusCode": "invalid_code",
+        "category": 150
+      }
+    ]
+  },
+  "complexRefs": {
+    "valid": [
+      {
+        "tree": {
+          "id": "root",
+          "value": 100,
+          "children": [
+            {
+              "id": "child1",
+              "value": 50,
+              "children": []
+            }
+          ]
+        },
+        "metadata": {
+          "created": "2024-01-15T14:30:00Z",
+          "updated": "2024-01-16T10:00:00Z",
+          "author": {
+            "name": "John Doe",
+            "email": "john@example.com"
+          }
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "tree": {
+          "id": "root"
+        }
+      }
+    ]
+  }
+}

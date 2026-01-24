@@ -1,0 +1,237 @@
+{
+  "bulkEmailValidation": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "email": { "type": "string", "format": "email" },
+        "backupEmail": { "type": "string", "format": "email" }
+      },
+      "required": ["id", "email"]
+    },
+    "minItems": 100
+  },
+  "bulkUuidValidation": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "parentId": { "type": "string", "format": "uuid" },
+        "relatedId": { "type": "string", "format": "uuid" }
+      },
+      "required": ["id"]
+    },
+    "minItems": 100
+  },
+  "bulkDateTimeValidation": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "deletedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "createdAt"]
+    },
+    "minItems": 100
+  },
+  "bulkUriValidation": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "website": { "type": "string", "format": "uri" },
+        "apiEndpoint": { "type": "string", "format": "uri" },
+        "webhookUrl": { "type": "string", "format": "uri" }
+      },
+      "required": ["id", "website"]
+    },
+    "minItems": 100
+  },
+  "mixedFormats100Items": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "email": { "type": "string", "format": "email" },
+        "website": { "type": "string", "format": "uri" },
+        "ipAddress": { "type": "string", "format": "ipv4" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "birthDate": { "type": "string", "format": "date" },
+        "loginTime": { "type": "string", "format": "time" }
+      },
+      "required": ["id", "email", "createdAt"]
+    },
+    "minItems": 100
+  },
+  "nestedFormats": {
+    "type": "object",
+    "properties": {
+      "users": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string", "format": "uuid" },
+            "email": { "type": "string", "format": "email" },
+            "profile": {
+              "type": "object",
+              "properties": {
+                "website": { "type": "string", "format": "uri" },
+                "birthDate": { "type": "string", "format": "date" },
+                "metadata": {
+                  "type": "object",
+                  "properties": {
+                    "lastLogin": { "type": "string", "format": "date-time" },
+                    "ipAddress": { "type": "string", "format": "ipv4" }
+                  }
+                }
+              }
+            }
+          },
+          "required": ["id", "email"]
+        },
+        "minItems": 50
+      }
+    }
+  },
+  "allFormatsObject": {
+    "type": "object",
+    "properties": {
+      "email": { "type": "string", "format": "email" },
+      "uuid": { "type": "string", "format": "uuid" },
+      "ipv4": { "type": "string", "format": "ipv4" },
+      "ipv6": { "type": "string", "format": "ipv6" },
+      "uri": { "type": "string", "format": "uri" },
+      "uriReference": { "type": "string", "format": "uri-reference" },
+      "hostname": { "type": "string", "format": "hostname" },
+      "date": { "type": "string", "format": "date" },
+      "time": { "type": "string", "format": "time" },
+      "dateTime": { "type": "string", "format": "date-time" },
+      "duration": { "type": "string", "format": "duration" },
+      "jsonPointer": { "type": "string", "format": "json-pointer" },
+      "relativeJsonPointer": { "type": "string", "format": "relative-json-pointer" },
+      "regex": { "type": "string", "format": "regex" }
+    },
+    "required": ["email", "uuid", "ipv4", "uri", "date", "dateTime"]
+  },
+  "repeatedFormatValidation": {
+    "type": "object",
+    "properties": {
+      "emails": {
+        "type": "array",
+        "items": { "type": "string", "format": "email" },
+        "minItems": 50
+      },
+      "uuids": {
+        "type": "array",
+        "items": { "type": "string", "format": "uuid" },
+        "minItems": 50
+      },
+      "dates": {
+        "type": "array",
+        "items": { "type": "string", "format": "date" },
+        "minItems": 50
+      },
+      "uris": {
+        "type": "array",
+        "items": { "type": "string", "format": "uri" },
+        "minItems": 50
+      }
+    },
+    "required": ["emails", "uuids", "dates", "uris"]
+  },
+  "deepFormatNesting": {
+    "type": "object",
+    "properties": {
+      "level1": {
+        "type": "object",
+        "properties": {
+          "email1": { "type": "string", "format": "email" },
+          "level2": {
+            "type": "object",
+            "properties": {
+              "uuid2": { "type": "string", "format": "uuid" },
+              "level3": {
+                "type": "object",
+                "properties": {
+                  "date3": { "type": "string", "format": "date" },
+                  "level4": {
+                    "type": "object",
+                    "properties": {
+                      "uri4": { "type": "string", "format": "uri" },
+                      "level5": {
+                        "type": "object",
+                        "properties": {
+                          "dateTime5": { "type": "string", "format": "date-time" },
+                          "level6": {
+                            "type": "object",
+                            "properties": {
+                              "ipv46": { "type": "string", "format": "ipv4" },
+                              "level7": {
+                                "type": "object",
+                                "properties": {
+                                  "hostname7": { "type": "string", "format": "hostname" },
+                                  "level8": {
+                                    "type": "object",
+                                    "properties": {
+                                      "time8": { "type": "string", "format": "time" },
+                                      "level9": {
+                                        "type": "object",
+                                        "properties": {
+                                          "email9": { "type": "string", "format": "email" },
+                                          "level10": {
+                                            "type": "object",
+                                            "properties": {
+                                              "uuid10": { "type": "string", "format": "uuid" }
+                                            },
+                                            "required": ["uuid10"]
+                                          }
+                                        },
+                                        "required": ["email9", "level10"]
+                                      }
+                                    },
+                                    "required": ["time8", "level9"]
+                                  }
+                                },
+                                "required": ["hostname7", "level8"]
+                              }
+                            },
+                            "required": ["ipv46", "level7"]
+                          }
+                        },
+                        "required": ["dateTime5", "level6"]
+                      }
+                    },
+                    "required": ["uri4", "level5"]
+                  }
+                },
+                "required": ["date3", "level4"]
+              }
+            },
+            "required": ["uuid2", "level3"]
+          }
+        },
+        "required": ["email1", "level2"]
+      }
+    },
+    "required": ["level1"]
+  },
+  "formatIntensive": {
+    "type": "object",
+    "patternProperties": {
+      "^email[0-9]+$": { "type": "string", "format": "email" },
+      "^uuid[0-9]+$": { "type": "string", "format": "uuid" },
+      "^date[0-9]+$": { "type": "string", "format": "date-time" },
+      "^uri[0-9]+$": { "type": "string", "format": "uri" },
+      "^ip[0-9]+$": { "type": "string", "format": "ipv4" }
+    },
+    "minProperties": 100
+  }
+}

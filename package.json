@@ -1,0 +1,79 @@
+{
+  "name": "@jetio/validator",
+  "version": "1.0.0",
+  "description": "The fastest JSON Schema validator for JavaScript and TypeScript. Supports Draft 06, 07, 2019-09, and 2020-12.",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc && npm run bundle",
+    "clean": "rm -rf dist/",
+    "lint": "eslint src --ext .ts",
+    "bundle": "rollup -c",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "npm run test:all",
+    "test:all": "npm run test:2020-12 && npm run test:2019-09 && npm run test:7 && npm run test:6",
+    "test:2020-12": "ts-node tests/test.ts ./JSON-Schema-Test-Suite/tests/draft2020-12",
+    "test:2019-09": "ts-node tests/test.ts ./JSON-Schema-Test-Suite/tests/draft2019-09",
+    "test:7": "ts-node tests/test.ts ./JSON-Schema-Test-Suite/tests/draft7",
+    "test:6": "ts-node tests/test.ts ./JSON-Schema-Test-Suite/tests/draft6"
+  },
+  "bin": {
+    "jet-meta": "./dist/cli.js"
+  },
+  "keywords": [
+    "json-schema",
+    "validator",
+    "validation",
+    "schema",
+    "json",
+    "typescript",
+    "ajv-alternative",
+    "fast",
+    "performance",
+    "draft-2020-12",
+    "draft-2019-09",
+    "draft-07",
+    "draft-06"
+  ],
+  "author": "Great Venerable",
+  "license": "MIT",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/node": "^18.19.127",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "eslint": "^8.38.0",
+    "rollup": "^2.79.2",
+    "rollup-plugin-filesize": "^10.0.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/official-jetio/validator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/official-jetio/validator/issues"
+  },
+  "homepage": "https://github.com/official-jetio/validator#readme"
+}

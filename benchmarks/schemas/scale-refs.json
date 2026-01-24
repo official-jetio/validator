@@ -1,0 +1,293 @@
+{
+  "references": {
+    "$defs": {
+      "address": {
+        "type": "object",
+        "properties": {
+          "street": { "type": "string" },
+          "city": { "type": "string" },
+          "zipCode": { "type": "string", "pattern": "^[0-9]{5}$" }
+        },
+        "required": ["street", "city"]
+      },
+      "person": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "age": { "type": "number" },
+          "address": { "$ref": "#/$defs/address" }
+        },
+        "required": ["name"]
+      }
+    },
+    "type": "object",
+    "properties": {
+      "user": { "$ref": "#/$defs/person" },
+      "billingAddress": { "$ref": "#/$defs/address" },
+      "shippingAddress": { "$ref": "#/$defs/address" },
+      "emergencyContact": { "$ref": "#/$defs/person" }
+    },
+    "required": ["user"]
+  },
+  "refs100Times": {
+    "$defs": {
+      "commonString": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "commonNumber": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1000
+      },
+      "commonObject": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "value": { "type": "number" }
+        },
+        "required": ["id"]
+      }
+    },
+    "type": "object",
+    "properties": {
+      "field0": { "$ref": "#/$defs/commonString" },
+      "field1": { "$ref": "#/$defs/commonNumber" },
+      "field2": { "$ref": "#/$defs/commonObject" },
+      "field3": { "$ref": "#/$defs/commonString" },
+      "field4": { "$ref": "#/$defs/commonNumber" },
+      "field5": { "$ref": "#/$defs/commonObject" },
+      "field6": { "$ref": "#/$defs/commonString" },
+      "field7": { "$ref": "#/$defs/commonNumber" },
+      "field8": { "$ref": "#/$defs/commonObject" },
+      "field9": { "$ref": "#/$defs/commonString" },
+      "field10": { "$ref": "#/$defs/commonNumber" },
+      "field11": { "$ref": "#/$defs/commonObject" },
+      "field12": { "$ref": "#/$defs/commonString" },
+      "field13": { "$ref": "#/$defs/commonNumber" },
+      "field14": { "$ref": "#/$defs/commonObject" },
+      "field15": { "$ref": "#/$defs/commonString" },
+      "field16": { "$ref": "#/$defs/commonNumber" },
+      "field17": { "$ref": "#/$defs/commonObject" },
+      "field18": { "$ref": "#/$defs/commonString" },
+      "field19": { "$ref": "#/$defs/commonNumber" },
+      "field20": { "$ref": "#/$defs/commonObject" },
+      "field21": { "$ref": "#/$defs/commonString" },
+      "field22": { "$ref": "#/$defs/commonNumber" },
+      "field23": { "$ref": "#/$defs/commonObject" },
+      "field24": { "$ref": "#/$defs/commonString" },
+      "field25": { "$ref": "#/$defs/commonNumber" },
+      "field26": { "$ref": "#/$defs/commonObject" },
+      "field27": { "$ref": "#/$defs/commonString" },
+      "field28": { "$ref": "#/$defs/commonNumber" },
+      "field29": { "$ref": "#/$defs/commonObject" },
+      "field30": { "$ref": "#/$defs/commonString" },
+      "field31": { "$ref": "#/$defs/commonNumber" },
+      "field32": { "$ref": "#/$defs/commonObject" },
+      "field33": { "$ref": "#/$defs/commonString" },
+      "field34": { "$ref": "#/$defs/commonNumber" },
+      "field35": { "$ref": "#/$defs/commonObject" },
+      "field36": { "$ref": "#/$defs/commonString" },
+      "field37": { "$ref": "#/$defs/commonNumber" },
+      "field38": { "$ref": "#/$defs/commonObject" },
+      "field39": { "$ref": "#/$defs/commonString" },
+      "field40": { "$ref": "#/$defs/commonNumber" },
+      "field41": { "$ref": "#/$defs/commonObject" },
+      "field42": { "$ref": "#/$defs/commonString" },
+      "field43": { "$ref": "#/$defs/commonNumber" },
+      "field44": { "$ref": "#/$defs/commonObject" },
+      "field45": { "$ref": "#/$defs/commonString" },
+      "field46": { "$ref": "#/$defs/commonNumber" },
+      "field47": { "$ref": "#/$defs/commonObject" },
+      "field48": { "$ref": "#/$defs/commonString" },
+      "field49": { "$ref": "#/$defs/commonNumber" },
+      "field50": { "$ref": "#/$defs/commonObject" },
+      "field51": { "$ref": "#/$defs/commonString" },
+      "field52": { "$ref": "#/$defs/commonNumber" },
+      "field53": { "$ref": "#/$defs/commonObject" },
+      "field54": { "$ref": "#/$defs/commonString" },
+      "field55": { "$ref": "#/$defs/commonNumber" },
+      "field56": { "$ref": "#/$defs/commonObject" },
+      "field57": { "$ref": "#/$defs/commonString" },
+      "field58": { "$ref": "#/$defs/commonNumber" },
+      "field59": { "$ref": "#/$defs/commonObject" },
+      "field60": { "$ref": "#/$defs/commonString" },
+      "field61": { "$ref": "#/$defs/commonNumber" },
+      "field62": { "$ref": "#/$defs/commonObject" },
+      "field63": { "$ref": "#/$defs/commonString" },
+      "field64": { "$ref": "#/$defs/commonNumber" },
+      "field65": { "$ref": "#/$defs/commonObject" },
+      "field66": { "$ref": "#/$defs/commonString" },
+      "field67": { "$ref": "#/$defs/commonNumber" },
+      "field68": { "$ref": "#/$defs/commonObject" },
+      "field69": { "$ref": "#/$defs/commonString" },
+      "field70": { "$ref": "#/$defs/commonNumber" },
+      "field71": { "$ref": "#/$defs/commonObject" },
+      "field72": { "$ref": "#/$defs/commonString" },
+      "field73": { "$ref": "#/$defs/commonNumber" },
+      "field74": { "$ref": "#/$defs/commonObject" },
+      "field75": { "$ref": "#/$defs/commonString" },
+      "field76": { "$ref": "#/$defs/commonNumber" },
+      "field77": { "$ref": "#/$defs/commonObject" },
+      "field78": { "$ref": "#/$defs/commonString" },
+      "field79": { "$ref": "#/$defs/commonNumber" },
+      "field80": { "$ref": "#/$defs/commonObject" },
+      "field81": { "$ref": "#/$defs/commonString" },
+      "field82": { "$ref": "#/$defs/commonNumber" },
+      "field83": { "$ref": "#/$defs/commonObject" },
+      "field84": { "$ref": "#/$defs/commonString" },
+      "field85": { "$ref": "#/$defs/commonNumber" },
+      "field86": { "$ref": "#/$defs/commonObject" },
+      "field87": { "$ref": "#/$defs/commonString" },
+      "field88": { "$ref": "#/$defs/commonNumber" },
+      "field89": { "$ref": "#/$defs/commonObject" },
+      "field90": { "$ref": "#/$defs/commonString" },
+      "field91": { "$ref": "#/$defs/commonNumber" },
+      "field92": { "$ref": "#/$defs/commonObject" },
+      "field93": { "$ref": "#/$defs/commonString" },
+      "field94": { "$ref": "#/$defs/commonNumber" },
+      "field95": { "$ref": "#/$defs/commonObject" },
+      "field96": { "$ref": "#/$defs/commonString" },
+      "field97": { "$ref": "#/$defs/commonNumber" },
+      "field98": { "$ref": "#/$defs/commonObject" },
+      "field99": { "$ref": "#/$defs/commonString" }
+    }
+  },
+  "refs500Times": {
+    "$defs": {
+      "item": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string", "minLength": 1 }
+        },
+        "required": ["id"]
+      }
+    },
+    "type": "object",
+    "patternProperties": {
+      "^item[0-9]+$": { "$ref": "#/$defs/item" }
+    },
+    "minProperties": 500
+  },
+  "refs1000Times": {
+    "$defs": {
+      "value": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 50
+      }
+    },
+    "type": "object",
+    "patternProperties": {
+      "^val[0-9]+$": { "$ref": "#/$defs/value" }
+    },
+    "minProperties": 1000
+  },
+  "recursiveRefs": {
+    "$defs": {
+      "tree": {
+        "type": "object",
+        "properties": {
+          "value": { "type": "number" },
+          "left": { "$ref": "#/$defs/tree" },
+          "right": { "$ref": "#/$defs/tree" },
+          "children": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/tree" }
+          }
+        },
+        "required": ["value"]
+      }
+    },
+    "type": "object",
+    "properties": {
+      "root": { "$ref": "#/$defs/tree" }
+    },
+    "required": ["root"]
+  },
+  "chainedRefs": {
+    "$defs": {
+      "level1": { "$ref": "#/$defs/level2" },
+      "level2": { "$ref": "#/$defs/level3" },
+      "level3": { "$ref": "#/$defs/level4" },
+      "level4": { "$ref": "#/$defs/level5" },
+      "level5": { "$ref": "#/$defs/level6" },
+      "level6": { "$ref": "#/$defs/level7" },
+      "level7": { "$ref": "#/$defs/level8" },
+      "level8": { "$ref": "#/$defs/level9" },
+      "level9": { "$ref": "#/$defs/level10" },
+      "level10": { "$ref": "#/$defs/level11" },
+      "level11": { "$ref": "#/$defs/level12" },
+      "level12": { "$ref": "#/$defs/level13" },
+      "level13": { "$ref": "#/$defs/level14" },
+      "level14": { "$ref": "#/$defs/level15" },
+      "level15": { "$ref": "#/$defs/level16" },
+      "level16": { "$ref": "#/$defs/level17" },
+      "level17": { "$ref": "#/$defs/level18" },
+      "level18": { "$ref": "#/$defs/level19" },
+      "level19": { "$ref": "#/$defs/level20" },
+      "level20": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "type": "object",
+    "properties": {
+      "data": { "$ref": "#/$defs/level1" }
+    },
+    "required": ["data"]
+  },
+  "complexRefGraph": {
+    "$defs": {
+      "nodeA": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "refB": { "$ref": "#/$defs/nodeB" },
+          "refC": { "$ref": "#/$defs/nodeC" }
+        }
+      },
+      "nodeB": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "refA": { "$ref": "#/$defs/nodeA" },
+          "refD": { "$ref": "#/$defs/nodeD" }
+        }
+      },
+      "nodeC": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "refA": { "$ref": "#/$defs/nodeA" },
+          "refB": { "$ref": "#/$defs/nodeB" },
+          "refD": { "$ref": "#/$defs/nodeD" }
+        }
+      },
+      "nodeD": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "refB": { "$ref": "#/$defs/nodeB" },
+          "refC": { "$ref": "#/$defs/nodeC" }
+        }
+      }
+    },
+    "type": "object",
+    "properties": {
+      "graph": {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            { "$ref": "#/$defs/nodeA" },
+            { "$ref": "#/$defs/nodeB" },
+            { "$ref": "#/$defs/nodeC" },
+            { "$ref": "#/$defs/nodeD" }
+          ]
+        }
+      }
+    }
+  }
+}

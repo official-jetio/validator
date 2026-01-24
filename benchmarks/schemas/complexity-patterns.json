@@ -1,0 +1,170 @@
+{
+  "manySimplePatterns": {
+    "type": "object",
+    "properties": {
+      "field1": { "type": "string", "pattern": "^[A-Z]+$" },
+      "field2": { "type": "string", "pattern": "^[a-z]+$" },
+      "field3": { "type": "string", "pattern": "^[0-9]+$" },
+      "field4": { "type": "string", "pattern": "^[A-Za-z]+$" },
+      "field5": { "type": "string", "pattern": "^[A-Z][a-z]+$" },
+      "field6": { "type": "string", "pattern": "^[a-z][A-Z]+$" },
+      "field7": { "type": "string", "pattern": "^[A-Z]{3}$" },
+      "field8": { "type": "string", "pattern": "^[0-9]{5}$" },
+      "field9": { "type": "string", "pattern": "^[A-Za-z0-9]+$" },
+      "field10": { "type": "string", "pattern": "^[a-z0-9]+$" },
+      "field11": { "type": "string", "pattern": "^[A-Z0-9]+$" },
+      "field12": { "type": "string", "pattern": "^[A-Z][a-z0-9]+$" },
+      "field13": { "type": "string", "pattern": "^[a-zA-Z]{2,10}$" },
+      "field14": { "type": "string", "pattern": "^[0-9]{3,6}$" },
+      "field15": { "type": "string", "pattern": "^[A-Z]{1,5}$" },
+      "field16": { "type": "string", "pattern": "^[a-z]{5,}$" },
+      "field17": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+      "field18": { "type": "string", "pattern": "^[A-Z]+-[0-9]+$" },
+      "field19": { "type": "string", "pattern": "^[a-z]+_[a-z]+$" },
+      "field20": { "type": "string", "pattern": "^[A-Za-z]+\\s[A-Za-z]+$" },
+      "field21": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+      "field22": { "type": "string", "pattern": "^\\+?[0-9]+$" },
+      "field23": { "type": "string", "pattern": "^[a-z]+@[a-z]+$" },
+      "field24": { "type": "string", "pattern": "^https?://.*$" },
+      "field25": { "type": "string", "pattern": "^[A-Z][a-z]+_[A-Z][a-z]+$" },
+      "field26": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+      "field27": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+      "field28": { "type": "string", "pattern": "^[0-9]{2}:[0-9]{2}:[0-9]{2}$" },
+      "field29": { "type": "string", "pattern": "^[A-Z]{2}[0-9]{4}[A-Z]{2}$" },
+      "field30": { "type": "string", "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$" },
+      "field31": { "type": "string", "pattern": "^[A-Z].*[a-z]$" },
+      "field32": { "type": "string", "pattern": "^.*[0-9].*$" },
+      "field33": { "type": "string", "pattern": "^[^0-9]+$" },
+      "field34": { "type": "string", "pattern": "^[^a-z]+$" },
+      "field35": { "type": "string", "pattern": "^[^A-Z]+$" },
+      "field36": { "type": "string", "pattern": "^.{5,20}$" },
+      "field37": { "type": "string", "pattern": "^.{10}$" },
+      "field38": { "type": "string", "pattern": "^[A-Za-z]+[0-9]+[A-Za-z]+$" },
+      "field39": { "type": "string", "pattern": "^[0-9]+[A-Za-z]+[0-9]+$" },
+      "field40": { "type": "string", "pattern": "^(yes|no|maybe)$" },
+      "field41": { "type": "string", "pattern": "^(true|false)$" },
+      "field42": { "type": "string", "pattern": "^(on|off)$" },
+      "field43": { "type": "string", "pattern": "^[A-Z][a-z]*([A-Z][a-z]*)*$" },
+      "field44": { "type": "string", "pattern": "^[a-z]+(-[a-z]+)*$" },
+      "field45": { "type": "string", "pattern": "^[A-Z]+(_[A-Z]+)*$" },
+      "field46": { "type": "string", "pattern": "^[a-z]+(\\.[a-z]+)*$" },
+      "field47": { "type": "string", "pattern": "^[0-9]+(,[0-9]+)*$" },
+      "field48": { "type": "string", "pattern": "^[A-Za-z0-9+/]+={0,2}$" },
+      "field49": { "type": "string", "pattern": "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$" },
+      "field50": { "type": "string", "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" }
+    },
+    "required": ["field1", "field10", "field20", "field30", "field40", "field50"]
+  },
+  "complexPatterns": {
+    "type": "object",
+    "properties": {
+      "email": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+      },
+      "url": {
+        "type": "string",
+        "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$"
+      },
+      "ipv4": {
+        "type": "string",
+        "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+      },
+      "ipv6": {
+        "type": "string",
+        "pattern": "^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$"
+      },
+      "uuid": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+      },
+      "creditCard": {
+        "type": "string",
+        "pattern": "^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\\d{3})\\d{11})$"
+      },
+      "phone": {
+        "type": "string",
+        "pattern": "^[+]?[(]?[0-9]{1,4}[)]?[-\\s.]?[(]?[0-9]{1,4}[)]?[-\\s.]?[0-9]{1,9}$"
+      },
+      "password": {
+        "type": "string",
+        "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+      },
+      "htmlTag": {
+        "type": "string",
+        "pattern": "^<([a-z]+)([^<]+)*(?:>(.*)<\\/\\1>|\\s+\\/>)$"
+      },
+      "jsonPath": {
+        "type": "string",
+        "pattern": "^\\$(?:\\.[a-zA-Z_][a-zA-Z0-9_]*|\\[\\d+\\]|\\['[^']*'\\]|\\[\"[^\"]*\"\\])*$"
+      }
+    },
+    "required": ["email", "url", "uuid"]
+  },
+  "arrayWithPatterns": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Z]{3}-[0-9]{6}$" },
+        "code": { "type": "string", "pattern": "^[A-Z0-9]{8}$" },
+        "ref": { "type": "string", "pattern": "^REF-[0-9]{4}-[A-Z]{2}$" },
+        "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      },
+      "required": ["id", "code"]
+    },
+    "minItems": 100
+  },
+  "nestedPatterns": {
+    "type": "object",
+    "properties": {
+      "level1": {
+        "type": "object",
+        "properties": {
+          "pattern1": { "type": "string", "pattern": "^[A-Z]+$" },
+          "level2": {
+            "type": "object",
+            "properties": {
+              "pattern2": { "type": "string", "pattern": "^[0-9]+$" },
+              "level3": {
+                "type": "object",
+                "properties": {
+                  "pattern3": { "type": "string", "pattern": "^[a-z]+$" },
+                  "level4": {
+                    "type": "object",
+                    "properties": {
+                      "pattern4": { "type": "string", "pattern": "^[A-Za-z0-9]+$" },
+                      "level5": {
+                        "type": "object",
+                        "properties": {
+                          "pattern5": { "type": "string", "pattern": "^[A-Z][a-z]+$" }
+                        },
+                        "required": ["pattern5"]
+                      }
+                    },
+                    "required": ["pattern4", "level5"]
+                  }
+                },
+                "required": ["pattern3", "level4"]
+              }
+            },
+            "required": ["pattern2", "level3"]
+          }
+        },
+        "required": ["pattern1", "level2"]
+      }
+    },
+    "required": ["level1"]
+  },
+  "patternProperties50": {
+    "type": "object",
+    "patternProperties": {
+      "^prop[0-9]+$": { "type": "string", "pattern": "^[A-Z][a-z]+$" },
+      "^field[0-9]+$": { "type": "number", "minimum": 0, "maximum": 100 },
+      "^item[0-9]+$": { "type": "string", "pattern": "^[0-9]{5}$" },
+      "^val[0-9]+$": { "type": "string", "pattern": "^[a-z]{3,10}$" },
+      "^data[0-9]+$": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }
+    },
+    "minProperties": 50
+  }
+}

@@ -1,0 +1,804 @@
+{
+  "manySimplePatterns": {
+    "valid": [
+      {
+        "field1": "ABCD",
+        "field2": "abcd",
+        "field3": "1234",
+        "field4": "AbCd",
+        "field5": "Test",
+        "field6": "aTest",
+        "field7": "ABC",
+        "field8": "12345",
+        "field9": "Abc123",
+        "field10": "abc123",
+        "field11": "ABC123",
+        "field12": "A1b2c3",
+        "field13": "TestValue",
+        "field14": "12345",
+        "field15": "ABCDE",
+        "field16": "testing",
+        "field17": "123.456",
+        "field18": "ABC-123",
+        "field19": "test_value",
+        "field20": "Hello World",
+        "field21": "#FF5733",
+        "field22": "+123456",
+        "field23": "test@example",
+        "field24": "https://example.com",
+        "field25": "Test_Value",
+        "field26": "v1.2.3",
+        "field27": "2024-01-15",
+        "field28": "14:30:45",
+        "field29": "AB1234CD",
+        "field30": "12345678-1234-1234-1234-123456789abc",
+        "field31": "Test",
+        "field32": "test123",
+        "field33": "ABCD",
+        "field34": "1234",
+        "field35": "abcd",
+        "field36": "HelloWorld",
+        "field37": "1234567890",
+        "field38": "Test123Value",
+        "field39": "123Test456",
+        "field40": "yes",
+        "field41": "true",
+        "field42": "on",
+        "field43": "TestValue",
+        "field44": "hello-world",
+        "field45": "TEST_VALUE",
+        "field46": "test.value",
+        "field47": "1,2,3,4",
+        "field48": "SGVsbG8gV29ybGQ=",
+        "field49": "user@example.com",
+        "field50": "192.168.1.1"
+      }
+    ],
+    "invalid": [
+      {
+        "field1": "abc",
+        "field2": "ABC",
+        "field3": "abc",
+        "field10": "ABC",
+        "field20": "NoSpace",
+        "field30": "invalid-uuid",
+        "field40": "invalid",
+        "field49": "not-an-email",
+        "field50": "999.999.999.999"
+      }
+    ]
+  },
+  "complexPatterns": {
+    "valid": [
+      {
+        "email": "user@example.com",
+        "url": "https://example.com/path",
+        "ipv4": "192.168.1.1",
+        "ipv6": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+        "uuid": "123e4567-e89b-12d3-a456-426614174000",
+        "creditCard": "4532015112830366",
+        "phone": "+1-555-123-4567",
+        "password": "Passw0rd!",
+        "htmlTag": "<div class='test'>Content</div>",
+        "jsonPath": "$.store.book[0].title"
+      }
+    ],
+    "invalid": [
+      {
+        "email": "not-an-email",
+        "url": "not a url",
+        "uuid": "invalid-uuid",
+        "ipv4": "999.999.999.999",
+        "password": "weak"
+      }
+    ]
+  },
+  "arrayWithPatterns": {
+    "valid": [
+      [
+        {
+          "id": "ABC-000000",
+          "code": "ABCD0000",
+          "ref": "REF-2024-AB",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "BCD-000001",
+          "code": "ABCD0001",
+          "ref": "REF-2025-BC",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "CDE-000002",
+          "code": "ABCD0002",
+          "ref": "REF-2026-CD",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "DEF-000003",
+          "code": "ABCD0003",
+          "ref": "REF-2027-DE",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "EFG-000004",
+          "code": "ABCD0004",
+          "ref": "REF-2028-EF",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "FGH-000005",
+          "code": "ABCD0005",
+          "ref": "REF-2024-FG",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "GHI-000006",
+          "code": "ABCD0006",
+          "ref": "REF-2025-GH",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "HIJ-000007",
+          "code": "ABCD0007",
+          "ref": "REF-2026-HI",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "IJK-000008",
+          "code": "ABCD0008",
+          "ref": "REF-2027-IJ",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "JKL-000009",
+          "code": "ABCD0009",
+          "ref": "REF-2028-JK",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "KLM-000010",
+          "code": "ABCD0010",
+          "ref": "REF-2024-KL",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "LMN-000011",
+          "code": "ABCD0011",
+          "ref": "REF-2025-LM",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "MNO-000012",
+          "code": "ABCD0012",
+          "ref": "REF-2026-MN",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "NOP-000013",
+          "code": "ABCD0013",
+          "ref": "REF-2027-NO",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "OPQ-000014",
+          "code": "ABCD0014",
+          "ref": "REF-2028-OP",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "PQR-000015",
+          "code": "ABCD0015",
+          "ref": "REF-2024-PQ",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "QRS-000016",
+          "code": "ABCD0016",
+          "ref": "REF-2025-QR",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "RST-000017",
+          "code": "ABCD0017",
+          "ref": "REF-2026-RS",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "STU-000018",
+          "code": "ABCD0018",
+          "ref": "REF-2027-ST",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "TUV-000019",
+          "code": "ABCD0019",
+          "ref": "REF-2028-TU",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "UVW-000020",
+          "code": "ABCD0020",
+          "ref": "REF-2024-UV",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "VWX-000021",
+          "code": "ABCD0021",
+          "ref": "REF-2025-VW",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "WXY-000022",
+          "code": "ABCD0022",
+          "ref": "REF-2026-WX",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "XYZ-000023",
+          "code": "ABCD0023",
+          "ref": "REF-2027-XY",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "YZC-000024",
+          "code": "ABCD0024",
+          "ref": "REF-2028-YZ",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "ZBD-000025",
+          "code": "ABCD0025",
+          "ref": "REF-2024-ZB",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "ACE-000026",
+          "code": "ABCD0026",
+          "ref": "REF-2025-AC",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "BDF-000027",
+          "code": "ABCD0027",
+          "ref": "REF-2026-BD",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "CEG-000028",
+          "code": "ABCD0028",
+          "ref": "REF-2027-CE",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "DFH-000029",
+          "code": "ABCD0029",
+          "ref": "REF-2028-DF",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "EGI-000030",
+          "code": "ABCD0030",
+          "ref": "REF-2024-EG",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "FHJ-000031",
+          "code": "ABCD0031",
+          "ref": "REF-2025-FH",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "GIK-000032",
+          "code": "ABCD0032",
+          "ref": "REF-2026-GI",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "HJL-000033",
+          "code": "ABCD0033",
+          "ref": "REF-2027-HJ",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "IKM-000034",
+          "code": "ABCD0034",
+          "ref": "REF-2028-IK",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "JLN-000035",
+          "code": "ABCD0035",
+          "ref": "REF-2024-JL",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "KMO-000036",
+          "code": "ABCD0036",
+          "ref": "REF-2025-KM",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "LNP-000037",
+          "code": "ABCD0037",
+          "ref": "REF-2026-LN",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "MOQ-000038",
+          "code": "ABCD0038",
+          "ref": "REF-2027-MO",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "NPR-000039",
+          "code": "ABCD0039",
+          "ref": "REF-2028-NP",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "OQS-000040",
+          "code": "ABCD0040",
+          "ref": "REF-2024-OQ",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "PRT-000041",
+          "code": "ABCD0041",
+          "ref": "REF-2025-PR",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "QSU-000042",
+          "code": "ABCD0042",
+          "ref": "REF-2026-QS",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "RTV-000043",
+          "code": "ABCD0043",
+          "ref": "REF-2027-RT",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "SUW-000044",
+          "code": "ABCD0044",
+          "ref": "REF-2028-SU",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "TVX-000045",
+          "code": "ABCD0045",
+          "ref": "REF-2024-TV",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "UWY-000046",
+          "code": "ABCD0046",
+          "ref": "REF-2025-UW",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "VXZ-000047",
+          "code": "ABCD0047",
+          "ref": "REF-2026-VX",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "WYC-000048",
+          "code": "ABCD0048",
+          "ref": "REF-2027-WY",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "XZD-000049",
+          "code": "ABCD0049",
+          "ref": "REF-2028-XZ",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "YBE-000050",
+          "code": "ABCD0050",
+          "ref": "REF-2024-YB",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "ZCF-000051",
+          "code": "ABCD0051",
+          "ref": "REF-2025-ZC",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "ADG-000052",
+          "code": "ABCD0052",
+          "ref": "REF-2026-AD",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "BEH-000053",
+          "code": "ABCD0053",
+          "ref": "REF-2027-BE",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "CFI-000054",
+          "code": "ABCD0054",
+          "ref": "REF-2028-CF",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "DGJ-000055",
+          "code": "ABCD0055",
+          "ref": "REF-2024-DG",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "EHK-000056",
+          "code": "ABCD0056",
+          "ref": "REF-2025-EH",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "FIL-000057",
+          "code": "ABCD0057",
+          "ref": "REF-2026-FI",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "GJM-000058",
+          "code": "ABCD0058",
+          "ref": "REF-2027-GJ",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "HKN-000059",
+          "code": "ABCD0059",
+          "ref": "REF-2028-HK",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "ILO-000060",
+          "code": "ABCD0060",
+          "ref": "REF-2024-IL",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "JMP-000061",
+          "code": "ABCD0061",
+          "ref": "REF-2025-JM",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "KNQ-000062",
+          "code": "ABCD0062",
+          "ref": "REF-2026-KN",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "LOR-000063",
+          "code": "ABCD0063",
+          "ref": "REF-2027-LO",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "MPS-000064",
+          "code": "ABCD0064",
+          "ref": "REF-2028-MP",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "NQT-000065",
+          "code": "ABCD0065",
+          "ref": "REF-2024-NQ",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "ORU-000066",
+          "code": "ABCD0066",
+          "ref": "REF-2025-OR",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "PSV-000067",
+          "code": "ABCD0067",
+          "ref": "REF-2026-PS",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "QTW-000068",
+          "code": "ABCD0068",
+          "ref": "REF-2027-QT",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "RUX-000069",
+          "code": "ABCD0069",
+          "ref": "REF-2028-RU",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "SVY-000070",
+          "code": "ABCD0070",
+          "ref": "REF-2024-SV",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "TWZ-000071",
+          "code": "ABCD0071",
+          "ref": "REF-2025-TW",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "UXC-000072",
+          "code": "ABCD0072",
+          "ref": "REF-2026-UX",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "VYD-000073",
+          "code": "ABCD0073",
+          "ref": "REF-2027-VY",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "WZE-000074",
+          "code": "ABCD0074",
+          "ref": "REF-2028-WZ",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "XBF-000075",
+          "code": "ABCD0075",
+          "ref": "REF-2024-XB",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "YCG-000076",
+          "code": "ABCD0076",
+          "ref": "REF-2025-YC",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "ZDH-000077",
+          "code": "ABCD0077",
+          "ref": "REF-2026-ZD",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "AEI-000078",
+          "code": "ABCD0078",
+          "ref": "REF-2027-AE",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "BFJ-000079",
+          "code": "ABCD0079",
+          "ref": "REF-2028-BF",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "CGK-000080",
+          "code": "ABCD0080",
+          "ref": "REF-2024-CG",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "DHL-000081",
+          "code": "ABCD0081",
+          "ref": "REF-2025-DH",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "EIM-000082",
+          "code": "ABCD0082",
+          "ref": "REF-2026-EI",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "FJN-000083",
+          "code": "ABCD0083",
+          "ref": "REF-2027-FJ",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "GKO-000084",
+          "code": "ABCD0084",
+          "ref": "REF-2028-GK",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "HLP-000085",
+          "code": "ABCD0085",
+          "ref": "REF-2024-HL",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "IMQ-000086",
+          "code": "ABCD0086",
+          "ref": "REF-2025-IM",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "JNR-000087",
+          "code": "ABCD0087",
+          "ref": "REF-2026-JN",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "KOS-000088",
+          "code": "ABCD0088",
+          "ref": "REF-2027-KO",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "LPT-000089",
+          "code": "ABCD0089",
+          "ref": "REF-2028-LP",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "MQU-000090",
+          "code": "ABCD0090",
+          "ref": "REF-2024-MQ",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "NRV-000091",
+          "code": "ABCD0091",
+          "ref": "REF-2025-NR",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "OSW-000092",
+          "code": "ABCD0092",
+          "ref": "REF-2026-OS",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "PTX-000093",
+          "code": "ABCD0093",
+          "ref": "REF-2027-PT",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "QUY-000094",
+          "code": "ABCD0094",
+          "ref": "REF-2028-QU",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "RVZ-000095",
+          "code": "ABCD0095",
+          "ref": "REF-2024-RV",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "SWC-000096",
+          "code": "ABCD0096",
+          "ref": "REF-2025-SW",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "TXD-000097",
+          "code": "ABCD0097",
+          "ref": "REF-2026-TX",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "id": "UYE-000098",
+          "code": "ABCD0098",
+          "ref": "REF-2027-UY",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": "VZF-000099",
+          "code": "ABCD0099",
+          "ref": "REF-2028-VZ",
+          "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      ]
+    ],
+    "invalid": [
+      [
+        {
+          "id": "invalid",
+          "code": "ABC"
+        }
+      ]
+    ]
+  },
+  "nestedPatterns": {
+    "valid": [
+      {
+        "level1": {
+          "pattern1": "ABCDEF",
+          "level2": {
+            "pattern2": "123456",
+            "level3": {
+              "pattern3": "testing",
+              "level4": {
+                "pattern4": "Test123",
+                "level5": {
+                  "pattern5": "Hello"
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "level1": {
+          "pattern1": "abc",
+          "level2": {
+            "pattern2": "abc"
+          }
+        }
+      }
+    ]
+  },
+  "patternProperties50": {
+    "valid": [
+      {
+        "prop0": "Value0",
+        "field1": 51,
+        "item2": "10002",
+        "val3": "test3",
+        "data4": "#078900",
+        "prop5": "Value5",
+        "field6": 56,
+        "item7": "10007",
+        "val8": "test8",
+        "data9": "#10F440",
+        "prop10": "Value10",
+        "field11": 61,
+        "item12": "10012",
+        "val13": "test13",
+        "data14": "#1A5F80",
+        "prop15": "Value15",
+        "field16": 66,
+        "item17": "10017",
+        "val18": "test18",
+        "data19": "#23CAC0",
+        "prop20": "Value20",
+        "field21": 71,
+        "item22": "10022",
+        "val23": "test23",
+        "data24": "#2D3600",
+        "prop25": "Value25",
+        "field26": 76,
+        "item27": "10027",
+        "val28": "test28",
+        "data29": "#36A140",
+        "prop30": "Value30",
+        "field31": 81,
+        "item32": "10032",
+        "val33": "test33",
+        "data34": "#400C80",
+        "prop35": "Value35",
+        "field36": 86,
+        "item37": "10037",
+        "val38": "test38",
+        "data39": "#4977C0",
+        "prop40": "Value40",
+        "field41": 91,
+        "item42": "10042",
+        "val43": "test43",
+        "data44": "#52E300",
+        "prop45": "Value45",
+        "field46": 96,
+        "item47": "10047",
+        "val48": "test48",
+        "data49": "#5C4E40"
+      }
+    ],
+    "invalid": [
+      {
+        "prop0": "test",
+        "field0": 150,
+        "item0": "123"
+      }
+    ]
+  }
+}

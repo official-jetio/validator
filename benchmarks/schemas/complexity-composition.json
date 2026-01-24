@@ -1,0 +1,362 @@
+{
+  "deepAllOf": {
+    "allOf": [
+      {
+        "type": "object",
+        "properties": { "prop1": { "type": "string" } }
+      },
+      {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": { "prop2": { "type": "number" } }
+          },
+          {
+            "allOf": [
+              {
+                "type": "object",
+                "properties": { "prop3": { "type": "boolean" } }
+              },
+              {
+                "allOf": [
+                  {
+                    "type": "object",
+                    "properties": { "prop4": { "type": "string" } }
+                  },
+                  {
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": { "prop5": { "type": "number" } }
+                      },
+                      {
+                        "allOf": [
+                          {
+                            "type": "object",
+                            "properties": { "prop6": { "type": "boolean" } }
+                          },
+                          {
+                            "allOf": [
+                              {
+                                "type": "object",
+                                "properties": { "prop7": { "type": "string" } }
+                              },
+                              {
+                                "allOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": { "prop8": { "type": "number" } }
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": { "prop9": { "type": "boolean" } }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "deepAnyOf": {
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "type": { "const": "A" },
+          "data": {
+            "anyOf": [
+              { "type": "string" },
+              {
+                "anyOf": [
+                  { "type": "number" },
+                  {
+                    "anyOf": [
+                      { "type": "boolean" },
+                      {
+                        "anyOf": [
+                          { "type": "null" },
+                          { "type": "array", "items": { "type": "string" } }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": { "const": "B" },
+          "value": { "type": "number" }
+        }
+      }
+    ]
+  },
+  "deepOneOf": {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "variant": { "const": "v1" },
+          "nested": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "subtype": { "const": "s1" },
+                  "value": { "type": "string" }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "subtype": { "const": "s2" },
+                  "value": { "type": "number" }
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "object",
+        "properties": {
+          "variant": { "const": "v2" },
+          "nested": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "subtype": { "const": "s3" },
+                  "value": { "type": "boolean" }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "subtype": { "const": "s4" },
+                  "value": { "type": "array", "items": { "type": "string" } }
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "object",
+        "properties": {
+          "variant": { "const": "v3" },
+          "nested": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "subtype": { "const": "s5" },
+                  "value": { "type": "object" }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "subtype": { "const": "s6" },
+                  "value": { "type": "null" }
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "mixedComposition": {
+    "allOf": [
+      {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" }
+        },
+        "required": ["id"]
+      },
+      {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": { "const": "user" },
+              "email": { "type": "string", "format": "email" }
+            },
+            "required": ["type", "email"]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": { "const": "admin" },
+              "permissions": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            },
+            "required": ["type", "permissions"]
+          }
+        ]
+      },
+      {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "status": { "const": "active" },
+              "lastLogin": { "type": "string", "format": "date-time" }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "status": { "const": "inactive" },
+              "deactivatedAt": { "type": "string", "format": "date-time" }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "complexNot": {
+    "allOf": [
+      {
+        "type": "object",
+        "properties": {
+          "value": { "type": "number", "minimum": 0, "maximum": 100 }
+        }
+      },
+      {
+        "not": {
+          "anyOf": [
+            {
+              "properties": {
+                "value": { "const": 13 }
+              }
+            },
+            {
+              "properties": {
+                "value": { "const": 666 }
+              }
+            },
+            {
+              "properties": {
+                "value": { "multipleOf": 7 }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "multiLayeredComposition": {
+    "allOf": [
+      {
+        "anyOf": [
+          {
+            "oneOf": [
+              { "type": "string", "minLength": 5 },
+              { "type": "string", "maxLength": 3 }
+            ]
+          },
+          {
+            "oneOf": [
+              { "type": "number", "minimum": 100 },
+              { "type": "number", "maximum": 10 }
+            ]
+          }
+        ]
+      },
+      {
+        "not": {
+          "anyOf": [
+            { "type": "string", "pattern": "^test" },
+            { "type": "number", "multipleOf": 13 }
+          ]
+        }
+      }
+    ]
+  },
+  "wideComposition": {
+    "allOf": [
+      { "type": "object", "properties": { "p1": { "type": "string" } } },
+      { "type": "object", "properties": { "p2": { "type": "string" } } },
+      { "type": "object", "properties": { "p3": { "type": "string" } } },
+      { "type": "object", "properties": { "p4": { "type": "string" } } },
+      { "type": "object", "properties": { "p5": { "type": "string" } } },
+      { "type": "object", "properties": { "p6": { "type": "string" } } },
+      { "type": "object", "properties": { "p7": { "type": "string" } } },
+      { "type": "object", "properties": { "p8": { "type": "string" } } },
+      { "type": "object", "properties": { "p9": { "type": "string" } } },
+      { "type": "object", "properties": { "p10": { "type": "string" } } }
+    ],
+    "anyOf": [
+      { "properties": { "opt1": { "type": "number" } }, "required": ["opt1"] },
+      { "properties": { "opt2": { "type": "boolean" } }, "required": ["opt2"] },
+      { "properties": { "opt3": { "type": "array" } }, "required": ["opt3"] },
+      { "properties": { "opt4": { "type": "object" } }, "required": ["opt4"] },
+      { "properties": { "opt5": { "type": "null" } }, "required": ["opt5"] }
+    ],
+    "oneOf": [
+      { "properties": { "variant": { "const": "A" } }, "required": ["variant"] },
+      { "properties": { "variant": { "const": "B" } }, "required": ["variant"] },
+      { "properties": { "variant": { "const": "C" } }, "required": ["variant"] },
+      { "properties": { "variant": { "const": "D" } }, "required": ["variant"] },
+      { "properties": { "variant": { "const": "E" } }, "required": ["variant"] }
+    ]
+  },
+  "recursiveComposition": {
+    "$defs": {
+      "node": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "value": { "type": "number" }
+            },
+            "required": ["id"]
+          },
+          {
+            "anyOf": [
+              {
+                "properties": {
+                  "type": { "const": "leaf" }
+                }
+              },
+              {
+                "properties": {
+                  "type": { "const": "branch" },
+                  "children": {
+                    "type": "array",
+                    "items": { "$ref": "#/$defs/node" }
+                  }
+                },
+                "required": ["children"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "type": "object",
+    "properties": {
+      "tree": { "$ref": "#/$defs/node" }
+    }
+  }
+}

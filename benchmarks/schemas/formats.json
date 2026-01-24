@@ -1,0 +1,72 @@
+{
+  "regexFormats": {
+    "type": "object",
+    "properties": {
+      "email": { "type": "string", "format": "email" },
+      "uuid": { "type": "string", "format": "uuid" },
+      "ipv4": { "type": "string", "format": "ipv4" },
+      "ipv6": { "type": "string", "format": "ipv6" },
+      "uri": { "type": "string", "format": "uri" },
+      "uriReference": { "type": "string", "format": "uri-reference" },
+      "hostname": { "type": "string", "format": "hostname" },
+      "jsonPointer": { "type": "string", "format": "json-pointer" },
+      "relativeJsonPointer": { "type": "string", "format": "relative-json-pointer" },
+      "regex": { "type": "string", "format": "regex" }
+    },
+    "required": ["email", "uuid", "uri"]
+  },
+  "functionFormats": {
+    "type": "object",
+    "properties": {
+      "date": { "type": "string", "format": "date" },
+      "time": { "type": "string", "format": "time" },
+      "dateTime": { "type": "string", "format": "date-time" },
+      "duration": { "type": "string", "format": "duration" },
+      "isoDateTime": { "type": "string", "format": "iso-date-time" }
+    },
+    "required": ["date", "dateTime"]
+  },
+  "mixedFormats": {
+    "type": "object",
+    "properties": {
+      "user": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "email": { "type": "string", "format": "email" },
+          "website": { "type": "string", "format": "uri" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "birthDate": { "type": "string", "format": "date" }
+        },
+        "required": ["id", "email", "createdAt"]
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "ipAddress": { "type": "string", "format": "ipv4" },
+          "hostname": { "type": "string", "format": "hostname" },
+          "timestamp": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "required": ["user"]
+  },
+  "integerFormats": {
+    "type": "object",
+    "properties": {
+      "int32Value": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "int64Value": {
+        "type": "integer",
+        "format": "int64"
+      },
+      "byteValue": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      }
+    }
+  }
+}

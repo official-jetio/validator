@@ -1,0 +1,245 @@
+{
+  "deepAllOf": {
+    "valid": [
+      {
+        "prop1": "test",
+        "prop2": 42,
+        "prop3": true,
+        "prop4": "value",
+        "prop5": 100,
+        "prop6": false,
+        "prop7": "data",
+        "prop8": 50,
+        "prop9": true
+      }
+    ],
+    "invalid": [
+      {
+        "prop1": "test",
+        "prop2": "invalid"
+      }
+    ]
+  },
+  "deepAnyOf": {
+    "valid": [
+      {
+        "type": "A",
+        "data": "string-value"
+      },
+      {
+        "type": "A",
+        "data": 42
+      },
+      {
+        "type": "A",
+        "data": true
+      },
+      {
+        "type": "A",
+        "data": null
+      },
+      {
+        "type": "A",
+        "data": ["a", "b"]
+      },
+      {
+        "type": "B",
+        "value": 100
+      }
+    ],
+    "invalid": [
+      {
+        "type": "A",
+        "data": {}
+      },
+      {
+        "type": "B",
+        "value": "invalid"
+      }
+    ]
+  },
+  "deepOneOf": {
+    "valid": [
+      {
+        "variant": "v1",
+        "nested": {
+          "subtype": "s1",
+          "value": "test"
+        }
+      },
+      {
+        "variant": "v1",
+        "nested": {
+          "subtype": "s2",
+          "value": 42
+        }
+      },
+      {
+        "variant": "v2",
+        "nested": {
+          "subtype": "s3",
+          "value": true
+        }
+      },
+      {
+        "variant": "v2",
+        "nested": {
+          "subtype": "s4",
+          "value": ["a", "b"]
+        }
+      },
+      {
+        "variant": "v3",
+        "nested": {
+          "subtype": "s5",
+          "value": {}
+        }
+      },
+      {
+        "variant": "v3",
+        "nested": {
+          "subtype": "s6",
+          "value": null
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "variant": "v1",
+        "nested": {
+          "subtype": "s1",
+          "value": 123
+        }
+      },
+      {
+        "variant": "v1",
+        "nested": {
+          "subtype": "s3",
+          "value": true
+        }
+      }
+    ]
+  },
+  "mixedComposition": {
+    "valid": [
+      {
+        "id": "123e4567-e89b-12d3-a456-426614174000",
+        "type": "user",
+        "email": "user@example.com",
+        "status": "active",
+        "lastLogin": "2024-01-15T14:30:00Z"
+      },
+      {
+        "id": "fedcba98-7654-3210-fedc-ba9876543210",
+        "type": "admin",
+        "permissions": ["read", "write", "delete"],
+        "status": "inactive",
+        "deactivatedAt": "2024-01-10T10:00:00Z"
+      }
+    ],
+    "invalid": [
+      {
+        "id": "invalid-uuid",
+        "type": "user",
+        "email": "user@example.com"
+      }
+    ]
+  },
+  "complexNot": {
+    "valid": [
+      {
+        "value": 10
+      },
+      {
+        "value": 50
+      },
+      {
+        "value": 99
+      }
+    ],
+    "invalid": [
+      {
+        "value": 13
+      },
+      {
+        "value": 14
+      },
+      {
+        "value": 21
+      }
+    ]
+  },
+  "multiLayeredComposition": {
+    "valid": ["testing", "ab", 150, 5],
+    "invalid": ["test", "testvalue", 13, 26]
+  },
+  "wideComposition": {
+    "valid": [
+      {
+        "p1": "a",
+        "p2": "b",
+        "p3": "c",
+        "p4": "d",
+        "p5": "e",
+        "p6": "f",
+        "p7": "g",
+        "p8": "h",
+        "p9": "i",
+        "p10": "j",
+        "opt1": 42,
+        "variant": "A"
+      },
+      {
+        "p1": "a",
+        "p2": "b",
+        "p3": "c",
+        "p4": "d",
+        "p5": "e",
+        "p6": "f",
+        "p7": "g",
+        "p8": "h",
+        "p9": "i",
+        "p10": "j",
+        "opt2": true,
+        "variant": "B"
+      }
+    ],
+    "invalid": [
+      {
+        "p1": "a",
+        "variant": "A"
+      }
+    ]
+  },
+  "recursiveComposition": {
+    "valid": [
+      {
+        "tree": {
+          "id": "root",
+          "value": 100,
+          "type": "branch",
+          "children": [
+            {
+              "id": "child1",
+              "value": 50,
+              "type": "leaf"
+            },
+            {
+              "id": "child2",
+              "value": 75,
+              "type": "leaf"
+            }
+          ]
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "tree": {
+          "value": 100,
+          "type": "branch"
+        }
+      }
+    ]
+  }
+}

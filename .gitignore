@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.tsbuildinfo
+coverage/
+*.log
+bundle-analysis.html
+.DS_Store
+tests/func.js
+tests/lolo.ts
+tests/lolo2.ts
+tests/ttt.txt
+tests/test2.ts

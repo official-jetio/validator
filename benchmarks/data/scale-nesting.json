@@ -1,0 +1,210 @@
+{
+  "nesting50Levels": {
+    "valid": [
+      {
+        "level1": {
+          "level2": {
+            "level3": {
+              "level4": {
+                "level5": {
+                  "level6": {
+                    "level7": {
+                      "level8": {
+                        "level9": {
+                          "level10": {
+                            "level11": {
+                              "level12": {
+                                "level13": {
+                                  "level14": {
+                                    "level15": {
+                                      "level16": {
+                                        "level17": {
+                                          "level18": {
+                                            "level19": {
+                                              "level20": {
+                                                "level21": {
+                                                  "level22": {
+                                                    "level23": {
+                                                      "level24": {
+                                                        "level25": {
+                                                          "level26": {
+                                                            "level27": {
+                                                              "level28": {
+                                                                "level29": {
+                                                                  "level30": {
+                                                                    "level31": {
+                                                                      "level32": {
+                                                                        "level33": {
+                                                                          "level34": {
+                                                                            "level35": {
+                                                                              "level36": {
+                                                                                "level37": {
+                                                                                  "level38": {
+                                                                                    "level39": {
+                                                                                      "level40": {
+                                                                                        "level41": {
+                                                                                          "level42": {
+                                                                                            "level43": {
+                                                                                              "level44": {
+                                                                                                "level45": {
+                                                                                                  "level46": {
+                                                                                                    "level47": {
+                                                                                                      "level48": {
+                                                                                                        "level49": {
+                                                                                                          "level50": {
+                                                                                                            "value": "deep"
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "level1": {
+          "level2": "invalid"
+        }
+      }
+    ]
+  },
+  "nesting100Levels": {
+    "valid": [
+      {
+        "data": [
+          [
+            [
+              [
+                [
+                  [
+                    [
+                      [
+                        [
+                          [
+                            [
+                              [
+                                [
+                                  [
+                                    [
+                                      [
+                                        [
+                                          [
+                                            [
+                                              [
+                                                0
+                                              ]
+                                            ]
+                                          ]
+                                        ]
+                                      ]
+                                    ]
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    ],
+    "invalid": [
+      {
+        "data": [
+          [
+            [
+              [
+                [
+                  [
+                    [
+                      [
+                        [
+                          [
+                            "string"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    ]
+  },
+  "nestingAllOfChain": {
+    "valid": [
+      {
+        "prop1": "test",
+        "prop2": 42,
+        "prop3": true,
+        "prop4": "value",
+        "prop5": 100,
+        "prop6": false,
+        "prop7": "data",
+        "prop8": 50,
+        "prop9": true,
+        "prop10": "final"
+      }
+    ],
+    "invalid": [
+      {
+        "prop1": 123,
+        "prop2": "invalid"
+      }
+    ]
+  }
+}

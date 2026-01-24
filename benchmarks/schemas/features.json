@@ -1,0 +1,255 @@
+{
+  "simpleTypes": {
+    "type": "object",
+    "properties": {
+      "stringField": { "type": "string" },
+      "numberField": { "type": "number" },
+      "integerField": { "type": "integer" },
+      "booleanField": { "type": "boolean" },
+      "nullField": { "type": "null" },
+      "arrayField": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "objectField": {
+        "type": "object",
+        "properties": {
+          "nested": { "type": "string" }
+        }
+      }
+    },
+    "required": ["stringField", "numberField"]
+  },
+  "stringConstraints": {
+    "type": "object",
+    "properties": {
+      "minLengthStr": {
+        "type": "string",
+        "minLength": 5
+      },
+      "maxLengthStr": {
+        "type": "string",
+        "maxLength": 20
+      },
+      "rangeStr": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 10
+      },
+      "patternStr": {
+        "type": "string",
+        "pattern": "^[A-Z][a-z]+$"
+      },
+      "email": {
+        "type": "string",
+        "format": "email"
+      },
+      "uuid": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "ipv4": {
+        "type": "string",
+        "format": "ipv4"
+      },
+      "uri": {
+        "type": "string",
+        "format": "uri"
+      },
+      "enumStr": {
+        "type": "string",
+        "enum": ["red", "green", "blue", "yellow"]
+      }
+    },
+    "required": ["minLengthStr", "email"]
+  },
+  "numericConstraints": {
+    "type": "object",
+    "properties": {
+      "minimumNum": {
+        "type": "number",
+        "minimum": 0
+      },
+      "maximumNum": {
+        "type": "number",
+        "maximum": 100
+      },
+      "rangeNum": {
+        "type": "number",
+        "minimum": 10,
+        "maximum": 50
+      },
+      "exclusiveMin": {
+        "type": "number",
+        "exclusiveMinimum": 0
+      },
+      "exclusiveMax": {
+        "type": "number",
+        "exclusiveMaximum": 100
+      },
+      "multipleOf": {
+        "type": "number",
+        "multipleOf": 5
+      },
+      "integerField": {
+        "type": "integer"
+      },
+      "positiveInt": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "enumNum": {
+        "type": "number",
+        "enum": [1, 2, 3, 5, 8, 13]
+      }
+    },
+    "required": ["rangeNum", "multipleOf"]
+  },
+  "arrayOperations": {
+    "type": "object",
+    "properties": {
+      "simpleArray": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "minItemsArray": {
+        "type": "array",
+        "items": { "type": "number" },
+        "minItems": 2
+      },
+      "maxItemsArray": {
+        "type": "array",
+        "items": { "type": "number" },
+        "maxItems": 5
+      },
+      "uniqueArray": {
+        "type": "array",
+        "items": { "type": "string" },
+        "uniqueItems": true
+      },
+      "tupleArray": {
+        "type": "array",
+        "items": [
+          { "type": "string" },
+          { "type": "number" },
+          { "type": "boolean" }
+        ],
+        "minItems": 3,
+        "maxItems": 3
+      },
+      "containsArray": {
+        "type": "array",
+        "items": { "type": "number" },
+        "contains": {
+          "type": "number",
+          "minimum": 5
+        }
+      },
+      "nestedArray": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "number" },
+            "name": { "type": "string" }
+          },
+          "required": ["id"]
+        }
+      }
+    },
+    "required": ["simpleArray", "uniqueArray"]
+  },
+  "objectValidation": {
+    "type": "object",
+    "properties": {
+      "name": { "type": "string" },
+      "age": { "type": "number" },
+      "email": { "type": "string", "format": "email" }
+    },
+    "required": ["name", "email"],
+    "additionalProperties": false,
+    "patternProperties": {
+      "^meta_": { "type": "string" }
+    },
+    "minProperties": 2,
+    "maxProperties": 10,
+    "dependencies": {
+      "age": ["name"]
+    }
+  },
+  "composition": {
+    "allOf": [
+      {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" }
+        },
+        "required": ["name"]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "age": { "type": "number", "minimum": 0 }
+        }
+      }
+    ],
+    "anyOf": [
+      {
+        "properties": {
+          "email": { "type": "string", "format": "email" }
+        },
+        "required": ["email"]
+      },
+      {
+        "properties": {
+          "phone": { "type": "string" }
+        },
+        "required": ["phone"]
+      }
+    ],
+    "oneOf": [
+      {
+        "properties": {
+          "type": { "const": "personal" },
+          "ssn": { "type": "string" }
+        },
+        "required": ["type", "ssn"]
+      },
+      {
+        "properties": {
+          "type": { "const": "business" },
+          "taxId": { "type": "string" }
+        },
+        "required": ["type", "taxId"]
+      }
+    ],
+    "not": {
+      "properties": {
+        "banned": { "const": true }
+      }
+    }
+  },
+  "conditionals": {
+    "type": "object",
+    "properties": {
+      "country": { "type": "string" },
+      "postalCode": { "type": "string" }
+    },
+    "if": {
+      "properties": {
+        "country": { "const": "US" }
+      }
+    },
+    "then": {
+      "properties": {
+        "postalCode": { "pattern": "^[0-9]{5}(-[0-9]{4})?$" }
+      }
+    },
+    "else": {
+      "properties": {
+        "postalCode": { "pattern": "^[A-Z0-9]{3,10}$" }
+      }
+    },
+    "required": ["country", "postalCode"]
+  }
+}

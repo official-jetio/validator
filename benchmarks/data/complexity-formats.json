@@ -1,0 +1,4214 @@
+{
+  "bulkEmailValidation": {
+    "valid": [
+      [
+        {
+          "id": 0,
+          "email": "user0@example.com",
+          "backupEmail": "backup0@example.com"
+        },
+        {
+          "id": 1,
+          "email": "user1@example.com",
+          "backupEmail": "backup1@example.com"
+        },
+        {
+          "id": 2,
+          "email": "user2@example.com",
+          "backupEmail": "backup2@example.com"
+        },
+        {
+          "id": 3,
+          "email": "user3@example.com",
+          "backupEmail": "backup3@example.com"
+        },
+        {
+          "id": 4,
+          "email": "user4@example.com",
+          "backupEmail": "backup4@example.com"
+        },
+        {
+          "id": 5,
+          "email": "user5@example.com",
+          "backupEmail": "backup5@example.com"
+        },
+        {
+          "id": 6,
+          "email": "user6@example.com",
+          "backupEmail": "backup6@example.com"
+        },
+        {
+          "id": 7,
+          "email": "user7@example.com",
+          "backupEmail": "backup7@example.com"
+        },
+        {
+          "id": 8,
+          "email": "user8@example.com",
+          "backupEmail": "backup8@example.com"
+        },
+        {
+          "id": 9,
+          "email": "user9@example.com",
+          "backupEmail": "backup9@example.com"
+        },
+        {
+          "id": 10,
+          "email": "user10@example.com",
+          "backupEmail": "backup10@example.com"
+        },
+        {
+          "id": 11,
+          "email": "user11@example.com",
+          "backupEmail": "backup11@example.com"
+        },
+        {
+          "id": 12,
+          "email": "user12@example.com",
+          "backupEmail": "backup12@example.com"
+        },
+        {
+          "id": 13,
+          "email": "user13@example.com",
+          "backupEmail": "backup13@example.com"
+        },
+        {
+          "id": 14,
+          "email": "user14@example.com",
+          "backupEmail": "backup14@example.com"
+        },
+        {
+          "id": 15,
+          "email": "user15@example.com",
+          "backupEmail": "backup15@example.com"
+        },
+        {
+          "id": 16,
+          "email": "user16@example.com",
+          "backupEmail": "backup16@example.com"
+        },
+        {
+          "id": 17,
+          "email": "user17@example.com",
+          "backupEmail": "backup17@example.com"
+        },
+        {
+          "id": 18,
+          "email": "user18@example.com",
+          "backupEmail": "backup18@example.com"
+        },
+        {
+          "id": 19,
+          "email": "user19@example.com",
+          "backupEmail": "backup19@example.com"
+        },
+        {
+          "id": 20,
+          "email": "user20@example.com",
+          "backupEmail": "backup20@example.com"
+        },
+        {
+          "id": 21,
+          "email": "user21@example.com",
+          "backupEmail": "backup21@example.com"
+        },
+        {
+          "id": 22,
+          "email": "user22@example.com",
+          "backupEmail": "backup22@example.com"
+        },
+        {
+          "id": 23,
+          "email": "user23@example.com",
+          "backupEmail": "backup23@example.com"
+        },
+        {
+          "id": 24,
+          "email": "user24@example.com",
+          "backupEmail": "backup24@example.com"
+        },
+        {
+          "id": 25,
+          "email": "user25@example.com",
+          "backupEmail": "backup25@example.com"
+        },
+        {
+          "id": 26,
+          "email": "user26@example.com",
+          "backupEmail": "backup26@example.com"
+        },
+        {
+          "id": 27,
+          "email": "user27@example.com",
+          "backupEmail": "backup27@example.com"
+        },
+        {
+          "id": 28,
+          "email": "user28@example.com",
+          "backupEmail": "backup28@example.com"
+        },
+        {
+          "id": 29,
+          "email": "user29@example.com",
+          "backupEmail": "backup29@example.com"
+        },
+        {
+          "id": 30,
+          "email": "user30@example.com",
+          "backupEmail": "backup30@example.com"
+        },
+        {
+          "id": 31,
+          "email": "user31@example.com",
+          "backupEmail": "backup31@example.com"
+        },
+        {
+          "id": 32,
+          "email": "user32@example.com",
+          "backupEmail": "backup32@example.com"
+        },
+        {
+          "id": 33,
+          "email": "user33@example.com",
+          "backupEmail": "backup33@example.com"
+        },
+        {
+          "id": 34,
+          "email": "user34@example.com",
+          "backupEmail": "backup34@example.com"
+        },
+        {
+          "id": 35,
+          "email": "user35@example.com",
+          "backupEmail": "backup35@example.com"
+        },
+        {
+          "id": 36,
+          "email": "user36@example.com",
+          "backupEmail": "backup36@example.com"
+        },
+        {
+          "id": 37,
+          "email": "user37@example.com",
+          "backupEmail": "backup37@example.com"
+        },
+        {
+          "id": 38,
+          "email": "user38@example.com",
+          "backupEmail": "backup38@example.com"
+        },
+        {
+          "id": 39,
+          "email": "user39@example.com",
+          "backupEmail": "backup39@example.com"
+        },
+        {
+          "id": 40,
+          "email": "user40@example.com",
+          "backupEmail": "backup40@example.com"
+        },
+        {
+          "id": 41,
+          "email": "user41@example.com",
+          "backupEmail": "backup41@example.com"
+        },
+        {
+          "id": 42,
+          "email": "user42@example.com",
+          "backupEmail": "backup42@example.com"
+        },
+        {
+          "id": 43,
+          "email": "user43@example.com",
+          "backupEmail": "backup43@example.com"
+        },
+        {
+          "id": 44,
+          "email": "user44@example.com",
+          "backupEmail": "backup44@example.com"
+        },
+        {
+          "id": 45,
+          "email": "user45@example.com",
+          "backupEmail": "backup45@example.com"
+        },
+        {
+          "id": 46,
+          "email": "user46@example.com",
+          "backupEmail": "backup46@example.com"
+        },
+        {
+          "id": 47,
+          "email": "user47@example.com",
+          "backupEmail": "backup47@example.com"
+        },
+        {
+          "id": 48,
+          "email": "user48@example.com",
+          "backupEmail": "backup48@example.com"
+        },
+        {
+          "id": 49,
+          "email": "user49@example.com",
+          "backupEmail": "backup49@example.com"
+        },
+        {
+          "id": 50,
+          "email": "user50@example.com",
+          "backupEmail": "backup50@example.com"
+        },
+        {
+          "id": 51,
+          "email": "user51@example.com",
+          "backupEmail": "backup51@example.com"
+        },
+        {
+          "id": 52,
+          "email": "user52@example.com",
+          "backupEmail": "backup52@example.com"
+        },
+        {
+          "id": 53,
+          "email": "user53@example.com",
+          "backupEmail": "backup53@example.com"
+        },
+        {
+          "id": 54,
+          "email": "user54@example.com",
+          "backupEmail": "backup54@example.com"
+        },
+        {
+          "id": 55,
+          "email": "user55@example.com",
+          "backupEmail": "backup55@example.com"
+        },
+        {
+          "id": 56,
+          "email": "user56@example.com",
+          "backupEmail": "backup56@example.com"
+        },
+        {
+          "id": 57,
+          "email": "user57@example.com",
+          "backupEmail": "backup57@example.com"
+        },
+        {
+          "id": 58,
+          "email": "user58@example.com",
+          "backupEmail": "backup58@example.com"
+        },
+        {
+          "id": 59,
+          "email": "user59@example.com",
+          "backupEmail": "backup59@example.com"
+        },
+        {
+          "id": 60,
+          "email": "user60@example.com",
+          "backupEmail": "backup60@example.com"
+        },
+        {
+          "id": 61,
+          "email": "user61@example.com",
+          "backupEmail": "backup61@example.com"
+        },
+        {
+          "id": 62,
+          "email": "user62@example.com",
+          "backupEmail": "backup62@example.com"
+        },
+        {
+          "id": 63,
+          "email": "user63@example.com",
+          "backupEmail": "backup63@example.com"
+        },
+        {
+          "id": 64,
+          "email": "user64@example.com",
+          "backupEmail": "backup64@example.com"
+        },
+        {
+          "id": 65,
+          "email": "user65@example.com",
+          "backupEmail": "backup65@example.com"
+        },
+        {
+          "id": 66,
+          "email": "user66@example.com",
+          "backupEmail": "backup66@example.com"
+        },
+        {
+          "id": 67,
+          "email": "user67@example.com",
+          "backupEmail": "backup67@example.com"
+        },
+        {
+          "id": 68,
+          "email": "user68@example.com",
+          "backupEmail": "backup68@example.com"
+        },
+        {
+          "id": 69,
+          "email": "user69@example.com",
+          "backupEmail": "backup69@example.com"
+        },
+        {
+          "id": 70,
+          "email": "user70@example.com",
+          "backupEmail": "backup70@example.com"
+        },
+        {
+          "id": 71,
+          "email": "user71@example.com",
+          "backupEmail": "backup71@example.com"
+        },
+        {
+          "id": 72,
+          "email": "user72@example.com",
+          "backupEmail": "backup72@example.com"
+        },
+        {
+          "id": 73,
+          "email": "user73@example.com",
+          "backupEmail": "backup73@example.com"
+        },
+        {
+          "id": 74,
+          "email": "user74@example.com",
+          "backupEmail": "backup74@example.com"
+        },
+        {
+          "id": 75,
+          "email": "user75@example.com",
+          "backupEmail": "backup75@example.com"
+        },
+        {
+          "id": 76,
+          "email": "user76@example.com",
+          "backupEmail": "backup76@example.com"
+        },
+        {
+          "id": 77,
+          "email": "user77@example.com",
+          "backupEmail": "backup77@example.com"
+        },
+        {
+          "id": 78,
+          "email": "user78@example.com",
+          "backupEmail": "backup78@example.com"
+        },
+        {
+          "id": 79,
+          "email": "user79@example.com",
+          "backupEmail": "backup79@example.com"
+        },
+        {
+          "id": 80,
+          "email": "user80@example.com",
+          "backupEmail": "backup80@example.com"
+        },
+        {
+          "id": 81,
+          "email": "user81@example.com",
+          "backupEmail": "backup81@example.com"
+        },
+        {
+          "id": 82,
+          "email": "user82@example.com",
+          "backupEmail": "backup82@example.com"
+        },
+        {
+          "id": 83,
+          "email": "user83@example.com",
+          "backupEmail": "backup83@example.com"
+        },
+        {
+          "id": 84,
+          "email": "user84@example.com",
+          "backupEmail": "backup84@example.com"
+        },
+        {
+          "id": 85,
+          "email": "user85@example.com",
+          "backupEmail": "backup85@example.com"
+        },
+        {
+          "id": 86,
+          "email": "user86@example.com",
+          "backupEmail": "backup86@example.com"
+        },
+        {
+          "id": 87,
+          "email": "user87@example.com",
+          "backupEmail": "backup87@example.com"
+        },
+        {
+          "id": 88,
+          "email": "user88@example.com",
+          "backupEmail": "backup88@example.com"
+        },
+        {
+          "id": 89,
+          "email": "user89@example.com",
+          "backupEmail": "backup89@example.com"
+        },
+        {
+          "id": 90,
+          "email": "user90@example.com",
+          "backupEmail": "backup90@example.com"
+        },
+        {
+          "id": 91,
+          "email": "user91@example.com",
+          "backupEmail": "backup91@example.com"
+        },
+        {
+          "id": 92,
+          "email": "user92@example.com",
+          "backupEmail": "backup92@example.com"
+        },
+        {
+          "id": 93,
+          "email": "user93@example.com",
+          "backupEmail": "backup93@example.com"
+        },
+        {
+          "id": 94,
+          "email": "user94@example.com",
+          "backupEmail": "backup94@example.com"
+        },
+        {
+          "id": 95,
+          "email": "user95@example.com",
+          "backupEmail": "backup95@example.com"
+        },
+        {
+          "id": 96,
+          "email": "user96@example.com",
+          "backupEmail": "backup96@example.com"
+        },
+        {
+          "id": 97,
+          "email": "user97@example.com",
+          "backupEmail": "backup97@example.com"
+        },
+        {
+          "id": 98,
+          "email": "user98@example.com",
+          "backupEmail": "backup98@example.com"
+        },
+        {
+          "id": 99,
+          "email": "user99@example.com",
+          "backupEmail": "backup99@example.com"
+        }
+      ]
+    ],
+    "invalid": [
+      [
+        {
+          "id": 1,
+          "email": "invalid",
+          "backupEmail": "also-invalid@"
+        }
+      ]
+    ]
+  },
+  "bulkUuidValidation": {
+    "valid": [
+      [
+        {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "parentId": "parent-00000000-0000-0000-0000-000000000000",
+          "relatedId": "related-00000000-0000-0000-0000-000000000000"
+        },
+        {
+          "id": "00000001-0000-0000-0000-000000010000",
+          "parentId": "parent-00000001-0000-0000-0000-000000010000",
+          "relatedId": "related-00000001-0000-0000-0000-000000010000"
+        },
+        {
+          "id": "00000002-0000-0000-0000-000000020000",
+          "parentId": "parent-00000002-0000-0000-0000-000000020000",
+          "relatedId": "related-00000002-0000-0000-0000-000000020000"
+        },
+        {
+          "id": "00000003-0000-0000-0000-000000030000",
+          "parentId": "parent-00000003-0000-0000-0000-000000030000",
+          "relatedId": "related-00000003-0000-0000-0000-000000030000"
+        },
+        {
+          "id": "00000004-0000-0000-0000-000000040000",
+          "parentId": "parent-00000004-0000-0000-0000-000000040000",
+          "relatedId": "related-00000004-0000-0000-0000-000000040000"
+        },
+        {
+          "id": "00000005-0000-0000-0000-000000050000",
+          "parentId": "parent-00000005-0000-0000-0000-000000050000",
+          "relatedId": "related-00000005-0000-0000-0000-000000050000"
+        },
+        {
+          "id": "00000006-0000-0000-0000-000000060000",
+          "parentId": "parent-00000006-0000-0000-0000-000000060000",
+          "relatedId": "related-00000006-0000-0000-0000-000000060000"
+        },
+        {
+          "id": "00000007-0000-0000-0000-000000070000",
+          "parentId": "parent-00000007-0000-0000-0000-000000070000",
+          "relatedId": "related-00000007-0000-0000-0000-000000070000"
+        },
+        {
+          "id": "00000008-0000-0000-0000-000000080000",
+          "parentId": "parent-00000008-0000-0000-0000-000000080000",
+          "relatedId": "related-00000008-0000-0000-0000-000000080000"
+        },
+        {
+          "id": "00000009-0000-0000-0000-000000090000",
+          "parentId": "parent-00000009-0000-0000-0000-000000090000",
+          "relatedId": "related-00000009-0000-0000-0000-000000090000"
+        },
+        {
+          "id": "0000000a-0000-0000-0000-0000000a0000",
+          "parentId": "parent-0000000a-0000-0000-0000-0000000a0000",
+          "relatedId": "related-0000000a-0000-0000-0000-0000000a0000"
+        },
+        {
+          "id": "0000000b-0000-0000-0000-0000000b0000",
+          "parentId": "parent-0000000b-0000-0000-0000-0000000b0000",
+          "relatedId": "related-0000000b-0000-0000-0000-0000000b0000"
+        },
+        {
+          "id": "0000000c-0000-0000-0000-0000000c0000",
+          "parentId": "parent-0000000c-0000-0000-0000-0000000c0000",
+          "relatedId": "related-0000000c-0000-0000-0000-0000000c0000"
+        },
+        {
+          "id": "0000000d-0000-0000-0000-0000000d0000",
+          "parentId": "parent-0000000d-0000-0000-0000-0000000d0000",
+          "relatedId": "related-0000000d-0000-0000-0000-0000000d0000"
+        },
+        {
+          "id": "0000000e-0000-0000-0000-0000000e0000",
+          "parentId": "parent-0000000e-0000-0000-0000-0000000e0000",
+          "relatedId": "related-0000000e-0000-0000-0000-0000000e0000"
+        },
+        {
+          "id": "0000000f-0000-0000-0000-0000000f0000",
+          "parentId": "parent-0000000f-0000-0000-0000-0000000f0000",
+          "relatedId": "related-0000000f-0000-0000-0000-0000000f0000"
+        },
+        {
+          "id": "00000010-0000-0000-0000-000000100000",
+          "parentId": "parent-00000010-0000-0000-0000-000000100000",
+          "relatedId": "related-00000010-0000-0000-0000-000000100000"
+        },
+        {
+          "id": "00000011-0000-0000-0000-000000110000",
+          "parentId": "parent-00000011-0000-0000-0000-000000110000",
+          "relatedId": "related-00000011-0000-0000-0000-000000110000"
+        },
+        {
+          "id": "00000012-0000-0000-0000-000000120000",
+          "parentId": "parent-00000012-0000-0000-0000-000000120000",
+          "relatedId": "related-00000012-0000-0000-0000-000000120000"
+        },
+        {
+          "id": "00000013-0000-0000-0000-000000130000",
+          "parentId": "parent-00000013-0000-0000-0000-000000130000",
+          "relatedId": "related-00000013-0000-0000-0000-000000130000"
+        },
+        {
+          "id": "00000014-0000-0000-0000-000000140000",
+          "parentId": "parent-00000014-0000-0000-0000-000000140000",
+          "relatedId": "related-00000014-0000-0000-0000-000000140000"
+        },
+        {
+          "id": "00000015-0000-0000-0000-000000150000",
+          "parentId": "parent-00000015-0000-0000-0000-000000150000",
+          "relatedId": "related-00000015-0000-0000-0000-000000150000"
+        },
+        {
+          "id": "00000016-0000-0000-0000-000000160000",
+          "parentId": "parent-00000016-0000-0000-0000-000000160000",
+          "relatedId": "related-00000016-0000-0000-0000-000000160000"
+        },
+        {
+          "id": "00000017-0000-0000-0000-000000170000",
+          "parentId": "parent-00000017-0000-0000-0000-000000170000",
+          "relatedId": "related-00000017-0000-0000-0000-000000170000"
+        },
+        {
+          "id": "00000018-0000-0000-0000-000000180000",
+          "parentId": "parent-00000018-0000-0000-0000-000000180000",
+          "relatedId": "related-00000018-0000-0000-0000-000000180000"
+        },
+        {
+          "id": "00000019-0000-0000-0000-000000190000",
+          "parentId": "parent-00000019-0000-0000-0000-000000190000",
+          "relatedId": "related-00000019-0000-0000-0000-000000190000"
+        },
+        {
+          "id": "0000001a-0000-0000-0000-0000001a0000",
+          "parentId": "parent-0000001a-0000-0000-0000-0000001a0000",
+          "relatedId": "related-0000001a-0000-0000-0000-0000001a0000"
+        },
+        {
+          "id": "0000001b-0000-0000-0000-0000001b0000",
+          "parentId": "parent-0000001b-0000-0000-0000-0000001b0000",
+          "relatedId": "related-0000001b-0000-0000-0000-0000001b0000"
+        },
+        {
+          "id": "0000001c-0000-0000-0000-0000001c0000",
+          "parentId": "parent-0000001c-0000-0000-0000-0000001c0000",
+          "relatedId": "related-0000001c-0000-0000-0000-0000001c0000"
+        },
+        {
+          "id": "0000001d-0000-0000-0000-0000001d0000",
+          "parentId": "parent-0000001d-0000-0000-0000-0000001d0000",
+          "relatedId": "related-0000001d-0000-0000-0000-0000001d0000"
+        },
+        {
+          "id": "0000001e-0000-0000-0000-0000001e0000",
+          "parentId": "parent-0000001e-0000-0000-0000-0000001e0000",
+          "relatedId": "related-0000001e-0000-0000-0000-0000001e0000"
+        },
+        {
+          "id": "0000001f-0000-0000-0000-0000001f0000",
+          "parentId": "parent-0000001f-0000-0000-0000-0000001f0000",
+          "relatedId": "related-0000001f-0000-0000-0000-0000001f0000"
+        },
+        {
+          "id": "00000020-0000-0000-0000-000000200000",
+          "parentId": "parent-00000020-0000-0000-0000-000000200000",
+          "relatedId": "related-00000020-0000-0000-0000-000000200000"
+        },
+        {
+          "id": "00000021-0000-0000-0000-000000210000",
+          "parentId": "parent-00000021-0000-0000-0000-000000210000",
+          "relatedId": "related-00000021-0000-0000-0000-000000210000"
+        },
+        {
+          "id": "00000022-0000-0000-0000-000000220000",
+          "parentId": "parent-00000022-0000-0000-0000-000000220000",
+          "relatedId": "related-00000022-0000-0000-0000-000000220000"
+        },
+        {
+          "id": "00000023-0000-0000-0000-000000230000",
+          "parentId": "parent-00000023-0000-0000-0000-000000230000",
+          "relatedId": "related-00000023-0000-0000-0000-000000230000"
+        },
+        {
+          "id": "00000024-0000-0000-0000-000000240000",
+          "parentId": "parent-00000024-0000-0000-0000-000000240000",
+          "relatedId": "related-00000024-0000-0000-0000-000000240000"
+        },
+        {
+          "id": "00000025-0000-0000-0000-000000250000",
+          "parentId": "parent-00000025-0000-0000-0000-000000250000",
+          "relatedId": "related-00000025-0000-0000-0000-000000250000"
+        },
+        {
+          "id": "00000026-0000-0000-0000-000000260000",
+          "parentId": "parent-00000026-0000-0000-0000-000000260000",
+          "relatedId": "related-00000026-0000-0000-0000-000000260000"
+        },
+        {
+          "id": "00000027-0000-0000-0000-000000270000",
+          "parentId": "parent-00000027-0000-0000-0000-000000270000",
+          "relatedId": "related-00000027-0000-0000-0000-000000270000"
+        },
+        {
+          "id": "00000028-0000-0000-0000-000000280000",
+          "parentId": "parent-00000028-0000-0000-0000-000000280000",
+          "relatedId": "related-00000028-0000-0000-0000-000000280000"
+        },
+        {
+          "id": "00000029-0000-0000-0000-000000290000",
+          "parentId": "parent-00000029-0000-0000-0000-000000290000",
+          "relatedId": "related-00000029-0000-0000-0000-000000290000"
+        },
+        {
+          "id": "0000002a-0000-0000-0000-0000002a0000",
+          "parentId": "parent-0000002a-0000-0000-0000-0000002a0000",
+          "relatedId": "related-0000002a-0000-0000-0000-0000002a0000"
+        },
+        {
+          "id": "0000002b-0000-0000-0000-0000002b0000",
+          "parentId": "parent-0000002b-0000-0000-0000-0000002b0000",
+          "relatedId": "related-0000002b-0000-0000-0000-0000002b0000"
+        },
+        {
+          "id": "0000002c-0000-0000-0000-0000002c0000",
+          "parentId": "parent-0000002c-0000-0000-0000-0000002c0000",
+          "relatedId": "related-0000002c-0000-0000-0000-0000002c0000"
+        },
+        {
+          "id": "0000002d-0000-0000-0000-0000002d0000",
+          "parentId": "parent-0000002d-0000-0000-0000-0000002d0000",
+          "relatedId": "related-0000002d-0000-0000-0000-0000002d0000"
+        },
+        {
+          "id": "0000002e-0000-0000-0000-0000002e0000",
+          "parentId": "parent-0000002e-0000-0000-0000-0000002e0000",
+          "relatedId": "related-0000002e-0000-0000-0000-0000002e0000"
+        },
+        {
+          "id": "0000002f-0000-0000-0000-0000002f0000",
+          "parentId": "parent-0000002f-0000-0000-0000-0000002f0000",
+          "relatedId": "related-0000002f-0000-0000-0000-0000002f0000"
+        },
+        {
+          "id": "00000030-0000-0000-0000-000000300000",
+          "parentId": "parent-00000030-0000-0000-0000-000000300000",
+          "relatedId": "related-00000030-0000-0000-0000-000000300000"
+        },
+        {
+          "id": "00000031-0000-0000-0000-000000310000",
+          "parentId": "parent-00000031-0000-0000-0000-000000310000",
+          "relatedId": "related-00000031-0000-0000-0000-000000310000"
+        },
+        {
+          "id": "00000032-0000-0000-0000-000000320000",
+          "parentId": "parent-00000032-0000-0000-0000-000000320000",
+          "relatedId": "related-00000032-0000-0000-0000-000000320000"
+        },
+        {
+          "id": "00000033-0000-0000-0000-000000330000",
+          "parentId": "parent-00000033-0000-0000-0000-000000330000",
+          "relatedId": "related-00000033-0000-0000-0000-000000330000"
+        },
+        {
+          "id": "00000034-0000-0000-0000-000000340000",
+          "parentId": "parent-00000034-0000-0000-0000-000000340000",
+          "relatedId": "related-00000034-0000-0000-0000-000000340000"
+        },
+        {
+          "id": "00000035-0000-0000-0000-000000350000",
+          "parentId": "parent-00000035-0000-0000-0000-000000350000",
+          "relatedId": "related-00000035-0000-0000-0000-000000350000"
+        },
+        {
+          "id": "00000036-0000-0000-0000-000000360000",
+          "parentId": "parent-00000036-0000-0000-0000-000000360000",
+          "relatedId": "related-00000036-0000-0000-0000-000000360000"
+        },
+        {
+          "id": "00000037-0000-0000-0000-000000370000",
+          "parentId": "parent-00000037-0000-0000-0000-000000370000",
+          "relatedId": "related-00000037-0000-0000-0000-000000370000"
+        },
+        {
+          "id": "00000038-0000-0000-0000-000000380000",
+          "parentId": "parent-00000038-0000-0000-0000-000000380000",
+          "relatedId": "related-00000038-0000-0000-0000-000000380000"
+        },
+        {
+          "id": "00000039-0000-0000-0000-000000390000",
+          "parentId": "parent-00000039-0000-0000-0000-000000390000",
+          "relatedId": "related-00000039-0000-0000-0000-000000390000"
+        },
+        {
+          "id": "0000003a-0000-0000-0000-0000003a0000",
+          "parentId": "parent-0000003a-0000-0000-0000-0000003a0000",
+          "relatedId": "related-0000003a-0000-0000-0000-0000003a0000"
+        },
+        {
+          "id": "0000003b-0000-0000-0000-0000003b0000",
+          "parentId": "parent-0000003b-0000-0000-0000-0000003b0000",
+          "relatedId": "related-0000003b-0000-0000-0000-0000003b0000"
+        },
+        {
+          "id": "0000003c-0000-0000-0000-0000003c0000",
+          "parentId": "parent-0000003c-0000-0000-0000-0000003c0000",
+          "relatedId": "related-0000003c-0000-0000-0000-0000003c0000"
+        },
+        {
+          "id": "0000003d-0000-0000-0000-0000003d0000",
+          "parentId": "parent-0000003d-0000-0000-0000-0000003d0000",
+          "relatedId": "related-0000003d-0000-0000-0000-0000003d0000"
+        },
+        {
+          "id": "0000003e-0000-0000-0000-0000003e0000",
+          "parentId": "parent-0000003e-0000-0000-0000-0000003e0000",
+          "relatedId": "related-0000003e-0000-0000-0000-0000003e0000"
+        },
+        {
+          "id": "0000003f-0000-0000-0000-0000003f0000",
+          "parentId": "parent-0000003f-0000-0000-0000-0000003f0000",
+          "relatedId": "related-0000003f-0000-0000-0000-0000003f0000"
+        },
+        {
+          "id": "00000040-0000-0000-0000-000000400000",
+          "parentId": "parent-00000040-0000-0000-0000-000000400000",
+          "relatedId": "related-00000040-0000-0000-0000-000000400000"
+        },
+        {
+          "id": "00000041-0000-0000-0000-000000410000",
+          "parentId": "parent-00000041-0000-0000-0000-000000410000",
+          "relatedId": "related-00000041-0000-0000-0000-000000410000"
+        },
+        {
+          "id": "00000042-0000-0000-0000-000000420000",
+          "parentId": "parent-00000042-0000-0000-0000-000000420000",
+          "relatedId": "related-00000042-0000-0000-0000-000000420000"
+        },
+        {
+          "id": "00000043-0000-0000-0000-000000430000",
+          "parentId": "parent-00000043-0000-0000-0000-000000430000",
+          "relatedId": "related-00000043-0000-0000-0000-000000430000"
+        },
+        {
+          "id": "00000044-0000-0000-0000-000000440000",
+          "parentId": "parent-00000044-0000-0000-0000-000000440000",
+          "relatedId": "related-00000044-0000-0000-0000-000000440000"
+        },
+        {
+          "id": "00000045-0000-0000-0000-000000450000",
+          "parentId": "parent-00000045-0000-0000-0000-000000450000",
+          "relatedId": "related-00000045-0000-0000-0000-000000450000"
+        },
+        {
+          "id": "00000046-0000-0000-0000-000000460000",
+          "parentId": "parent-00000046-0000-0000-0000-000000460000",
+          "relatedId": "related-00000046-0000-0000-0000-000000460000"
+        },
+        {
+          "id": "00000047-0000-0000-0000-000000470000",
+          "parentId": "parent-00000047-0000-0000-0000-000000470000",
+          "relatedId": "related-00000047-0000-0000-0000-000000470000"
+        },
+        {
+          "id": "00000048-0000-0000-0000-000000480000",
+          "parentId": "parent-00000048-0000-0000-0000-000000480000",
+          "relatedId": "related-00000048-0000-0000-0000-000000480000"
+        },
+        {
+          "id": "00000049-0000-0000-0000-000000490000",
+          "parentId": "parent-00000049-0000-0000-0000-000000490000",
+          "relatedId": "related-00000049-0000-0000-0000-000000490000"
+        },
+        {
+          "id": "0000004a-0000-0000-0000-0000004a0000",
+          "parentId": "parent-0000004a-0000-0000-0000-0000004a0000",
+          "relatedId": "related-0000004a-0000-0000-0000-0000004a0000"
+        },
+        {
+          "id": "0000004b-0000-0000-0000-0000004b0000",
+          "parentId": "parent-0000004b-0000-0000-0000-0000004b0000",
+          "relatedId": "related-0000004b-0000-0000-0000-0000004b0000"
+        },
+        {
+          "id": "0000004c-0000-0000-0000-0000004c0000",
+          "parentId": "parent-0000004c-0000-0000-0000-0000004c0000",
+          "relatedId": "related-0000004c-0000-0000-0000-0000004c0000"
+        },
+        {
+          "id": "0000004d-0000-0000-0000-0000004d0000",
+          "parentId": "parent-0000004d-0000-0000-0000-0000004d0000",
+          "relatedId": "related-0000004d-0000-0000-0000-0000004d0000"
+        },
+        {
+          "id": "0000004e-0000-0000-0000-0000004e0000",
+          "parentId": "parent-0000004e-0000-0000-0000-0000004e0000",
+          "relatedId": "related-0000004e-0000-0000-0000-0000004e0000"
+        },
+        {
+          "id": "0000004f-0000-0000-0000-0000004f0000",
+          "parentId": "parent-0000004f-0000-0000-0000-0000004f0000",
+          "relatedId": "related-0000004f-0000-0000-0000-0000004f0000"
+        },
+        {
+          "id": "00000050-0000-0000-0000-000000500000",
+          "parentId": "parent-00000050-0000-0000-0000-000000500000",
+          "relatedId": "related-00000050-0000-0000-0000-000000500000"
+        },
+        {
+          "id": "00000051-0000-0000-0000-000000510000",
+          "parentId": "parent-00000051-0000-0000-0000-000000510000",
+          "relatedId": "related-00000051-0000-0000-0000-000000510000"
+        },
+        {
+          "id": "00000052-0000-0000-0000-000000520000",
+          "parentId": "parent-00000052-0000-0000-0000-000000520000",
+          "relatedId": "related-00000052-0000-0000-0000-000000520000"
+        },
+        {
+          "id": "00000053-0000-0000-0000-000000530000",
+          "parentId": "parent-00000053-0000-0000-0000-000000530000",
+          "relatedId": "related-00000053-0000-0000-0000-000000530000"
+        },
+        {
+          "id": "00000054-0000-0000-0000-000000540000",
+          "parentId": "parent-00000054-0000-0000-0000-000000540000",
+          "relatedId": "related-00000054-0000-0000-0000-000000540000"
+        },
+        {
+          "id": "00000055-0000-0000-0000-000000550000",
+          "parentId": "parent-00000055-0000-0000-0000-000000550000",
+          "relatedId": "related-00000055-0000-0000-0000-000000550000"
+        },
+        {
+          "id": "00000056-0000-0000-0000-000000560000",
+          "parentId": "parent-00000056-0000-0000-0000-000000560000",
+          "relatedId": "related-00000056-0000-0000-0000-000000560000"
+        },
+        {
+          "id": "00000057-0000-0000-0000-000000570000",
+          "parentId": "parent-00000057-0000-0000-0000-000000570000",
+          "relatedId": "related-00000057-0000-0000-0000-000000570000"
+        },
+        {
+          "id": "00000058-0000-0000-0000-000000580000",
+          "parentId": "parent-00000058-0000-0000-0000-000000580000",
+          "relatedId": "related-00000058-0000-0000-0000-000000580000"
+        },
+        {
+          "id": "00000059-0000-0000-0000-000000590000",
+          "parentId": "parent-00000059-0000-0000-0000-000000590000",
+          "relatedId": "related-00000059-0000-0000-0000-000000590000"
+        },
+        {
+          "id": "0000005a-0000-0000-0000-0000005a0000",
+          "parentId": "parent-0000005a-0000-0000-0000-0000005a0000",
+          "relatedId": "related-0000005a-0000-0000-0000-0000005a0000"
+        },
+        {
+          "id": "0000005b-0000-0000-0000-0000005b0000",
+          "parentId": "parent-0000005b-0000-0000-0000-0000005b0000",
+          "relatedId": "related-0000005b-0000-0000-0000-0000005b0000"
+        },
+        {
+          "id": "0000005c-0000-0000-0000-0000005c0000",
+          "parentId": "parent-0000005c-0000-0000-0000-0000005c0000",
+          "relatedId": "related-0000005c-0000-0000-0000-0000005c0000"
+        },
+        {
+          "id": "0000005d-0000-0000-0000-0000005d0000",
+          "parentId": "parent-0000005d-0000-0000-0000-0000005d0000",
+          "relatedId": "related-0000005d-0000-0000-0000-0000005d0000"
+        },
+        {
+          "id": "0000005e-0000-0000-0000-0000005e0000",
+          "parentId": "parent-0000005e-0000-0000-0000-0000005e0000",
+          "relatedId": "related-0000005e-0000-0000-0000-0000005e0000"
+        },
+        {
+          "id": "0000005f-0000-0000-0000-0000005f0000",
+          "parentId": "parent-0000005f-0000-0000-0000-0000005f0000",
+          "relatedId": "related-0000005f-0000-0000-0000-0000005f0000"
+        },
+        {
+          "id": "00000060-0000-0000-0000-000000600000",
+          "parentId": "parent-00000060-0000-0000-0000-000000600000",
+          "relatedId": "related-00000060-0000-0000-0000-000000600000"
+        },
+        {
+          "id": "00000061-0000-0000-0000-000000610000",
+          "parentId": "parent-00000061-0000-0000-0000-000000610000",
+          "relatedId": "related-00000061-0000-0000-0000-000000610000"
+        },
+        {
+          "id": "00000062-0000-0000-0000-000000620000",
+          "parentId": "parent-00000062-0000-0000-0000-000000620000",
+          "relatedId": "related-00000062-0000-0000-0000-000000620000"
+        },
+        {
+          "id": "00000063-0000-0000-0000-000000630000",
+          "parentId": "parent-00000063-0000-0000-0000-000000630000",
+          "relatedId": "related-00000063-0000-0000-0000-000000630000"
+        }
+      ]
+    ],
+    "invalid": [
+      [
+        {
+          "id": "not-a-uuid"
+        }
+      ]
+    ]
+  },
+  "bulkDateTimeValidation": {
+    "valid": [
+      [
+        {
+          "id": 0,
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:30:00Z",
+          "deletedAt": "2024-01-01T00:45:00Z"
+        },
+        {
+          "id": 1,
+          "createdAt": "2024-01-02T01:00:00Z",
+          "updatedAt": "2024-01-02T01:30:00Z",
+          "deletedAt": "2024-01-02T01:45:00Z"
+        },
+        {
+          "id": 2,
+          "createdAt": "2024-01-03T02:00:00Z",
+          "updatedAt": "2024-01-03T02:30:00Z",
+          "deletedAt": "2024-01-03T02:45:00Z"
+        },
+        {
+          "id": 3,
+          "createdAt": "2024-01-04T03:00:00Z",
+          "updatedAt": "2024-01-04T03:30:00Z",
+          "deletedAt": "2024-01-04T03:45:00Z"
+        },
+        {
+          "id": 4,
+          "createdAt": "2024-01-05T04:00:00Z",
+          "updatedAt": "2024-01-05T04:30:00Z",
+          "deletedAt": "2024-01-05T04:45:00Z"
+        },
+        {
+          "id": 5,
+          "createdAt": "2024-01-06T05:00:00Z",
+          "updatedAt": "2024-01-06T05:30:00Z",
+          "deletedAt": "2024-01-06T05:45:00Z"
+        },
+        {
+          "id": 6,
+          "createdAt": "2024-01-07T06:00:00Z",
+          "updatedAt": "2024-01-07T06:30:00Z",
+          "deletedAt": "2024-01-07T06:45:00Z"
+        },
+        {
+          "id": 7,
+          "createdAt": "2024-01-08T07:00:00Z",
+          "updatedAt": "2024-01-08T07:30:00Z",
+          "deletedAt": "2024-01-08T07:45:00Z"
+        },
+        {
+          "id": 8,
+          "createdAt": "2024-01-09T08:00:00Z",
+          "updatedAt": "2024-01-09T08:30:00Z",
+          "deletedAt": "2024-01-09T08:45:00Z"
+        },
+        {
+          "id": 9,
+          "createdAt": "2024-01-10T09:00:00Z",
+          "updatedAt": "2024-01-10T09:30:00Z",
+          "deletedAt": "2024-01-10T09:45:00Z"
+        },
+        {
+          "id": 10,
+          "createdAt": "2024-01-11T10:00:00Z",
+          "updatedAt": "2024-01-11T10:30:00Z",
+          "deletedAt": "2024-01-11T10:45:00Z"
+        },
+        {
+          "id": 11,
+          "createdAt": "2024-01-12T11:00:00Z",
+          "updatedAt": "2024-01-12T11:30:00Z",
+          "deletedAt": "2024-01-12T11:45:00Z"
+        },
+        {
+          "id": 12,
+          "createdAt": "2024-01-13T12:00:00Z",
+          "updatedAt": "2024-01-13T12:30:00Z",
+          "deletedAt": "2024-01-13T12:45:00Z"
+        },
+        {
+          "id": 13,
+          "createdAt": "2024-01-14T13:00:00Z",
+          "updatedAt": "2024-01-14T13:30:00Z",
+          "deletedAt": "2024-01-14T13:45:00Z"
+        },
+        {
+          "id": 14,
+          "createdAt": "2024-01-15T14:00:00Z",
+          "updatedAt": "2024-01-15T14:30:00Z",
+          "deletedAt": "2024-01-15T14:45:00Z"
+        },
+        {
+          "id": 15,
+          "createdAt": "2024-01-16T15:00:00Z",
+          "updatedAt": "2024-01-16T15:30:00Z",
+          "deletedAt": "2024-01-16T15:45:00Z"
+        },
+        {
+          "id": 16,
+          "createdAt": "2024-01-17T16:00:00Z",
+          "updatedAt": "2024-01-17T16:30:00Z",
+          "deletedAt": "2024-01-17T16:45:00Z"
+        },
+        {
+          "id": 17,
+          "createdAt": "2024-01-18T17:00:00Z",
+          "updatedAt": "2024-01-18T17:30:00Z",
+          "deletedAt": "2024-01-18T17:45:00Z"
+        },
+        {
+          "id": 18,
+          "createdAt": "2024-01-19T18:00:00Z",
+          "updatedAt": "2024-01-19T18:30:00Z",
+          "deletedAt": "2024-01-19T18:45:00Z"
+        },
+        {
+          "id": 19,
+          "createdAt": "2024-01-20T19:00:00Z",
+          "updatedAt": "2024-01-20T19:30:00Z",
+          "deletedAt": "2024-01-20T19:45:00Z"
+        },
+        {
+          "id": 20,
+          "createdAt": "2024-01-21T20:00:00Z",
+          "updatedAt": "2024-01-21T20:30:00Z",
+          "deletedAt": "2024-01-21T20:45:00Z"
+        },
+        {
+          "id": 21,
+          "createdAt": "2024-01-22T21:00:00Z",
+          "updatedAt": "2024-01-22T21:30:00Z",
+          "deletedAt": "2024-01-22T21:45:00Z"
+        },
+        {
+          "id": 22,
+          "createdAt": "2024-01-23T22:00:00Z",
+          "updatedAt": "2024-01-23T22:30:00Z",
+          "deletedAt": "2024-01-23T22:45:00Z"
+        },
+        {
+          "id": 23,
+          "createdAt": "2024-01-24T23:00:00Z",
+          "updatedAt": "2024-01-24T23:30:00Z",
+          "deletedAt": "2024-01-24T23:45:00Z"
+        },
+        {
+          "id": 24,
+          "createdAt": "2024-01-25T00:00:00Z",
+          "updatedAt": "2024-01-25T00:30:00Z",
+          "deletedAt": "2024-01-25T00:45:00Z"
+        },
+        {
+          "id": 25,
+          "createdAt": "2024-01-26T01:00:00Z",
+          "updatedAt": "2024-01-26T01:30:00Z",
+          "deletedAt": "2024-01-26T01:45:00Z"
+        },
+        {
+          "id": 26,
+          "createdAt": "2024-01-27T02:00:00Z",
+          "updatedAt": "2024-01-27T02:30:00Z",
+          "deletedAt": "2024-01-27T02:45:00Z"
+        },
+        {
+          "id": 27,
+          "createdAt": "2024-01-28T03:00:00Z",
+          "updatedAt": "2024-01-28T03:30:00Z",
+          "deletedAt": "2024-01-28T03:45:00Z"
+        },
+        {
+          "id": 28,
+          "createdAt": "2024-01-01T04:00:00Z",
+          "updatedAt": "2024-01-01T04:30:00Z",
+          "deletedAt": "2024-01-01T04:45:00Z"
+        },
+        {
+          "id": 29,
+          "createdAt": "2024-01-02T05:00:00Z",
+          "updatedAt": "2024-01-02T05:30:00Z",
+          "deletedAt": "2024-01-02T05:45:00Z"
+        },
+        {
+          "id": 30,
+          "createdAt": "2024-01-03T06:00:00Z",
+          "updatedAt": "2024-01-03T06:30:00Z",
+          "deletedAt": "2024-01-03T06:45:00Z"
+        },
+        {
+          "id": 31,
+          "createdAt": "2024-01-04T07:00:00Z",
+          "updatedAt": "2024-01-04T07:30:00Z",
+          "deletedAt": "2024-01-04T07:45:00Z"
+        },
+        {
+          "id": 32,
+          "createdAt": "2024-01-05T08:00:00Z",
+          "updatedAt": "2024-01-05T08:30:00Z",
+          "deletedAt": "2024-01-05T08:45:00Z"
+        },
+        {
+          "id": 33,
+          "createdAt": "2024-01-06T09:00:00Z",
+          "updatedAt": "2024-01-06T09:30:00Z",
+          "deletedAt": "2024-01-06T09:45:00Z"
+        },
+        {
+          "id": 34,
+          "createdAt": "2024-01-07T10:00:00Z",
+          "updatedAt": "2024-01-07T10:30:00Z",
+          "deletedAt": "2024-01-07T10:45:00Z"
+        },
+        {
+          "id": 35,
+          "createdAt": "2024-01-08T11:00:00Z",
+          "updatedAt": "2024-01-08T11:30:00Z",
+          "deletedAt": "2024-01-08T11:45:00Z"
+        },
+        {
+          "id": 36,
+          "createdAt": "2024-01-09T12:00:00Z",
+          "updatedAt": "2024-01-09T12:30:00Z",
+          "deletedAt": "2024-01-09T12:45:00Z"
+        },
+        {
+          "id": 37,
+          "createdAt": "2024-01-10T13:00:00Z",
+          "updatedAt": "2024-01-10T13:30:00Z",
+          "deletedAt": "2024-01-10T13:45:00Z"
+        },
+        {
+          "id": 38,
+          "createdAt": "2024-01-11T14:00:00Z",
+          "updatedAt": "2024-01-11T14:30:00Z",
+          "deletedAt": "2024-01-11T14:45:00Z"
+        },
+        {
+          "id": 39,
+          "createdAt": "2024-01-12T15:00:00Z",
+          "updatedAt": "2024-01-12T15:30:00Z",
+          "deletedAt": "2024-01-12T15:45:00Z"
+        },
+        {
+          "id": 40,
+          "createdAt": "2024-01-13T16:00:00Z",
+          "updatedAt": "2024-01-13T16:30:00Z",
+          "deletedAt": "2024-01-13T16:45:00Z"
+        },
+        {
+          "id": 41,
+          "createdAt": "2024-01-14T17:00:00Z",
+          "updatedAt": "2024-01-14T17:30:00Z",
+          "deletedAt": "2024-01-14T17:45:00Z"
+        },
+        {
+          "id": 42,
+          "createdAt": "2024-01-15T18:00:00Z",
+          "updatedAt": "2024-01-15T18:30:00Z",
+          "deletedAt": "2024-01-15T18:45:00Z"
+        },
+        {
+          "id": 43,
+          "createdAt": "2024-01-16T19:00:00Z",
+          "updatedAt": "2024-01-16T19:30:00Z",
+          "deletedAt": "2024-01-16T19:45:00Z"
+        },
+        {
+          "id": 44,
+          "createdAt": "2024-01-17T20:00:00Z",
+          "updatedAt": "2024-01-17T20:30:00Z",
+          "deletedAt": "2024-01-17T20:45:00Z"
+        },
+        {
+          "id": 45,
+          "createdAt": "2024-01-18T21:00:00Z",
+          "updatedAt": "2024-01-18T21:30:00Z",
+          "deletedAt": "2024-01-18T21:45:00Z"
+        },
+        {
+          "id": 46,
+          "createdAt": "2024-01-19T22:00:00Z",
+          "updatedAt": "2024-01-19T22:30:00Z",
+          "deletedAt": "2024-01-19T22:45:00Z"
+        },
+        {
+          "id": 47,
+          "createdAt": "2024-01-20T23:00:00Z",
+          "updatedAt": "2024-01-20T23:30:00Z",
+          "deletedAt": "2024-01-20T23:45:00Z"
+        },
+        {
+          "id": 48,
+          "createdAt": "2024-01-21T00:00:00Z",
+          "updatedAt": "2024-01-21T00:30:00Z",
+          "deletedAt": "2024-01-21T00:45:00Z"
+        },
+        {
+          "id": 49,
+          "createdAt": "2024-01-22T01:00:00Z",
+          "updatedAt": "2024-01-22T01:30:00Z",
+          "deletedAt": "2024-01-22T01:45:00Z"
+        },
+        {
+          "id": 50,
+          "createdAt": "2024-01-23T02:00:00Z",
+          "updatedAt": "2024-01-23T02:30:00Z",
+          "deletedAt": "2024-01-23T02:45:00Z"
+        },
+        {
+          "id": 51,
+          "createdAt": "2024-01-24T03:00:00Z",
+          "updatedAt": "2024-01-24T03:30:00Z",
+          "deletedAt": "2024-01-24T03:45:00Z"
+        },
+        {
+          "id": 52,
+          "createdAt": "2024-01-25T04:00:00Z",
+          "updatedAt": "2024-01-25T04:30:00Z",
+          "deletedAt": "2024-01-25T04:45:00Z"
+        },
+        {
+          "id": 53,
+          "createdAt": "2024-01-26T05:00:00Z",
+          "updatedAt": "2024-01-26T05:30:00Z",
+          "deletedAt": "2024-01-26T05:45:00Z"
+        },
+        {
+          "id": 54,
+          "createdAt": "2024-01-27T06:00:00Z",
+          "updatedAt": "2024-01-27T06:30:00Z",
+          "deletedAt": "2024-01-27T06:45:00Z"
+        },
+        {
+          "id": 55,
+          "createdAt": "2024-01-28T07:00:00Z",
+          "updatedAt": "2024-01-28T07:30:00Z",
+          "deletedAt": "2024-01-28T07:45:00Z"
+        },
+        {
+          "id": 56,
+          "createdAt": "2024-01-01T08:00:00Z",
+          "updatedAt": "2024-01-01T08:30:00Z",
+          "deletedAt": "2024-01-01T08:45:00Z"
+        },
+        {
+          "id": 57,
+          "createdAt": "2024-01-02T09:00:00Z",
+          "updatedAt": "2024-01-02T09:30:00Z",
+          "deletedAt": "2024-01-02T09:45:00Z"
+        },
+        {
+          "id": 58,
+          "createdAt": "2024-01-03T10:00:00Z",
+          "updatedAt": "2024-01-03T10:30:00Z",
+          "deletedAt": "2024-01-03T10:45:00Z"
+        },
+        {
+          "id": 59,
+          "createdAt": "2024-01-04T11:00:00Z",
+          "updatedAt": "2024-01-04T11:30:00Z",
+          "deletedAt": "2024-01-04T11:45:00Z"
+        },
+        {
+          "id": 60,
+          "createdAt": "2024-01-05T12:00:00Z",
+          "updatedAt": "2024-01-05T12:30:00Z",
+          "deletedAt": "2024-01-05T12:45:00Z"
+        },
+        {
+          "id": 61,
+          "createdAt": "2024-01-06T13:00:00Z",
+          "updatedAt": "2024-01-06T13:30:00Z",
+          "deletedAt": "2024-01-06T13:45:00Z"
+        },
+        {
+          "id": 62,
+          "createdAt": "2024-01-07T14:00:00Z",
+          "updatedAt": "2024-01-07T14:30:00Z",
+          "deletedAt": "2024-01-07T14:45:00Z"
+        },
+        {
+          "id": 63,
+          "createdAt": "2024-01-08T15:00:00Z",
+          "updatedAt": "2024-01-08T15:30:00Z",
+          "deletedAt": "2024-01-08T15:45:00Z"
+        },
+        {
+          "id": 64,
+          "createdAt": "2024-01-09T16:00:00Z",
+          "updatedAt": "2024-01-09T16:30:00Z",
+          "deletedAt": "2024-01-09T16:45:00Z"
+        },
+        {
+          "id": 65,
+          "createdAt": "2024-01-10T17:00:00Z",
+          "updatedAt": "2024-01-10T17:30:00Z",
+          "deletedAt": "2024-01-10T17:45:00Z"
+        },
+        {
+          "id": 66,
+          "createdAt": "2024-01-11T18:00:00Z",
+          "updatedAt": "2024-01-11T18:30:00Z",
+          "deletedAt": "2024-01-11T18:45:00Z"
+        },
+        {
+          "id": 67,
+          "createdAt": "2024-01-12T19:00:00Z",
+          "updatedAt": "2024-01-12T19:30:00Z",
+          "deletedAt": "2024-01-12T19:45:00Z"
+        },
+        {
+          "id": 68,
+          "createdAt": "2024-01-13T20:00:00Z",
+          "updatedAt": "2024-01-13T20:30:00Z",
+          "deletedAt": "2024-01-13T20:45:00Z"
+        },
+        {
+          "id": 69,
+          "createdAt": "2024-01-14T21:00:00Z",
+          "updatedAt": "2024-01-14T21:30:00Z",
+          "deletedAt": "2024-01-14T21:45:00Z"
+        },
+        {
+          "id": 70,
+          "createdAt": "2024-01-15T22:00:00Z",
+          "updatedAt": "2024-01-15T22:30:00Z",
+          "deletedAt": "2024-01-15T22:45:00Z"
+        },
+        {
+          "id": 71,
+          "createdAt": "2024-01-16T23:00:00Z",
+          "updatedAt": "2024-01-16T23:30:00Z",
+          "deletedAt": "2024-01-16T23:45:00Z"
+        },
+        {
+          "id": 72,
+          "createdAt": "2024-01-17T00:00:00Z",
+          "updatedAt": "2024-01-17T00:30:00Z",
+          "deletedAt": "2024-01-17T00:45:00Z"
+        },
+        {
+          "id": 73,
+          "createdAt": "2024-01-18T01:00:00Z",
+          "updatedAt": "2024-01-18T01:30:00Z",
+          "deletedAt": "2024-01-18T01:45:00Z"
+        },
+        {
+          "id": 74,
+          "createdAt": "2024-01-19T02:00:00Z",
+          "updatedAt": "2024-01-19T02:30:00Z",
+          "deletedAt": "2024-01-19T02:45:00Z"
+        },
+        {
+          "id": 75,
+          "createdAt": "2024-01-20T03:00:00Z",
+          "updatedAt": "2024-01-20T03:30:00Z",
+          "deletedAt": "2024-01-20T03:45:00Z"
+        },
+        {
+          "id": 76,
+          "createdAt": "2024-01-21T04:00:00Z",
+          "updatedAt": "2024-01-21T04:30:00Z",
+          "deletedAt": "2024-01-21T04:45:00Z"
+        },
+        {
+          "id": 77,
+          "createdAt": "2024-01-22T05:00:00Z",
+          "updatedAt": "2024-01-22T05:30:00Z",
+          "deletedAt": "2024-01-22T05:45:00Z"
+        },
+        {
+          "id": 78,
+          "createdAt": "2024-01-23T06:00:00Z",
+          "updatedAt": "2024-01-23T06:30:00Z",
+          "deletedAt": "2024-01-23T06:45:00Z"
+        },
+        {
+          "id": 79,
+          "createdAt": "2024-01-24T07:00:00Z",
+          "updatedAt": "2024-01-24T07:30:00Z",
+          "deletedAt": "2024-01-24T07:45:00Z"
+        },
+        {
+          "id": 80,
+          "createdAt": "2024-01-25T08:00:00Z",
+          "updatedAt": "2024-01-25T08:30:00Z",
+          "deletedAt": "2024-01-25T08:45:00Z"
+        },
+        {
+          "id": 81,
+          "createdAt": "2024-01-26T09:00:00Z",
+          "updatedAt": "2024-01-26T09:30:00Z",
+          "deletedAt": "2024-01-26T09:45:00Z"
+        },
+        {
+          "id": 82,
+          "createdAt": "2024-01-27T10:00:00Z",
+          "updatedAt": "2024-01-27T10:30:00Z",
+          "deletedAt": "2024-01-27T10:45:00Z"
+        },
+        {
+          "id": 83,
+          "createdAt": "2024-01-28T11:00:00Z",
+          "updatedAt": "2024-01-28T11:30:00Z",
+          "deletedAt": "2024-01-28T11:45:00Z"
+        },
+        {
+          "id": 84,
+          "createdAt": "2024-01-01T12:00:00Z",
+          "updatedAt": "2024-01-01T12:30:00Z",
+          "deletedAt": "2024-01-01T12:45:00Z"
+        },
+        {
+          "id": 85,
+          "createdAt": "2024-01-02T13:00:00Z",
+          "updatedAt": "2024-01-02T13:30:00Z",
+          "deletedAt": "2024-01-02T13:45:00Z"
+        },
+        {
+          "id": 86,
+          "createdAt": "2024-01-03T14:00:00Z",
+          "updatedAt": "2024-01-03T14:30:00Z",
+          "deletedAt": "2024-01-03T14:45:00Z"
+        },
+        {
+          "id": 87,
+          "createdAt": "2024-01-04T15:00:00Z",
+          "updatedAt": "2024-01-04T15:30:00Z",
+          "deletedAt": "2024-01-04T15:45:00Z"
+        },
+        {
+          "id": 88,
+          "createdAt": "2024-01-05T16:00:00Z",
+          "updatedAt": "2024-01-05T16:30:00Z",
+          "deletedAt": "2024-01-05T16:45:00Z"
+        },
+        {
+          "id": 89,
+          "createdAt": "2024-01-06T17:00:00Z",
+          "updatedAt": "2024-01-06T17:30:00Z",
+          "deletedAt": "2024-01-06T17:45:00Z"
+        },
+        {
+          "id": 90,
+          "createdAt": "2024-01-07T18:00:00Z",
+          "updatedAt": "2024-01-07T18:30:00Z",
+          "deletedAt": "2024-01-07T18:45:00Z"
+        },
+        {
+          "id": 91,
+          "createdAt": "2024-01-08T19:00:00Z",
+          "updatedAt": "2024-01-08T19:30:00Z",
+          "deletedAt": "2024-01-08T19:45:00Z"
+        },
+        {
+          "id": 92,
+          "createdAt": "2024-01-09T20:00:00Z",
+          "updatedAt": "2024-01-09T20:30:00Z",
+          "deletedAt": "2024-01-09T20:45:00Z"
+        },
+        {
+          "id": 93,
+          "createdAt": "2024-01-10T21:00:00Z",
+          "updatedAt": "2024-01-10T21:30:00Z",
+          "deletedAt": "2024-01-10T21:45:00Z"
+        },
+        {
+          "id": 94,
+          "createdAt": "2024-01-11T22:00:00Z",
+          "updatedAt": "2024-01-11T22:30:00Z",
+          "deletedAt": "2024-01-11T22:45:00Z"
+        },
+        {
+          "id": 95,
+          "createdAt": "2024-01-12T23:00:00Z",
+          "updatedAt": "2024-01-12T23:30:00Z",
+          "deletedAt": "2024-01-12T23:45:00Z"
+        },
+        {
+          "id": 96,
+          "createdAt": "2024-01-13T00:00:00Z",
+          "updatedAt": "2024-01-13T00:30:00Z",
+          "deletedAt": "2024-01-13T00:45:00Z"
+        },
+        {
+          "id": 97,
+          "createdAt": "2024-01-14T01:00:00Z",
+          "updatedAt": "2024-01-14T01:30:00Z",
+          "deletedAt": "2024-01-14T01:45:00Z"
+        },
+        {
+          "id": 98,
+          "createdAt": "2024-01-15T02:00:00Z",
+          "updatedAt": "2024-01-15T02:30:00Z",
+          "deletedAt": "2024-01-15T02:45:00Z"
+        },
+        {
+          "id": 99,
+          "createdAt": "2024-01-16T03:00:00Z",
+          "updatedAt": "2024-01-16T03:30:00Z",
+          "deletedAt": "2024-01-16T03:45:00Z"
+        }
+      ]
+    ],
+    "invalid": [
+      [
+        {
+          "id": 1,
+          "createdAt": "invalid-date"
+        }
+      ]
+    ]
+  },
+  "bulkUriValidation": {
+    "valid": [
+      [
+        {
+          "id": 0,
+          "website": "https://example0.com",
+          "apiEndpoint": "https://api.example0.com/v1",
+          "webhookUrl": "https://webhook.example0.com/notify"
+        },
+        {
+          "id": 1,
+          "website": "https://example1.com",
+          "apiEndpoint": "https://api.example1.com/v1",
+          "webhookUrl": "https://webhook.example1.com/notify"
+        },
+        {
+          "id": 2,
+          "website": "https://example2.com",
+          "apiEndpoint": "https://api.example2.com/v1",
+          "webhookUrl": "https://webhook.example2.com/notify"
+        },
+        {
+          "id": 3,
+          "website": "https://example3.com",
+          "apiEndpoint": "https://api.example3.com/v1",
+          "webhookUrl": "https://webhook.example3.com/notify"
+        },
+        {
+          "id": 4,
+          "website": "https://example4.com",
+          "apiEndpoint": "https://api.example4.com/v1",
+          "webhookUrl": "https://webhook.example4.com/notify"
+        },
+        {
+          "id": 5,
+          "website": "https://example5.com",
+          "apiEndpoint": "https://api.example5.com/v1",
+          "webhookUrl": "https://webhook.example5.com/notify"
+        },
+        {
+          "id": 6,
+          "website": "https://example6.com",
+          "apiEndpoint": "https://api.example6.com/v1",
+          "webhookUrl": "https://webhook.example6.com/notify"
+        },
+        {
+          "id": 7,
+          "website": "https://example7.com",
+          "apiEndpoint": "https://api.example7.com/v1",
+          "webhookUrl": "https://webhook.example7.com/notify"
+        },
+        {
+          "id": 8,
+          "website": "https://example8.com",
+          "apiEndpoint": "https://api.example8.com/v1",
+          "webhookUrl": "https://webhook.example8.com/notify"
+        },
+        {
+          "id": 9,
+          "website": "https://example9.com",
+          "apiEndpoint": "https://api.example9.com/v1",
+          "webhookUrl": "https://webhook.example9.com/notify"
+        },
+        {
+          "id": 10,
+          "website": "https://example10.com",
+          "apiEndpoint": "https://api.example10.com/v1",
+          "webhookUrl": "https://webhook.example10.com/notify"
+        },
+        {
+          "id": 11,
+          "website": "https://example11.com",
+          "apiEndpoint": "https://api.example11.com/v1",
+          "webhookUrl": "https://webhook.example11.com/notify"
+        },
+        {
+          "id": 12,
+          "website": "https://example12.com",
+          "apiEndpoint": "https://api.example12.com/v1",
+          "webhookUrl": "https://webhook.example12.com/notify"
+        },
+        {
+          "id": 13,
+          "website": "https://example13.com",
+          "apiEndpoint": "https://api.example13.com/v1",
+          "webhookUrl": "https://webhook.example13.com/notify"
+        },
+        {
+          "id": 14,
+          "website": "https://example14.com",
+          "apiEndpoint": "https://api.example14.com/v1",
+          "webhookUrl": "https://webhook.example14.com/notify"
+        },
+        {
+          "id": 15,
+          "website": "https://example15.com",
+          "apiEndpoint": "https://api.example15.com/v1",
+          "webhookUrl": "https://webhook.example15.com/notify"
+        },
+        {
+          "id": 16,
+          "website": "https://example16.com",
+          "apiEndpoint": "https://api.example16.com/v1",
+          "webhookUrl": "https://webhook.example16.com/notify"
+        },
+        {
+          "id": 17,
+          "website": "https://example17.com",
+          "apiEndpoint": "https://api.example17.com/v1",
+          "webhookUrl": "https://webhook.example17.com/notify"
+        },
+        {
+          "id": 18,
+          "website": "https://example18.com",
+          "apiEndpoint": "https://api.example18.com/v1",
+          "webhookUrl": "https://webhook.example18.com/notify"
+        },
+        {
+          "id": 19,
+          "website": "https://example19.com",
+          "apiEndpoint": "https://api.example19.com/v1",
+          "webhookUrl": "https://webhook.example19.com/notify"
+        },
+        {
+          "id": 20,
+          "website": "https://example20.com",
+          "apiEndpoint": "https://api.example20.com/v1",
+          "webhookUrl": "https://webhook.example20.com/notify"
+        },
+        {
+          "id": 21,
+          "website": "https://example21.com",
+          "apiEndpoint": "https://api.example21.com/v1",
+          "webhookUrl": "https://webhook.example21.com/notify"
+        },
+        {
+          "id": 22,
+          "website": "https://example22.com",
+          "apiEndpoint": "https://api.example22.com/v1",
+          "webhookUrl": "https://webhook.example22.com/notify"
+        },
+        {
+          "id": 23,
+          "website": "https://example23.com",
+          "apiEndpoint": "https://api.example23.com/v1",
+          "webhookUrl": "https://webhook.example23.com/notify"
+        },
+        {
+          "id": 24,
+          "website": "https://example24.com",
+          "apiEndpoint": "https://api.example24.com/v1",
+          "webhookUrl": "https://webhook.example24.com/notify"
+        },
+        {
+          "id": 25,
+          "website": "https://example25.com",
+          "apiEndpoint": "https://api.example25.com/v1",
+          "webhookUrl": "https://webhook.example25.com/notify"
+        },
+        {
+          "id": 26,
+          "website": "https://example26.com",
+          "apiEndpoint": "https://api.example26.com/v1",
+          "webhookUrl": "https://webhook.example26.com/notify"
+        },
+        {
+          "id": 27,
+          "website": "https://example27.com",
+          "apiEndpoint": "https://api.example27.com/v1",
+          "webhookUrl": "https://webhook.example27.com/notify"
+        },
+        {
+          "id": 28,
+          "website": "https://example28.com",
+          "apiEndpoint": "https://api.example28.com/v1",
+          "webhookUrl": "https://webhook.example28.com/notify"
+        },
+        {
+          "id": 29,
+          "website": "https://example29.com",
+          "apiEndpoint": "https://api.example29.com/v1",
+          "webhookUrl": "https://webhook.example29.com/notify"
+        },
+        {
+          "id": 30,
+          "website": "https://example30.com",
+          "apiEndpoint": "https://api.example30.com/v1",
+          "webhookUrl": "https://webhook.example30.com/notify"
+        },
+        {
+          "id": 31,
+          "website": "https://example31.com",
+          "apiEndpoint": "https://api.example31.com/v1",
+          "webhookUrl": "https://webhook.example31.com/notify"
+        },
+        {
+          "id": 32,
+          "website": "https://example32.com",
+          "apiEndpoint": "https://api.example32.com/v1",
+          "webhookUrl": "https://webhook.example32.com/notify"
+        },
+        {
+          "id": 33,
+          "website": "https://example33.com",
+          "apiEndpoint": "https://api.example33.com/v1",
+          "webhookUrl": "https://webhook.example33.com/notify"
+        },
+        {
+          "id": 34,
+          "website": "https://example34.com",
+          "apiEndpoint": "https://api.example34.com/v1",
+          "webhookUrl": "https://webhook.example34.com/notify"
+        },
+        {
+          "id": 35,
+          "website": "https://example35.com",
+          "apiEndpoint": "https://api.example35.com/v1",
+          "webhookUrl": "https://webhook.example35.com/notify"
+        },
+        {
+          "id": 36,
+          "website": "https://example36.com",
+          "apiEndpoint": "https://api.example36.com/v1",
+          "webhookUrl": "https://webhook.example36.com/notify"
+        },
+        {
+          "id": 37,
+          "website": "https://example37.com",
+          "apiEndpoint": "https://api.example37.com/v1",
+          "webhookUrl": "https://webhook.example37.com/notify"
+        },
+        {
+          "id": 38,
+          "website": "https://example38.com",
+          "apiEndpoint": "https://api.example38.com/v1",
+          "webhookUrl": "https://webhook.example38.com/notify"
+        },
+        {
+          "id": 39,
+          "website": "https://example39.com",
+          "apiEndpoint": "https://api.example39.com/v1",
+          "webhookUrl": "https://webhook.example39.com/notify"
+        },
+        {
+          "id": 40,
+          "website": "https://example40.com",
+          "apiEndpoint": "https://api.example40.com/v1",
+          "webhookUrl": "https://webhook.example40.com/notify"
+        },
+        {
+          "id": 41,
+          "website": "https://example41.com",
+          "apiEndpoint": "https://api.example41.com/v1",
+          "webhookUrl": "https://webhook.example41.com/notify"
+        },
+        {
+          "id": 42,
+          "website": "https://example42.com",
+          "apiEndpoint": "https://api.example42.com/v1",
+          "webhookUrl": "https://webhook.example42.com/notify"
+        },
+        {
+          "id": 43,
+          "website": "https://example43.com",
+          "apiEndpoint": "https://api.example43.com/v1",
+          "webhookUrl": "https://webhook.example43.com/notify"
+        },
+        {
+          "id": 44,
+          "website": "https://example44.com",
+          "apiEndpoint": "https://api.example44.com/v1",
+          "webhookUrl": "https://webhook.example44.com/notify"
+        },
+        {
+          "id": 45,
+          "website": "https://example45.com",
+          "apiEndpoint": "https://api.example45.com/v1",
+          "webhookUrl": "https://webhook.example45.com/notify"
+        },
+        {
+          "id": 46,
+          "website": "https://example46.com",
+          "apiEndpoint": "https://api.example46.com/v1",
+          "webhookUrl": "https://webhook.example46.com/notify"
+        },
+        {
+          "id": 47,
+          "website": "https://example47.com",
+          "apiEndpoint": "https://api.example47.com/v1",
+          "webhookUrl": "https://webhook.example47.com/notify"
+        },
+        {
+          "id": 48,
+          "website": "https://example48.com",
+          "apiEndpoint": "https://api.example48.com/v1",
+          "webhookUrl": "https://webhook.example48.com/notify"
+        },
+        {
+          "id": 49,
+          "website": "https://example49.com",
+          "apiEndpoint": "https://api.example49.com/v1",
+          "webhookUrl": "https://webhook.example49.com/notify"
+        },
+        {
+          "id": 50,
+          "website": "https://example50.com",
+          "apiEndpoint": "https://api.example50.com/v1",
+          "webhookUrl": "https://webhook.example50.com/notify"
+        },
+        {
+          "id": 51,
+          "website": "https://example51.com",
+          "apiEndpoint": "https://api.example51.com/v1",
+          "webhookUrl": "https://webhook.example51.com/notify"
+        },
+        {
+          "id": 52,
+          "website": "https://example52.com",
+          "apiEndpoint": "https://api.example52.com/v1",
+          "webhookUrl": "https://webhook.example52.com/notify"
+        },
+        {
+          "id": 53,
+          "website": "https://example53.com",
+          "apiEndpoint": "https://api.example53.com/v1",
+          "webhookUrl": "https://webhook.example53.com/notify"
+        },
+        {
+          "id": 54,
+          "website": "https://example54.com",
+          "apiEndpoint": "https://api.example54.com/v1",
+          "webhookUrl": "https://webhook.example54.com/notify"
+        },
+        {
+          "id": 55,
+          "website": "https://example55.com",
+          "apiEndpoint": "https://api.example55.com/v1",
+          "webhookUrl": "https://webhook.example55.com/notify"
+        },
+        {
+          "id": 56,
+          "website": "https://example56.com",
+          "apiEndpoint": "https://api.example56.com/v1",
+          "webhookUrl": "https://webhook.example56.com/notify"
+        },
+        {
+          "id": 57,
+          "website": "https://example57.com",
+          "apiEndpoint": "https://api.example57.com/v1",
+          "webhookUrl": "https://webhook.example57.com/notify"
+        },
+        {
+          "id": 58,
+          "website": "https://example58.com",
+          "apiEndpoint": "https://api.example58.com/v1",
+          "webhookUrl": "https://webhook.example58.com/notify"
+        },
+        {
+          "id": 59,
+          "website": "https://example59.com",
+          "apiEndpoint": "https://api.example59.com/v1",
+          "webhookUrl": "https://webhook.example59.com/notify"
+        },
+        {
+          "id": 60,
+          "website": "https://example60.com",
+          "apiEndpoint": "https://api.example60.com/v1",
+          "webhookUrl": "https://webhook.example60.com/notify"
+        },
+        {
+          "id": 61,
+          "website": "https://example61.com",
+          "apiEndpoint": "https://api.example61.com/v1",
+          "webhookUrl": "https://webhook.example61.com/notify"
+        },
+        {
+          "id": 62,
+          "website": "https://example62.com",
+          "apiEndpoint": "https://api.example62.com/v1",
+          "webhookUrl": "https://webhook.example62.com/notify"
+        },
+        {
+          "id": 63,
+          "website": "https://example63.com",
+          "apiEndpoint": "https://api.example63.com/v1",
+          "webhookUrl": "https://webhook.example63.com/notify"
+        },
+        {
+          "id": 64,
+          "website": "https://example64.com",
+          "apiEndpoint": "https://api.example64.com/v1",
+          "webhookUrl": "https://webhook.example64.com/notify"
+        },
+        {
+          "id": 65,
+          "website": "https://example65.com",
+          "apiEndpoint": "https://api.example65.com/v1",
+          "webhookUrl": "https://webhook.example65.com/notify"
+        },
+        {
+          "id": 66,
+          "website": "https://example66.com",
+          "apiEndpoint": "https://api.example66.com/v1",
+          "webhookUrl": "https://webhook.example66.com/notify"
+        },
+        {
+          "id": 67,
+          "website": "https://example67.com",
+          "apiEndpoint": "https://api.example67.com/v1",
+          "webhookUrl": "https://webhook.example67.com/notify"
+        },
+        {
+          "id": 68,
+          "website": "https://example68.com",
+          "apiEndpoint": "https://api.example68.com/v1",
+          "webhookUrl": "https://webhook.example68.com/notify"
+        },
+        {
+          "id": 69,
+          "website": "https://example69.com",
+          "apiEndpoint": "https://api.example69.com/v1",
+          "webhookUrl": "https://webhook.example69.com/notify"
+        },
+        {
+          "id": 70,
+          "website": "https://example70.com",
+          "apiEndpoint": "https://api.example70.com/v1",
+          "webhookUrl": "https://webhook.example70.com/notify"
+        },
+        {
+          "id": 71,
+          "website": "https://example71.com",
+          "apiEndpoint": "https://api.example71.com/v1",
+          "webhookUrl": "https://webhook.example71.com/notify"
+        },
+        {
+          "id": 72,
+          "website": "https://example72.com",
+          "apiEndpoint": "https://api.example72.com/v1",
+          "webhookUrl": "https://webhook.example72.com/notify"
+        },
+        {
+          "id": 73,
+          "website": "https://example73.com",
+          "apiEndpoint": "https://api.example73.com/v1",
+          "webhookUrl": "https://webhook.example73.com/notify"
+        },
+        {
+          "id": 74,
+          "website": "https://example74.com",
+          "apiEndpoint": "https://api.example74.com/v1",
+          "webhookUrl": "https://webhook.example74.com/notify"
+        },
+        {
+          "id": 75,
+          "website": "https://example75.com",
+          "apiEndpoint": "https://api.example75.com/v1",
+          "webhookUrl": "https://webhook.example75.com/notify"
+        },
+        {
+          "id": 76,
+          "website": "https://example76.com",
+          "apiEndpoint": "https://api.example76.com/v1",
+          "webhookUrl": "https://webhook.example76.com/notify"
+        },
+        {
+          "id": 77,
+          "website": "https://example77.com",
+          "apiEndpoint": "https://api.example77.com/v1",
+          "webhookUrl": "https://webhook.example77.com/notify"
+        },
+        {
+          "id": 78,
+          "website": "https://example78.com",
+          "apiEndpoint": "https://api.example78.com/v1",
+          "webhookUrl": "https://webhook.example78.com/notify"
+        },
+        {
+          "id": 79,
+          "website": "https://example79.com",
+          "apiEndpoint": "https://api.example79.com/v1",
+          "webhookUrl": "https://webhook.example79.com/notify"
+        },
+        {
+          "id": 80,
+          "website": "https://example80.com",
+          "apiEndpoint": "https://api.example80.com/v1",
+          "webhookUrl": "https://webhook.example80.com/notify"
+        },
+        {
+          "id": 81,
+          "website": "https://example81.com",
+          "apiEndpoint": "https://api.example81.com/v1",
+          "webhookUrl": "https://webhook.example81.com/notify"
+        },
+        {
+          "id": 82,
+          "website": "https://example82.com",
+          "apiEndpoint": "https://api.example82.com/v1",
+          "webhookUrl": "https://webhook.example82.com/notify"
+        },
+        {
+          "id": 83,
+          "website": "https://example83.com",
+          "apiEndpoint": "https://api.example83.com/v1",
+          "webhookUrl": "https://webhook.example83.com/notify"
+        },
+        {
+          "id": 84,
+          "website": "https://example84.com",
+          "apiEndpoint": "https://api.example84.com/v1",
+          "webhookUrl": "https://webhook.example84.com/notify"
+        },
+        {
+          "id": 85,
+          "website": "https://example85.com",
+          "apiEndpoint": "https://api.example85.com/v1",
+          "webhookUrl": "https://webhook.example85.com/notify"
+        },
+        {
+          "id": 86,
+          "website": "https://example86.com",
+          "apiEndpoint": "https://api.example86.com/v1",
+          "webhookUrl": "https://webhook.example86.com/notify"
+        },
+        {
+          "id": 87,
+          "website": "https://example87.com",
+          "apiEndpoint": "https://api.example87.com/v1",
+          "webhookUrl": "https://webhook.example87.com/notify"
+        },
+        {
+          "id": 88,
+          "website": "https://example88.com",
+          "apiEndpoint": "https://api.example88.com/v1",
+          "webhookUrl": "https://webhook.example88.com/notify"
+        },
+        {
+          "id": 89,
+          "website": "https://example89.com",
+          "apiEndpoint": "https://api.example89.com/v1",
+          "webhookUrl": "https://webhook.example89.com/notify"
+        },
+        {
+          "id": 90,
+          "website": "https://example90.com",
+          "apiEndpoint": "https://api.example90.com/v1",
+          "webhookUrl": "https://webhook.example90.com/notify"
+        },
+        {
+          "id": 91,
+          "website": "https://example91.com",
+          "apiEndpoint": "https://api.example91.com/v1",
+          "webhookUrl": "https://webhook.example91.com/notify"
+        },
+        {
+          "id": 92,
+          "website": "https://example92.com",
+          "apiEndpoint": "https://api.example92.com/v1",
+          "webhookUrl": "https://webhook.example92.com/notify"
+        },
+        {
+          "id": 93,
+          "website": "https://example93.com",
+          "apiEndpoint": "https://api.example93.com/v1",
+          "webhookUrl": "https://webhook.example93.com/notify"
+        },
+        {
+          "id": 94,
+          "website": "https://example94.com",
+          "apiEndpoint": "https://api.example94.com/v1",
+          "webhookUrl": "https://webhook.example94.com/notify"
+        },
+        {
+          "id": 95,
+          "website": "https://example95.com",
+          "apiEndpoint": "https://api.example95.com/v1",
+          "webhookUrl": "https://webhook.example95.com/notify"
+        },
+        {
+          "id": 96,
+          "website": "https://example96.com",
+          "apiEndpoint": "https://api.example96.com/v1",
+          "webhookUrl": "https://webhook.example96.com/notify"
+        },
+        {
+          "id": 97,
+          "website": "https://example97.com",
+          "apiEndpoint": "https://api.example97.com/v1",
+          "webhookUrl": "https://webhook.example97.com/notify"
+        },
+        {
+          "id": 98,
+          "website": "https://example98.com",
+          "apiEndpoint": "https://api.example98.com/v1",
+          "webhookUrl": "https://webhook.example98.com/notify"
+        },
+        {
+          "id": 99,
+          "website": "https://example99.com",
+          "apiEndpoint": "https://api.example99.com/v1",
+          "webhookUrl": "https://webhook.example99.com/notify"
+        }
+      ]
+    ],
+    "invalid": [
+      [
+        {
+          "id": 1,
+          "website": "not a uri"
+        }
+      ]
+    ]
+  },
+  "mixedFormats100Items": {
+    "valid": [
+      [
+        {
+          "id": "00000000-1234-5678-90ab-000000000000",
+          "email": "user0@example.com",
+          "website": "https://user0.com",
+          "ipAddress": "192.168.0.0",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "birthDate": "1980-01-01",
+          "loginTime": "00:00:00"
+        },
+        {
+          "id": "00000001-1234-5678-90ab-000000010000",
+          "email": "user1@example.com",
+          "website": "https://user1.com",
+          "ipAddress": "192.168.0.1",
+          "createdAt": "2024-01-02T01:00:00Z",
+          "birthDate": "1981-02-02",
+          "loginTime": "01:01:00"
+        },
+        {
+          "id": "00000002-1234-5678-90ab-000000020000",
+          "email": "user2@example.com",
+          "website": "https://user2.com",
+          "ipAddress": "192.168.0.2",
+          "createdAt": "2024-01-03T02:00:00Z",
+          "birthDate": "1982-03-03",
+          "loginTime": "02:02:00"
+        },
+        {
+          "id": "00000003-1234-5678-90ab-000000030000",
+          "email": "user3@example.com",
+          "website": "https://user3.com",
+          "ipAddress": "192.168.0.3",
+          "createdAt": "2024-01-04T03:00:00Z",
+          "birthDate": "1983-04-04",
+          "loginTime": "03:03:00"
+        },
+        {
+          "id": "00000004-1234-5678-90ab-000000040000",
+          "email": "user4@example.com",
+          "website": "https://user4.com",
+          "ipAddress": "192.168.0.4",
+          "createdAt": "2024-01-05T04:00:00Z",
+          "birthDate": "1984-05-05",
+          "loginTime": "04:04:00"
+        },
+        {
+          "id": "00000005-1234-5678-90ab-000000050000",
+          "email": "user5@example.com",
+          "website": "https://user5.com",
+          "ipAddress": "192.168.0.5",
+          "createdAt": "2024-01-06T05:00:00Z",
+          "birthDate": "1985-06-06",
+          "loginTime": "05:05:00"
+        },
+        {
+          "id": "00000006-1234-5678-90ab-000000060000",
+          "email": "user6@example.com",
+          "website": "https://user6.com",
+          "ipAddress": "192.168.0.6",
+          "createdAt": "2024-01-07T06:00:00Z",
+          "birthDate": "1986-07-07",
+          "loginTime": "06:06:00"
+        },
+        {
+          "id": "00000007-1234-5678-90ab-000000070000",
+          "email": "user7@example.com",
+          "website": "https://user7.com",
+          "ipAddress": "192.168.0.7",
+          "createdAt": "2024-01-08T07:00:00Z",
+          "birthDate": "1987-08-08",
+          "loginTime": "07:07:00"
+        },
+        {
+          "id": "00000008-1234-5678-90ab-000000080000",
+          "email": "user8@example.com",
+          "website": "https://user8.com",
+          "ipAddress": "192.168.0.8",
+          "createdAt": "2024-01-09T08:00:00Z",
+          "birthDate": "1988-09-09",
+          "loginTime": "08:08:00"
+        },
+        {
+          "id": "00000009-1234-5678-90ab-000000090000",
+          "email": "user9@example.com",
+          "website": "https://user9.com",
+          "ipAddress": "192.168.0.9",
+          "createdAt": "2024-01-10T09:00:00Z",
+          "birthDate": "1989-10-10",
+          "loginTime": "09:09:00"
+        },
+        {
+          "id": "0000000a-1234-5678-90ab-0000000a0000",
+          "email": "user10@example.com",
+          "website": "https://user10.com",
+          "ipAddress": "192.168.0.10",
+          "createdAt": "2024-01-11T10:00:00Z",
+          "birthDate": "1990-11-11",
+          "loginTime": "10:10:00"
+        },
+        {
+          "id": "0000000b-1234-5678-90ab-0000000b0000",
+          "email": "user11@example.com",
+          "website": "https://user11.com",
+          "ipAddress": "192.168.0.11",
+          "createdAt": "2024-01-12T11:00:00Z",
+          "birthDate": "1991-12-12",
+          "loginTime": "11:11:00"
+        },
+        {
+          "id": "0000000c-1234-5678-90ab-0000000c0000",
+          "email": "user12@example.com",
+          "website": "https://user12.com",
+          "ipAddress": "192.168.0.12",
+          "createdAt": "2024-01-13T12:00:00Z",
+          "birthDate": "1992-01-13",
+          "loginTime": "12:12:00"
+        },
+        {
+          "id": "0000000d-1234-5678-90ab-0000000d0000",
+          "email": "user13@example.com",
+          "website": "https://user13.com",
+          "ipAddress": "192.168.0.13",
+          "createdAt": "2024-01-14T13:00:00Z",
+          "birthDate": "1993-02-14",
+          "loginTime": "13:13:00"
+        },
+        {
+          "id": "0000000e-1234-5678-90ab-0000000e0000",
+          "email": "user14@example.com",
+          "website": "https://user14.com",
+          "ipAddress": "192.168.0.14",
+          "createdAt": "2024-01-15T14:00:00Z",
+          "birthDate": "1994-03-15",
+          "loginTime": "14:14:00"
+        },
+        {
+          "id": "0000000f-1234-5678-90ab-0000000f0000",
+          "email": "user15@example.com",
+          "website": "https://user15.com",
+          "ipAddress": "192.168.0.15",
+          "createdAt": "2024-01-16T15:00:00Z",
+          "birthDate": "1995-04-16",
+          "loginTime": "15:15:00"
+        },
+        {
+          "id": "00000010-1234-5678-90ab-000000100000",
+          "email": "user16@example.com",
+          "website": "https://user16.com",
+          "ipAddress": "192.168.0.16",
+          "createdAt": "2024-01-17T16:00:00Z",
+          "birthDate": "1996-05-17",
+          "loginTime": "16:16:00"
+        },
+        {
+          "id": "00000011-1234-5678-90ab-000000110000",
+          "email": "user17@example.com",
+          "website": "https://user17.com",
+          "ipAddress": "192.168.0.17",
+          "createdAt": "2024-01-18T17:00:00Z",
+          "birthDate": "1997-06-18",
+          "loginTime": "17:17:00"
+        },
+        {
+          "id": "00000012-1234-5678-90ab-000000120000",
+          "email": "user18@example.com",
+          "website": "https://user18.com",
+          "ipAddress": "192.168.0.18",
+          "createdAt": "2024-01-19T18:00:00Z",
+          "birthDate": "1998-07-19",
+          "loginTime": "18:18:00"
+        },
+        {
+          "id": "00000013-1234-5678-90ab-000000130000",
+          "email": "user19@example.com",
+          "website": "https://user19.com",
+          "ipAddress": "192.168.0.19",
+          "createdAt": "2024-01-20T19:00:00Z",
+          "birthDate": "1999-08-20",
+          "loginTime": "19:19:00"
+        },
+        {
+          "id": "00000014-1234-5678-90ab-000000140000",
+          "email": "user20@example.com",
+          "website": "https://user20.com",
+          "ipAddress": "192.168.0.20",
+          "createdAt": "2024-01-21T20:00:00Z",
+          "birthDate": "1980-09-21",
+          "loginTime": "20:20:00"
+        },
+        {
+          "id": "00000015-1234-5678-90ab-000000150000",
+          "email": "user21@example.com",
+          "website": "https://user21.com",
+          "ipAddress": "192.168.0.21",
+          "createdAt": "2024-01-22T21:00:00Z",
+          "birthDate": "1981-10-22",
+          "loginTime": "21:21:00"
+        },
+        {
+          "id": "00000016-1234-5678-90ab-000000160000",
+          "email": "user22@example.com",
+          "website": "https://user22.com",
+          "ipAddress": "192.168.0.22",
+          "createdAt": "2024-01-23T22:00:00Z",
+          "birthDate": "1982-11-23",
+          "loginTime": "22:22:00"
+        },
+        {
+          "id": "00000017-1234-5678-90ab-000000170000",
+          "email": "user23@example.com",
+          "website": "https://user23.com",
+          "ipAddress": "192.168.0.23",
+          "createdAt": "2024-01-24T23:00:00Z",
+          "birthDate": "1983-12-24",
+          "loginTime": "23:23:00"
+        },
+        {
+          "id": "00000018-1234-5678-90ab-000000180000",
+          "email": "user24@example.com",
+          "website": "https://user24.com",
+          "ipAddress": "192.168.0.24",
+          "createdAt": "2024-01-25T00:00:00Z",
+          "birthDate": "1984-01-25",
+          "loginTime": "00:24:00"
+        },
+        {
+          "id": "00000019-1234-5678-90ab-000000190000",
+          "email": "user25@example.com",
+          "website": "https://user25.com",
+          "ipAddress": "192.168.0.25",
+          "createdAt": "2024-01-26T01:00:00Z",
+          "birthDate": "1985-02-26",
+          "loginTime": "01:25:00"
+        },
+        {
+          "id": "0000001a-1234-5678-90ab-0000001a0000",
+          "email": "user26@example.com",
+          "website": "https://user26.com",
+          "ipAddress": "192.168.0.26",
+          "createdAt": "2024-01-27T02:00:00Z",
+          "birthDate": "1986-03-27",
+          "loginTime": "02:26:00"
+        },
+        {
+          "id": "0000001b-1234-5678-90ab-0000001b0000",
+          "email": "user27@example.com",
+          "website": "https://user27.com",
+          "ipAddress": "192.168.0.27",
+          "createdAt": "2024-01-28T03:00:00Z",
+          "birthDate": "1987-04-28",
+          "loginTime": "03:27:00"
+        },
+        {
+          "id": "0000001c-1234-5678-90ab-0000001c0000",
+          "email": "user28@example.com",
+          "website": "https://user28.com",
+          "ipAddress": "192.168.0.28",
+          "createdAt": "2024-01-01T04:00:00Z",
+          "birthDate": "1988-05-01",
+          "loginTime": "04:28:00"
+        },
+        {
+          "id": "0000001d-1234-5678-90ab-0000001d0000",
+          "email": "user29@example.com",
+          "website": "https://user29.com",
+          "ipAddress": "192.168.0.29",
+          "createdAt": "2024-01-02T05:00:00Z",
+          "birthDate": "1989-06-02",
+          "loginTime": "05:29:00"
+        },
+        {
+          "id": "0000001e-1234-5678-90ab-0000001e0000",
+          "email": "user30@example.com",
+          "website": "https://user30.com",
+          "ipAddress": "192.168.0.30",
+          "createdAt": "2024-01-03T06:00:00Z",
+          "birthDate": "1990-07-03",
+          "loginTime": "06:30:00"
+        },
+        {
+          "id": "0000001f-1234-5678-90ab-0000001f0000",
+          "email": "user31@example.com",
+          "website": "https://user31.com",
+          "ipAddress": "192.168.0.31",
+          "createdAt": "2024-01-04T07:00:00Z",
+          "birthDate": "1991-08-04",
+          "loginTime": "07:31:00"
+        },
+        {
+          "id": "00000020-1234-5678-90ab-000000200000",
+          "email": "user32@example.com",
+          "website": "https://user32.com",
+          "ipAddress": "192.168.0.32",
+          "createdAt": "2024-01-05T08:00:00Z",
+          "birthDate": "1992-09-05",
+          "loginTime": "08:32:00"
+        },
+        {
+          "id": "00000021-1234-5678-90ab-000000210000",
+          "email": "user33@example.com",
+          "website": "https://user33.com",
+          "ipAddress": "192.168.0.33",
+          "createdAt": "2024-01-06T09:00:00Z",
+          "birthDate": "1993-10-06",
+          "loginTime": "09:33:00"
+        },
+        {
+          "id": "00000022-1234-5678-90ab-000000220000",
+          "email": "user34@example.com",
+          "website": "https://user34.com",
+          "ipAddress": "192.168.0.34",
+          "createdAt": "2024-01-07T10:00:00Z",
+          "birthDate": "1994-11-07",
+          "loginTime": "10:34:00"
+        },
+        {
+          "id": "00000023-1234-5678-90ab-000000230000",
+          "email": "user35@example.com",
+          "website": "https://user35.com",
+          "ipAddress": "192.168.0.35",
+          "createdAt": "2024-01-08T11:00:00Z",
+          "birthDate": "1995-12-08",
+          "loginTime": "11:35:00"
+        },
+        {
+          "id": "00000024-1234-5678-90ab-000000240000",
+          "email": "user36@example.com",
+          "website": "https://user36.com",
+          "ipAddress": "192.168.0.36",
+          "createdAt": "2024-01-09T12:00:00Z",
+          "birthDate": "1996-01-09",
+          "loginTime": "12:36:00"
+        },
+        {
+          "id": "00000025-1234-5678-90ab-000000250000",
+          "email": "user37@example.com",
+          "website": "https://user37.com",
+          "ipAddress": "192.168.0.37",
+          "createdAt": "2024-01-10T13:00:00Z",
+          "birthDate": "1997-02-10",
+          "loginTime": "13:37:00"
+        },
+        {
+          "id": "00000026-1234-5678-90ab-000000260000",
+          "email": "user38@example.com",
+          "website": "https://user38.com",
+          "ipAddress": "192.168.0.38",
+          "createdAt": "2024-01-11T14:00:00Z",
+          "birthDate": "1998-03-11",
+          "loginTime": "14:38:00"
+        },
+        {
+          "id": "00000027-1234-5678-90ab-000000270000",
+          "email": "user39@example.com",
+          "website": "https://user39.com",
+          "ipAddress": "192.168.0.39",
+          "createdAt": "2024-01-12T15:00:00Z",
+          "birthDate": "1999-04-12",
+          "loginTime": "15:39:00"
+        },
+        {
+          "id": "00000028-1234-5678-90ab-000000280000",
+          "email": "user40@example.com",
+          "website": "https://user40.com",
+          "ipAddress": "192.168.0.40",
+          "createdAt": "2024-01-13T16:00:00Z",
+          "birthDate": "1980-05-13",
+          "loginTime": "16:40:00"
+        },
+        {
+          "id": "00000029-1234-5678-90ab-000000290000",
+          "email": "user41@example.com",
+          "website": "https://user41.com",
+          "ipAddress": "192.168.0.41",
+          "createdAt": "2024-01-14T17:00:00Z",
+          "birthDate": "1981-06-14",
+          "loginTime": "17:41:00"
+        },
+        {
+          "id": "0000002a-1234-5678-90ab-0000002a0000",
+          "email": "user42@example.com",
+          "website": "https://user42.com",
+          "ipAddress": "192.168.0.42",
+          "createdAt": "2024-01-15T18:00:00Z",
+          "birthDate": "1982-07-15",
+          "loginTime": "18:42:00"
+        },
+        {
+          "id": "0000002b-1234-5678-90ab-0000002b0000",
+          "email": "user43@example.com",
+          "website": "https://user43.com",
+          "ipAddress": "192.168.0.43",
+          "createdAt": "2024-01-16T19:00:00Z",
+          "birthDate": "1983-08-16",
+          "loginTime": "19:43:00"
+        },
+        {
+          "id": "0000002c-1234-5678-90ab-0000002c0000",
+          "email": "user44@example.com",
+          "website": "https://user44.com",
+          "ipAddress": "192.168.0.44",
+          "createdAt": "2024-01-17T20:00:00Z",
+          "birthDate": "1984-09-17",
+          "loginTime": "20:44:00"
+        },
+        {
+          "id": "0000002d-1234-5678-90ab-0000002d0000",
+          "email": "user45@example.com",
+          "website": "https://user45.com",
+          "ipAddress": "192.168.0.45",
+          "createdAt": "2024-01-18T21:00:00Z",
+          "birthDate": "1985-10-18",
+          "loginTime": "21:45:00"
+        },
+        {
+          "id": "0000002e-1234-5678-90ab-0000002e0000",
+          "email": "user46@example.com",
+          "website": "https://user46.com",
+          "ipAddress": "192.168.0.46",
+          "createdAt": "2024-01-19T22:00:00Z",
+          "birthDate": "1986-11-19",
+          "loginTime": "22:46:00"
+        },
+        {
+          "id": "0000002f-1234-5678-90ab-0000002f0000",
+          "email": "user47@example.com",
+          "website": "https://user47.com",
+          "ipAddress": "192.168.0.47",
+          "createdAt": "2024-01-20T23:00:00Z",
+          "birthDate": "1987-12-20",
+          "loginTime": "23:47:00"
+        },
+        {
+          "id": "00000030-1234-5678-90ab-000000300000",
+          "email": "user48@example.com",
+          "website": "https://user48.com",
+          "ipAddress": "192.168.0.48",
+          "createdAt": "2024-01-21T00:00:00Z",
+          "birthDate": "1988-01-21",
+          "loginTime": "00:48:00"
+        },
+        {
+          "id": "00000031-1234-5678-90ab-000000310000",
+          "email": "user49@example.com",
+          "website": "https://user49.com",
+          "ipAddress": "192.168.0.49",
+          "createdAt": "2024-01-22T01:00:00Z",
+          "birthDate": "1989-02-22",
+          "loginTime": "01:49:00"
+        },
+        {
+          "id": "00000032-1234-5678-90ab-000000320000",
+          "email": "user50@example.com",
+          "website": "https://user50.com",
+          "ipAddress": "192.168.0.50",
+          "createdAt": "2024-01-23T02:00:00Z",
+          "birthDate": "1990-03-23",
+          "loginTime": "02:50:00"
+        },
+        {
+          "id": "00000033-1234-5678-90ab-000000330000",
+          "email": "user51@example.com",
+          "website": "https://user51.com",
+          "ipAddress": "192.168.0.51",
+          "createdAt": "2024-01-24T03:00:00Z",
+          "birthDate": "1991-04-24",
+          "loginTime": "03:51:00"
+        },
+        {
+          "id": "00000034-1234-5678-90ab-000000340000",
+          "email": "user52@example.com",
+          "website": "https://user52.com",
+          "ipAddress": "192.168.0.52",
+          "createdAt": "2024-01-25T04:00:00Z",
+          "birthDate": "1992-05-25",
+          "loginTime": "04:52:00"
+        },
+        {
+          "id": "00000035-1234-5678-90ab-000000350000",
+          "email": "user53@example.com",
+          "website": "https://user53.com",
+          "ipAddress": "192.168.0.53",
+          "createdAt": "2024-01-26T05:00:00Z",
+          "birthDate": "1993-06-26",
+          "loginTime": "05:53:00"
+        },
+        {
+          "id": "00000036-1234-5678-90ab-000000360000",
+          "email": "user54@example.com",
+          "website": "https://user54.com",
+          "ipAddress": "192.168.0.54",
+          "createdAt": "2024-01-27T06:00:00Z",
+          "birthDate": "1994-07-27",
+          "loginTime": "06:54:00"
+        },
+        {
+          "id": "00000037-1234-5678-90ab-000000370000",
+          "email": "user55@example.com",
+          "website": "https://user55.com",
+          "ipAddress": "192.168.0.55",
+          "createdAt": "2024-01-28T07:00:00Z",
+          "birthDate": "1995-08-28",
+          "loginTime": "07:55:00"
+        },
+        {
+          "id": "00000038-1234-5678-90ab-000000380000",
+          "email": "user56@example.com",
+          "website": "https://user56.com",
+          "ipAddress": "192.168.0.56",
+          "createdAt": "2024-01-01T08:00:00Z",
+          "birthDate": "1996-09-01",
+          "loginTime": "08:56:00"
+        },
+        {
+          "id": "00000039-1234-5678-90ab-000000390000",
+          "email": "user57@example.com",
+          "website": "https://user57.com",
+          "ipAddress": "192.168.0.57",
+          "createdAt": "2024-01-02T09:00:00Z",
+          "birthDate": "1997-10-02",
+          "loginTime": "09:57:00"
+        },
+        {
+          "id": "0000003a-1234-5678-90ab-0000003a0000",
+          "email": "user58@example.com",
+          "website": "https://user58.com",
+          "ipAddress": "192.168.0.58",
+          "createdAt": "2024-01-03T10:00:00Z",
+          "birthDate": "1998-11-03",
+          "loginTime": "10:58:00"
+        },
+        {
+          "id": "0000003b-1234-5678-90ab-0000003b0000",
+          "email": "user59@example.com",
+          "website": "https://user59.com",
+          "ipAddress": "192.168.0.59",
+          "createdAt": "2024-01-04T11:00:00Z",
+          "birthDate": "1999-12-04",
+          "loginTime": "11:59:00"
+        },
+        {
+          "id": "0000003c-1234-5678-90ab-0000003c0000",
+          "email": "user60@example.com",
+          "website": "https://user60.com",
+          "ipAddress": "192.168.0.60",
+          "createdAt": "2024-01-05T12:00:00Z",
+          "birthDate": "1980-01-05",
+          "loginTime": "12:00:00"
+        },
+        {
+          "id": "0000003d-1234-5678-90ab-0000003d0000",
+          "email": "user61@example.com",
+          "website": "https://user61.com",
+          "ipAddress": "192.168.0.61",
+          "createdAt": "2024-01-06T13:00:00Z",
+          "birthDate": "1981-02-06",
+          "loginTime": "13:01:00"
+        },
+        {
+          "id": "0000003e-1234-5678-90ab-0000003e0000",
+          "email": "user62@example.com",
+          "website": "https://user62.com",
+          "ipAddress": "192.168.0.62",
+          "createdAt": "2024-01-07T14:00:00Z",
+          "birthDate": "1982-03-07",
+          "loginTime": "14:02:00"
+        },
+        {
+          "id": "0000003f-1234-5678-90ab-0000003f0000",
+          "email": "user63@example.com",
+          "website": "https://user63.com",
+          "ipAddress": "192.168.0.63",
+          "createdAt": "2024-01-08T15:00:00Z",
+          "birthDate": "1983-04-08",
+          "loginTime": "15:03:00"
+        },
+        {
+          "id": "00000040-1234-5678-90ab-000000400000",
+          "email": "user64@example.com",
+          "website": "https://user64.com",
+          "ipAddress": "192.168.0.64",
+          "createdAt": "2024-01-09T16:00:00Z",
+          "birthDate": "1984-05-09",
+          "loginTime": "16:04:00"
+        },
+        {
+          "id": "00000041-1234-5678-90ab-000000410000",
+          "email": "user65@example.com",
+          "website": "https://user65.com",
+          "ipAddress": "192.168.0.65",
+          "createdAt": "2024-01-10T17:00:00Z",
+          "birthDate": "1985-06-10",
+          "loginTime": "17:05:00"
+        },
+        {
+          "id": "00000042-1234-5678-90ab-000000420000",
+          "email": "user66@example.com",
+          "website": "https://user66.com",
+          "ipAddress": "192.168.0.66",
+          "createdAt": "2024-01-11T18:00:00Z",
+          "birthDate": "1986-07-11",
+          "loginTime": "18:06:00"
+        },
+        {
+          "id": "00000043-1234-5678-90ab-000000430000",
+          "email": "user67@example.com",
+          "website": "https://user67.com",
+          "ipAddress": "192.168.0.67",
+          "createdAt": "2024-01-12T19:00:00Z",
+          "birthDate": "1987-08-12",
+          "loginTime": "19:07:00"
+        },
+        {
+          "id": "00000044-1234-5678-90ab-000000440000",
+          "email": "user68@example.com",
+          "website": "https://user68.com",
+          "ipAddress": "192.168.0.68",
+          "createdAt": "2024-01-13T20:00:00Z",
+          "birthDate": "1988-09-13",
+          "loginTime": "20:08:00"
+        },
+        {
+          "id": "00000045-1234-5678-90ab-000000450000",
+          "email": "user69@example.com",
+          "website": "https://user69.com",
+          "ipAddress": "192.168.0.69",
+          "createdAt": "2024-01-14T21:00:00Z",
+          "birthDate": "1989-10-14",
+          "loginTime": "21:09:00"
+        },
+        {
+          "id": "00000046-1234-5678-90ab-000000460000",
+          "email": "user70@example.com",
+          "website": "https://user70.com",
+          "ipAddress": "192.168.0.70",
+          "createdAt": "2024-01-15T22:00:00Z",
+          "birthDate": "1990-11-15",
+          "loginTime": "22:10:00"
+        },
+        {
+          "id": "00000047-1234-5678-90ab-000000470000",
+          "email": "user71@example.com",
+          "website": "https://user71.com",
+          "ipAddress": "192.168.0.71",
+          "createdAt": "2024-01-16T23:00:00Z",
+          "birthDate": "1991-12-16",
+          "loginTime": "23:11:00"
+        },
+        {
+          "id": "00000048-1234-5678-90ab-000000480000",
+          "email": "user72@example.com",
+          "website": "https://user72.com",
+          "ipAddress": "192.168.0.72",
+          "createdAt": "2024-01-17T00:00:00Z",
+          "birthDate": "1992-01-17",
+          "loginTime": "00:12:00"
+        },
+        {
+          "id": "00000049-1234-5678-90ab-000000490000",
+          "email": "user73@example.com",
+          "website": "https://user73.com",
+          "ipAddress": "192.168.0.73",
+          "createdAt": "2024-01-18T01:00:00Z",
+          "birthDate": "1993-02-18",
+          "loginTime": "01:13:00"
+        },
+        {
+          "id": "0000004a-1234-5678-90ab-0000004a0000",
+          "email": "user74@example.com",
+          "website": "https://user74.com",
+          "ipAddress": "192.168.0.74",
+          "createdAt": "2024-01-19T02:00:00Z",
+          "birthDate": "1994-03-19",
+          "loginTime": "02:14:00"
+        },
+        {
+          "id": "0000004b-1234-5678-90ab-0000004b0000",
+          "email": "user75@example.com",
+          "website": "https://user75.com",
+          "ipAddress": "192.168.0.75",
+          "createdAt": "2024-01-20T03:00:00Z",
+          "birthDate": "1995-04-20",
+          "loginTime": "03:15:00"
+        },
+        {
+          "id": "0000004c-1234-5678-90ab-0000004c0000",
+          "email": "user76@example.com",
+          "website": "https://user76.com",
+          "ipAddress": "192.168.0.76",
+          "createdAt": "2024-01-21T04:00:00Z",
+          "birthDate": "1996-05-21",
+          "loginTime": "04:16:00"
+        },
+        {
+          "id": "0000004d-1234-5678-90ab-0000004d0000",
+          "email": "user77@example.com",
+          "website": "https://user77.com",
+          "ipAddress": "192.168.0.77",
+          "createdAt": "2024-01-22T05:00:00Z",
+          "birthDate": "1997-06-22",
+          "loginTime": "05:17:00"
+        },
+        {
+          "id": "0000004e-1234-5678-90ab-0000004e0000",
+          "email": "user78@example.com",
+          "website": "https://user78.com",
+          "ipAddress": "192.168.0.78",
+          "createdAt": "2024-01-23T06:00:00Z",
+          "birthDate": "1998-07-23",
+          "loginTime": "06:18:00"
+        },
+        {
+          "id": "0000004f-1234-5678-90ab-0000004f0000",
+          "email": "user79@example.com",
+          "website": "https://user79.com",
+          "ipAddress": "192.168.0.79",
+          "createdAt": "2024-01-24T07:00:00Z",
+          "birthDate": "1999-08-24",
+          "loginTime": "07:19:00"
+        },
+        {
+          "id": "00000050-1234-5678-90ab-000000500000",
+          "email": "user80@example.com",
+          "website": "https://user80.com",
+          "ipAddress": "192.168.0.80",
+          "createdAt": "2024-01-25T08:00:00Z",
+          "birthDate": "1980-09-25",
+          "loginTime": "08:20:00"
+        },
+        {
+          "id": "00000051-1234-5678-90ab-000000510000",
+          "email": "user81@example.com",
+          "website": "https://user81.com",
+          "ipAddress": "192.168.0.81",
+          "createdAt": "2024-01-26T09:00:00Z",
+          "birthDate": "1981-10-26",
+          "loginTime": "09:21:00"
+        },
+        {
+          "id": "00000052-1234-5678-90ab-000000520000",
+          "email": "user82@example.com",
+          "website": "https://user82.com",
+          "ipAddress": "192.168.0.82",
+          "createdAt": "2024-01-27T10:00:00Z",
+          "birthDate": "1982-11-27",
+          "loginTime": "10:22:00"
+        },
+        {
+          "id": "00000053-1234-5678-90ab-000000530000",
+          "email": "user83@example.com",
+          "website": "https://user83.com",
+          "ipAddress": "192.168.0.83",
+          "createdAt": "2024-01-28T11:00:00Z",
+          "birthDate": "1983-12-28",
+          "loginTime": "11:23:00"
+        },
+        {
+          "id": "00000054-1234-5678-90ab-000000540000",
+          "email": "user84@example.com",
+          "website": "https://user84.com",
+          "ipAddress": "192.168.0.84",
+          "createdAt": "2024-01-01T12:00:00Z",
+          "birthDate": "1984-01-01",
+          "loginTime": "12:24:00"
+        },
+        {
+          "id": "00000055-1234-5678-90ab-000000550000",
+          "email": "user85@example.com",
+          "website": "https://user85.com",
+          "ipAddress": "192.168.0.85",
+          "createdAt": "2024-01-02T13:00:00Z",
+          "birthDate": "1985-02-02",
+          "loginTime": "13:25:00"
+        },
+        {
+          "id": "00000056-1234-5678-90ab-000000560000",
+          "email": "user86@example.com",
+          "website": "https://user86.com",
+          "ipAddress": "192.168.0.86",
+          "createdAt": "2024-01-03T14:00:00Z",
+          "birthDate": "1986-03-03",
+          "loginTime": "14:26:00"
+        },
+        {
+          "id": "00000057-1234-5678-90ab-000000570000",
+          "email": "user87@example.com",
+          "website": "https://user87.com",
+          "ipAddress": "192.168.0.87",
+          "createdAt": "2024-01-04T15:00:00Z",
+          "birthDate": "1987-04-04",
+          "loginTime": "15:27:00"
+        },
+        {
+          "id": "00000058-1234-5678-90ab-000000580000",
+          "email": "user88@example.com",
+          "website": "https://user88.com",
+          "ipAddress": "192.168.0.88",
+          "createdAt": "2024-01-05T16:00:00Z",
+          "birthDate": "1988-05-05",
+          "loginTime": "16:28:00"
+        },
+        {
+          "id": "00000059-1234-5678-90ab-000000590000",
+          "email": "user89@example.com",
+          "website": "https://user89.com",
+          "ipAddress": "192.168.0.89",
+          "createdAt": "2024-01-06T17:00:00Z",
+          "birthDate": "1989-06-06",
+          "loginTime": "17:29:00"
+        },
+        {
+          "id": "0000005a-1234-5678-90ab-0000005a0000",
+          "email": "user90@example.com",
+          "website": "https://user90.com",
+          "ipAddress": "192.168.0.90",
+          "createdAt": "2024-01-07T18:00:00Z",
+          "birthDate": "1990-07-07",
+          "loginTime": "18:30:00"
+        },
+        {
+          "id": "0000005b-1234-5678-90ab-0000005b0000",
+          "email": "user91@example.com",
+          "website": "https://user91.com",
+          "ipAddress": "192.168.0.91",
+          "createdAt": "2024-01-08T19:00:00Z",
+          "birthDate": "1991-08-08",
+          "loginTime": "19:31:00"
+        },
+        {
+          "id": "0000005c-1234-5678-90ab-0000005c0000",
+          "email": "user92@example.com",
+          "website": "https://user92.com",
+          "ipAddress": "192.168.0.92",
+          "createdAt": "2024-01-09T20:00:00Z",
+          "birthDate": "1992-09-09",
+          "loginTime": "20:32:00"
+        },
+        {
+          "id": "0000005d-1234-5678-90ab-0000005d0000",
+          "email": "user93@example.com",
+          "website": "https://user93.com",
+          "ipAddress": "192.168.0.93",
+          "createdAt": "2024-01-10T21:00:00Z",
+          "birthDate": "1993-10-10",
+          "loginTime": "21:33:00"
+        },
+        {
+          "id": "0000005e-1234-5678-90ab-0000005e0000",
+          "email": "user94@example.com",
+          "website": "https://user94.com",
+          "ipAddress": "192.168.0.94",
+          "createdAt": "2024-01-11T22:00:00Z",
+          "birthDate": "1994-11-11",
+          "loginTime": "22:34:00"
+        },
+        {
+          "id": "0000005f-1234-5678-90ab-0000005f0000",
+          "email": "user95@example.com",
+          "website": "https://user95.com",
+          "ipAddress": "192.168.0.95",
+          "createdAt": "2024-01-12T23:00:00Z",
+          "birthDate": "1995-12-12",
+          "loginTime": "23:35:00"
+        },
+        {
+          "id": "00000060-1234-5678-90ab-000000600000",
+          "email": "user96@example.com",
+          "website": "https://user96.com",
+          "ipAddress": "192.168.0.96",
+          "createdAt": "2024-01-13T00:00:00Z",
+          "birthDate": "1996-01-13",
+          "loginTime": "00:36:00"
+        },
+        {
+          "id": "00000061-1234-5678-90ab-000000610000",
+          "email": "user97@example.com",
+          "website": "https://user97.com",
+          "ipAddress": "192.168.0.97",
+          "createdAt": "2024-01-14T01:00:00Z",
+          "birthDate": "1997-02-14",
+          "loginTime": "01:37:00"
+        },
+        {
+          "id": "00000062-1234-5678-90ab-000000620000",
+          "email": "user98@example.com",
+          "website": "https://user98.com",
+          "ipAddress": "192.168.0.98",
+          "createdAt": "2024-01-15T02:00:00Z",
+          "birthDate": "1998-03-15",
+          "loginTime": "02:38:00"
+        },
+        {
+          "id": "00000063-1234-5678-90ab-000000630000",
+          "email": "user99@example.com",
+          "website": "https://user99.com",
+          "ipAddress": "192.168.0.99",
+          "createdAt": "2024-01-16T03:00:00Z",
+          "birthDate": "1999-04-16",
+          "loginTime": "03:39:00"
+        }
+      ]
+    ],
+    "invalid": [
+      [
+        {
+          "id": "invalid-uuid",
+          "email": "invalid",
+          "createdAt": "invalid-date"
+        }
+      ]
+    ]
+  },
+  "nestedFormats": {
+    "valid": [
+      {
+        "users": [
+          {
+            "id": "00000000-1234-5678-90ab-000000000000",
+            "email": "user0@example.com",
+            "profile": {
+              "website": "https://user0.com",
+              "birthDate": "1990-01-15",
+              "metadata": {
+                "lastLogin": "2024-01-01T14:30:00Z",
+                "ipAddress": "192.168.0.0"
+              }
+            }
+          },
+          {
+            "id": "00000001-1234-5678-90ab-000000010000",
+            "email": "user1@example.com",
+            "profile": {
+              "website": "https://user1.com",
+              "birthDate": "1990-02-15",
+              "metadata": {
+                "lastLogin": "2024-01-02T14:30:00Z",
+                "ipAddress": "192.168.0.1"
+              }
+            }
+          },
+          {
+            "id": "00000002-1234-5678-90ab-000000020000",
+            "email": "user2@example.com",
+            "profile": {
+              "website": "https://user2.com",
+              "birthDate": "1990-03-15",
+              "metadata": {
+                "lastLogin": "2024-01-03T14:30:00Z",
+                "ipAddress": "192.168.0.2"
+              }
+            }
+          },
+          {
+            "id": "00000003-1234-5678-90ab-000000030000",
+            "email": "user3@example.com",
+            "profile": {
+              "website": "https://user3.com",
+              "birthDate": "1990-04-15",
+              "metadata": {
+                "lastLogin": "2024-01-04T14:30:00Z",
+                "ipAddress": "192.168.0.3"
+              }
+            }
+          },
+          {
+            "id": "00000004-1234-5678-90ab-000000040000",
+            "email": "user4@example.com",
+            "profile": {
+              "website": "https://user4.com",
+              "birthDate": "1990-05-15",
+              "metadata": {
+                "lastLogin": "2024-01-05T14:30:00Z",
+                "ipAddress": "192.168.0.4"
+              }
+            }
+          },
+          {
+            "id": "00000005-1234-5678-90ab-000000050000",
+            "email": "user5@example.com",
+            "profile": {
+              "website": "https://user5.com",
+              "birthDate": "1990-06-15",
+              "metadata": {
+                "lastLogin": "2024-01-06T14:30:00Z",
+                "ipAddress": "192.168.0.5"
+              }
+            }
+          },
+          {
+            "id": "00000006-1234-5678-90ab-000000060000",
+            "email": "user6@example.com",
+            "profile": {
+              "website": "https://user6.com",
+              "birthDate": "1990-07-15",
+              "metadata": {
+                "lastLogin": "2024-01-07T14:30:00Z",
+                "ipAddress": "192.168.0.6"
+              }
+            }
+          },
+          {
+            "id": "00000007-1234-5678-90ab-000000070000",
+            "email": "user7@example.com",
+            "profile": {
+              "website": "https://user7.com",
+              "birthDate": "1990-08-15",
+              "metadata": {
+                "lastLogin": "2024-01-08T14:30:00Z",
+                "ipAddress": "192.168.0.7"
+              }
+            }
+          },
+          {
+            "id": "00000008-1234-5678-90ab-000000080000",
+            "email": "user8@example.com",
+            "profile": {
+              "website": "https://user8.com",
+              "birthDate": "1990-09-15",
+              "metadata": {
+                "lastLogin": "2024-01-09T14:30:00Z",
+                "ipAddress": "192.168.0.8"
+              }
+            }
+          },
+          {
+            "id": "00000009-1234-5678-90ab-000000090000",
+            "email": "user9@example.com",
+            "profile": {
+              "website": "https://user9.com",
+              "birthDate": "1990-10-15",
+              "metadata": {
+                "lastLogin": "2024-01-10T14:30:00Z",
+                "ipAddress": "192.168.0.9"
+              }
+            }
+          },
+          {
+            "id": "0000000a-1234-5678-90ab-0000000a0000",
+            "email": "user10@example.com",
+            "profile": {
+              "website": "https://user10.com",
+              "birthDate": "1990-11-15",
+              "metadata": {
+                "lastLogin": "2024-01-11T14:30:00Z",
+                "ipAddress": "192.168.0.10"
+              }
+            }
+          },
+          {
+            "id": "0000000b-1234-5678-90ab-0000000b0000",
+            "email": "user11@example.com",
+            "profile": {
+              "website": "https://user11.com",
+              "birthDate": "1990-12-15",
+              "metadata": {
+                "lastLogin": "2024-01-12T14:30:00Z",
+                "ipAddress": "192.168.0.11"
+              }
+            }
+          },
+          {
+            "id": "0000000c-1234-5678-90ab-0000000c0000",
+            "email": "user12@example.com",
+            "profile": {
+              "website": "https://user12.com",
+              "birthDate": "1990-01-15",
+              "metadata": {
+                "lastLogin": "2024-01-13T14:30:00Z",
+                "ipAddress": "192.168.0.12"
+              }
+            }
+          },
+          {
+            "id": "0000000d-1234-5678-90ab-0000000d0000",
+            "email": "user13@example.com",
+            "profile": {
+              "website": "https://user13.com",
+              "birthDate": "1990-02-15",
+              "metadata": {
+                "lastLogin": "2024-01-14T14:30:00Z",
+                "ipAddress": "192.168.0.13"
+              }
+            }
+          },
+          {
+            "id": "0000000e-1234-5678-90ab-0000000e0000",
+            "email": "user14@example.com",
+            "profile": {
+              "website": "https://user14.com",
+              "birthDate": "1990-03-15",
+              "metadata": {
+                "lastLogin": "2024-01-15T14:30:00Z",
+                "ipAddress": "192.168.0.14"
+              }
+            }
+          },
+          {
+            "id": "0000000f-1234-5678-90ab-0000000f0000",
+            "email": "user15@example.com",
+            "profile": {
+              "website": "https://user15.com",
+              "birthDate": "1990-04-15",
+              "metadata": {
+                "lastLogin": "2024-01-16T14:30:00Z",
+                "ipAddress": "192.168.0.15"
+              }
+            }
+          },
+          {
+            "id": "00000010-1234-5678-90ab-000000100000",
+            "email": "user16@example.com",
+            "profile": {
+              "website": "https://user16.com",
+              "birthDate": "1990-05-15",
+              "metadata": {
+                "lastLogin": "2024-01-17T14:30:00Z",
+                "ipAddress": "192.168.0.16"
+              }
+            }
+          },
+          {
+            "id": "00000011-1234-5678-90ab-000000110000",
+            "email": "user17@example.com",
+            "profile": {
+              "website": "https://user17.com",
+              "birthDate": "1990-06-15",
+              "metadata": {
+                "lastLogin": "2024-01-18T14:30:00Z",
+                "ipAddress": "192.168.0.17"
+              }
+            }
+          },
+          {
+            "id": "00000012-1234-5678-90ab-000000120000",
+            "email": "user18@example.com",
+            "profile": {
+              "website": "https://user18.com",
+              "birthDate": "1990-07-15",
+              "metadata": {
+                "lastLogin": "2024-01-19T14:30:00Z",
+                "ipAddress": "192.168.0.18"
+              }
+            }
+          },
+          {
+            "id": "00000013-1234-5678-90ab-000000130000",
+            "email": "user19@example.com",
+            "profile": {
+              "website": "https://user19.com",
+              "birthDate": "1990-08-15",
+              "metadata": {
+                "lastLogin": "2024-01-20T14:30:00Z",
+                "ipAddress": "192.168.0.19"
+              }
+            }
+          },
+          {
+            "id": "00000014-1234-5678-90ab-000000140000",
+            "email": "user20@example.com",
+            "profile": {
+              "website": "https://user20.com",
+              "birthDate": "1990-09-15",
+              "metadata": {
+                "lastLogin": "2024-01-21T14:30:00Z",
+                "ipAddress": "192.168.0.20"
+              }
+            }
+          },
+          {
+            "id": "00000015-1234-5678-90ab-000000150000",
+            "email": "user21@example.com",
+            "profile": {
+              "website": "https://user21.com",
+              "birthDate": "1990-10-15",
+              "metadata": {
+                "lastLogin": "2024-01-22T14:30:00Z",
+                "ipAddress": "192.168.0.21"
+              }
+            }
+          },
+          {
+            "id": "00000016-1234-5678-90ab-000000160000",
+            "email": "user22@example.com",
+            "profile": {
+              "website": "https://user22.com",
+              "birthDate": "1990-11-15",
+              "metadata": {
+                "lastLogin": "2024-01-23T14:30:00Z",
+                "ipAddress": "192.168.0.22"
+              }
+            }
+          },
+          {
+            "id": "00000017-1234-5678-90ab-000000170000",
+            "email": "user23@example.com",
+            "profile": {
+              "website": "https://user23.com",
+              "birthDate": "1990-12-15",
+              "metadata": {
+                "lastLogin": "2024-01-24T14:30:00Z",
+                "ipAddress": "192.168.0.23"
+              }
+            }
+          },
+          {
+            "id": "00000018-1234-5678-90ab-000000180000",
+            "email": "user24@example.com",
+            "profile": {
+              "website": "https://user24.com",
+              "birthDate": "1990-01-15",
+              "metadata": {
+                "lastLogin": "2024-01-25T14:30:00Z",
+                "ipAddress": "192.168.0.24"
+              }
+            }
+          },
+          {
+            "id": "00000019-1234-5678-90ab-000000190000",
+            "email": "user25@example.com",
+            "profile": {
+              "website": "https://user25.com",
+              "birthDate": "1990-02-15",
+              "metadata": {
+                "lastLogin": "2024-01-26T14:30:00Z",
+                "ipAddress": "192.168.0.25"
+              }
+            }
+          },
+          {
+            "id": "0000001a-1234-5678-90ab-0000001a0000",
+            "email": "user26@example.com",
+            "profile": {
+              "website": "https://user26.com",
+              "birthDate": "1990-03-15",
+              "metadata": {
+                "lastLogin": "2024-01-27T14:30:00Z",
+                "ipAddress": "192.168.0.26"
+              }
+            }
+          },
+          {
+            "id": "0000001b-1234-5678-90ab-0000001b0000",
+            "email": "user27@example.com",
+            "profile": {
+              "website": "https://user27.com",
+              "birthDate": "1990-04-15",
+              "metadata": {
+                "lastLogin": "2024-01-28T14:30:00Z",
+                "ipAddress": "192.168.0.27"
+              }
+            }
+          },
+          {
+            "id": "0000001c-1234-5678-90ab-0000001c0000",
+            "email": "user28@example.com",
+            "profile": {
+              "website": "https://user28.com",
+              "birthDate": "1990-05-15",
+              "metadata": {
+                "lastLogin": "2024-01-01T14:30:00Z",
+                "ipAddress": "192.168.0.28"
+              }
+            }
+          },
+          {
+            "id": "0000001d-1234-5678-90ab-0000001d0000",
+            "email": "user29@example.com",
+            "profile": {
+              "website": "https://user29.com",
+              "birthDate": "1990-06-15",
+              "metadata": {
+                "lastLogin": "2024-01-02T14:30:00Z",
+                "ipAddress": "192.168.0.29"
+              }
+            }
+          },
+          {
+            "id": "0000001e-1234-5678-90ab-0000001e0000",
+            "email": "user30@example.com",
+            "profile": {
+              "website": "https://user30.com",
+              "birthDate": "1990-07-15",
+              "metadata": {
+                "lastLogin": "2024-01-03T14:30:00Z",
+                "ipAddress": "192.168.0.30"
+              }
+            }
+          },
+          {
+            "id": "0000001f-1234-5678-90ab-0000001f0000",
+            "email": "user31@example.com",
+            "profile": {
+              "website": "https://user31.com",
+              "birthDate": "1990-08-15",
+              "metadata": {
+                "lastLogin": "2024-01-04T14:30:00Z",
+                "ipAddress": "192.168.0.31"
+              }
+            }
+          },
+          {
+            "id": "00000020-1234-5678-90ab-000000200000",
+            "email": "user32@example.com",
+            "profile": {
+              "website": "https://user32.com",
+              "birthDate": "1990-09-15",
+              "metadata": {
+                "lastLogin": "2024-01-05T14:30:00Z",
+                "ipAddress": "192.168.0.32"
+              }
+            }
+          },
+          {
+            "id": "00000021-1234-5678-90ab-000000210000",
+            "email": "user33@example.com",
+            "profile": {
+              "website": "https://user33.com",
+              "birthDate": "1990-10-15",
+              "metadata": {
+                "lastLogin": "2024-01-06T14:30:00Z",
+                "ipAddress": "192.168.0.33"
+              }
+            }
+          },
+          {
+            "id": "00000022-1234-5678-90ab-000000220000",
+            "email": "user34@example.com",
+            "profile": {
+              "website": "https://user34.com",
+              "birthDate": "1990-11-15",
+              "metadata": {
+                "lastLogin": "2024-01-07T14:30:00Z",
+                "ipAddress": "192.168.0.34"
+              }
+            }
+          },
+          {
+            "id": "00000023-1234-5678-90ab-000000230000",
+            "email": "user35@example.com",
+            "profile": {
+              "website": "https://user35.com",
+              "birthDate": "1990-12-15",
+              "metadata": {
+                "lastLogin": "2024-01-08T14:30:00Z",
+                "ipAddress": "192.168.0.35"
+              }
+            }
+          },
+          {
+            "id": "00000024-1234-5678-90ab-000000240000",
+            "email": "user36@example.com",
+            "profile": {
+              "website": "https://user36.com",
+              "birthDate": "1990-01-15",
+              "metadata": {
+                "lastLogin": "2024-01-09T14:30:00Z",
+                "ipAddress": "192.168.0.36"
+              }
+            }
+          },
+          {
+            "id": "00000025-1234-5678-90ab-000000250000",
+            "email": "user37@example.com",
+            "profile": {
+              "website": "https://user37.com",
+              "birthDate": "1990-02-15",
+              "metadata": {
+                "lastLogin": "2024-01-10T14:30:00Z",
+                "ipAddress": "192.168.0.37"
+              }
+            }
+          },
+          {
+            "id": "00000026-1234-5678-90ab-000000260000",
+            "email": "user38@example.com",
+            "profile": {
+              "website": "https://user38.com",
+              "birthDate": "1990-03-15",
+              "metadata": {
+                "lastLogin": "2024-01-11T14:30:00Z",
+                "ipAddress": "192.168.0.38"
+              }
+            }
+          },
+          {
+            "id": "00000027-1234-5678-90ab-000000270000",
+            "email": "user39@example.com",
+            "profile": {
+              "website": "https://user39.com",
+              "birthDate": "1990-04-15",
+              "metadata": {
+                "lastLogin": "2024-01-12T14:30:00Z",
+                "ipAddress": "192.168.0.39"
+              }
+            }
+          },
+          {
+            "id": "00000028-1234-5678-90ab-000000280000",
+            "email": "user40@example.com",
+            "profile": {
+              "website": "https://user40.com",
+              "birthDate": "1990-05-15",
+              "metadata": {
+                "lastLogin": "2024-01-13T14:30:00Z",
+                "ipAddress": "192.168.0.40"
+              }
+            }
+          },
+          {
+            "id": "00000029-1234-5678-90ab-000000290000",
+            "email": "user41@example.com",
+            "profile": {
+              "website": "https://user41.com",
+              "birthDate": "1990-06-15",
+              "metadata": {
+                "lastLogin": "2024-01-14T14:30:00Z",
+                "ipAddress": "192.168.0.41"
+              }
+            }
+          },
+          {
+            "id": "0000002a-1234-5678-90ab-0000002a0000",
+            "email": "user42@example.com",
+            "profile": {
+              "website": "https://user42.com",
+              "birthDate": "1990-07-15",
+              "metadata": {
+                "lastLogin": "2024-01-15T14:30:00Z",
+                "ipAddress": "192.168.0.42"
+              }
+            }
+          },
+          {
+            "id": "0000002b-1234-5678-90ab-0000002b0000",
+            "email": "user43@example.com",
+            "profile": {
+              "website": "https://user43.com",
+              "birthDate": "1990-08-15",
+              "metadata": {
+                "lastLogin": "2024-01-16T14:30:00Z",
+                "ipAddress": "192.168.0.43"
+              }
+            }
+          },
+          {
+            "id": "0000002c-1234-5678-90ab-0000002c0000",
+            "email": "user44@example.com",
+            "profile": {
+              "website": "https://user44.com",
+              "birthDate": "1990-09-15",
+              "metadata": {
+                "lastLogin": "2024-01-17T14:30:00Z",
+                "ipAddress": "192.168.0.44"
+              }
+            }
+          },
+          {
+            "id": "0000002d-1234-5678-90ab-0000002d0000",
+            "email": "user45@example.com",
+            "profile": {
+              "website": "https://user45.com",
+              "birthDate": "1990-10-15",
+              "metadata": {
+                "lastLogin": "2024-01-18T14:30:00Z",
+                "ipAddress": "192.168.0.45"
+              }
+            }
+          },
+          {
+            "id": "0000002e-1234-5678-90ab-0000002e0000",
+            "email": "user46@example.com",
+            "profile": {
+              "website": "https://user46.com",
+              "birthDate": "1990-11-15",
+              "metadata": {
+                "lastLogin": "2024-01-19T14:30:00Z",
+                "ipAddress": "192.168.0.46"
+              }
+            }
+          },
+          {
+            "id": "0000002f-1234-5678-90ab-0000002f0000",
+            "email": "user47@example.com",
+            "profile": {
+              "website": "https://user47.com",
+              "birthDate": "1990-12-15",
+              "metadata": {
+                "lastLogin": "2024-01-20T14:30:00Z",
+                "ipAddress": "192.168.0.47"
+              }
+            }
+          },
+          {
+            "id": "00000030-1234-5678-90ab-000000300000",
+            "email": "user48@example.com",
+            "profile": {
+              "website": "https://user48.com",
+              "birthDate": "1990-01-15",
+              "metadata": {
+                "lastLogin": "2024-01-21T14:30:00Z",
+                "ipAddress": "192.168.0.48"
+              }
+            }
+          },
+          {
+            "id": "00000031-1234-5678-90ab-000000310000",
+            "email": "user49@example.com",
+            "profile": {
+              "website": "https://user49.com",
+              "birthDate": "1990-02-15",
+              "metadata": {
+                "lastLogin": "2024-01-22T14:30:00Z",
+                "ipAddress": "192.168.0.49"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "invalid": [
+      [
+        {
+          "users": [
+            {
+              "id": "invalid",
+              "email": "not-email"
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "allFormatsObject": {
+    "valid": [
+      {
+        "email": "test@example.com",
+        "uuid": "123e4567-e89b-12d3-a456-426614174000",
+        "ipv4": "192.168.1.1",
+        "ipv6": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+        "uri": "https://example.com/path",
+        "uriReference": "/relative/path",
+        "hostname": "example.com",
+        "date": "2024-01-15",
+        "time": "14:30:00",
+        "dateTime": "2024-01-15T14:30:00Z",
+        "duration": "P1Y2M3DT4H5M6S",
+        "jsonPointer": "/foo/bar/0",
+        "relativeJsonPointer": "1/foo",
+        "regex": "^[a-z]+$"
+      }
+    ],
+    "invalid": [
+      {
+        "email": "invalid",
+        "uuid": "not-uuid",
+        "ipv4": "999.999.999.999",
+        "uri": "not a uri",
+        "date": "15-01-2024",
+        "dateTime": "invalid"
+      }
+    ]
+  },
+  "repeatedFormatValidation": {
+    "valid": [
+      {
+        "emails": [
+          "user0@example.com",
+          "user1@example.com",
+          "user2@example.com",
+          "user3@example.com",
+          "user4@example.com",
+          "user5@example.com",
+          "user6@example.com",
+          "user7@example.com",
+          "user8@example.com",
+          "user9@example.com",
+          "user10@example.com",
+          "user11@example.com",
+          "user12@example.com",
+          "user13@example.com",
+          "user14@example.com",
+          "user15@example.com",
+          "user16@example.com",
+          "user17@example.com",
+          "user18@example.com",
+          "user19@example.com",
+          "user20@example.com",
+          "user21@example.com",
+          "user22@example.com",
+          "user23@example.com",
+          "user24@example.com",
+          "user25@example.com",
+          "user26@example.com",
+          "user27@example.com",
+          "user28@example.com",
+          "user29@example.com",
+          "user30@example.com",
+          "user31@example.com",
+          "user32@example.com",
+          "user33@example.com",
+          "user34@example.com",
+          "user35@example.com",
+          "user36@example.com",
+          "user37@example.com",
+          "user38@example.com",
+          "user39@example.com",
+          "user40@example.com",
+          "user41@example.com",
+          "user42@example.com",
+          "user43@example.com",
+          "user44@example.com",
+          "user45@example.com",
+          "user46@example.com",
+          "user47@example.com",
+          "user48@example.com",
+          "user49@example.com"
+        ],
+        "uuids": [
+          "00000000-1234-5678-90ab-000000000000",
+          "00000001-1234-5678-90ab-000000010000",
+          "00000002-1234-5678-90ab-000000020000",
+          "00000003-1234-5678-90ab-000000030000",
+          "00000004-1234-5678-90ab-000000040000",
+          "00000005-1234-5678-90ab-000000050000",
+          "00000006-1234-5678-90ab-000000060000",
+          "00000007-1234-5678-90ab-000000070000",
+          "00000008-1234-5678-90ab-000000080000",
+          "00000009-1234-5678-90ab-000000090000",
+          "0000000a-1234-5678-90ab-0000000a0000",
+          "0000000b-1234-5678-90ab-0000000b0000",
+          "0000000c-1234-5678-90ab-0000000c0000",
+          "0000000d-1234-5678-90ab-0000000d0000",
+          "0000000e-1234-5678-90ab-0000000e0000",
+          "0000000f-1234-5678-90ab-0000000f0000",
+          "00000010-1234-5678-90ab-000000100000",
+          "00000011-1234-5678-90ab-000000110000",
+          "00000012-1234-5678-90ab-000000120000",
+          "00000013-1234-5678-90ab-000000130000",
+          "00000014-1234-5678-90ab-000000140000",
+          "00000015-1234-5678-90ab-000000150000",
+          "00000016-1234-5678-90ab-000000160000",
+          "00000017-1234-5678-90ab-000000170000",
+          "00000018-1234-5678-90ab-000000180000",
+          "00000019-1234-5678-90ab-000000190000",
+          "0000001a-1234-5678-90ab-0000001a0000",
+          "0000001b-1234-5678-90ab-0000001b0000",
+          "0000001c-1234-5678-90ab-0000001c0000",
+          "0000001d-1234-5678-90ab-0000001d0000",
+          "0000001e-1234-5678-90ab-0000001e0000",
+          "0000001f-1234-5678-90ab-0000001f0000",
+          "00000020-1234-5678-90ab-000000200000",
+          "00000021-1234-5678-90ab-000000210000",
+          "00000022-1234-5678-90ab-000000220000",
+          "00000023-1234-5678-90ab-000000230000",
+          "00000024-1234-5678-90ab-000000240000",
+          "00000025-1234-5678-90ab-000000250000",
+          "00000026-1234-5678-90ab-000000260000",
+          "00000027-1234-5678-90ab-000000270000",
+          "00000028-1234-5678-90ab-000000280000",
+          "00000029-1234-5678-90ab-000000290000",
+          "0000002a-1234-5678-90ab-0000002a0000",
+          "0000002b-1234-5678-90ab-0000002b0000",
+          "0000002c-1234-5678-90ab-0000002c0000",
+          "0000002d-1234-5678-90ab-0000002d0000",
+          "0000002e-1234-5678-90ab-0000002e0000",
+          "0000002f-1234-5678-90ab-0000002f0000",
+          "00000030-1234-5678-90ab-000000300000",
+          "00000031-1234-5678-90ab-000000310000"
+        ],
+        "dates": [
+          "2024-01-01",
+          "2024-01-02",
+          "2024-01-03",
+          "2024-01-04",
+          "2024-01-05",
+          "2024-01-06",
+          "2024-01-07",
+          "2024-01-08",
+          "2024-01-09",
+          "2024-01-10",
+          "2024-01-11",
+          "2024-01-12",
+          "2024-01-13",
+          "2024-01-14",
+          "2024-01-15",
+          "2024-01-16",
+          "2024-01-17",
+          "2024-01-18",
+          "2024-01-19",
+          "2024-01-20",
+          "2024-01-21",
+          "2024-01-22",
+          "2024-01-23",
+          "2024-01-24",
+          "2024-01-25",
+          "2024-01-26",
+          "2024-01-27",
+          "2024-01-28",
+          "2024-01-01",
+          "2024-01-02",
+          "2024-01-03",
+          "2024-01-04",
+          "2024-01-05",
+          "2024-01-06",
+          "2024-01-07",
+          "2024-01-08",
+          "2024-01-09",
+          "2024-01-10",
+          "2024-01-11",
+          "2024-01-12",
+          "2024-01-13",
+          "2024-01-14",
+          "2024-01-15",
+          "2024-01-16",
+          "2024-01-17",
+          "2024-01-18",
+          "2024-01-19",
+          "2024-01-20",
+          "2024-01-21",
+          "2024-01-22"
+        ],
+        "uris": [
+          "https://example0.com",
+          "https://example1.com",
+          "https://example2.com",
+          "https://example3.com",
+          "https://example4.com",
+          "https://example5.com",
+          "https://example6.com",
+          "https://example7.com",
+          "https://example8.com",
+          "https://example9.com",
+          "https://example10.com",
+          "https://example11.com",
+          "https://example12.com",
+          "https://example13.com",
+          "https://example14.com",
+          "https://example15.com",
+          "https://example16.com",
+          "https://example17.com",
+          "https://example18.com",
+          "https://example19.com",
+          "https://example20.com",
+          "https://example21.com",
+          "https://example22.com",
+          "https://example23.com",
+          "https://example24.com",
+          "https://example25.com",
+          "https://example26.com",
+          "https://example27.com",
+          "https://example28.com",
+          "https://example29.com",
+          "https://example30.com",
+          "https://example31.com",
+          "https://example32.com",
+          "https://example33.com",
+          "https://example34.com",
+          "https://example35.com",
+          "https://example36.com",
+          "https://example37.com",
+          "https://example38.com",
+          "https://example39.com",
+          "https://example40.com",
+          "https://example41.com",
+          "https://example42.com",
+          "https://example43.com",
+          "https://example44.com",
+          "https://example45.com",
+          "https://example46.com",
+          "https://example47.com",
+          "https://example48.com",
+          "https://example49.com"
+        ]
+      }
+    ],
+    "invalid": [
+      {
+        "emails": [
+          "invalid"
+        ],
+        "uuids": [
+          "not-uuid"
+        ],
+        "dates": [
+          "01-01-2024"
+        ],
+        "uris": [
+          "not uri"
+        ]
+      }
+    ]
+  },
+  "deepFormatNesting": {
+    "valid": [
+      {
+        "level1": {
+          "email1": "user@example.com",
+          "level2": {
+            "uuid2": "123e4567-e89b-12d3-a456-426614174000",
+            "level3": {
+              "date3": "2024-01-15",
+              "level4": {
+                "uri4": "https://example.com",
+                "level5": {
+                  "dateTime5": "2024-01-15T14:30:00Z",
+                  "level6": {
+                    "ipv46": "192.168.1.1",
+                    "level7": {
+                      "hostname7": "example.com",
+                      "level8": {
+                        "time8": "14:30:00",
+                        "level9": {
+                          "email9": "nested@example.com",
+                          "level10": {
+                            "uuid10": "fedcba98-7654-3210-fedc-ba9876543210"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "level1": {
+          "email1": "invalid",
+          "level2": {
+            "uuid2": "not-uuid"
+          }
+        }
+      }
+    ]
+  },
+  "formatIntensive": {
+    "valid": [
+      {
+        "email0": "user0@example.com",
+        "uuid1": "00000001-1234-5678-90ab-000000010000",
+        "date2": "2024-01-03T00:00:00Z",
+        "uri3": "https://example3.com",
+        "ip4": "192.168.0.4",
+        "email5": "user5@example.com",
+        "uuid6": "00000006-1234-5678-90ab-000000060000",
+        "date7": "2024-01-08T00:00:00Z",
+        "uri8": "https://example8.com",
+        "ip9": "192.168.0.9",
+        "email10": "user10@example.com",
+        "uuid11": "0000000b-1234-5678-90ab-0000000b0000",
+        "date12": "2024-01-13T00:00:00Z",
+        "uri13": "https://example13.com",
+        "ip14": "192.168.0.14",
+        "email15": "user15@example.com",
+        "uuid16": "00000010-1234-5678-90ab-000000100000",
+        "date17": "2024-01-18T00:00:00Z",
+        "uri18": "https://example18.com",
+        "ip19": "192.168.0.19",
+        "email20": "user20@example.com",
+        "uuid21": "00000015-1234-5678-90ab-000000150000",
+        "date22": "2024-01-23T00:00:00Z",
+        "uri23": "https://example23.com",
+        "ip24": "192.168.0.24",
+        "email25": "user25@example.com",
+        "uuid26": "0000001a-1234-5678-90ab-0000001a0000",
+        "date27": "2024-01-28T00:00:00Z",
+        "uri28": "https://example28.com",
+        "ip29": "192.168.0.29",
+        "email30": "user30@example.com",
+        "uuid31": "0000001f-1234-5678-90ab-0000001f0000",
+        "date32": "2024-01-05T00:00:00Z",
+        "uri33": "https://example33.com",
+        "ip34": "192.168.0.34",
+        "email35": "user35@example.com",
+        "uuid36": "00000024-1234-5678-90ab-000000240000",
+        "date37": "2024-01-10T00:00:00Z",
+        "uri38": "https://example38.com",
+        "ip39": "192.168.0.39",
+        "email40": "user40@example.com",
+        "uuid41": "00000029-1234-5678-90ab-000000290000",
+        "date42": "2024-01-15T00:00:00Z",
+        "uri43": "https://example43.com",
+        "ip44": "192.168.0.44",
+        "email45": "user45@example.com",
+        "uuid46": "0000002e-1234-5678-90ab-0000002e0000",
+        "date47": "2024-01-20T00:00:00Z",
+        "uri48": "https://example48.com",
+        "ip49": "192.168.0.49",
+        "email50": "user50@example.com",
+        "uuid51": "00000033-1234-5678-90ab-000000330000",
+        "date52": "2024-01-25T00:00:00Z",
+        "uri53": "https://example53.com",
+        "ip54": "192.168.0.54",
+        "email55": "user55@example.com",
+        "uuid56": "00000038-1234-5678-90ab-000000380000",
+        "date57": "2024-01-02T00:00:00Z",
+        "uri58": "https://example58.com",
+        "ip59": "192.168.0.59",
+        "email60": "user60@example.com",
+        "uuid61": "0000003d-1234-5678-90ab-0000003d0000",
+        "date62": "2024-01-07T00:00:00Z",
+        "uri63": "https://example63.com",
+        "ip64": "192.168.0.64",
+        "email65": "user65@example.com",
+        "uuid66": "00000042-1234-5678-90ab-000000420000",
+        "date67": "2024-01-12T00:00:00Z",
+        "uri68": "https://example68.com",
+        "ip69": "192.168.0.69",
+        "email70": "user70@example.com",
+        "uuid71": "00000047-1234-5678-90ab-000000470000",
+        "date72": "2024-01-17T00:00:00Z",
+        "uri73": "https://example73.com",
+        "ip74": "192.168.0.74",
+        "email75": "user75@example.com",
+        "uuid76": "0000004c-1234-5678-90ab-0000004c0000",
+        "date77": "2024-01-22T00:00:00Z",
+        "uri78": "https://example78.com",
+        "ip79": "192.168.0.79",
+        "email80": "user80@example.com",
+        "uuid81": "00000051-1234-5678-90ab-000000510000",
+        "date82": "2024-01-27T00:00:00Z",
+        "uri83": "https://example83.com",
+        "ip84": "192.168.0.84",
+        "email85": "user85@example.com",
+        "uuid86": "00000056-1234-5678-90ab-000000560000",
+        "date87": "2024-01-04T00:00:00Z",
+        "uri88": "https://example88.com",
+        "ip89": "192.168.0.89",
+        "email90": "user90@example.com",
+        "uuid91": "0000005b-1234-5678-90ab-0000005b0000",
+        "date92": "2024-01-09T00:00:00Z",
+        "uri93": "https://example93.com",
+        "ip94": "192.168.0.94",
+        "email95": "user95@example.com",
+        "uuid96": "00000060-1234-5678-90ab-000000600000",
+        "date97": "2024-01-14T00:00:00Z",
+        "uri98": "https://example98.com",
+        "ip99": "192.168.0.99"
+      }
+    ],
+    "invalid": [
+      {
+        "email0": "invalid",
+        "uuid1": "not-uuid",
+        "date2": "invalid",
+        "uri3": "not uri",
+        "ip4": "999.999.999.999"
+      }
+    ]
+  }
+}

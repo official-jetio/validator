@@ -1,0 +1,3378 @@
+{
+  "references": {
+    "valid": [
+      {
+        "user": {
+          "name": "John Doe",
+          "age": 30,
+          "address": {
+            "street": "123 Main St",
+            "city": "San Francisco",
+            "zipCode": "94102"
+          }
+        },
+        "billingAddress": {
+          "street": "456 Oak Ave",
+          "city": "Oakland",
+          "zipCode": "94601"
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "user": {
+          "name": "John"
+        }
+      },
+      {
+        "user": {
+          "name": "Jane",
+          "address": {
+            "street": "123 Main St"
+          }
+        }
+      }
+    ]
+  },
+  "refs100Times": {
+    "valid": [
+      {
+        "field0": "value0",
+        "field1": 1,
+        "field2": {
+          "id": "id-2",
+          "value": 2
+        },
+        "field3": "value3",
+        "field4": 4,
+        "field5": {
+          "id": "id-5",
+          "value": 5
+        },
+        "field6": "value6",
+        "field7": 7,
+        "field8": {
+          "id": "id-8",
+          "value": 8
+        },
+        "field9": "value9",
+        "field10": 10,
+        "field11": {
+          "id": "id-11",
+          "value": 11
+        },
+        "field12": "value12",
+        "field13": 13,
+        "field14": {
+          "id": "id-14",
+          "value": 14
+        },
+        "field15": "value15",
+        "field16": 16,
+        "field17": {
+          "id": "id-17",
+          "value": 17
+        },
+        "field18": "value18",
+        "field19": 19,
+        "field20": {
+          "id": "id-20",
+          "value": 20
+        },
+        "field21": "value21",
+        "field22": 22,
+        "field23": {
+          "id": "id-23",
+          "value": 23
+        },
+        "field24": "value24",
+        "field25": 25,
+        "field26": {
+          "id": "id-26",
+          "value": 26
+        },
+        "field27": "value27",
+        "field28": 28,
+        "field29": {
+          "id": "id-29",
+          "value": 29
+        },
+        "field30": "value30",
+        "field31": 31,
+        "field32": {
+          "id": "id-32",
+          "value": 32
+        },
+        "field33": "value33",
+        "field34": 34,
+        "field35": {
+          "id": "id-35",
+          "value": 35
+        },
+        "field36": "value36",
+        "field37": 37,
+        "field38": {
+          "id": "id-38",
+          "value": 38
+        },
+        "field39": "value39",
+        "field40": 40,
+        "field41": {
+          "id": "id-41",
+          "value": 41
+        },
+        "field42": "value42",
+        "field43": 43,
+        "field44": {
+          "id": "id-44",
+          "value": 44
+        },
+        "field45": "value45",
+        "field46": 46,
+        "field47": {
+          "id": "id-47",
+          "value": 47
+        },
+        "field48": "value48",
+        "field49": 49,
+        "field50": {
+          "id": "id-50",
+          "value": 50
+        },
+        "field51": "value51",
+        "field52": 52,
+        "field53": {
+          "id": "id-53",
+          "value": 53
+        },
+        "field54": "value54",
+        "field55": 55,
+        "field56": {
+          "id": "id-56",
+          "value": 56
+        },
+        "field57": "value57",
+        "field58": 58,
+        "field59": {
+          "id": "id-59",
+          "value": 59
+        },
+        "field60": "value60",
+        "field61": 61,
+        "field62": {
+          "id": "id-62",
+          "value": 62
+        },
+        "field63": "value63",
+        "field64": 64,
+        "field65": {
+          "id": "id-65",
+          "value": 65
+        },
+        "field66": "value66",
+        "field67": 67,
+        "field68": {
+          "id": "id-68",
+          "value": 68
+        },
+        "field69": "value69",
+        "field70": 70,
+        "field71": {
+          "id": "id-71",
+          "value": 71
+        },
+        "field72": "value72",
+        "field73": 73,
+        "field74": {
+          "id": "id-74",
+          "value": 74
+        },
+        "field75": "value75",
+        "field76": 76,
+        "field77": {
+          "id": "id-77",
+          "value": 77
+        },
+        "field78": "value78",
+        "field79": 79,
+        "field80": {
+          "id": "id-80",
+          "value": 80
+        },
+        "field81": "value81",
+        "field82": 82,
+        "field83": {
+          "id": "id-83",
+          "value": 83
+        },
+        "field84": "value84",
+        "field85": 85,
+        "field86": {
+          "id": "id-86",
+          "value": 86
+        },
+        "field87": "value87",
+        "field88": 88,
+        "field89": {
+          "id": "id-89",
+          "value": 89
+        },
+        "field90": "value90",
+        "field91": 91,
+        "field92": {
+          "id": "id-92",
+          "value": 92
+        },
+        "field93": "value93",
+        "field94": 94,
+        "field95": {
+          "id": "id-95",
+          "value": 95
+        },
+        "field96": "value96",
+        "field97": 97,
+        "field98": {
+          "id": "id-98",
+          "value": 98
+        },
+        "field99": "value99"
+      }
+    ],
+    "invalid": [
+      {
+        "field0": "",
+        "field1": -1
+      }
+    ]
+  },
+  "refs500Times": {
+    "valid": [
+      {
+        "item0": {
+          "id": 0,
+          "name": "name0"
+        },
+        "item1": {
+          "id": 1,
+          "name": "name1"
+        },
+        "item2": {
+          "id": 2,
+          "name": "name2"
+        },
+        "item3": {
+          "id": 3,
+          "name": "name3"
+        },
+        "item4": {
+          "id": 4,
+          "name": "name4"
+        },
+        "item5": {
+          "id": 5,
+          "name": "name5"
+        },
+        "item6": {
+          "id": 6,
+          "name": "name6"
+        },
+        "item7": {
+          "id": 7,
+          "name": "name7"
+        },
+        "item8": {
+          "id": 8,
+          "name": "name8"
+        },
+        "item9": {
+          "id": 9,
+          "name": "name9"
+        },
+        "item10": {
+          "id": 10,
+          "name": "name10"
+        },
+        "item11": {
+          "id": 11,
+          "name": "name11"
+        },
+        "item12": {
+          "id": 12,
+          "name": "name12"
+        },
+        "item13": {
+          "id": 13,
+          "name": "name13"
+        },
+        "item14": {
+          "id": 14,
+          "name": "name14"
+        },
+        "item15": {
+          "id": 15,
+          "name": "name15"
+        },
+        "item16": {
+          "id": 16,
+          "name": "name16"
+        },
+        "item17": {
+          "id": 17,
+          "name": "name17"
+        },
+        "item18": {
+          "id": 18,
+          "name": "name18"
+        },
+        "item19": {
+          "id": 19,
+          "name": "name19"
+        },
+        "item20": {
+          "id": 20,
+          "name": "name20"
+        },
+        "item21": {
+          "id": 21,
+          "name": "name21"
+        },
+        "item22": {
+          "id": 22,
+          "name": "name22"
+        },
+        "item23": {
+          "id": 23,
+          "name": "name23"
+        },
+        "item24": {
+          "id": 24,
+          "name": "name24"
+        },
+        "item25": {
+          "id": 25,
+          "name": "name25"
+        },
+        "item26": {
+          "id": 26,
+          "name": "name26"
+        },
+        "item27": {
+          "id": 27,
+          "name": "name27"
+        },
+        "item28": {
+          "id": 28,
+          "name": "name28"
+        },
+        "item29": {
+          "id": 29,
+          "name": "name29"
+        },
+        "item30": {
+          "id": 30,
+          "name": "name30"
+        },
+        "item31": {
+          "id": 31,
+          "name": "name31"
+        },
+        "item32": {
+          "id": 32,
+          "name": "name32"
+        },
+        "item33": {
+          "id": 33,
+          "name": "name33"
+        },
+        "item34": {
+          "id": 34,
+          "name": "name34"
+        },
+        "item35": {
+          "id": 35,
+          "name": "name35"
+        },
+        "item36": {
+          "id": 36,
+          "name": "name36"
+        },
+        "item37": {
+          "id": 37,
+          "name": "name37"
+        },
+        "item38": {
+          "id": 38,
+          "name": "name38"
+        },
+        "item39": {
+          "id": 39,
+          "name": "name39"
+        },
+        "item40": {
+          "id": 40,
+          "name": "name40"
+        },
+        "item41": {
+          "id": 41,
+          "name": "name41"
+        },
+        "item42": {
+          "id": 42,
+          "name": "name42"
+        },
+        "item43": {
+          "id": 43,
+          "name": "name43"
+        },
+        "item44": {
+          "id": 44,
+          "name": "name44"
+        },
+        "item45": {
+          "id": 45,
+          "name": "name45"
+        },
+        "item46": {
+          "id": 46,
+          "name": "name46"
+        },
+        "item47": {
+          "id": 47,
+          "name": "name47"
+        },
+        "item48": {
+          "id": 48,
+          "name": "name48"
+        },
+        "item49": {
+          "id": 49,
+          "name": "name49"
+        },
+        "item50": {
+          "id": 50,
+          "name": "name50"
+        },
+        "item51": {
+          "id": 51,
+          "name": "name51"
+        },
+        "item52": {
+          "id": 52,
+          "name": "name52"
+        },
+        "item53": {
+          "id": 53,
+          "name": "name53"
+        },
+        "item54": {
+          "id": 54,
+          "name": "name54"
+        },
+        "item55": {
+          "id": 55,
+          "name": "name55"
+        },
+        "item56": {
+          "id": 56,
+          "name": "name56"
+        },
+        "item57": {
+          "id": 57,
+          "name": "name57"
+        },
+        "item58": {
+          "id": 58,
+          "name": "name58"
+        },
+        "item59": {
+          "id": 59,
+          "name": "name59"
+        },
+        "item60": {
+          "id": 60,
+          "name": "name60"
+        },
+        "item61": {
+          "id": 61,
+          "name": "name61"
+        },
+        "item62": {
+          "id": 62,
+          "name": "name62"
+        },
+        "item63": {
+          "id": 63,
+          "name": "name63"
+        },
+        "item64": {
+          "id": 64,
+          "name": "name64"
+        },
+        "item65": {
+          "id": 65,
+          "name": "name65"
+        },
+        "item66": {
+          "id": 66,
+          "name": "name66"
+        },
+        "item67": {
+          "id": 67,
+          "name": "name67"
+        },
+        "item68": {
+          "id": 68,
+          "name": "name68"
+        },
+        "item69": {
+          "id": 69,
+          "name": "name69"
+        },
+        "item70": {
+          "id": 70,
+          "name": "name70"
+        },
+        "item71": {
+          "id": 71,
+          "name": "name71"
+        },
+        "item72": {
+          "id": 72,
+          "name": "name72"
+        },
+        "item73": {
+          "id": 73,
+          "name": "name73"
+        },
+        "item74": {
+          "id": 74,
+          "name": "name74"
+        },
+        "item75": {
+          "id": 75,
+          "name": "name75"
+        },
+        "item76": {
+          "id": 76,
+          "name": "name76"
+        },
+        "item77": {
+          "id": 77,
+          "name": "name77"
+        },
+        "item78": {
+          "id": 78,
+          "name": "name78"
+        },
+        "item79": {
+          "id": 79,
+          "name": "name79"
+        },
+        "item80": {
+          "id": 80,
+          "name": "name80"
+        },
+        "item81": {
+          "id": 81,
+          "name": "name81"
+        },
+        "item82": {
+          "id": 82,
+          "name": "name82"
+        },
+        "item83": {
+          "id": 83,
+          "name": "name83"
+        },
+        "item84": {
+          "id": 84,
+          "name": "name84"
+        },
+        "item85": {
+          "id": 85,
+          "name": "name85"
+        },
+        "item86": {
+          "id": 86,
+          "name": "name86"
+        },
+        "item87": {
+          "id": 87,
+          "name": "name87"
+        },
+        "item88": {
+          "id": 88,
+          "name": "name88"
+        },
+        "item89": {
+          "id": 89,
+          "name": "name89"
+        },
+        "item90": {
+          "id": 90,
+          "name": "name90"
+        },
+        "item91": {
+          "id": 91,
+          "name": "name91"
+        },
+        "item92": {
+          "id": 92,
+          "name": "name92"
+        },
+        "item93": {
+          "id": 93,
+          "name": "name93"
+        },
+        "item94": {
+          "id": 94,
+          "name": "name94"
+        },
+        "item95": {
+          "id": 95,
+          "name": "name95"
+        },
+        "item96": {
+          "id": 96,
+          "name": "name96"
+        },
+        "item97": {
+          "id": 97,
+          "name": "name97"
+        },
+        "item98": {
+          "id": 98,
+          "name": "name98"
+        },
+        "item99": {
+          "id": 99,
+          "name": "name99"
+        },
+        "item100": {
+          "id": 100,
+          "name": "name100"
+        },
+        "item101": {
+          "id": 101,
+          "name": "name101"
+        },
+        "item102": {
+          "id": 102,
+          "name": "name102"
+        },
+        "item103": {
+          "id": 103,
+          "name": "name103"
+        },
+        "item104": {
+          "id": 104,
+          "name": "name104"
+        },
+        "item105": {
+          "id": 105,
+          "name": "name105"
+        },
+        "item106": {
+          "id": 106,
+          "name": "name106"
+        },
+        "item107": {
+          "id": 107,
+          "name": "name107"
+        },
+        "item108": {
+          "id": 108,
+          "name": "name108"
+        },
+        "item109": {
+          "id": 109,
+          "name": "name109"
+        },
+        "item110": {
+          "id": 110,
+          "name": "name110"
+        },
+        "item111": {
+          "id": 111,
+          "name": "name111"
+        },
+        "item112": {
+          "id": 112,
+          "name": "name112"
+        },
+        "item113": {
+          "id": 113,
+          "name": "name113"
+        },
+        "item114": {
+          "id": 114,
+          "name": "name114"
+        },
+        "item115": {
+          "id": 115,
+          "name": "name115"
+        },
+        "item116": {
+          "id": 116,
+          "name": "name116"
+        },
+        "item117": {
+          "id": 117,
+          "name": "name117"
+        },
+        "item118": {
+          "id": 118,
+          "name": "name118"
+        },
+        "item119": {
+          "id": 119,
+          "name": "name119"
+        },
+        "item120": {
+          "id": 120,
+          "name": "name120"
+        },
+        "item121": {
+          "id": 121,
+          "name": "name121"
+        },
+        "item122": {
+          "id": 122,
+          "name": "name122"
+        },
+        "item123": {
+          "id": 123,
+          "name": "name123"
+        },
+        "item124": {
+          "id": 124,
+          "name": "name124"
+        },
+        "item125": {
+          "id": 125,
+          "name": "name125"
+        },
+        "item126": {
+          "id": 126,
+          "name": "name126"
+        },
+        "item127": {
+          "id": 127,
+          "name": "name127"
+        },
+        "item128": {
+          "id": 128,
+          "name": "name128"
+        },
+        "item129": {
+          "id": 129,
+          "name": "name129"
+        },
+        "item130": {
+          "id": 130,
+          "name": "name130"
+        },
+        "item131": {
+          "id": 131,
+          "name": "name131"
+        },
+        "item132": {
+          "id": 132,
+          "name": "name132"
+        },
+        "item133": {
+          "id": 133,
+          "name": "name133"
+        },
+        "item134": {
+          "id": 134,
+          "name": "name134"
+        },
+        "item135": {
+          "id": 135,
+          "name": "name135"
+        },
+        "item136": {
+          "id": 136,
+          "name": "name136"
+        },
+        "item137": {
+          "id": 137,
+          "name": "name137"
+        },
+        "item138": {
+          "id": 138,
+          "name": "name138"
+        },
+        "item139": {
+          "id": 139,
+          "name": "name139"
+        },
+        "item140": {
+          "id": 140,
+          "name": "name140"
+        },
+        "item141": {
+          "id": 141,
+          "name": "name141"
+        },
+        "item142": {
+          "id": 142,
+          "name": "name142"
+        },
+        "item143": {
+          "id": 143,
+          "name": "name143"
+        },
+        "item144": {
+          "id": 144,
+          "name": "name144"
+        },
+        "item145": {
+          "id": 145,
+          "name": "name145"
+        },
+        "item146": {
+          "id": 146,
+          "name": "name146"
+        },
+        "item147": {
+          "id": 147,
+          "name": "name147"
+        },
+        "item148": {
+          "id": 148,
+          "name": "name148"
+        },
+        "item149": {
+          "id": 149,
+          "name": "name149"
+        },
+        "item150": {
+          "id": 150,
+          "name": "name150"
+        },
+        "item151": {
+          "id": 151,
+          "name": "name151"
+        },
+        "item152": {
+          "id": 152,
+          "name": "name152"
+        },
+        "item153": {
+          "id": 153,
+          "name": "name153"
+        },
+        "item154": {
+          "id": 154,
+          "name": "name154"
+        },
+        "item155": {
+          "id": 155,
+          "name": "name155"
+        },
+        "item156": {
+          "id": 156,
+          "name": "name156"
+        },
+        "item157": {
+          "id": 157,
+          "name": "name157"
+        },
+        "item158": {
+          "id": 158,
+          "name": "name158"
+        },
+        "item159": {
+          "id": 159,
+          "name": "name159"
+        },
+        "item160": {
+          "id": 160,
+          "name": "name160"
+        },
+        "item161": {
+          "id": 161,
+          "name": "name161"
+        },
+        "item162": {
+          "id": 162,
+          "name": "name162"
+        },
+        "item163": {
+          "id": 163,
+          "name": "name163"
+        },
+        "item164": {
+          "id": 164,
+          "name": "name164"
+        },
+        "item165": {
+          "id": 165,
+          "name": "name165"
+        },
+        "item166": {
+          "id": 166,
+          "name": "name166"
+        },
+        "item167": {
+          "id": 167,
+          "name": "name167"
+        },
+        "item168": {
+          "id": 168,
+          "name": "name168"
+        },
+        "item169": {
+          "id": 169,
+          "name": "name169"
+        },
+        "item170": {
+          "id": 170,
+          "name": "name170"
+        },
+        "item171": {
+          "id": 171,
+          "name": "name171"
+        },
+        "item172": {
+          "id": 172,
+          "name": "name172"
+        },
+        "item173": {
+          "id": 173,
+          "name": "name173"
+        },
+        "item174": {
+          "id": 174,
+          "name": "name174"
+        },
+        "item175": {
+          "id": 175,
+          "name": "name175"
+        },
+        "item176": {
+          "id": 176,
+          "name": "name176"
+        },
+        "item177": {
+          "id": 177,
+          "name": "name177"
+        },
+        "item178": {
+          "id": 178,
+          "name": "name178"
+        },
+        "item179": {
+          "id": 179,
+          "name": "name179"
+        },
+        "item180": {
+          "id": 180,
+          "name": "name180"
+        },
+        "item181": {
+          "id": 181,
+          "name": "name181"
+        },
+        "item182": {
+          "id": 182,
+          "name": "name182"
+        },
+        "item183": {
+          "id": 183,
+          "name": "name183"
+        },
+        "item184": {
+          "id": 184,
+          "name": "name184"
+        },
+        "item185": {
+          "id": 185,
+          "name": "name185"
+        },
+        "item186": {
+          "id": 186,
+          "name": "name186"
+        },
+        "item187": {
+          "id": 187,
+          "name": "name187"
+        },
+        "item188": {
+          "id": 188,
+          "name": "name188"
+        },
+        "item189": {
+          "id": 189,
+          "name": "name189"
+        },
+        "item190": {
+          "id": 190,
+          "name": "name190"
+        },
+        "item191": {
+          "id": 191,
+          "name": "name191"
+        },
+        "item192": {
+          "id": 192,
+          "name": "name192"
+        },
+        "item193": {
+          "id": 193,
+          "name": "name193"
+        },
+        "item194": {
+          "id": 194,
+          "name": "name194"
+        },
+        "item195": {
+          "id": 195,
+          "name": "name195"
+        },
+        "item196": {
+          "id": 196,
+          "name": "name196"
+        },
+        "item197": {
+          "id": 197,
+          "name": "name197"
+        },
+        "item198": {
+          "id": 198,
+          "name": "name198"
+        },
+        "item199": {
+          "id": 199,
+          "name": "name199"
+        },
+        "item200": {
+          "id": 200,
+          "name": "name200"
+        },
+        "item201": {
+          "id": 201,
+          "name": "name201"
+        },
+        "item202": {
+          "id": 202,
+          "name": "name202"
+        },
+        "item203": {
+          "id": 203,
+          "name": "name203"
+        },
+        "item204": {
+          "id": 204,
+          "name": "name204"
+        },
+        "item205": {
+          "id": 205,
+          "name": "name205"
+        },
+        "item206": {
+          "id": 206,
+          "name": "name206"
+        },
+        "item207": {
+          "id": 207,
+          "name": "name207"
+        },
+        "item208": {
+          "id": 208,
+          "name": "name208"
+        },
+        "item209": {
+          "id": 209,
+          "name": "name209"
+        },
+        "item210": {
+          "id": 210,
+          "name": "name210"
+        },
+        "item211": {
+          "id": 211,
+          "name": "name211"
+        },
+        "item212": {
+          "id": 212,
+          "name": "name212"
+        },
+        "item213": {
+          "id": 213,
+          "name": "name213"
+        },
+        "item214": {
+          "id": 214,
+          "name": "name214"
+        },
+        "item215": {
+          "id": 215,
+          "name": "name215"
+        },
+        "item216": {
+          "id": 216,
+          "name": "name216"
+        },
+        "item217": {
+          "id": 217,
+          "name": "name217"
+        },
+        "item218": {
+          "id": 218,
+          "name": "name218"
+        },
+        "item219": {
+          "id": 219,
+          "name": "name219"
+        },
+        "item220": {
+          "id": 220,
+          "name": "name220"
+        },
+        "item221": {
+          "id": 221,
+          "name": "name221"
+        },
+        "item222": {
+          "id": 222,
+          "name": "name222"
+        },
+        "item223": {
+          "id": 223,
+          "name": "name223"
+        },
+        "item224": {
+          "id": 224,
+          "name": "name224"
+        },
+        "item225": {
+          "id": 225,
+          "name": "name225"
+        },
+        "item226": {
+          "id": 226,
+          "name": "name226"
+        },
+        "item227": {
+          "id": 227,
+          "name": "name227"
+        },
+        "item228": {
+          "id": 228,
+          "name": "name228"
+        },
+        "item229": {
+          "id": 229,
+          "name": "name229"
+        },
+        "item230": {
+          "id": 230,
+          "name": "name230"
+        },
+        "item231": {
+          "id": 231,
+          "name": "name231"
+        },
+        "item232": {
+          "id": 232,
+          "name": "name232"
+        },
+        "item233": {
+          "id": 233,
+          "name": "name233"
+        },
+        "item234": {
+          "id": 234,
+          "name": "name234"
+        },
+        "item235": {
+          "id": 235,
+          "name": "name235"
+        },
+        "item236": {
+          "id": 236,
+          "name": "name236"
+        },
+        "item237": {
+          "id": 237,
+          "name": "name237"
+        },
+        "item238": {
+          "id": 238,
+          "name": "name238"
+        },
+        "item239": {
+          "id": 239,
+          "name": "name239"
+        },
+        "item240": {
+          "id": 240,
+          "name": "name240"
+        },
+        "item241": {
+          "id": 241,
+          "name": "name241"
+        },
+        "item242": {
+          "id": 242,
+          "name": "name242"
+        },
+        "item243": {
+          "id": 243,
+          "name": "name243"
+        },
+        "item244": {
+          "id": 244,
+          "name": "name244"
+        },
+        "item245": {
+          "id": 245,
+          "name": "name245"
+        },
+        "item246": {
+          "id": 246,
+          "name": "name246"
+        },
+        "item247": {
+          "id": 247,
+          "name": "name247"
+        },
+        "item248": {
+          "id": 248,
+          "name": "name248"
+        },
+        "item249": {
+          "id": 249,
+          "name": "name249"
+        },
+        "item250": {
+          "id": 250,
+          "name": "name250"
+        },
+        "item251": {
+          "id": 251,
+          "name": "name251"
+        },
+        "item252": {
+          "id": 252,
+          "name": "name252"
+        },
+        "item253": {
+          "id": 253,
+          "name": "name253"
+        },
+        "item254": {
+          "id": 254,
+          "name": "name254"
+        },
+        "item255": {
+          "id": 255,
+          "name": "name255"
+        },
+        "item256": {
+          "id": 256,
+          "name": "name256"
+        },
+        "item257": {
+          "id": 257,
+          "name": "name257"
+        },
+        "item258": {
+          "id": 258,
+          "name": "name258"
+        },
+        "item259": {
+          "id": 259,
+          "name": "name259"
+        },
+        "item260": {
+          "id": 260,
+          "name": "name260"
+        },
+        "item261": {
+          "id": 261,
+          "name": "name261"
+        },
+        "item262": {
+          "id": 262,
+          "name": "name262"
+        },
+        "item263": {
+          "id": 263,
+          "name": "name263"
+        },
+        "item264": {
+          "id": 264,
+          "name": "name264"
+        },
+        "item265": {
+          "id": 265,
+          "name": "name265"
+        },
+        "item266": {
+          "id": 266,
+          "name": "name266"
+        },
+        "item267": {
+          "id": 267,
+          "name": "name267"
+        },
+        "item268": {
+          "id": 268,
+          "name": "name268"
+        },
+        "item269": {
+          "id": 269,
+          "name": "name269"
+        },
+        "item270": {
+          "id": 270,
+          "name": "name270"
+        },
+        "item271": {
+          "id": 271,
+          "name": "name271"
+        },
+        "item272": {
+          "id": 272,
+          "name": "name272"
+        },
+        "item273": {
+          "id": 273,
+          "name": "name273"
+        },
+        "item274": {
+          "id": 274,
+          "name": "name274"
+        },
+        "item275": {
+          "id": 275,
+          "name": "name275"
+        },
+        "item276": {
+          "id": 276,
+          "name": "name276"
+        },
+        "item277": {
+          "id": 277,
+          "name": "name277"
+        },
+        "item278": {
+          "id": 278,
+          "name": "name278"
+        },
+        "item279": {
+          "id": 279,
+          "name": "name279"
+        },
+        "item280": {
+          "id": 280,
+          "name": "name280"
+        },
+        "item281": {
+          "id": 281,
+          "name": "name281"
+        },
+        "item282": {
+          "id": 282,
+          "name": "name282"
+        },
+        "item283": {
+          "id": 283,
+          "name": "name283"
+        },
+        "item284": {
+          "id": 284,
+          "name": "name284"
+        },
+        "item285": {
+          "id": 285,
+          "name": "name285"
+        },
+        "item286": {
+          "id": 286,
+          "name": "name286"
+        },
+        "item287": {
+          "id": 287,
+          "name": "name287"
+        },
+        "item288": {
+          "id": 288,
+          "name": "name288"
+        },
+        "item289": {
+          "id": 289,
+          "name": "name289"
+        },
+        "item290": {
+          "id": 290,
+          "name": "name290"
+        },
+        "item291": {
+          "id": 291,
+          "name": "name291"
+        },
+        "item292": {
+          "id": 292,
+          "name": "name292"
+        },
+        "item293": {
+          "id": 293,
+          "name": "name293"
+        },
+        "item294": {
+          "id": 294,
+          "name": "name294"
+        },
+        "item295": {
+          "id": 295,
+          "name": "name295"
+        },
+        "item296": {
+          "id": 296,
+          "name": "name296"
+        },
+        "item297": {
+          "id": 297,
+          "name": "name297"
+        },
+        "item298": {
+          "id": 298,
+          "name": "name298"
+        },
+        "item299": {
+          "id": 299,
+          "name": "name299"
+        },
+        "item300": {
+          "id": 300,
+          "name": "name300"
+        },
+        "item301": {
+          "id": 301,
+          "name": "name301"
+        },
+        "item302": {
+          "id": 302,
+          "name": "name302"
+        },
+        "item303": {
+          "id": 303,
+          "name": "name303"
+        },
+        "item304": {
+          "id": 304,
+          "name": "name304"
+        },
+        "item305": {
+          "id": 305,
+          "name": "name305"
+        },
+        "item306": {
+          "id": 306,
+          "name": "name306"
+        },
+        "item307": {
+          "id": 307,
+          "name": "name307"
+        },
+        "item308": {
+          "id": 308,
+          "name": "name308"
+        },
+        "item309": {
+          "id": 309,
+          "name": "name309"
+        },
+        "item310": {
+          "id": 310,
+          "name": "name310"
+        },
+        "item311": {
+          "id": 311,
+          "name": "name311"
+        },
+        "item312": {
+          "id": 312,
+          "name": "name312"
+        },
+        "item313": {
+          "id": 313,
+          "name": "name313"
+        },
+        "item314": {
+          "id": 314,
+          "name": "name314"
+        },
+        "item315": {
+          "id": 315,
+          "name": "name315"
+        },
+        "item316": {
+          "id": 316,
+          "name": "name316"
+        },
+        "item317": {
+          "id": 317,
+          "name": "name317"
+        },
+        "item318": {
+          "id": 318,
+          "name": "name318"
+        },
+        "item319": {
+          "id": 319,
+          "name": "name319"
+        },
+        "item320": {
+          "id": 320,
+          "name": "name320"
+        },
+        "item321": {
+          "id": 321,
+          "name": "name321"
+        },
+        "item322": {
+          "id": 322,
+          "name": "name322"
+        },
+        "item323": {
+          "id": 323,
+          "name": "name323"
+        },
+        "item324": {
+          "id": 324,
+          "name": "name324"
+        },
+        "item325": {
+          "id": 325,
+          "name": "name325"
+        },
+        "item326": {
+          "id": 326,
+          "name": "name326"
+        },
+        "item327": {
+          "id": 327,
+          "name": "name327"
+        },
+        "item328": {
+          "id": 328,
+          "name": "name328"
+        },
+        "item329": {
+          "id": 329,
+          "name": "name329"
+        },
+        "item330": {
+          "id": 330,
+          "name": "name330"
+        },
+        "item331": {
+          "id": 331,
+          "name": "name331"
+        },
+        "item332": {
+          "id": 332,
+          "name": "name332"
+        },
+        "item333": {
+          "id": 333,
+          "name": "name333"
+        },
+        "item334": {
+          "id": 334,
+          "name": "name334"
+        },
+        "item335": {
+          "id": 335,
+          "name": "name335"
+        },
+        "item336": {
+          "id": 336,
+          "name": "name336"
+        },
+        "item337": {
+          "id": 337,
+          "name": "name337"
+        },
+        "item338": {
+          "id": 338,
+          "name": "name338"
+        },
+        "item339": {
+          "id": 339,
+          "name": "name339"
+        },
+        "item340": {
+          "id": 340,
+          "name": "name340"
+        },
+        "item341": {
+          "id": 341,
+          "name": "name341"
+        },
+        "item342": {
+          "id": 342,
+          "name": "name342"
+        },
+        "item343": {
+          "id": 343,
+          "name": "name343"
+        },
+        "item344": {
+          "id": 344,
+          "name": "name344"
+        },
+        "item345": {
+          "id": 345,
+          "name": "name345"
+        },
+        "item346": {
+          "id": 346,
+          "name": "name346"
+        },
+        "item347": {
+          "id": 347,
+          "name": "name347"
+        },
+        "item348": {
+          "id": 348,
+          "name": "name348"
+        },
+        "item349": {
+          "id": 349,
+          "name": "name349"
+        },
+        "item350": {
+          "id": 350,
+          "name": "name350"
+        },
+        "item351": {
+          "id": 351,
+          "name": "name351"
+        },
+        "item352": {
+          "id": 352,
+          "name": "name352"
+        },
+        "item353": {
+          "id": 353,
+          "name": "name353"
+        },
+        "item354": {
+          "id": 354,
+          "name": "name354"
+        },
+        "item355": {
+          "id": 355,
+          "name": "name355"
+        },
+        "item356": {
+          "id": 356,
+          "name": "name356"
+        },
+        "item357": {
+          "id": 357,
+          "name": "name357"
+        },
+        "item358": {
+          "id": 358,
+          "name": "name358"
+        },
+        "item359": {
+          "id": 359,
+          "name": "name359"
+        },
+        "item360": {
+          "id": 360,
+          "name": "name360"
+        },
+        "item361": {
+          "id": 361,
+          "name": "name361"
+        },
+        "item362": {
+          "id": 362,
+          "name": "name362"
+        },
+        "item363": {
+          "id": 363,
+          "name": "name363"
+        },
+        "item364": {
+          "id": 364,
+          "name": "name364"
+        },
+        "item365": {
+          "id": 365,
+          "name": "name365"
+        },
+        "item366": {
+          "id": 366,
+          "name": "name366"
+        },
+        "item367": {
+          "id": 367,
+          "name": "name367"
+        },
+        "item368": {
+          "id": 368,
+          "name": "name368"
+        },
+        "item369": {
+          "id": 369,
+          "name": "name369"
+        },
+        "item370": {
+          "id": 370,
+          "name": "name370"
+        },
+        "item371": {
+          "id": 371,
+          "name": "name371"
+        },
+        "item372": {
+          "id": 372,
+          "name": "name372"
+        },
+        "item373": {
+          "id": 373,
+          "name": "name373"
+        },
+        "item374": {
+          "id": 374,
+          "name": "name374"
+        },
+        "item375": {
+          "id": 375,
+          "name": "name375"
+        },
+        "item376": {
+          "id": 376,
+          "name": "name376"
+        },
+        "item377": {
+          "id": 377,
+          "name": "name377"
+        },
+        "item378": {
+          "id": 378,
+          "name": "name378"
+        },
+        "item379": {
+          "id": 379,
+          "name": "name379"
+        },
+        "item380": {
+          "id": 380,
+          "name": "name380"
+        },
+        "item381": {
+          "id": 381,
+          "name": "name381"
+        },
+        "item382": {
+          "id": 382,
+          "name": "name382"
+        },
+        "item383": {
+          "id": 383,
+          "name": "name383"
+        },
+        "item384": {
+          "id": 384,
+          "name": "name384"
+        },
+        "item385": {
+          "id": 385,
+          "name": "name385"
+        },
+        "item386": {
+          "id": 386,
+          "name": "name386"
+        },
+        "item387": {
+          "id": 387,
+          "name": "name387"
+        },
+        "item388": {
+          "id": 388,
+          "name": "name388"
+        },
+        "item389": {
+          "id": 389,
+          "name": "name389"
+        },
+        "item390": {
+          "id": 390,
+          "name": "name390"
+        },
+        "item391": {
+          "id": 391,
+          "name": "name391"
+        },
+        "item392": {
+          "id": 392,
+          "name": "name392"
+        },
+        "item393": {
+          "id": 393,
+          "name": "name393"
+        },
+        "item394": {
+          "id": 394,
+          "name": "name394"
+        },
+        "item395": {
+          "id": 395,
+          "name": "name395"
+        },
+        "item396": {
+          "id": 396,
+          "name": "name396"
+        },
+        "item397": {
+          "id": 397,
+          "name": "name397"
+        },
+        "item398": {
+          "id": 398,
+          "name": "name398"
+        },
+        "item399": {
+          "id": 399,
+          "name": "name399"
+        },
+        "item400": {
+          "id": 400,
+          "name": "name400"
+        },
+        "item401": {
+          "id": 401,
+          "name": "name401"
+        },
+        "item402": {
+          "id": 402,
+          "name": "name402"
+        },
+        "item403": {
+          "id": 403,
+          "name": "name403"
+        },
+        "item404": {
+          "id": 404,
+          "name": "name404"
+        },
+        "item405": {
+          "id": 405,
+          "name": "name405"
+        },
+        "item406": {
+          "id": 406,
+          "name": "name406"
+        },
+        "item407": {
+          "id": 407,
+          "name": "name407"
+        },
+        "item408": {
+          "id": 408,
+          "name": "name408"
+        },
+        "item409": {
+          "id": 409,
+          "name": "name409"
+        },
+        "item410": {
+          "id": 410,
+          "name": "name410"
+        },
+        "item411": {
+          "id": 411,
+          "name": "name411"
+        },
+        "item412": {
+          "id": 412,
+          "name": "name412"
+        },
+        "item413": {
+          "id": 413,
+          "name": "name413"
+        },
+        "item414": {
+          "id": 414,
+          "name": "name414"
+        },
+        "item415": {
+          "id": 415,
+          "name": "name415"
+        },
+        "item416": {
+          "id": 416,
+          "name": "name416"
+        },
+        "item417": {
+          "id": 417,
+          "name": "name417"
+        },
+        "item418": {
+          "id": 418,
+          "name": "name418"
+        },
+        "item419": {
+          "id": 419,
+          "name": "name419"
+        },
+        "item420": {
+          "id": 420,
+          "name": "name420"
+        },
+        "item421": {
+          "id": 421,
+          "name": "name421"
+        },
+        "item422": {
+          "id": 422,
+          "name": "name422"
+        },
+        "item423": {
+          "id": 423,
+          "name": "name423"
+        },
+        "item424": {
+          "id": 424,
+          "name": "name424"
+        },
+        "item425": {
+          "id": 425,
+          "name": "name425"
+        },
+        "item426": {
+          "id": 426,
+          "name": "name426"
+        },
+        "item427": {
+          "id": 427,
+          "name": "name427"
+        },
+        "item428": {
+          "id": 428,
+          "name": "name428"
+        },
+        "item429": {
+          "id": 429,
+          "name": "name429"
+        },
+        "item430": {
+          "id": 430,
+          "name": "name430"
+        },
+        "item431": {
+          "id": 431,
+          "name": "name431"
+        },
+        "item432": {
+          "id": 432,
+          "name": "name432"
+        },
+        "item433": {
+          "id": 433,
+          "name": "name433"
+        },
+        "item434": {
+          "id": 434,
+          "name": "name434"
+        },
+        "item435": {
+          "id": 435,
+          "name": "name435"
+        },
+        "item436": {
+          "id": 436,
+          "name": "name436"
+        },
+        "item437": {
+          "id": 437,
+          "name": "name437"
+        },
+        "item438": {
+          "id": 438,
+          "name": "name438"
+        },
+        "item439": {
+          "id": 439,
+          "name": "name439"
+        },
+        "item440": {
+          "id": 440,
+          "name": "name440"
+        },
+        "item441": {
+          "id": 441,
+          "name": "name441"
+        },
+        "item442": {
+          "id": 442,
+          "name": "name442"
+        },
+        "item443": {
+          "id": 443,
+          "name": "name443"
+        },
+        "item444": {
+          "id": 444,
+          "name": "name444"
+        },
+        "item445": {
+          "id": 445,
+          "name": "name445"
+        },
+        "item446": {
+          "id": 446,
+          "name": "name446"
+        },
+        "item447": {
+          "id": 447,
+          "name": "name447"
+        },
+        "item448": {
+          "id": 448,
+          "name": "name448"
+        },
+        "item449": {
+          "id": 449,
+          "name": "name449"
+        },
+        "item450": {
+          "id": 450,
+          "name": "name450"
+        },
+        "item451": {
+          "id": 451,
+          "name": "name451"
+        },
+        "item452": {
+          "id": 452,
+          "name": "name452"
+        },
+        "item453": {
+          "id": 453,
+          "name": "name453"
+        },
+        "item454": {
+          "id": 454,
+          "name": "name454"
+        },
+        "item455": {
+          "id": 455,
+          "name": "name455"
+        },
+        "item456": {
+          "id": 456,
+          "name": "name456"
+        },
+        "item457": {
+          "id": 457,
+          "name": "name457"
+        },
+        "item458": {
+          "id": 458,
+          "name": "name458"
+        },
+        "item459": {
+          "id": 459,
+          "name": "name459"
+        },
+        "item460": {
+          "id": 460,
+          "name": "name460"
+        },
+        "item461": {
+          "id": 461,
+          "name": "name461"
+        },
+        "item462": {
+          "id": 462,
+          "name": "name462"
+        },
+        "item463": {
+          "id": 463,
+          "name": "name463"
+        },
+        "item464": {
+          "id": 464,
+          "name": "name464"
+        },
+        "item465": {
+          "id": 465,
+          "name": "name465"
+        },
+        "item466": {
+          "id": 466,
+          "name": "name466"
+        },
+        "item467": {
+          "id": 467,
+          "name": "name467"
+        },
+        "item468": {
+          "id": 468,
+          "name": "name468"
+        },
+        "item469": {
+          "id": 469,
+          "name": "name469"
+        },
+        "item470": {
+          "id": 470,
+          "name": "name470"
+        },
+        "item471": {
+          "id": 471,
+          "name": "name471"
+        },
+        "item472": {
+          "id": 472,
+          "name": "name472"
+        },
+        "item473": {
+          "id": 473,
+          "name": "name473"
+        },
+        "item474": {
+          "id": 474,
+          "name": "name474"
+        },
+        "item475": {
+          "id": 475,
+          "name": "name475"
+        },
+        "item476": {
+          "id": 476,
+          "name": "name476"
+        },
+        "item477": {
+          "id": 477,
+          "name": "name477"
+        },
+        "item478": {
+          "id": 478,
+          "name": "name478"
+        },
+        "item479": {
+          "id": 479,
+          "name": "name479"
+        },
+        "item480": {
+          "id": 480,
+          "name": "name480"
+        },
+        "item481": {
+          "id": 481,
+          "name": "name481"
+        },
+        "item482": {
+          "id": 482,
+          "name": "name482"
+        },
+        "item483": {
+          "id": 483,
+          "name": "name483"
+        },
+        "item484": {
+          "id": 484,
+          "name": "name484"
+        },
+        "item485": {
+          "id": 485,
+          "name": "name485"
+        },
+        "item486": {
+          "id": 486,
+          "name": "name486"
+        },
+        "item487": {
+          "id": 487,
+          "name": "name487"
+        },
+        "item488": {
+          "id": 488,
+          "name": "name488"
+        },
+        "item489": {
+          "id": 489,
+          "name": "name489"
+        },
+        "item490": {
+          "id": 490,
+          "name": "name490"
+        },
+        "item491": {
+          "id": 491,
+          "name": "name491"
+        },
+        "item492": {
+          "id": 492,
+          "name": "name492"
+        },
+        "item493": {
+          "id": 493,
+          "name": "name493"
+        },
+        "item494": {
+          "id": 494,
+          "name": "name494"
+        },
+        "item495": {
+          "id": 495,
+          "name": "name495"
+        },
+        "item496": {
+          "id": 496,
+          "name": "name496"
+        },
+        "item497": {
+          "id": 497,
+          "name": "name497"
+        },
+        "item498": {
+          "id": 498,
+          "name": "name498"
+        },
+        "item499": {
+          "id": 499,
+          "name": "name499"
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "item0": {
+          "name": "missing-id"
+        }
+      }
+    ]
+  },
+  "refs1000Times": {
+    "valid": [
+      {
+        "val0": "value0",
+        "val1": "value1",
+        "val2": "value2",
+        "val3": "value3",
+        "val4": "value4",
+        "val5": "value5",
+        "val6": "value6",
+        "val7": "value7",
+        "val8": "value8",
+        "val9": "value9",
+        "val10": "value10",
+        "val11": "value11",
+        "val12": "value12",
+        "val13": "value13",
+        "val14": "value14",
+        "val15": "value15",
+        "val16": "value16",
+        "val17": "value17",
+        "val18": "value18",
+        "val19": "value19",
+        "val20": "value20",
+        "val21": "value21",
+        "val22": "value22",
+        "val23": "value23",
+        "val24": "value24",
+        "val25": "value25",
+        "val26": "value26",
+        "val27": "value27",
+        "val28": "value28",
+        "val29": "value29",
+        "val30": "value30",
+        "val31": "value31",
+        "val32": "value32",
+        "val33": "value33",
+        "val34": "value34",
+        "val35": "value35",
+        "val36": "value36",
+        "val37": "value37",
+        "val38": "value38",
+        "val39": "value39",
+        "val40": "value40",
+        "val41": "value41",
+        "val42": "value42",
+        "val43": "value43",
+        "val44": "value44",
+        "val45": "value45",
+        "val46": "value46",
+        "val47": "value47",
+        "val48": "value48",
+        "val49": "value49",
+        "val50": "value50",
+        "val51": "value51",
+        "val52": "value52",
+        "val53": "value53",
+        "val54": "value54",
+        "val55": "value55",
+        "val56": "value56",
+        "val57": "value57",
+        "val58": "value58",
+        "val59": "value59",
+        "val60": "value60",
+        "val61": "value61",
+        "val62": "value62",
+        "val63": "value63",
+        "val64": "value64",
+        "val65": "value65",
+        "val66": "value66",
+        "val67": "value67",
+        "val68": "value68",
+        "val69": "value69",
+        "val70": "value70",
+        "val71": "value71",
+        "val72": "value72",
+        "val73": "value73",
+        "val74": "value74",
+        "val75": "value75",
+        "val76": "value76",
+        "val77": "value77",
+        "val78": "value78",
+        "val79": "value79",
+        "val80": "value80",
+        "val81": "value81",
+        "val82": "value82",
+        "val83": "value83",
+        "val84": "value84",
+        "val85": "value85",
+        "val86": "value86",
+        "val87": "value87",
+        "val88": "value88",
+        "val89": "value89",
+        "val90": "value90",
+        "val91": "value91",
+        "val92": "value92",
+        "val93": "value93",
+        "val94": "value94",
+        "val95": "value95",
+        "val96": "value96",
+        "val97": "value97",
+        "val98": "value98",
+        "val99": "value99",
+        "val100": "value100",
+        "val101": "value101",
+        "val102": "value102",
+        "val103": "value103",
+        "val104": "value104",
+        "val105": "value105",
+        "val106": "value106",
+        "val107": "value107",
+        "val108": "value108",
+        "val109": "value109",
+        "val110": "value110",
+        "val111": "value111",
+        "val112": "value112",
+        "val113": "value113",
+        "val114": "value114",
+        "val115": "value115",
+        "val116": "value116",
+        "val117": "value117",
+        "val118": "value118",
+        "val119": "value119",
+        "val120": "value120",
+        "val121": "value121",
+        "val122": "value122",
+        "val123": "value123",
+        "val124": "value124",
+        "val125": "value125",
+        "val126": "value126",
+        "val127": "value127",
+        "val128": "value128",
+        "val129": "value129",
+        "val130": "value130",
+        "val131": "value131",
+        "val132": "value132",
+        "val133": "value133",
+        "val134": "value134",
+        "val135": "value135",
+        "val136": "value136",
+        "val137": "value137",
+        "val138": "value138",
+        "val139": "value139",
+        "val140": "value140",
+        "val141": "value141",
+        "val142": "value142",
+        "val143": "value143",
+        "val144": "value144",
+        "val145": "value145",
+        "val146": "value146",
+        "val147": "value147",
+        "val148": "value148",
+        "val149": "value149",
+        "val150": "value150",
+        "val151": "value151",
+        "val152": "value152",
+        "val153": "value153",
+        "val154": "value154",
+        "val155": "value155",
+        "val156": "value156",
+        "val157": "value157",
+        "val158": "value158",
+        "val159": "value159",
+        "val160": "value160",
+        "val161": "value161",
+        "val162": "value162",
+        "val163": "value163",
+        "val164": "value164",
+        "val165": "value165",
+        "val166": "value166",
+        "val167": "value167",
+        "val168": "value168",
+        "val169": "value169",
+        "val170": "value170",
+        "val171": "value171",
+        "val172": "value172",
+        "val173": "value173",
+        "val174": "value174",
+        "val175": "value175",
+        "val176": "value176",
+        "val177": "value177",
+        "val178": "value178",
+        "val179": "value179",
+        "val180": "value180",
+        "val181": "value181",
+        "val182": "value182",
+        "val183": "value183",
+        "val184": "value184",
+        "val185": "value185",
+        "val186": "value186",
+        "val187": "value187",
+        "val188": "value188",
+        "val189": "value189",
+        "val190": "value190",
+        "val191": "value191",
+        "val192": "value192",
+        "val193": "value193",
+        "val194": "value194",
+        "val195": "value195",
+        "val196": "value196",
+        "val197": "value197",
+        "val198": "value198",
+        "val199": "value199",
+        "val200": "value200",
+        "val201": "value201",
+        "val202": "value202",
+        "val203": "value203",
+        "val204": "value204",
+        "val205": "value205",
+        "val206": "value206",
+        "val207": "value207",
+        "val208": "value208",
+        "val209": "value209",
+        "val210": "value210",
+        "val211": "value211",
+        "val212": "value212",
+        "val213": "value213",
+        "val214": "value214",
+        "val215": "value215",
+        "val216": "value216",
+        "val217": "value217",
+        "val218": "value218",
+        "val219": "value219",
+        "val220": "value220",
+        "val221": "value221",
+        "val222": "value222",
+        "val223": "value223",
+        "val224": "value224",
+        "val225": "value225",
+        "val226": "value226",
+        "val227": "value227",
+        "val228": "value228",
+        "val229": "value229",
+        "val230": "value230",
+        "val231": "value231",
+        "val232": "value232",
+        "val233": "value233",
+        "val234": "value234",
+        "val235": "value235",
+        "val236": "value236",
+        "val237": "value237",
+        "val238": "value238",
+        "val239": "value239",
+        "val240": "value240",
+        "val241": "value241",
+        "val242": "value242",
+        "val243": "value243",
+        "val244": "value244",
+        "val245": "value245",
+        "val246": "value246",
+        "val247": "value247",
+        "val248": "value248",
+        "val249": "value249",
+        "val250": "value250",
+        "val251": "value251",
+        "val252": "value252",
+        "val253": "value253",
+        "val254": "value254",
+        "val255": "value255",
+        "val256": "value256",
+        "val257": "value257",
+        "val258": "value258",
+        "val259": "value259",
+        "val260": "value260",
+        "val261": "value261",
+        "val262": "value262",
+        "val263": "value263",
+        "val264": "value264",
+        "val265": "value265",
+        "val266": "value266",
+        "val267": "value267",
+        "val268": "value268",
+        "val269": "value269",
+        "val270": "value270",
+        "val271": "value271",
+        "val272": "value272",
+        "val273": "value273",
+        "val274": "value274",
+        "val275": "value275",
+        "val276": "value276",
+        "val277": "value277",
+        "val278": "value278",
+        "val279": "value279",
+        "val280": "value280",
+        "val281": "value281",
+        "val282": "value282",
+        "val283": "value283",
+        "val284": "value284",
+        "val285": "value285",
+        "val286": "value286",
+        "val287": "value287",
+        "val288": "value288",
+        "val289": "value289",
+        "val290": "value290",
+        "val291": "value291",
+        "val292": "value292",
+        "val293": "value293",
+        "val294": "value294",
+        "val295": "value295",
+        "val296": "value296",
+        "val297": "value297",
+        "val298": "value298",
+        "val299": "value299",
+        "val300": "value300",
+        "val301": "value301",
+        "val302": "value302",
+        "val303": "value303",
+        "val304": "value304",
+        "val305": "value305",
+        "val306": "value306",
+        "val307": "value307",
+        "val308": "value308",
+        "val309": "value309",
+        "val310": "value310",
+        "val311": "value311",
+        "val312": "value312",
+        "val313": "value313",
+        "val314": "value314",
+        "val315": "value315",
+        "val316": "value316",
+        "val317": "value317",
+        "val318": "value318",
+        "val319": "value319",
+        "val320": "value320",
+        "val321": "value321",
+        "val322": "value322",
+        "val323": "value323",
+        "val324": "value324",
+        "val325": "value325",
+        "val326": "value326",
+        "val327": "value327",
+        "val328": "value328",
+        "val329": "value329",
+        "val330": "value330",
+        "val331": "value331",
+        "val332": "value332",
+        "val333": "value333",
+        "val334": "value334",
+        "val335": "value335",
+        "val336": "value336",
+        "val337": "value337",
+        "val338": "value338",
+        "val339": "value339",
+        "val340": "value340",
+        "val341": "value341",
+        "val342": "value342",
+        "val343": "value343",
+        "val344": "value344",
+        "val345": "value345",
+        "val346": "value346",
+        "val347": "value347",
+        "val348": "value348",
+        "val349": "value349",
+        "val350": "value350",
+        "val351": "value351",
+        "val352": "value352",
+        "val353": "value353",
+        "val354": "value354",
+        "val355": "value355",
+        "val356": "value356",
+        "val357": "value357",
+        "val358": "value358",
+        "val359": "value359",
+        "val360": "value360",
+        "val361": "value361",
+        "val362": "value362",
+        "val363": "value363",
+        "val364": "value364",
+        "val365": "value365",
+        "val366": "value366",
+        "val367": "value367",
+        "val368": "value368",
+        "val369": "value369",
+        "val370": "value370",
+        "val371": "value371",
+        "val372": "value372",
+        "val373": "value373",
+        "val374": "value374",
+        "val375": "value375",
+        "val376": "value376",
+        "val377": "value377",
+        "val378": "value378",
+        "val379": "value379",
+        "val380": "value380",
+        "val381": "value381",
+        "val382": "value382",
+        "val383": "value383",
+        "val384": "value384",
+        "val385": "value385",
+        "val386": "value386",
+        "val387": "value387",
+        "val388": "value388",
+        "val389": "value389",
+        "val390": "value390",
+        "val391": "value391",
+        "val392": "value392",
+        "val393": "value393",
+        "val394": "value394",
+        "val395": "value395",
+        "val396": "value396",
+        "val397": "value397",
+        "val398": "value398",
+        "val399": "value399",
+        "val400": "value400",
+        "val401": "value401",
+        "val402": "value402",
+        "val403": "value403",
+        "val404": "value404",
+        "val405": "value405",
+        "val406": "value406",
+        "val407": "value407",
+        "val408": "value408",
+        "val409": "value409",
+        "val410": "value410",
+        "val411": "value411",
+        "val412": "value412",
+        "val413": "value413",
+        "val414": "value414",
+        "val415": "value415",
+        "val416": "value416",
+        "val417": "value417",
+        "val418": "value418",
+        "val419": "value419",
+        "val420": "value420",
+        "val421": "value421",
+        "val422": "value422",
+        "val423": "value423",
+        "val424": "value424",
+        "val425": "value425",
+        "val426": "value426",
+        "val427": "value427",
+        "val428": "value428",
+        "val429": "value429",
+        "val430": "value430",
+        "val431": "value431",
+        "val432": "value432",
+        "val433": "value433",
+        "val434": "value434",
+        "val435": "value435",
+        "val436": "value436",
+        "val437": "value437",
+        "val438": "value438",
+        "val439": "value439",
+        "val440": "value440",
+        "val441": "value441",
+        "val442": "value442",
+        "val443": "value443",
+        "val444": "value444",
+        "val445": "value445",
+        "val446": "value446",
+        "val447": "value447",
+        "val448": "value448",
+        "val449": "value449",
+        "val450": "value450",
+        "val451": "value451",
+        "val452": "value452",
+        "val453": "value453",
+        "val454": "value454",
+        "val455": "value455",
+        "val456": "value456",
+        "val457": "value457",
+        "val458": "value458",
+        "val459": "value459",
+        "val460": "value460",
+        "val461": "value461",
+        "val462": "value462",
+        "val463": "value463",
+        "val464": "value464",
+        "val465": "value465",
+        "val466": "value466",
+        "val467": "value467",
+        "val468": "value468",
+        "val469": "value469",
+        "val470": "value470",
+        "val471": "value471",
+        "val472": "value472",
+        "val473": "value473",
+        "val474": "value474",
+        "val475": "value475",
+        "val476": "value476",
+        "val477": "value477",
+        "val478": "value478",
+        "val479": "value479",
+        "val480": "value480",
+        "val481": "value481",
+        "val482": "value482",
+        "val483": "value483",
+        "val484": "value484",
+        "val485": "value485",
+        "val486": "value486",
+        "val487": "value487",
+        "val488": "value488",
+        "val489": "value489",
+        "val490": "value490",
+        "val491": "value491",
+        "val492": "value492",
+        "val493": "value493",
+        "val494": "value494",
+        "val495": "value495",
+        "val496": "value496",
+        "val497": "value497",
+        "val498": "value498",
+        "val499": "value499",
+        "val500": "value500",
+        "val501": "value501",
+        "val502": "value502",
+        "val503": "value503",
+        "val504": "value504",
+        "val505": "value505",
+        "val506": "value506",
+        "val507": "value507",
+        "val508": "value508",
+        "val509": "value509",
+        "val510": "value510",
+        "val511": "value511",
+        "val512": "value512",
+        "val513": "value513",
+        "val514": "value514",
+        "val515": "value515",
+        "val516": "value516",
+        "val517": "value517",
+        "val518": "value518",
+        "val519": "value519",
+        "val520": "value520",
+        "val521": "value521",
+        "val522": "value522",
+        "val523": "value523",
+        "val524": "value524",
+        "val525": "value525",
+        "val526": "value526",
+        "val527": "value527",
+        "val528": "value528",
+        "val529": "value529",
+        "val530": "value530",
+        "val531": "value531",
+        "val532": "value532",
+        "val533": "value533",
+        "val534": "value534",
+        "val535": "value535",
+        "val536": "value536",
+        "val537": "value537",
+        "val538": "value538",
+        "val539": "value539",
+        "val540": "value540",
+        "val541": "value541",
+        "val542": "value542",
+        "val543": "value543",
+        "val544": "value544",
+        "val545": "value545",
+        "val546": "value546",
+        "val547": "value547",
+        "val548": "value548",
+        "val549": "value549",
+        "val550": "value550",
+        "val551": "value551",
+        "val552": "value552",
+        "val553": "value553",
+        "val554": "value554",
+        "val555": "value555",
+        "val556": "value556",
+        "val557": "value557",
+        "val558": "value558",
+        "val559": "value559",
+        "val560": "value560",
+        "val561": "value561",
+        "val562": "value562",
+        "val563": "value563",
+        "val564": "value564",
+        "val565": "value565",
+        "val566": "value566",
+        "val567": "value567",
+        "val568": "value568",
+        "val569": "value569",
+        "val570": "value570",
+        "val571": "value571",
+        "val572": "value572",
+        "val573": "value573",
+        "val574": "value574",
+        "val575": "value575",
+        "val576": "value576",
+        "val577": "value577",
+        "val578": "value578",
+        "val579": "value579",
+        "val580": "value580",
+        "val581": "value581",
+        "val582": "value582",
+        "val583": "value583",
+        "val584": "value584",
+        "val585": "value585",
+        "val586": "value586",
+        "val587": "value587",
+        "val588": "value588",
+        "val589": "value589",
+        "val590": "value590",
+        "val591": "value591",
+        "val592": "value592",
+        "val593": "value593",
+        "val594": "value594",
+        "val595": "value595",
+        "val596": "value596",
+        "val597": "value597",
+        "val598": "value598",
+        "val599": "value599",
+        "val600": "value600",
+        "val601": "value601",
+        "val602": "value602",
+        "val603": "value603",
+        "val604": "value604",
+        "val605": "value605",
+        "val606": "value606",
+        "val607": "value607",
+        "val608": "value608",
+        "val609": "value609",
+        "val610": "value610",
+        "val611": "value611",
+        "val612": "value612",
+        "val613": "value613",
+        "val614": "value614",
+        "val615": "value615",
+        "val616": "value616",
+        "val617": "value617",
+        "val618": "value618",
+        "val619": "value619",
+        "val620": "value620",
+        "val621": "value621",
+        "val622": "value622",
+        "val623": "value623",
+        "val624": "value624",
+        "val625": "value625",
+        "val626": "value626",
+        "val627": "value627",
+        "val628": "value628",
+        "val629": "value629",
+        "val630": "value630",
+        "val631": "value631",
+        "val632": "value632",
+        "val633": "value633",
+        "val634": "value634",
+        "val635": "value635",
+        "val636": "value636",
+        "val637": "value637",
+        "val638": "value638",
+        "val639": "value639",
+        "val640": "value640",
+        "val641": "value641",
+        "val642": "value642",
+        "val643": "value643",
+        "val644": "value644",
+        "val645": "value645",
+        "val646": "value646",
+        "val647": "value647",
+        "val648": "value648",
+        "val649": "value649",
+        "val650": "value650",
+        "val651": "value651",
+        "val652": "value652",
+        "val653": "value653",
+        "val654": "value654",
+        "val655": "value655",
+        "val656": "value656",
+        "val657": "value657",
+        "val658": "value658",
+        "val659": "value659",
+        "val660": "value660",
+        "val661": "value661",
+        "val662": "value662",
+        "val663": "value663",
+        "val664": "value664",
+        "val665": "value665",
+        "val666": "value666",
+        "val667": "value667",
+        "val668": "value668",
+        "val669": "value669",
+        "val670": "value670",
+        "val671": "value671",
+        "val672": "value672",
+        "val673": "value673",
+        "val674": "value674",
+        "val675": "value675",
+        "val676": "value676",
+        "val677": "value677",
+        "val678": "value678",
+        "val679": "value679",
+        "val680": "value680",
+        "val681": "value681",
+        "val682": "value682",
+        "val683": "value683",
+        "val684": "value684",
+        "val685": "value685",
+        "val686": "value686",
+        "val687": "value687",
+        "val688": "value688",
+        "val689": "value689",
+        "val690": "value690",
+        "val691": "value691",
+        "val692": "value692",
+        "val693": "value693",
+        "val694": "value694",
+        "val695": "value695",
+        "val696": "value696",
+        "val697": "value697",
+        "val698": "value698",
+        "val699": "value699",
+        "val700": "value700",
+        "val701": "value701",
+        "val702": "value702",
+        "val703": "value703",
+        "val704": "value704",
+        "val705": "value705",
+        "val706": "value706",
+        "val707": "value707",
+        "val708": "value708",
+        "val709": "value709",
+        "val710": "value710",
+        "val711": "value711",
+        "val712": "value712",
+        "val713": "value713",
+        "val714": "value714",
+        "val715": "value715",
+        "val716": "value716",
+        "val717": "value717",
+        "val718": "value718",
+        "val719": "value719",
+        "val720": "value720",
+        "val721": "value721",
+        "val722": "value722",
+        "val723": "value723",
+        "val724": "value724",
+        "val725": "value725",
+        "val726": "value726",
+        "val727": "value727",
+        "val728": "value728",
+        "val729": "value729",
+        "val730": "value730",
+        "val731": "value731",
+        "val732": "value732",
+        "val733": "value733",
+        "val734": "value734",
+        "val735": "value735",
+        "val736": "value736",
+        "val737": "value737",
+        "val738": "value738",
+        "val739": "value739",
+        "val740": "value740",
+        "val741": "value741",
+        "val742": "value742",
+        "val743": "value743",
+        "val744": "value744",
+        "val745": "value745",
+        "val746": "value746",
+        "val747": "value747",
+        "val748": "value748",
+        "val749": "value749",
+        "val750": "value750",
+        "val751": "value751",
+        "val752": "value752",
+        "val753": "value753",
+        "val754": "value754",
+        "val755": "value755",
+        "val756": "value756",
+        "val757": "value757",
+        "val758": "value758",
+        "val759": "value759",
+        "val760": "value760",
+        "val761": "value761",
+        "val762": "value762",
+        "val763": "value763",
+        "val764": "value764",
+        "val765": "value765",
+        "val766": "value766",
+        "val767": "value767",
+        "val768": "value768",
+        "val769": "value769",
+        "val770": "value770",
+        "val771": "value771",
+        "val772": "value772",
+        "val773": "value773",
+        "val774": "value774",
+        "val775": "value775",
+        "val776": "value776",
+        "val777": "value777",
+        "val778": "value778",
+        "val779": "value779",
+        "val780": "value780",
+        "val781": "value781",
+        "val782": "value782",
+        "val783": "value783",
+        "val784": "value784",
+        "val785": "value785",
+        "val786": "value786",
+        "val787": "value787",
+        "val788": "value788",
+        "val789": "value789",
+        "val790": "value790",
+        "val791": "value791",
+        "val792": "value792",
+        "val793": "value793",
+        "val794": "value794",
+        "val795": "value795",
+        "val796": "value796",
+        "val797": "value797",
+        "val798": "value798",
+        "val799": "value799",
+        "val800": "value800",
+        "val801": "value801",
+        "val802": "value802",
+        "val803": "value803",
+        "val804": "value804",
+        "val805": "value805",
+        "val806": "value806",
+        "val807": "value807",
+        "val808": "value808",
+        "val809": "value809",
+        "val810": "value810",
+        "val811": "value811",
+        "val812": "value812",
+        "val813": "value813",
+        "val814": "value814",
+        "val815": "value815",
+        "val816": "value816",
+        "val817": "value817",
+        "val818": "value818",
+        "val819": "value819",
+        "val820": "value820",
+        "val821": "value821",
+        "val822": "value822",
+        "val823": "value823",
+        "val824": "value824",
+        "val825": "value825",
+        "val826": "value826",
+        "val827": "value827",
+        "val828": "value828",
+        "val829": "value829",
+        "val830": "value830",
+        "val831": "value831",
+        "val832": "value832",
+        "val833": "value833",
+        "val834": "value834",
+        "val835": "value835",
+        "val836": "value836",
+        "val837": "value837",
+        "val838": "value838",
+        "val839": "value839",
+        "val840": "value840",
+        "val841": "value841",
+        "val842": "value842",
+        "val843": "value843",
+        "val844": "value844",
+        "val845": "value845",
+        "val846": "value846",
+        "val847": "value847",
+        "val848": "value848",
+        "val849": "value849",
+        "val850": "value850",
+        "val851": "value851",
+        "val852": "value852",
+        "val853": "value853",
+        "val854": "value854",
+        "val855": "value855",
+        "val856": "value856",
+        "val857": "value857",
+        "val858": "value858",
+        "val859": "value859",
+        "val860": "value860",
+        "val861": "value861",
+        "val862": "value862",
+        "val863": "value863",
+        "val864": "value864",
+        "val865": "value865",
+        "val866": "value866",
+        "val867": "value867",
+        "val868": "value868",
+        "val869": "value869",
+        "val870": "value870",
+        "val871": "value871",
+        "val872": "value872",
+        "val873": "value873",
+        "val874": "value874",
+        "val875": "value875",
+        "val876": "value876",
+        "val877": "value877",
+        "val878": "value878",
+        "val879": "value879",
+        "val880": "value880",
+        "val881": "value881",
+        "val882": "value882",
+        "val883": "value883",
+        "val884": "value884",
+        "val885": "value885",
+        "val886": "value886",
+        "val887": "value887",
+        "val888": "value888",
+        "val889": "value889",
+        "val890": "value890",
+        "val891": "value891",
+        "val892": "value892",
+        "val893": "value893",
+        "val894": "value894",
+        "val895": "value895",
+        "val896": "value896",
+        "val897": "value897",
+        "val898": "value898",
+        "val899": "value899",
+        "val900": "value900",
+        "val901": "value901",
+        "val902": "value902",
+        "val903": "value903",
+        "val904": "value904",
+        "val905": "value905",
+        "val906": "value906",
+        "val907": "value907",
+        "val908": "value908",
+        "val909": "value909",
+        "val910": "value910",
+        "val911": "value911",
+        "val912": "value912",
+        "val913": "value913",
+        "val914": "value914",
+        "val915": "value915",
+        "val916": "value916",
+        "val917": "value917",
+        "val918": "value918",
+        "val919": "value919",
+        "val920": "value920",
+        "val921": "value921",
+        "val922": "value922",
+        "val923": "value923",
+        "val924": "value924",
+        "val925": "value925",
+        "val926": "value926",
+        "val927": "value927",
+        "val928": "value928",
+        "val929": "value929",
+        "val930": "value930",
+        "val931": "value931",
+        "val932": "value932",
+        "val933": "value933",
+        "val934": "value934",
+        "val935": "value935",
+        "val936": "value936",
+        "val937": "value937",
+        "val938": "value938",
+        "val939": "value939",
+        "val940": "value940",
+        "val941": "value941",
+        "val942": "value942",
+        "val943": "value943",
+        "val944": "value944",
+        "val945": "value945",
+        "val946": "value946",
+        "val947": "value947",
+        "val948": "value948",
+        "val949": "value949",
+        "val950": "value950",
+        "val951": "value951",
+        "val952": "value952",
+        "val953": "value953",
+        "val954": "value954",
+        "val955": "value955",
+        "val956": "value956",
+        "val957": "value957",
+        "val958": "value958",
+        "val959": "value959",
+        "val960": "value960",
+        "val961": "value961",
+        "val962": "value962",
+        "val963": "value963",
+        "val964": "value964",
+        "val965": "value965",
+        "val966": "value966",
+        "val967": "value967",
+        "val968": "value968",
+        "val969": "value969",
+        "val970": "value970",
+        "val971": "value971",
+        "val972": "value972",
+        "val973": "value973",
+        "val974": "value974",
+        "val975": "value975",
+        "val976": "value976",
+        "val977": "value977",
+        "val978": "value978",
+        "val979": "value979",
+        "val980": "value980",
+        "val981": "value981",
+        "val982": "value982",
+        "val983": "value983",
+        "val984": "value984",
+        "val985": "value985",
+        "val986": "value986",
+        "val987": "value987",
+        "val988": "value988",
+        "val989": "value989",
+        "val990": "value990",
+        "val991": "value991",
+        "val992": "value992",
+        "val993": "value993",
+        "val994": "value994",
+        "val995": "value995",
+        "val996": "value996",
+        "val997": "value997",
+        "val998": "value998",
+        "val999": "value999"
+      }
+    ],
+    "invalid": [
+      {
+        "val0": ""
+      }
+    ]
+  },
+  "recursiveRefs": {
+    "valid": [
+      {
+        "root": {
+          "value": 10,
+          "left": {
+            "value": 5,
+            "left": {
+              "value": 2
+            },
+            "right": {
+              "value": 7
+            }
+          },
+          "right": {
+            "value": 15,
+            "children": [
+              {
+                "value": 12
+              },
+              {
+                "value": 18
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "root": {
+          "left": {
+            "value": 5
+          }
+        }
+      }
+    ]
+  },
+  "chainedRefs": {
+    "valid": [
+      {
+        "data": "final-value"
+      }
+    ],
+    "invalid": [
+      {
+        "data": 123
+      }
+    ]
+  },
+  "complexRefGraph": {
+    "valid": [
+      {
+        "graph": [
+          {
+            "id": "a1",
+            "refB": {
+              "id": "b1"
+            },
+            "refC": {
+              "id": "c1"
+            }
+          },
+          {
+            "id": "b1",
+            "refA": {
+              "id": "a2"
+            },
+            "refD": {
+              "id": "d1"
+            }
+          },
+          {
+            "id": "c1",
+            "refA": {
+              "id": "a1"
+            },
+            "refB": {
+              "id": "b2"
+            },
+            "refD": {
+              "id": "d2"
+            }
+          },
+          {
+            "id": "d1",
+            "refB": {
+              "id": "b1"
+            },
+            "refC": {
+              "id": "c2"
+            }
+          }
+        ]
+      }
+    ],
+    "invalid": [
+      {
+        "graph": [
+          {
+            "id": 123
+          }
+        ]
+      }
+    ]
+  }
+}

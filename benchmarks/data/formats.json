@@ -1,0 +1,86 @@
+{
+  "regexFormats": {
+    "valid": [
+      {
+        "email": "test@example.com",
+        "uuid": "123e4567-e89b-12d3-a456-426614174000",
+        "uri": "https://example.com/path",
+        "ipv4": "192.168.1.1",
+        "ipv6": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+        "uriReference": "/relative/path",
+        "hostname": "example.com",
+        "jsonPointer": "/foo/bar",
+        "relativeJsonPointer": "1/foo",
+        "regex": "^[a-z]+$"
+      }
+    ],
+    "invalid": [
+      {
+        "email": "not-an-email",
+        "uuid": "invalid-uuid",
+        "uri": "not a uri"
+      }
+    ]
+  },
+  "functionFormats": {
+    "valid": [
+      {
+        "date": "2024-01-15",
+        "time": "14:30:00",
+        "dateTime": "2024-01-15T14:30:00Z",
+        "duration": "P1Y2M3DT4H5M6S",
+        "isoDateTime": "2024-01-15T14:30:00.000Z"
+      }
+    ],
+    "invalid": [
+      {
+        "date": "15-01-2024",
+        "dateTime": "invalid-datetime"
+      }
+    ]
+  },
+  "mixedFormats": {
+    "valid": [
+      {
+        "user": {
+          "id": "123e4567-e89b-12d3-a456-426614174000",
+          "email": "user@example.com",
+          "website": "https://example.com",
+          "createdAt": "2024-01-15T14:30:00Z",
+          "birthDate": "1990-05-20"
+        },
+        "metadata": {
+          "ipAddress": "192.168.1.1",
+          "hostname": "server.example.com",
+          "timestamp": "2024-01-15T14:30:00Z"
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "user": {
+          "id": "not-a-uuid",
+          "email": "invalid",
+          "createdAt": "invalid"
+        }
+      }
+    ]
+  },
+  "integerFormats": {
+    "valid": [
+      {
+        "int32Value": 2147483647,
+        "int64Value": 9007199254740991,
+        "uint32Value": 4294967295,
+        "uint64Value": 18446744073709552000,
+        "byteValue": 255
+      }
+    ],
+    "invalid": [
+      {
+        "int32Value": 2147483648,
+        "byteValue": 256
+      }
+    ]
+  }
+}

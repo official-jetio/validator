@@ -1,0 +1,549 @@
+{
+  "packageJson": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "pattern": "^(?:@[a-z0-9-*~][a-z0-9-*._~]*/)?[a-z0-9-~][a-z0-9-._~]*$"
+      },
+      "version": {
+        "type": "string",
+        "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+      },
+      "description": { "type": "string" },
+      "keywords": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "homepage": {
+        "type": "string",
+        "format": "uri"
+      },
+      "license": { "type": "string" },
+      "author": {
+        "oneOf": [
+          { "type": "string" },
+          {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "email": { "type": "string", "format": "email" },
+              "url": { "type": "string", "format": "uri" }
+            },
+            "required": ["name"]
+          }
+        ]
+      },
+      "repository": {
+        "oneOf": [
+          { "type": "string" },
+          {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string" },
+              "url": { "type": "string", "format": "uri" }
+            },
+            "required": ["type", "url"]
+          }
+        ]
+      },
+      "scripts": {
+        "type": "object",
+        "patternProperties": {
+          "^[a-zA-Z0-9:_-]+$": { "type": "string" }
+        }
+      },
+      "dependencies": {
+        "type": "object",
+        "patternProperties": {
+          "^[a-zA-Z0-9@/_-]+$": { "type": "string" }
+        }
+      },
+      "devDependencies": {
+        "type": "object",
+        "patternProperties": {
+          "^[a-zA-Z0-9@/_-]+$": { "type": "string" }
+        }
+      },
+      "peerDependencies": {
+        "type": "object",
+        "patternProperties": {
+          "^[a-zA-Z0-9@/_-]+$": { "type": "string" }
+        }
+      },
+      "engines": {
+        "type": "object",
+        "properties": {
+          "node": { "type": "string" },
+          "npm": { "type": "string" }
+        }
+      },
+      "main": { "type": "string" },
+      "module": { "type": "string" },
+      "types": { "type": "string" },
+      "exports": {
+        "oneOf": [
+          { "type": "string" },
+          { "type": "object" }
+        ]
+      },
+      "files": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    },
+    "required": ["name", "version"]
+  },
+  "tsconfigJson": {
+    "type": "object",
+    "properties": {
+      "compilerOptions": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "enum": ["ES3", "ES5", "ES6", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ES2020", "ES2021", "ES2022", "ESNext"]
+          },
+          "module": {
+            "type": "string",
+            "enum": ["none", "commonjs", "amd", "system", "umd", "es6", "es2015", "es2020", "es2022", "esnext", "node16", "nodenext"]
+          },
+          "lib": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "outDir": { "type": "string" },
+          "rootDir": { "type": "string" },
+          "strict": { "type": "boolean" },
+          "esModuleInterop": { "type": "boolean" },
+          "skipLibCheck": { "type": "boolean" },
+          "forceConsistentCasingInFileNames": { "type": "boolean" },
+          "resolveJsonModule": { "type": "boolean" },
+          "allowJs": { "type": "boolean" },
+          "checkJs": { "type": "boolean" },
+          "declaration": { "type": "boolean" },
+          "declarationMap": { "type": "boolean" },
+          "sourceMap": { "type": "boolean" },
+          "noEmit": { "type": "boolean" },
+          "incremental": { "type": "boolean" },
+          "moduleResolution": {
+            "type": "string",
+            "enum": ["node", "node16", "nodenext", "classic"]
+          },
+          "baseUrl": { "type": "string" },
+          "paths": {
+            "type": "object",
+            "patternProperties": {
+              ".*": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          },
+          "typeRoots": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "types": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      },
+      "include": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "exclude": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "files": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "extends": { "type": "string" }
+    }
+  },
+  "openApiPath": {
+    "type": "object",
+    "properties": {
+      "summary": { "type": "string" },
+      "description": { "type": "string" },
+      "operationId": { "type": "string" },
+      "tags": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "parameters": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "in": {
+              "type": "string",
+              "enum": ["query", "header", "path", "cookie"]
+            },
+            "description": { "type": "string" },
+            "required": { "type": "boolean" },
+            "schema": { "type": "object" }
+          },
+          "required": ["name", "in"]
+        }
+      },
+      "requestBody": {
+        "type": "object",
+        "properties": {
+          "description": { "type": "string" },
+          "required": { "type": "boolean" },
+          "content": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z0-9.+_-]+/[a-zA-Z0-9.+_-]+$": {
+                "type": "object",
+                "properties": {
+                  "schema": { "type": "object" }
+                }
+              }
+            }
+          }
+        },
+        "required": ["content"]
+      },
+      "responses": {
+        "type": "object",
+        "patternProperties": {
+          "^[0-9]{3}$|^default$": {
+            "type": "object",
+            "properties": {
+              "description": { "type": "string" },
+              "content": {
+                "type": "object",
+                "patternProperties": {
+                  "^[a-zA-Z0-9.+_-]+/[a-zA-Z0-9.+_-]+$": {
+                    "type": "object",
+                    "properties": {
+                      "schema": { "type": "object" }
+                    }
+                  }
+                }
+              }
+            },
+            "required": ["description"]
+          }
+        },
+        "minProperties": 1
+      }
+    },
+    "required": ["responses"]
+  },
+  "jsonResume": {
+    "type": "object",
+    "properties": {
+      "basics": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "label": { "type": "string" },
+          "image": { "type": "string", "format": "uri" },
+          "email": { "type": "string", "format": "email" },
+          "phone": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "summary": { "type": "string" },
+          "location": {
+            "type": "object",
+            "properties": {
+              "address": { "type": "string" },
+              "postalCode": { "type": "string" },
+              "city": { "type": "string" },
+              "countryCode": { "type": "string" },
+              "region": { "type": "string" }
+            }
+          },
+          "profiles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "network": { "type": "string" },
+                "username": { "type": "string" },
+                "url": { "type": "string", "format": "uri" }
+              }
+            }
+          }
+        }
+      },
+      "work": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "position": { "type": "string" },
+            "url": { "type": "string", "format": "uri" },
+            "startDate": { "type": "string", "format": "date" },
+            "endDate": { "type": "string", "format": "date" },
+            "summary": { "type": "string" },
+            "highlights": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      },
+      "education": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "institution": { "type": "string" },
+            "area": { "type": "string" },
+            "studyType": { "type": "string" },
+            "startDate": { "type": "string", "format": "date" },
+            "endDate": { "type": "string", "format": "date" },
+            "score": { "type": "string" },
+            "courses": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      },
+      "skills": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "level": { "type": "string" },
+            "keywords": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      },
+      "languages": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "language": { "type": "string" },
+            "fluency": { "type": "string" }
+          }
+        }
+      }
+    }
+  },
+  "geoJson": {
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": ["Feature"]
+      },
+      "geometry": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["Point", "LineString", "Polygon", "MultiPoint", "MultiLineString", "MultiPolygon"]
+          },
+          "coordinates": {
+            "oneOf": [
+              {
+                "type": "array",
+                "minItems": 2,
+                "items": { "type": "number" }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": { "type": "number" }
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": { "type": "number" }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "required": ["type", "coordinates"]
+      },
+      "properties": {
+        "type": "object"
+      }
+    },
+    "required": ["type", "geometry"]
+  },
+  "awsCloudFormation": {
+    "type": "object",
+    "properties": {
+      "AWSTemplateFormatVersion": {
+        "type": "string",
+        "enum": ["2010-09-09"]
+      },
+      "Description": { "type": "string" },
+      "Parameters": {
+        "type": "object",
+        "patternProperties": {
+          "^[a-zA-Z0-9]+$": {
+            "type": "object",
+            "properties": {
+              "Type": {
+                "type": "string",
+                "enum": ["String", "Number", "List<Number>", "CommaDelimitedList", "AWS::EC2::AvailabilityZone::Name", "AWS::EC2::Image::Id", "AWS::EC2::Instance::Id"]
+              },
+              "Default": {},
+              "Description": { "type": "string" },
+              "AllowedValues": { "type": "array" },
+              "MinLength": { "type": "integer" },
+              "MaxLength": { "type": "integer" }
+            },
+            "required": ["Type"]
+          }
+        }
+      },
+      "Resources": {
+        "type": "object",
+        "patternProperties": {
+          "^[a-zA-Z0-9]+$": {
+            "type": "object",
+            "properties": {
+              "Type": { "type": "string" },
+              "Properties": { "type": "object" },
+              "DependsOn": {
+                "oneOf": [
+                  { "type": "string" },
+                  {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  }
+                ]
+              }
+            },
+            "required": ["Type"]
+          }
+        },
+        "minProperties": 1
+      },
+      "Outputs": {
+        "type": "object",
+        "patternProperties": {
+          "^[a-zA-Z0-9]+$": {
+            "type": "object",
+            "properties": {
+              "Description": { "type": "string" },
+              "Value": {},
+              "Export": {
+                "type": "object",
+                "properties": {
+                  "Name": {}
+                },
+                "required": ["Name"]
+              }
+            },
+            "required": ["Value"]
+          }
+        }
+      }
+    },
+    "required": ["Resources"]
+  },
+  "graphqlSchema": {
+    "type": "object",
+    "properties": {
+      "types": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "pattern": "^[A-Z][a-zA-Z0-9_]*$" },
+            "kind": {
+              "type": "string",
+              "enum": ["OBJECT", "INTERFACE", "UNION", "ENUM", "INPUT_OBJECT", "SCALAR"]
+            },
+            "description": { "type": "string" },
+            "fields": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string", "pattern": "^[a-z][a-zA-Z0-9_]*$" },
+                  "type": { "type": "string" },
+                  "args": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": { "type": "string" },
+                        "type": { "type": "string" },
+                        "defaultValue": {}
+                      },
+                      "required": ["name", "type"]
+                    }
+                  },
+                  "isDeprecated": { "type": "boolean" },
+                  "deprecationReason": { "type": "string" }
+                },
+                "required": ["name", "type"]
+              }
+            },
+            "interfaces": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "possibleTypes": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "enumValues": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "description": { "type": "string" },
+                  "isDeprecated": { "type": "boolean" }
+                },
+                "required": ["name"]
+              }
+            }
+          },
+          "required": ["name", "kind"]
+        }
+      },
+      "queryType": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" }
+        },
+        "required": ["name"]
+      },
+      "mutationType": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" }
+        }
+      },
+      "subscriptionType": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" }
+        }
+      }
+    },
+    "required": ["types", "queryType"]
+  }
+}

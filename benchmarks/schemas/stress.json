@@ -1,0 +1,260 @@
+{
+  "deepNesting": {
+    "type": "object",
+    "properties": {
+      "level1": {
+        "type": "object",
+        "properties": {
+          "level2": {
+            "type": "object",
+            "properties": {
+              "level3": {
+                "type": "object",
+                "properties": {
+                  "level4": {
+                    "type": "object",
+                    "properties": {
+                      "level5": {
+                        "type": "object",
+                        "properties": {
+                          "level6": {
+                            "type": "object",
+                            "properties": {
+                              "level7": {
+                                "type": "object",
+                                "properties": {
+                                  "level8": {
+                                    "type": "object",
+                                    "properties": {
+                                      "level9": {
+                                        "type": "object",
+                                        "properties": {
+                                          "level10": {
+                                            "type": "object",
+                                            "properties": {
+                                              "level11": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "level12": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "level13": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "level14": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                              "level15": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                  "level16": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                      "level17": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                          "level18": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                              "level19": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                  "level20": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                      "value": { "type": "string" }
+                                                                                    },
+                                                                                    "required": ["value"]
+                                                                                  }
+                                                                                },
+                                                                                "required": ["level20"]
+                                                                              }
+                                                                            },
+                                                                            "required": ["level19"]
+                                                                          }
+                                                                        },
+                                                                        "required": ["level18"]
+                                                                      }
+                                                                    },
+                                                                    "required": ["level17"]
+                                                                  }
+                                                                },
+                                                                "required": ["level16"]
+                                                              }
+                                                            },
+                                                            "required": ["level15"]
+                                                          }
+                                                        },
+                                                        "required": ["level14"]
+                                                      }
+                                                    },
+                                                    "required": ["level13"]
+                                                  }
+                                                },
+                                                "required": ["level12"]
+                                              }
+                                            },
+                                            "required": ["level11"]
+                                          }
+                                        },
+                                        "required": ["level10"]
+                                      }
+                                    },
+                                    "required": ["level9"]
+                                  }
+                                },
+                                "required": ["level8"]
+                              }
+                            },
+                            "required": ["level7"]
+                          }
+                        },
+                        "required": ["level6"]
+                      }
+                    },
+                    "required": ["level5"]
+                  }
+                },
+                "required": ["level4"]
+              }
+            },
+            "required": ["level3"]
+          }
+        },
+        "required": ["level2"]
+      }
+    },
+    "required": ["level1"]
+  },
+  "wideObject": {
+    "type": "object",
+    "properties": {
+      "prop1": { "type": "string" },
+      "prop2": { "type": "string" },
+      "prop3": { "type": "string" },
+      "prop4": { "type": "string" },
+      "prop5": { "type": "string" },
+      "prop6": { "type": "number" },
+      "prop7": { "type": "number" },
+      "prop8": { "type": "number" },
+      "prop9": { "type": "number" },
+      "prop10": { "type": "number" },
+      "prop11": { "type": "boolean" },
+      "prop12": { "type": "boolean" },
+      "prop13": { "type": "boolean" },
+      "prop14": { "type": "boolean" },
+      "prop15": { "type": "boolean" },
+      "prop16": { "type": "string", "format": "email" },
+      "prop17": { "type": "string", "format": "email" },
+      "prop18": { "type": "string", "format": "email" },
+      "prop19": { "type": "string", "format": "email" },
+      "prop20": { "type": "string", "format": "email" },
+      "prop21": { "type": "string", "minLength": 5 },
+      "prop22": { "type": "string", "minLength": 5 },
+      "prop23": { "type": "string", "minLength": 5 },
+      "prop24": { "type": "string", "minLength": 5 },
+      "prop25": { "type": "string", "minLength": 5 },
+      "prop26": { "type": "number", "minimum": 0 },
+      "prop27": { "type": "number", "minimum": 0 },
+      "prop28": { "type": "number", "minimum": 0 },
+      "prop29": { "type": "number", "minimum": 0 },
+      "prop30": { "type": "number", "minimum": 0 },
+      "prop31": { "type": "integer" },
+      "prop32": { "type": "integer" },
+      "prop33": { "type": "integer" },
+      "prop34": { "type": "integer" },
+      "prop35": { "type": "integer" },
+      "prop36": { "type": "array", "items": { "type": "string" } },
+      "prop37": { "type": "array", "items": { "type": "string" } },
+      "prop38": { "type": "array", "items": { "type": "string" } },
+      "prop39": { "type": "array", "items": { "type": "string" } },
+      "prop40": { "type": "array", "items": { "type": "string" } },
+      "prop41": { "type": "object" },
+      "prop42": { "type": "object" },
+      "prop43": { "type": "object" },
+      "prop44": { "type": "object" },
+      "prop45": { "type": "object" },
+      "prop46": { "type": "string", "pattern": "^[A-Z]+$" },
+      "prop47": { "type": "string", "pattern": "^[A-Z]+$" },
+      "prop48": { "type": "string", "pattern": "^[A-Z]+$" },
+      "prop49": { "type": "string", "pattern": "^[A-Z]+$" },
+      "prop50": { "type": "string", "pattern": "^[A-Z]+$" }
+    },
+    "required": ["prop1", "prop6", "prop11", "prop16", "prop21"]
+  },
+  "largeEnum": {
+    "type": "object",
+    "properties": {
+      "statusCode": {
+        "type": "string",
+        "enum": [
+          "code_0", "code_1", "code_2", "code_3", "code_4", "code_5", "code_6", "code_7", "code_8", "code_9",
+          "code_10", "code_11", "code_12", "code_13", "code_14", "code_15", "code_16", "code_17", "code_18", "code_19",
+          "code_20", "code_21", "code_22", "code_23", "code_24", "code_25", "code_26", "code_27", "code_28", "code_29",
+          "code_30", "code_31", "code_32", "code_33", "code_34", "code_35", "code_36", "code_37", "code_38", "code_39",
+          "code_40", "code_41", "code_42", "code_43", "code_44", "code_45", "code_46", "code_47", "code_48", "code_49",
+          "code_50", "code_51", "code_52", "code_53", "code_54", "code_55", "code_56", "code_57", "code_58", "code_59",
+          "code_60", "code_61", "code_62", "code_63", "code_64", "code_65", "code_66", "code_67", "code_68", "code_69",
+          "code_70", "code_71", "code_72", "code_73", "code_74", "code_75", "code_76", "code_77", "code_78", "code_79",
+          "code_80", "code_81", "code_82", "code_83", "code_84", "code_85", "code_86", "code_87", "code_88", "code_89",
+          "code_90", "code_91", "code_92", "code_93", "code_94", "code_95", "code_96", "code_97", "code_98", "code_99"
+        ]
+      },
+      "category": {
+        "type": "number",
+        "enum": [
+          1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+          21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+          41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
+          61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
+          81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100
+        ]
+      }
+    },
+    "required": ["statusCode", "category"]
+  },
+  "complexRefs": {
+    "$defs": {
+      "node": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "value": { "type": "number" },
+          "children": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/node" }
+          },
+          "parent": { "$ref": "#/$defs/node" }
+        },
+        "required": ["id", "value"]
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "created": { "type": "string", "format": "date-time" },
+          "updated": { "type": "string", "format": "date-time" },
+          "author": { "$ref": "#/$defs/person" }
+        }
+      },
+      "person": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "email": { "type": "string", "format": "email" },
+          "manager": { "$ref": "#/$defs/person" },
+          "team": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/person" }
+          }
+        },
+        "required": ["name", "email"]
+      }
+    },
+    "type": "object",
+    "properties": {
+      "tree": { "$ref": "#/$defs/node" },
+      "metadata": { "$ref": "#/$defs/metadata" }
+    },
+    "required": ["tree"]
+  }
+}

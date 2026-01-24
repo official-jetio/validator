@@ -1,0 +1,264 @@
+{
+  "simpleTypes": {
+    "valid": [
+      {
+        "stringField": "hello",
+        "numberField": 42,
+        "integerField": 10,
+        "booleanField": true,
+        "nullField": null,
+        "arrayField": [
+          "a",
+          "b",
+          "c"
+        ],
+        "objectField": {
+          "nested": "value"
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "stringField": 123,
+        "numberField": "not-a-number"
+      },
+      {
+        "numberField": 42
+      },
+      {
+        "stringField": "hello"
+      }
+    ]
+  },
+  "stringConstraints": {
+    "valid": [
+      {
+        "minLengthStr": "hello",
+        "maxLengthStr": "short",
+        "rangeStr": "medium",
+        "patternStr": "Hello",
+        "email": "test@example.com",
+        "uuid": "123e4567-e89b-12d3-a456-426614174000",
+        "ipv4": "192.168.1.1",
+        "uri": "https://example.com",
+        "enumStr": "red"
+      }
+    ],
+    "invalid": [
+      {
+        "minLengthStr": "hi",
+        "email": "not-an-email"
+      },
+      {
+        "minLengthStr": "hello",
+        "email": "invalid"
+      },
+      {
+        "minLengthStr": "valid",
+        "email": "test@example.com",
+        "patternStr": "lowercase"
+      }
+    ]
+  },
+  "numericConstraints": {
+    "valid": [
+      {
+        "rangeNum": 25,
+        "multipleOf": 15,
+        "minimumNum": 50,
+        "maximumNum": 75,
+        "exclusiveMin": 1,
+        "exclusiveMax": 99,
+        "integerField": 42,
+        "positiveInt": 5,
+        "enumNum": 5
+      }
+    ],
+    "invalid": [
+      {
+        "rangeNum": 5,
+        "multipleOf": 7
+      },
+      {
+        "rangeNum": 25,
+        "multipleOf": 16
+      },
+      {
+        "rangeNum": 100,
+        "multipleOf": 10
+      }
+    ]
+  },
+  "arrayOperations": {
+    "valid": [
+      {
+        "simpleArray": [
+          "a",
+          "b",
+          "c"
+        ],
+        "uniqueArray": [
+          "x",
+          "y",
+          "z"
+        ],
+        "minItemsArray": [
+          1,
+          2
+        ],
+        "maxItemsArray": [
+          1,
+          2,
+          3
+        ],
+        "tupleArray": [
+          "str",
+          42,
+          true
+        ],
+        "containsArray": [
+          1,
+          2,
+          5,
+          10
+        ],
+        "nestedArray": [
+          {
+            "id": 1,
+            "name": "First"
+          },
+          {
+            "id": 2,
+            "name": "Second"
+          }
+        ]
+      }
+    ],
+    "invalid": [
+      {
+        "simpleArray": [
+          1,
+          2,
+          3
+        ],
+        "uniqueArray": [
+          "a",
+          "a",
+          "b"
+        ]
+      },
+      {
+        "simpleArray": [
+          "valid"
+        ],
+        "uniqueArray": [
+          "x",
+          "y"
+        ],
+        "minItemsArray": [
+          1
+        ]
+      },
+      {
+        "simpleArray": [
+          "valid"
+        ],
+        "uniqueArray": [
+          "x",
+          "y"
+        ],
+        "nestedArray": [
+          {
+            "name": "Missing ID"
+          }
+        ]
+      }
+    ]
+  },
+  "objectValidation": {
+    "valid": [
+      {
+        "name": "John",
+        "email": "john@example.com",
+        "age": 30
+      },
+      {
+        "name": "Jane",
+        "email": "jane@example.com",
+        "meta_custom": "value"
+      }
+    ],
+    "invalid": [
+      {
+        "name": "John"
+      },
+      {
+        "email": "test@example.com"
+      },
+      {
+        "name": "John",
+        "email": "test@example.com",
+        "invalidProp": "not allowed"
+      }
+    ]
+  },
+  "composition": {
+    "valid": [
+      {
+        "name": "John",
+        "age": 25,
+        "email": "john@example.com",
+        "type": "personal",
+        "ssn": "123-45-6789"
+      },
+      {
+        "name": "Company",
+        "phone": "+1-234-567-8900",
+        "type": "business",
+        "taxId": "XX-XXXXXXX"
+      }
+    ],
+    "invalid": [
+      {
+        "age": 25
+      },
+      {
+        "name": "John",
+        "age": 25
+      },
+      {
+        "name": "John",
+        "age": 25,
+        "email": "test@example.com",
+        "type": "personal"
+      }
+    ]
+  },
+  
+  "conditionals": {
+    "valid": [
+      {
+        "country": "US",
+        "postalCode": "94102"
+      },
+      {
+        "country": "US",
+        "postalCode": "94102-1234"
+      },
+      {
+        "country": "CA",
+        "postalCode": "M5V3A8"
+      }
+    ],
+    "invalid": [
+      {
+        "country": "US",
+        "postalCode": "INVALID"
+      },
+      {
+        "country": "CA",
+        "postalCode": "12345"
+      }
+    ]
+  }
+}
