@@ -65,10 +65,10 @@ export default [
         tsconfig: "./tsconfig.rollup.json",
         clean: true,
       }),
-      filesize({
-        showGzippedSize: true,
-        showBrotliSize: true,
-      }),
+      // filesize({
+      //   showGzippedSize: true,
+      //   showBrotliSize: true,
+      // }),
     ],
     external: [],
   },
@@ -97,14 +97,14 @@ export default [
           },
         },
       }),
-      filesize({
-        showGzippedSize: true,
-        showBrotliSize: true,
-      }),
-      visualizer({
-        filename: "bundle-analysis.html",
-        open: false,
-      }),
+      // filesize({
+      //   showGzippedSize: true,
+      //   showBrotliSize: true,
+      // }),
+      // visualizer({
+      //   filename: "bundle-analysis.html",
+      //   open: false,
+      // }),
     ],
     external: [],
   },

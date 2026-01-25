@@ -2194,22 +2194,27 @@ export class Compiler {
       comparisonTarget = schema.multipleOf;
     }
 
+    const multipleOfVar = "multipleOf" + counter++;
+    const quotientVar = "quotient" + counter++;
+    const roundedVar = "rounded" + counter++;
+    const toleranceVar = "tolerance" + counter++;
+
     src.push(
-      `const multipleOf = ${comparisonTarget};
-      const quotient = ${varName} / multipleOf;
-      const rounded = Math.round(quotient);
-      const tolerance = Math.abs(quotient) * Number.EPSILON;
-      if (${
-        extra.before
-      }multipleOf === 0 || !isFinite(quotient) || Math.abs(quotient - rounded) > tolerance) {${this.buildErrorReturn(
-        pathContext,
-        {
-          keyword: "multipleOf",
-          value: varName,
-          message: `"Value must be a multiple of " + ${comparisonTarget}`,
-          expected: comparisonTarget,
-        },
-      )}${extra.after}}`,
+      `const ${multipleOfVar} = ${comparisonTarget};
+    const ${quotientVar} = ${varName} / ${multipleOfVar};
+    const ${roundedVar} = Math.round(${quotientVar});
+    const ${toleranceVar} = Math.abs(${quotientVar}) * Number.EPSILON;
+    if (${
+      extra.before
+    }${multipleOfVar} === 0 || !isFinite(${quotientVar}) || Math.abs(${quotientVar} - ${roundedVar}) > ${toleranceVar}) {${this.buildErrorReturn(
+      pathContext,
+      {
+        keyword: "multipleOf",
+        value: varName,
+        message: `"Value must be a multiple of " + ${comparisonTarget}`,
+        expected: comparisonTarget,
+      },
+    )}${extra.after}}`,
     );
 
     if (isDataRef) {
@@ -2370,13 +2375,13 @@ export class Compiler {
           `const formatValidator = formatValidators[${formatKeyVar}].validate ?? formatValidators[${formatKeyVar}];`,
         );
       }
-
+      const isValid = "isValid" + counter++;
       src.push(
         `if (${extra.before}formatValidator && typeof ${varName} === 'string') {`,
-        `  const isValid = typeof formatValidator === 'function' ? ${
+        `  const ${isValid} = typeof formatValidator === 'function' ? ${
           this.options.async ? "async" : ""
         }formatValidator(${varName}) : formatValidator.test(${varName});`,
-        `  if (!isValid) {${this.buildErrorReturn(pathContext, {
+        `  if (!${isValid}) {${this.buildErrorReturn(pathContext, {
           keyword: "format",
           value: varName,
           message: `"Failed to validate value against format "+${formatKeyVar}`,
@@ -2585,20 +2590,27 @@ export class Compiler {
       );
       const requiredArrayExpr = generateArrayDataRef(src, resolvedPath, extra);
       src.push(`if (${extra.before}${requiredArrayExpr}) {`);
-      src.push(`for (let i = 0; i < ${requiredArrayExpr}.length; i++) {`);
-      src.push(`const prop = ${requiredArrayExpr}[i];`);
-      addEvaluatedProperty(src, "prop", trackingState);
+      const i = "i" + counter++;
+      src.push(
+        `for (let ${i} = 0; ${i} < ${requiredArrayExpr}.length; ${i}++) {`,
+      );
+      const prop = "prop" + counter++;
+      src.push(`const ${prop} = ${requiredArrayExpr}[${i}];`);
+      addEvaluatedProperty(src, prop, trackingState);
 
       src.push(
         `if (${
           extra.before
-        }${varName}[prop] === undefined) {${this.buildErrorReturn(pathContext, {
-          keyword: "required",
-          value: varName,
-          message: `"Missing required field: " + prop + " in data."`,
-          expected: "prop",
-          schemaPath: `${pathContext.schema}`,
-        })}${extra.after}}`,
+        }${varName}[${prop}] === undefined) {${this.buildErrorReturn(
+          pathContext,
+          {
+            keyword: "required",
+            value: varName,
+            message: `"Missing required field: " + ${prop} + " in data."`,
+            expected: `${prop}`,
+            schemaPath: `${pathContext.schema}`,
+          },
+        )}${extra.after}}`,
       );
 
       src.push(`}`);
@@ -2621,20 +2633,21 @@ export class Compiler {
           src.push(
             `for (let ${iVar} = 0; ${iVar} < ${arrVar}.length; ${iVar}++) {`,
           );
-          src.push(`const prop = ${arrVar}[${iVar}];`);
+          const prop = "prop" + counter++;
+          src.push(`const ${prop} = ${arrVar}[${iVar}];`);
 
-          addEvaluatedProperty(src, "prop", trackingState);
+          addEvaluatedProperty(src, prop, trackingState);
 
           src.push(
             `if (${
               extra.before
-            }${varName}[prop] === undefined) {${this.buildErrorReturn(
+            }${varName}[${prop}] === undefined) {${this.buildErrorReturn(
               pathContext,
               {
                 keyword: "required",
                 value: varName,
-                message: `"Missing required field: " + prop + " in data."`,
-                expected: "prop",
+                message: `"Missing required field: " + ${prop} + " in data."`,
+                expected: `${prop}`,
                 schemaPath: `${pathContext.schema}`,
               },
             )}${extra.after}}`,
@@ -2712,7 +2725,8 @@ export class Compiler {
     extra: Extra,
   ): void {
     if (extra.before != "") src.push(`if(${extra.before} true){`);
-    src.push(`for (const key in ${varName}) {`);
+    const key = "key" + counter++;
+    src.push(`for (const ${key} in ${varName}) {`);
 
     Object.getOwnPropertyNames(schema.patternProperties).forEach((pattern) => {
       let pname = this.regexCache.get(pattern);
@@ -2720,8 +2734,8 @@ export class Compiler {
         pname = "patternProp" + counter++;
         this.regexCache.set(pattern, pname);
       }
-      src.push(`if (${pname}.test(key)) {`);
-      addEvaluatedProperty(src, "key", trackingState);
+      src.push(`if (${pname}.test(${key})) {`);
+      addEvaluatedProperty(src, key, trackingState);
       const parent =
         trackingState.parentHasUnevaluatedProperties ||
         trackingState.hasOwnUnevaluatedProperties;
@@ -2729,8 +2743,8 @@ export class Compiler {
         schema.patternProperties![pattern],
         {
           schema: `${pathContext.schema}/patternProperties/${JSON.stringify(pattern)}`,
-          data: `${pathContext.data}/\${key}`,
-          $data: `${pathContext.$data}/\${key}`,
+          data: `${pathContext.data}/\${${key}}`,
+          $data: `${pathContext.$data}/\${${key}}`,
           alt: pathContext.alt,
           alt2: pathContext.alt2,
         },
@@ -2741,7 +2755,7 @@ export class Compiler {
             ? trackingState.unevaluatedPropVar
             : undefined,
         },
-        `${varName}[key]`,
+        `${varName}[${key}]`,
         extra,
       );
 
@@ -2764,13 +2778,14 @@ export class Compiler {
       this.collectAllAllowedProperties(schema);
     const explicitProps = Array.from(allowedProperties);
     if (extra.before != "") src.push(`if(${extra.before} true){`);
-    src.push(`for (const key in ${varName}) {`);
+    const key = "key" + counter++;
+    src.push(`for (const ${key} in ${varName}) {`);
 
-    addEvaluatedProperty(src, "key", trackingState);
+    addEvaluatedProperty(src, key, trackingState);
     let checks = [];
     if (explicitProps.length > 0) {
       const allowedCheck = explicitProps
-        .map((key) => `key === ${JSON.stringify(key)}`)
+        .map((keyItem) => `${key} === ${JSON.stringify(keyItem)}`)
         .join(" || ");
       checks.push(allowedCheck);
     }
@@ -2782,7 +2797,7 @@ export class Compiler {
             pname = "patternProp" + counter++;
             this.regexCache.set(pattern, pname);
           }
-          return `${pname}.test(key)`;
+          return `${pname}.test(${key})`;
         })
         .join(" || ");
       checks.push(patternCheck);
@@ -2795,13 +2810,13 @@ export class Compiler {
       schema.additionalProperties!,
       {
         schema: `${pathContext.schema}/additionalProperties`,
-        data: `${pathContext.data}/\${key}`,
-        $data: `${pathContext.$data}/\${key}`,
+        data: `${pathContext.data}/\${${key}}`,
+        $data: `${pathContext.$data}/\${${key}}`,
         alt: pathContext.alt,
         alt2: pathContext.alt2,
       },
       {},
-      `${varName}[key]`,
+      `${varName}[${key}]`,
       extra,
     );
 
@@ -2816,7 +2831,8 @@ export class Compiler {
     pathContext: PathContext,
     extra: Extra,
   ): void {
-    src.push(`const objKeys = Object.keys(${varName});`);
+    const objKeys = "objKeys" + counter++;
+    src.push(`const ${objKeys} = Object.keys(${varName});`);
 
     if (schema.minProperties !== undefined) {
       const isDataRef =
@@ -2843,11 +2859,11 @@ export class Compiler {
       src.push(
         `if (${
           extra.before
-        }objKeys.length < ${comparisonTarget}) {${this.buildErrorReturn(
+        }${objKeys}.length < ${comparisonTarget}) {${this.buildErrorReturn(
           pathContext,
           {
             keyword: "minProperties",
-            value: "objKeys.length",
+            value: `${objKeys}.length`,
             message: `"Object must have at least " + ${comparisonTarget} + " properties."`,
             expected: comparisonTarget as string,
           },
@@ -2884,11 +2900,11 @@ export class Compiler {
       src.push(
         `if (${
           extra.before
-        }objKeys.length > ${comparisonTarget}) {${this.buildErrorReturn(
+        }${objKeys}.length > ${comparisonTarget}) {${this.buildErrorReturn(
           pathContext,
           {
             keyword: "maxProperties",
-            value: "objKeys.length",
+            value: `${objKeys}.length`,
             message: `"Object must have at most " + ${comparisonTarget} + " properties."`,
             expected: comparisonTarget as string,
           },
@@ -2909,19 +2925,20 @@ export class Compiler {
     extra: Extra,
   ): void {
     if (extra.before != "") src.push(`if(${extra.before} true){`);
-    src.push(`for (const key in ${varName}) {`);
+    const key = "key" + counter++;
+    src.push(`for (const ${key} in ${varName}) {`);
 
     const propertyNameValidation = this.compileSchema(
       schema.propertyNames!,
       {
         schema: `${pathContext.schema}/propertyNames`,
-        data: `${pathContext.data}/\${key}`,
-        $data: `${pathContext.$data}/\${key}`,
+        data: `${pathContext.data}/\${${key}}`,
+        $data: `${pathContext.$data}/\${${key}}`,
         alt: pathContext.alt,
         alt2: pathContext.alt2,
       },
       {},
-      `key`,
+      key,
       extra,
     );
 
@@ -3167,11 +3184,12 @@ export class Compiler {
     const unName = "unevaluatedProp" + counter++;
     const evalSet = trackingState.unevaluatedPropVar!;
     if (extra.before != "") src.push(`if(${extra.before} true){`);
+    const key = "key" + counter++;
     src.push(
       `const ${unName} = [];`,
-      `for (const key in ${varName}) {`,
-      `if (!${evalSet}.has(key)) {`,
-      `${unName}.push(key);`,
+      `for (const ${key} in ${varName}) {`,
+      `if (!${evalSet}.has(${key})) {`,
+      `${unName}.push(${key});`,
       `}`,
       `}`,
     );
@@ -3189,8 +3207,9 @@ export class Compiler {
       );
     } else if (schema.unevaluatedProperties === true) {
       if (trackingState.parentHasUnevaluatedProperties) {
+        const key = "key" + counter++;
         src.push(
-          `for(const key in ${varName}){${trackingState.parentUnevaluatedPropVar}.add(key)}`,
+          `for(const ${key} in ${varName}){${trackingState.parentUnevaluatedPropVar}.add(${key})}`,
         );
       }
     } else {
@@ -3760,11 +3779,12 @@ export class Compiler {
     const unName = "unevaluatedItn" + counter++;
     const evalSet = trackingState.unevaluatedItemVar!;
     if (extra.before != "") src.push(`if(${extra.before} true){`);
+    const i = "i" + counter++;
     src.push(
       `const ${unName} = [];`,
-      `for (let i = 0; i < ${varName}.length; i++) {`,
-      `if (!${evalSet}.has(i)) {`,
-      `${unName}.push(i);`,
+      `for (let ${i} = 0; ${i} < ${varName}.length; ${i}++) {`,
+      `if (!${evalSet}.has(${i})) {`,
+      `${unName}.push(${i});`,
       `}`,
       `}`,
     );

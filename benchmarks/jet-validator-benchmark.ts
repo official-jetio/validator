@@ -1,4 +1,4 @@
-import { JetValidator } from "../src";
+import { JetValidator } from "../dist";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -68,37 +68,6 @@ class JetValidatorBenchmark {
   private results: BenchmarkResult[] = [];
   private failedBenchmarks: FailedBenchmark[] = [];
   private baselineResults: BenchmarkResult[] | null = null;
-
-  private async checkSystemHealth(): Promise<void> {
-    try {
-      const { execSync } = require("child_process");
-
-      // Check CPU temperature
-      const temp = execSync(
-        'cat /sys/class/thermal/thermal_zone*/temp 2>/dev/null || echo "0"',
-      )
-        .toString()
-        .trim()
-        .split("\n")
-        .map(Number);
-      const maxTemp = Math.max(...temp) / 1000;
-
-      if (maxTemp > 75) {
-        console.warn(`⚠️  CPU temp: ${maxTemp}°C - waiting for cooldown...`);
-        await new Promise((resolve) => setTimeout(resolve, 30000));
-      }
-
-      // Check CPU frequency is locked
-      const freq = execSync(
-        "cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq",
-      )
-        .toString()
-        .trim();
-      console.log(`CPU frequency: ${parseInt(freq) / 1000}MHz`);
-    } catch (e) {
-      console.warn("Could not check system health");
-    }
-  }
 
   private loadSchemas(category: string): SchemaSet {
     const schemaPath = path.join(__dirname, "schemas", `${category}.json`);
@@ -393,7 +362,6 @@ class JetValidatorBenchmark {
 
   public async runBenchmarks() {
     console.log("Starting JetValidator Benchmarks...\n");
-    await this.checkSystemHealth();
     console.log(`Configuration:`);
     console.log(`  Warmup iterations: ${this.warmupIterations}`);
     console.log(`  Benchmark iterations: ${this.benchmarkIterations}`);
@@ -405,14 +373,14 @@ class JetValidatorBenchmark {
     const categories = [
       "real-world",
       "features",
-      // "formats",
+      "formats",
       "stress",
       "complexity-composition",
-      // "complexity-formats",
-      // "complexity-patterns",
-      // "scale-arrays",
-      // "scale-nesting",
-      // "scale-objects",
+      "complexity-formats",
+      "complexity-patterns",
+      "scale-arrays",
+      "scale-nesting",
+      "scale-objects",
       "scale-refs",
     ];
 
@@ -427,7 +395,8 @@ class JetValidatorBenchmark {
         for (const [schemaName, schema] of Object.entries(schemas)) {
           if (
             schemaName === "array100KItems" ||
-            schemaName === "arrayUniqueItems1K"
+            schemaName === "arrayUniqueItems1K" ||
+            schemaName === "arrayComplexItems"
           )
             continue;
           const testData = data[schemaName];
@@ -613,8 +582,7 @@ class JetValidatorBenchmark {
     md += `- Total schemas tested: ${this.results.length}\n`;
     md += `- Failed benchmarks: ${this.failedBenchmarks.length}\n\n`;
 
-    const categories = [...new Set(this.results.map((r) => r.category))];
-
+    const categories = Array.from(new Set(this.results.map((r) => r.category)));
     for (const category of categories) {
       md += `## ${category.toUpperCase()}\n\n`;
       md +=

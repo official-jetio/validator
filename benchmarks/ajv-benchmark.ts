@@ -70,30 +70,6 @@ class AjvBenchmark {
   private failedBenchmarks: FailedBenchmark[] = [];
   private baselineResults: BenchmarkResult[] | null = null;
 
-  private async checkSystemHealth(): Promise<void> {
-    try {
-      const { execSync } = require('child_process');
-      
-      // Check CPU temperature
-      const temp = execSync('cat /sys/class/thermal/thermal_zone*/temp 2>/dev/null || echo "0"')
-        .toString().trim().split('\n').map(Number);
-      const maxTemp = Math.max(...temp) / 1000;
-      
-      if (maxTemp > 75) {
-        console.warn(`⚠️  CPU temp: ${maxTemp}°C - waiting for cooldown...`);
-        await new Promise(resolve => setTimeout(resolve, 30000));
-      }
-      
-      // Check CPU frequency is locked
-      const freq = execSync('cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq')
-        .toString().trim();
-      console.log(`CPU frequency: ${parseInt(freq)/1000}MHz`);
-      
-    } catch (e) {
-      console.warn('Could not check system health');
-    }
-  }
-
   private loadSchemas(category: string): SchemaSet {
     const schemaPath = path.join(__dirname, "schemas", `${category}.json`);
     return JSON.parse(fs.readFileSync(schemaPath, "utf-8"));
@@ -118,9 +94,6 @@ class AjvBenchmark {
       for (let i = 0; i < 5; i++) {
         global.gc();
       }
-      // Wait for GC to complete
-      const start = Date.now();
-      while (Date.now() - start < 100) {} // Increased to 100ms
     }
     return process.memoryUsage().heapUsed;
   }
@@ -165,7 +138,7 @@ class AjvBenchmark {
   private benchmarkMultipleRuns(
     fn: () => void,
     iterations: number,
-    runs: number = this.benchmarkRuns
+    runs: number = this.benchmarkRuns,
   ): Stats {
     const times: number[] = [];
 
@@ -180,7 +153,7 @@ class AjvBenchmark {
   private warmup(
     validate: any,
     data: any[],
-    iterations: number = this.warmupIterations
+    iterations: number = this.warmupIterations,
   ) {
     for (let i = 0; i < iterations; i++) {
       validate(data[i % data.length]);
@@ -215,7 +188,7 @@ class AjvBenchmark {
     validate: any,
     svalidData: any[],
     sinvalidData: any[],
-    allErrorsValidate: any
+    allErrorsValidate: any,
   ): BenchmarkResult["validation"] {
     const validData = this.shuffleArray(svalidData);
     const invalidData = this.shuffleArray(sinvalidData);
@@ -248,7 +221,7 @@ class AjvBenchmark {
         }
       },
       [batchValidData],
-      100
+      100,
     );
 
     const batchValidTimeStats = this.benchmarkMultipleRuns(() => {
@@ -334,7 +307,7 @@ class AjvBenchmark {
     schema: any,
     validData: any[],
     invalidData: any[],
-    category: string
+    category: string,
   ): BenchmarkResult {
     console.log(`  Benchmarking: ${schemaName}`);
 
@@ -355,7 +328,7 @@ class AjvBenchmark {
       validate,
       validData,
       invalidData,
-      allErrorsValidate
+      allErrorsValidate,
     );
 
     return {
@@ -370,7 +343,7 @@ class AjvBenchmark {
     if (!this.baselineResults) return "";
 
     const baseline = this.baselineResults.find(
-      (r) => r.schema === result.schema && r.category === result.category
+      (r) => r.schema === result.schema && r.category === result.category,
     );
 
     if (!baseline) return "";
@@ -391,7 +364,6 @@ class AjvBenchmark {
 
   public async runBenchmarks() {
     console.log("Starting Ajv Benchmarks...\n");
-    await this.checkSystemHealth();
     console.log(`Configuration:`);
     console.log(`  Warmup iterations: ${this.warmupIterations}`);
     console.log(`  Benchmark iterations: ${this.benchmarkIterations}`);
@@ -403,14 +375,14 @@ class AjvBenchmark {
     const categories = [
       "real-world",
       "features",
-      // "formats",
+      "formats",
       "stress",
       "complexity-composition",
-      // "complexity-formats",
-      // "complexity-patterns",
-      // "scale-arrays",
-      // "scale-nesting",
-      // "scale-objects",
+      "complexity-formats",
+      "complexity-patterns",
+      "scale-arrays",
+      "scale-nesting",
+      "scale-objects",
       "scale-refs",
     ];
 
@@ -423,7 +395,12 @@ class AjvBenchmark {
         const data = this.loadTestData(category);
 
         for (const [schemaName, schema] of Object.entries(schemas)) {
-          if(schemaName === 'array100KItems' || schemaName === 'arrayUniqueItems1K') continue
+          if (
+            schemaName === "array100KItems" ||
+            schemaName === "arrayUniqueItems1K" ||
+            schemaName === "arrayComplexItems"
+          )
+            continue;
           const testData = data[schemaName];
           const validData = testData?.valid;
           const invalidData = testData?.invalid;
@@ -444,7 +421,7 @@ class AjvBenchmark {
               schema,
               validData,
               invalidData,
-              category
+              category,
             );
             this.results.push(result);
 
@@ -516,12 +493,12 @@ class AjvBenchmark {
     const avgValidOps =
       this.results.reduce(
         (sum, r) => sum + r.validation.singleValid.opsPerSec.mean,
-        0
+        0,
       ) / this.results.length;
     const avgInvalidOps =
       this.results.reduce(
         (sum, r) => sum + r.validation.singleInvalidFast.opsPerSec.mean,
-        0
+        0,
       ) / this.results.length;
 
     console.log(`\nTotal Schemas Tested: ${this.results.length}`);
@@ -529,7 +506,7 @@ class AjvBenchmark {
     console.log(`\nAverage Compilation Time: ${avgCompilation.toFixed(2)}ms`);
     console.log(`Average Valid Data Ops/Sec: ${avgValidOps.toFixed(0)}`);
     console.log(
-      `Average Invalid Data Ops/Sec (fail-fast): ${avgInvalidOps.toFixed(0)}`
+      `Average Invalid Data Ops/Sec (fail-fast): ${avgInvalidOps.toFixed(0)}`,
     );
 
     console.log("\n" + "-".repeat(70));
@@ -539,7 +516,7 @@ class AjvBenchmark {
     const sorted = [...this.results].sort(
       (a, b) =>
         b.validation.singleValid.opsPerSec.mean -
-        a.validation.singleValid.opsPerSec.mean
+        a.validation.singleValid.opsPerSec.mean,
     );
 
     sorted.slice(0, 5).forEach((r, i) => {
@@ -548,7 +525,7 @@ class AjvBenchmark {
       console.log(
         `${i + 1}. ${r.schema.padEnd(30)} ${ops
           .toFixed(0)
-          .padStart(15)} ops/sec (±${stdDev.toFixed(2)}%)`
+          .padStart(15)} ops/sec (±${stdDev.toFixed(2)}%)`,
       );
     });
 
@@ -565,7 +542,7 @@ class AjvBenchmark {
         console.log(
           `${i + 1}. ${r.schema.padEnd(30)} ${ops
             .toFixed(0)
-            .padStart(15)} ops/sec (±${stdDev.toFixed(2)}%)`
+            .padStart(15)} ops/sec (±${stdDev.toFixed(2)}%)`,
         );
       });
 
@@ -574,7 +551,7 @@ class AjvBenchmark {
     console.log("-".repeat(70));
 
     const compSorted = [...this.results].sort(
-      (a, b) => b.compilation.time.mean - a.compilation.time.mean
+      (a, b) => b.compilation.time.mean - a.compilation.time.mean,
     );
 
     console.log("\nSlowest to compile:");
@@ -584,7 +561,7 @@ class AjvBenchmark {
       console.log(
         `${i + 1}. ${r.schema.padEnd(30)} ${time
           .toFixed(2)
-          .padStart(10)}ms (±${stdDev.toFixed(2)}ms)`
+          .padStart(10)}ms (±${stdDev.toFixed(2)}ms)`,
       );
     });
 
@@ -607,7 +584,7 @@ class AjvBenchmark {
     md += `- Total schemas tested: ${this.results.length}\n`;
     md += `- Failed benchmarks: ${this.failedBenchmarks.length}\n\n`;
 
-    const categories = [...new Set(this.results.map((r) => r.category))];
+    const categories = Array.from(new Set(this.results.map((r) => r.category)));
 
     for (const category of categories) {
       md += `## ${category.toUpperCase()}\n\n`;
@@ -617,7 +594,7 @@ class AjvBenchmark {
         "|--------|------------------|-----------------|-------------------|-------------|\n";
 
       const categoryResults = this.results.filter(
-        (r) => r.category === category
+        (r) => r.category === category,
       );
 
       for (const result of categoryResults) {
