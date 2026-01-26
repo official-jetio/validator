@@ -3223,7 +3223,7 @@ Validates schema against strict mode requirements.
         }
       }
 
-      for (const keyword of allPossibleIncompatible) {
+      for (const keyword of Array.from(allPossibleIncompatible)) {
         const incompatibleWithAll = types.every((type) =>
           incompatibleKeywords[type]?.includes(keyword),
         );

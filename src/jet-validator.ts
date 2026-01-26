@@ -603,6 +603,7 @@ export class JetValidator {
     const fconfig = {
       ...config,
     };
+    const has$Data = compileContext.uses$Data;
     if (typeof resolvedSchema === "boolean") fconfig.allErrors = false;
     const compiler = new Compiler(
       refables,
@@ -656,23 +657,6 @@ export class JetValidator {
       if (validate) customKeywords.set(keywordDef, validate);
     }
 
-    if (typeof resolvedSchema !== "boolean") {
-      if (allFormats.size > 0) {
-        for (const validatorKey of allFormats) {
-          const validator = this.formatValidators[validatorKey];
-          if (validator) {
-            if (
-              typeof validator === "function" ||
-              validator instanceof RegExp
-            ) {
-              formatValidators[validatorKey] = validator;
-            } else {
-              formatValidators[validatorKey] = validator.validate;
-            }
-          }
-        }
-      }
-    }
     const asyncPrefix = config.async ? "async " : "";
     let functionDeclaration = "validate(rootData";
     if (compileContext.hasRootReference) {
@@ -711,6 +695,45 @@ export class JetValidator {
         regexArgs.push(new RegExp(key));
       }
     }
+    if (typeof resolvedSchema !== "boolean") {
+      if (has$Data) {
+        const formatKeys =
+          Array.isArray(fconfig.formats) && fconfig.formats.length > 0
+            ? fconfig.formats
+            : Object.keys(this.formatValidators);
+
+        for (const validatorKey of formatKeys) {
+          const validator = this.formatValidators[validatorKey];
+          if (validator) {
+            if (
+              typeof validator === "function" ||
+              validator instanceof RegExp
+            ) {
+              formatValidators[validatorKey] = validator;
+            } else {
+              formatValidators[validatorKey] = validator.validate;
+            }
+          }
+        }
+      } else if (allFormats.size > 0) {
+        for (const validatorKey of allFormats) {
+          const validator = this.formatValidators[validatorKey];
+          if (validator) {
+            if (
+              typeof validator === "function" ||
+              validator instanceof RegExp
+            ) {
+              formatValidators[validatorKey] = validator;
+            } else {
+              formatValidators[validatorKey] = validator.validate;
+            }
+          }
+        }
+      }
+    }
+    const validatorKeys = Object.keys(formatValidators);
+    const validatorValues = Object.values(formatValidators);
+
     return new Function(
       "formatValidators",
       "deepEqual",

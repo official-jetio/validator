@@ -7,11 +7,7 @@
         "integerField": 10,
         "booleanField": true,
         "nullField": null,
-        "arrayField": [
-          "a",
-          "b",
-          "c"
-        ],
+        "arrayField": ["a", "b", "c"],
         "objectField": {
           "nested": "value"
         }
@@ -92,36 +88,12 @@
   "arrayOperations": {
     "valid": [
       {
-        "simpleArray": [
-          "a",
-          "b",
-          "c"
-        ],
-        "uniqueArray": [
-          "x",
-          "y",
-          "z"
-        ],
-        "minItemsArray": [
-          1,
-          2
-        ],
-        "maxItemsArray": [
-          1,
-          2,
-          3
-        ],
-        "tupleArray": [
-          "str",
-          42,
-          true
-        ],
-        "containsArray": [
-          1,
-          2,
-          5,
-          10
-        ],
+        "simpleArray": ["a", "b", "c"],
+        "uniqueArray": ["x", "y", "z"],
+        "minItemsArray": [1, 2],
+        "maxItemsArray": [1, 2, 3],
+        "tupleArray": ["str", 42, true],
+        "containsArray": [1, 2, 5, 10],
         "nestedArray": [
           {
             "id": 1,
@@ -136,37 +108,17 @@
     ],
     "invalid": [
       {
-        "simpleArray": [
-          1,
-          2,
-          3
-        ],
-        "uniqueArray": [
-          "a",
-          "a",
-          "b"
-        ]
+        "simpleArray": [1, 2, 3],
+        "uniqueArray": ["a", "a", "b"]
       },
       {
-        "simpleArray": [
-          "valid"
-        ],
-        "uniqueArray": [
-          "x",
-          "y"
-        ],
-        "minItemsArray": [
-          1
-        ]
+        "simpleArray": ["valid"],
+        "uniqueArray": ["x", "y"],
+        "minItemsArray": [1]
       },
       {
-        "simpleArray": [
-          "valid"
-        ],
-        "uniqueArray": [
-          "x",
-          "y"
-        ],
+        "simpleArray": ["valid"],
+        "uniqueArray": ["x", "y"],
         "nestedArray": [
           {
             "name": "Missing ID"
@@ -219,46 +171,35 @@
       }
     ],
     "invalid": [
-      {
-        "age": 25
-      },
-      {
-        "name": "John",
-        "age": 25
-      },
+      { "age": 25 },
+      { "name": "John", "age": 25 },
       {
         "name": "John",
         "age": 25,
         "email": "test@example.com",
         "type": "personal"
+      },
+      {
+        "name": "Banned",
+        "email": "x@x.com",
+        "type": "personal",
+        "ssn": "111",
+        "banned": true
       }
     ]
   },
-  
+
   "conditionals": {
     "valid": [
-      {
-        "country": "US",
-        "postalCode": "94102"
-      },
-      {
-        "country": "US",
-        "postalCode": "94102-1234"
-      },
-      {
-        "country": "CA",
-        "postalCode": "M5V3A8"
-      }
+      { "country": "US", "postalCode": "94102" },
+      { "country": "US", "postalCode": "94102-1234" },
+      { "country": "CA", "postalCode": "M5V3A8" },
+      { "country": "UK", "postalCode": "SW1A1AA" }
     ],
     "invalid": [
-      {
-        "country": "US",
-        "postalCode": "INVALID"
-      },
-      {
-        "country": "CA",
-        "postalCode": "12345"
-      }
+      { "country": "US", "postalCode": "INVALID" },
+      { "country": "CA", "postalCode": "invalid-lower!" },
+      { "country": "UK", "postalCode": "$$" }
     ]
   }
 }

@@ -2,7 +2,7 @@
   "packageJson": {
     "valid": [
       {
-        "name": "@jetio/jet-Validator",
+        "name": "@jetio/jet-validator",
         "version": "1.0.0",
         "description": "High-performance JSON Schema validator",
         "keywords": ["json", "schema", "validation"],
@@ -85,7 +85,12 @@
           "module": "wrong-module"
         }
       },
-      {}
+      {
+        "compilerOptions": {
+          "target": "INVALID_TARGET",
+          "module": "wrong-module"
+        }
+      }
     ]
   },
   "openApiPath": {

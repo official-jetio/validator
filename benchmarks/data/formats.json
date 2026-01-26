@@ -28,15 +28,12 @@
         "date": "2024-01-15",
         "time": "14:30:00",
         "dateTime": "2024-01-15T14:30:00Z",
-        "duration": "P1Y2M3DT4H5M6S",
-        "isoDateTime": "2024-01-15T14:30:00.000Z"
+        "duration": "P1Y2M3DT4H5M6S"
       }
     ],
     "invalid": [
-      {
-        "date": "15-01-2024",
-        "dateTime": "invalid-datetime"
-      }
+      { "date": "15-01-2024", "dateTime": "invalid-datetime" },
+      { "date": "not-a-date", "dateTime": "2024-01-15T14:30:00Z" }
     ]
   },
   "mixedFormats": {

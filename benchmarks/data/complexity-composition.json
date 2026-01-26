@@ -146,33 +146,40 @@
     ]
   },
   "complexNot": {
-    "valid": [
-      {
-        "value": 10
-      },
-      {
-        "value": 50
-      },
-      {
-        "value": 99
-      }
-    ],
-    "invalid": [
-      {
-        "value": 13
-      },
-      {
-        "value": 14
-      },
-      {
-        "value": 21
-      }
-    ]
-  },
+  "valid": [
+    { "value": 10 },
+    { "value": 50 },
+    { "value": 99 },
+    { "value": 1 },
+    { "value": 22 }
+  ],
+  "invalid": [
+    { "value": 13 },
+    { "value": 666 },
+    { "value": 7 },
+    { "value": 14 },
+    { "value": 21 },
+    { "value": 70 },
+    { "value": 77 },
+    { "value": 91 }
+  ]
+},
   "multiLayeredComposition": {
-    "valid": ["testing", "ab", 150, 5],
-    "invalid": ["test", "testvalue", 13, 26]
-  },
+  "valid": [
+    "abcdef",
+    "ab",
+    150,
+    5
+  ],
+  "invalid": [
+    "test",
+    "testing",
+    "abcd",
+    13,
+    26,
+    50
+  ]
+},
   "wideComposition": {
     "valid": [
       {

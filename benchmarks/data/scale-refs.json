@@ -21,11 +21,6 @@
     "invalid": [
       {
         "user": {
-          "name": "John"
-        }
-      },
-      {
-        "user": {
           "name": "Jane",
           "address": {
             "street": "123 Main St"
@@ -35,216 +30,114 @@
     ]
   },
   "refs100Times": {
-    "valid": [
-      {
-        "field0": "value0",
-        "field1": 1,
-        "field2": {
-          "id": "id-2",
-          "value": 2
-        },
-        "field3": "value3",
-        "field4": 4,
-        "field5": {
-          "id": "id-5",
-          "value": 5
-        },
-        "field6": "value6",
-        "field7": 7,
-        "field8": {
-          "id": "id-8",
-          "value": 8
-        },
-        "field9": "value9",
-        "field10": 10,
-        "field11": {
-          "id": "id-11",
-          "value": 11
-        },
-        "field12": "value12",
-        "field13": 13,
-        "field14": {
-          "id": "id-14",
-          "value": 14
-        },
-        "field15": "value15",
-        "field16": 16,
-        "field17": {
-          "id": "id-17",
-          "value": 17
-        },
-        "field18": "value18",
-        "field19": 19,
-        "field20": {
-          "id": "id-20",
-          "value": 20
-        },
-        "field21": "value21",
-        "field22": 22,
-        "field23": {
-          "id": "id-23",
-          "value": 23
-        },
-        "field24": "value24",
-        "field25": 25,
-        "field26": {
-          "id": "id-26",
-          "value": 26
-        },
-        "field27": "value27",
-        "field28": 28,
-        "field29": {
-          "id": "id-29",
-          "value": 29
-        },
-        "field30": "value30",
-        "field31": 31,
-        "field32": {
-          "id": "id-32",
-          "value": 32
-        },
-        "field33": "value33",
-        "field34": 34,
-        "field35": {
-          "id": "id-35",
-          "value": 35
-        },
-        "field36": "value36",
-        "field37": 37,
-        "field38": {
-          "id": "id-38",
-          "value": 38
-        },
-        "field39": "value39",
-        "field40": 40,
-        "field41": {
-          "id": "id-41",
-          "value": 41
-        },
-        "field42": "value42",
-        "field43": 43,
-        "field44": {
-          "id": "id-44",
-          "value": 44
-        },
-        "field45": "value45",
-        "field46": 46,
-        "field47": {
-          "id": "id-47",
-          "value": 47
-        },
-        "field48": "value48",
-        "field49": 49,
-        "field50": {
-          "id": "id-50",
-          "value": 50
-        },
-        "field51": "value51",
-        "field52": 52,
-        "field53": {
-          "id": "id-53",
-          "value": 53
-        },
-        "field54": "value54",
-        "field55": 55,
-        "field56": {
-          "id": "id-56",
-          "value": 56
-        },
-        "field57": "value57",
-        "field58": 58,
-        "field59": {
-          "id": "id-59",
-          "value": 59
-        },
-        "field60": "value60",
-        "field61": 61,
-        "field62": {
-          "id": "id-62",
-          "value": 62
-        },
-        "field63": "value63",
-        "field64": 64,
-        "field65": {
-          "id": "id-65",
-          "value": 65
-        },
-        "field66": "value66",
-        "field67": 67,
-        "field68": {
-          "id": "id-68",
-          "value": 68
-        },
-        "field69": "value69",
-        "field70": 70,
-        "field71": {
-          "id": "id-71",
-          "value": 71
-        },
-        "field72": "value72",
-        "field73": 73,
-        "field74": {
-          "id": "id-74",
-          "value": 74
-        },
-        "field75": "value75",
-        "field76": 76,
-        "field77": {
-          "id": "id-77",
-          "value": 77
-        },
-        "field78": "value78",
-        "field79": 79,
-        "field80": {
-          "id": "id-80",
-          "value": 80
-        },
-        "field81": "value81",
-        "field82": 82,
-        "field83": {
-          "id": "id-83",
-          "value": 83
-        },
-        "field84": "value84",
-        "field85": 85,
-        "field86": {
-          "id": "id-86",
-          "value": 86
-        },
-        "field87": "value87",
-        "field88": 88,
-        "field89": {
-          "id": "id-89",
-          "value": 89
-        },
-        "field90": "value90",
-        "field91": 91,
-        "field92": {
-          "id": "id-92",
-          "value": 92
-        },
-        "field93": "value93",
-        "field94": 94,
-        "field95": {
-          "id": "id-95",
-          "value": 95
-        },
-        "field96": "value96",
-        "field97": 97,
-        "field98": {
-          "id": "id-98",
-          "value": 98
-        },
-        "field99": "value99"
-      }
-    ],
-    "invalid": [
-      {
-        "field0": "",
-        "field1": -1
-      }
-    ]
-  },
+  "valid": [
+    {
+      "field0": "value0",
+      "field1": 1,
+      "field2": { "id": "550e8400-e29b-41d4-a716-446655440002", "value": 2 },
+      "field3": "value3",
+      "field4": 4,
+      "field5": { "id": "550e8400-e29b-41d4-a716-446655440005", "value": 5 },
+      "field6": "value6",
+      "field7": 7,
+      "field8": { "id": "550e8400-e29b-41d4-a716-446655440008", "value": 8 },
+      "field9": "value9",
+      "field10": 10,
+      "field11": { "id": "550e8400-e29b-41d4-a716-44665544000b", "value": 11 },
+      "field12": "value12",
+      "field13": 13,
+      "field14": { "id": "550e8400-e29b-41d4-a716-44665544000e", "value": 14 },
+      "field15": "value15",
+      "field16": 16,
+      "field17": { "id": "550e8400-e29b-41d4-a716-446655440011", "value": 17 },
+      "field18": "value18",
+      "field19": 19,
+      "field20": { "id": "550e8400-e29b-41d4-a716-446655440014", "value": 20 },
+      "field21": "value21",
+      "field22": 22,
+      "field23": { "id": "550e8400-e29b-41d4-a716-446655440017", "value": 23 },
+      "field24": "value24",
+      "field25": 25,
+      "field26": { "id": "550e8400-e29b-41d4-a716-44665544001a", "value": 26 },
+      "field27": "value27",
+      "field28": 28,
+      "field29": { "id": "550e8400-e29b-41d4-a716-44665544001d", "value": 29 },
+      "field30": "value30",
+      "field31": 31,
+      "field32": { "id": "550e8400-e29b-41d4-a716-446655440020", "value": 32 },
+      "field33": "value33",
+      "field34": 34,
+      "field35": { "id": "550e8400-e29b-41d4-a716-446655440023", "value": 35 },
+      "field36": "value36",
+      "field37": 37,
+      "field38": { "id": "550e8400-e29b-41d4-a716-446655440026", "value": 38 },
+      "field39": "value39",
+      "field40": 40,
+      "field41": { "id": "550e8400-e29b-41d4-a716-446655440029", "value": 41 },
+      "field42": "value42",
+      "field43": 43,
+      "field44": { "id": "550e8400-e29b-41d4-a716-44665544002c", "value": 44 },
+      "field45": "value45",
+      "field46": 46,
+      "field47": { "id": "550e8400-e29b-41d4-a716-44665544002f", "value": 47 },
+      "field48": "value48",
+      "field49": 49,
+      "field50": { "id": "550e8400-e29b-41d4-a716-446655440032", "value": 50 },
+      "field51": "value51",
+      "field52": 52,
+      "field53": { "id": "550e8400-e29b-41d4-a716-446655440035", "value": 53 },
+      "field54": "value54",
+      "field55": 55,
+      "field56": { "id": "550e8400-e29b-41d4-a716-446655440038", "value": 56 },
+      "field57": "value57",
+      "field58": 58,
+      "field59": { "id": "550e8400-e29b-41d4-a716-44665544003b", "value": 59 },
+      "field60": "value60",
+      "field61": 61,
+      "field62": { "id": "550e8400-e29b-41d4-a716-44665544003e", "value": 62 },
+      "field63": "value63",
+      "field64": 64,
+      "field65": { "id": "550e8400-e29b-41d4-a716-446655440041", "value": 65 },
+      "field66": "value66",
+      "field67": 67,
+      "field68": { "id": "550e8400-e29b-41d4-a716-446655440044", "value": 68 },
+      "field69": "value69",
+      "field70": 70,
+      "field71": { "id": "550e8400-e29b-41d4-a716-446655440047", "value": 71 },
+      "field72": "value72",
+      "field73": 73,
+      "field74": { "id": "550e8400-e29b-41d4-a716-44665544004a", "value": 74 },
+      "field75": "value75",
+      "field76": 76,
+      "field77": { "id": "550e8400-e29b-41d4-a716-44665544004d", "value": 77 },
+      "field78": "value78",
+      "field79": 79,
+      "field80": { "id": "550e8400-e29b-41d4-a716-446655440050", "value": 80 },
+      "field81": "value81",
+      "field82": 82,
+      "field83": { "id": "550e8400-e29b-41d4-a716-446655440053", "value": 83 },
+      "field84": "value84",
+      "field85": 85,
+      "field86": { "id": "550e8400-e29b-41d4-a716-446655440056", "value": 86 },
+      "field87": "value87",
+      "field88": 88,
+      "field89": { "id": "550e8400-e29b-41d4-a716-446655440059", "value": 89 },
+      "field90": "value90",
+      "field91": 91,
+      "field92": { "id": "550e8400-e29b-41d4-a716-44665544005c", "value": 92 },
+      "field93": "value93",
+      "field94": 94,
+      "field95": { "id": "550e8400-e29b-41d4-a716-44665544005f", "value": 95 },
+      "field96": "value96",
+      "field97": 97,
+      "field98": { "id": "550e8400-e29b-41d4-a716-446655440062", "value": 98 },
+      "field99": "value99"
+    }
+  ],
+  "invalid": [
+    { "field0": "", "field1": -1 }
+  ]
+},
   "refs500Times": {
     "valid": [
       {
