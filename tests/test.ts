@@ -37,8 +37,8 @@ async function runTestSuite(
 ): Promise<TestResults> {
   const jet = new JetValidator({
     strict: false,
-    inlineRefs: false,
-    allErrors: false,
+    inlineRefs: true,
+    allErrors: true,
     strictSchema: false,
     addUsedSchema: true,
 

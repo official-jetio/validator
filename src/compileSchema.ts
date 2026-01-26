@@ -965,7 +965,7 @@ export class Compiler {
 
     if (this.options.allErrors) {
       src.push(
-        `if (!${funcValidator}Result){${extra.after}${this.notLogic ? "" : `${this.errorVariable} = ${this.errorVariable}.concat(${schema}.errors);`}}`,
+        `if (!${funcValidator}Result){${extra.after}${this.notLogic ? "" : `${this.errorVariable} = ${this.errorVariable}.concat(${schema.__functionName}.errors);`}}`,
       );
     } else {
       if (this.noreturn) {
