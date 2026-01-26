@@ -965,12 +965,24 @@ export class Compiler {
 
     if (this.options.allErrors) {
       src.push(
-        `if (!${funcValidator}Result) {${this.errorVariable} = ${this.errorVariable}.concat(${schema.__functionName}.errors);${extra.refAfter || extra.after}}`,
+        `if (!${funcValidator}Result){${extra.after}${this.notLogic ? "" : `${this.errorVariable} = ${this.errorVariable}.concat(${schema}.errors);`}}`,
       );
     } else {
-      src.push(
-        `if (!${funcValidator}Result){${this.mainFunctionName}.errors = ${schema.__functionName}.errors;${extra.refAfter ?? extra.after}${this.noreturn ? "" : "return false;"}}`,
-      );
+      if (this.noreturn) {
+        src.push(
+          `if (!${funcValidator}Result){${extra.after}${this.notLogic ? "" : `${schema.__functionName}.errors.length > 1 ? (${this.errorVariable} = ${this.errorVariable}.concat(${schema.__functionName}.errors)) : ${this.errorVariable}.push(${schema.__functionName}.errors[0]);`}}`,
+        );
+      } else {
+        if (this.mainFunctionName === schema.__functionName) {
+          src.push(
+            `if (!${funcValidator}Result){${this.notLogic ? extra.after : `return false;`}}`,
+          );
+        } else {
+          src.push(
+            `if (!${funcValidator}Result){${this.notLogic ? extra.after : `${this.mainFunctionName}.errors = ${schema.__functionName}.errors;return false;`}}`,
+          );
+        }
+      }
     }
     if (extra.before != "") src.push(`}`);
   }
@@ -1015,7 +1027,7 @@ export class Compiler {
 
     if (this.options.allErrors) {
       src.push(
-        `if (!${refValidator}Result){${extra.after}${this.notLogic ? "" : `${functionName}.errors.length > 1 ? (${this.errorVariable} = ${this.errorVariable}.concat(${functionName}.errors)) : ${this.errorVariable}.push(${functionName}.errors[0]);`}}`,
+        `if (!${refValidator}Result){${extra.after}${this.notLogic ? "" : `${this.errorVariable} = ${this.errorVariable}.concat(${functionName}.errors);`}}`,
       );
     } else {
       if (this.noreturn) {
@@ -1070,10 +1082,8 @@ export class Compiler {
     trackingState: TrackingState,
     extra: Extra,
   ): void {
-    if (schema.not)
-      this.handleNotOperator(src, schema, varName, pathContext, extra);
-    if (schema.anyOf)
-      this.handleAnyOfOperator(
+    if (schema.allOf)
+      this.handleAllOfOperator(
         src,
         schema,
         varName,
@@ -1081,8 +1091,10 @@ export class Compiler {
         trackingState,
         extra,
       );
-    if (schema.allOf)
-      this.handleAllOfOperator(
+    if (schema.not)
+      this.handleNotOperator(src, schema, varName, pathContext, extra);
+    if (schema.anyOf)
+      this.handleAnyOfOperator(
         src,
         schema,
         varName,
@@ -1257,16 +1269,16 @@ export class Compiler {
 
     if (this.options.allErrors) {
       src.push(
-        `if (${anyOfValid} && ${this.errorVariable}.length != ${firstLength}) {${this.errorVariable}.length = ${firstLength};}${extra.after != "" ? `else{${extra.after}}` : ""}`,
+        `if (${anyOfValid} && ${this.errorVariable}.length != ${firstLength}) {${this.errorVariable}.length = ${firstLength};}${extra.after != "" ? `else if(!${anyOfValid}){${extra.after}}` : ""}`,
       );
     } else {
       if (this.noreturn) {
         src.push(
-          `if (${anyOfValid} && ${this.errorVariable}.length != ${firstLength}){${this.errorVariable}.length = ${firstLength};}else{${extra.after}}`,
+          `if (${anyOfValid} && ${this.errorVariable}.length != ${firstLength}){${this.errorVariable}.length = ${firstLength};}else if(!${anyOfValid}){${extra.after}}`,
         );
       } else {
         src.push(
-          `if (${anyOfValid} && ${this.errorVariable}.length != ${firstLength}){${this.errorVariable}.length = ${firstLength};}else{${this.notLogic ? extra.after : `${this.mainFunctionName}.errors = ${this.errorVariable};return false;`}}`,
+          `if (${anyOfValid} && ${this.errorVariable}.length != ${firstLength}){${this.errorVariable}.length = ${firstLength};}else if(!${anyOfValid}){${this.notLogic ? extra.after : `${this.mainFunctionName}.errors = ${this.errorVariable};return false;`}}`,
         );
       }
 
@@ -1391,17 +1403,20 @@ export class Compiler {
       src.push(
         `if (${validSchemaCount} == 1 && ${this.errorVariable}.length != ${firstLength}) {${
           this.errorVariable
-        }.length = ${firstLength};}else{${this.buildErrorReturn(pathContext, {
-          keyword: "oneOf",
-          value: varName,
-          message: `"Data must validate against exactly one schema, but matched "+ ${validSchemaCount}`,
-          expected: '"exactly one schema"',
-        })}${extra.after}}`,
+        }.length = ${firstLength};}else if(${validSchemaCount} != 1){${this.buildErrorReturn(
+          pathContext,
+          {
+            keyword: "oneOf",
+            value: varName,
+            message: `"Data must validate against exactly one schema, but matched "+ ${validSchemaCount}`,
+            expected: '"exactly one schema"',
+          },
+        )}${extra.after}}`,
       );
     } else {
       if (noreturn) {
         src.push(
-          `if (${validSchemaCount} == 1 && ${this.errorVariable}.length != ${firstLength}){${this.errorVariable}.length = ${firstLength};}else{${this.buildErrorReturn(
+          `if (${validSchemaCount} == 1 && ${this.errorVariable}.length != ${firstLength}){${this.errorVariable}.length = ${firstLength};}else if(${validSchemaCount} != 1){${this.buildErrorReturn(
             pathContext,
             {
               keyword: "oneOf",
@@ -1413,7 +1428,7 @@ export class Compiler {
         );
       } else {
         src.push(
-          `if (${validSchemaCount} == 1 && ${this.errorVariable}.length != ${firstLength}){${this.errorVariable}.length = ${firstLength};}else{${this.buildErrorReturn(
+          `if (${validSchemaCount} == 1 && ${this.errorVariable}.length != ${firstLength}){${this.errorVariable}.length = ${firstLength};}else if(${validSchemaCount} != 1){${this.buildErrorReturn(
             pathContext,
             {
               keyword: "oneOf",
@@ -2706,6 +2721,9 @@ export class Compiler {
             src.push(`}`);
           } else {
             for (const prop of schema.required) {
+              const errorMessage = JSON.stringify(
+                `Missing required field: ${prop} in data.`,
+              );
               const pstring = JSON.stringify(prop);
               src.push(
                 `if (${
@@ -2715,7 +2733,7 @@ export class Compiler {
                   {
                     keyword: "required",
                     value: varName,
-                    message: `"Missing required field: ${prop} in data."`,
+                    message: errorMessage,
                     expected: `${pstring}`,
                     schemaPath: `${pathContext.schema}`,
                   },

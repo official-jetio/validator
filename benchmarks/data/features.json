@@ -166,6 +166,7 @@
       {
         "name": "Company",
         "phone": "+1-234-567-8900",
+        "age": 50,
         "type": "business",
         "taxId": "XX-XXXXXXX"
       }

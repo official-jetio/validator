@@ -1,4 +1,4 @@
-import { JetValidator } from "../dist";
+import { JetValidator } from "../src";
 import * as fs from "fs";
 import * as path from "path";
 

@@ -226,7 +226,8 @@
     "not": {
       "properties": {
         "banned": { "const": true }
-      }
+      },
+      "required": ["banned"]
     }
   },
   "conditionals": {

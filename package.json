@@ -50,7 +50,11 @@
     "draft-2020-12",
     "draft-2019-09",
     "draft-07",
-    "draft-06"
+    "draft-06",
+    "JSON",
+    "jsonschema",
+    "json-schema-validator",
+    "json-schema-validation"
   ],
   "author": "Great Venerable",
   "license": "MIT",
@@ -60,6 +64,7 @@
   },
   "sideEffects": false,
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@types/node": "^18.19.127",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
@@ -71,6 +76,7 @@
     "rollup-plugin-filesize": "^7.0.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "rollup-plugin-visualizer": "^5.14.0",
+    "terser": "^5.46.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },

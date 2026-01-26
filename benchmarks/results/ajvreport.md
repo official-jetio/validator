@@ -1,6 +1,6 @@
 # Ajv Benchmark Report
 
-**Generated:** 2026-01-25T16:21:55.255Z
+**Generated:** 2026-01-26T13:41:38.516Z
 
 ## Configuration
 
@@ -11,124 +11,123 @@
 
 ## Summary
 
-- Total schemas tested: 63
+- Total schemas tested: 62
 - Failed benchmarks: 0
 
 ## REAL-WORLD
 
 | Schema | Compilation (ms) | Valid (ops/sec) | Invalid (ops/sec) | Memory (KB) |
 |--------|------------------|-----------------|-------------------|-------------|
-| packageJson | 46.74 | 5647538 | 6174904 | 658.06 |
-| tsconfigJson | 27.46 | 6810590 | 11323572 | 590.38 |
-| openApiPath | 22.56 | 1280298 | 10098213 | 41.33 |
-| jsonResume | 23.17 | 612747 | 3345331 | 95.39 |
-| geoJson | 22.19 | 4070096 | 7864498 | -49.61 |
-| awsCloudFormation | 19.17 | 3152925 | 9326801 | 152.23 |
-| graphqlSchema | 23.09 | 2401710 | 5295322 | -53.77 |
+| packageJson | 57.13 | 714426 | 4435751 | 658.06 |
+| tsconfigJson | 44.04 | 6177073 | 7028887 | 120.34 |
+| openApiPath | 35.54 | 1138723 | 9856644 | 242.45 |
+| jsonResume | 41.23 | 553944 | 2210881 | 433.69 |
+| geoJson | 34.48 | 4930885 | 8040281 | -29.84 |
+| awsCloudFormation | 14.84 | 3361538 | 9321664 | 187.15 |
+| graphqlSchema | 18.11 | 2515276 | 5753515 | 237.27 |
 
 ## FEATURES
 
 | Schema | Compilation (ms) | Valid (ops/sec) | Invalid (ops/sec) | Memory (KB) |
 |--------|------------------|-----------------|-------------------|-------------|
-| simpleTypes | 15.83 | 17463494 | 11626853 | -53.98 |
-| stringConstraints | 17.85 | 1326060 | 7720330 | -33.14 |
-| numericConstraints | 19.25 | 18463775 | 12419626 | -44.23 |
-| arrayOperations | 21.13 | 2902431 | 6426507 | -3.34 |
-| objectValidation | 26.40 | 3304513 | 9336761 | -41.74 |
-| composition | 21.47 | 10133739 | 10497422 | 460.55 |
-| conditionals | 21.20 | 8892038 | 10329618 | -136.55 |
+| simpleTypes | 12.42 | 13477264 | 11762723 | 393.61 |
+| stringConstraints | 12.84 | 1384782 | 7428824 | -47.82 |
+| numericConstraints | 23.13 | 14789816 | 7571877 | -57.94 |
+| arrayOperations | 18.07 | 2421556 | 6788145 | 192.16 |
+| objectValidation | 12.60 | 3418443 | 9608161 | -68.99 |
+| composition | 21.18 | 2925524 | 3427904 | -26.32 |
+| conditionals | 45.36 | 8265371 | 1987345 | -42.23 |
 
 ## FORMATS
 
 | Schema | Compilation (ms) | Valid (ops/sec) | Invalid (ops/sec) | Memory (KB) |
 |--------|------------------|-----------------|-------------------|-------------|
-| regexFormats | 20.50 | 529753 | 5924817 | 7.34 |
-| functionFormats | 17.98 | 1841206 | 9765707 | 437.53 |
-| mixedFormats | 22.99 | 417853 | 8106865 | -55.90 |
-| integerFormats | 15.58 | 27747828 | 14408776 | -21.12 |
+| regexFormats | 20.28 | 338534 | 4361529 | 127.76 |
+| functionFormats | 36.74 | 513377 | 8297566 | 403.48 |
+| mixedFormats | 22.00 | 380819 | 8556977 | -107.27 |
+| integerFormats | 12.28 | 25173029 | 14047063 | 13.75 |
 
 ## STRESS
 
 | Schema | Compilation (ms) | Valid (ops/sec) | Invalid (ops/sec) | Memory (KB) |
 |--------|------------------|-----------------|-------------------|-------------|
-| deepNesting | 22.21 | 5908749 | 6244944 | -12.07 |
-| wideObject | 28.18 | 8143793 | 4911059 | 82.75 |
-| largeEnum | 22.65 | 11751310 | 4467197 | -60.55 |
-| complexRefs | 19.60 | 618143 | 10007517 | 38.71 |
+| deepNesting | 16.51 | 5221971 | 7664659 | 438.48 |
+| wideObject | 19.93 | 923676 | 2859281 | -42.42 |
+| largeEnum | 19.89 | 11355649 | 4542308 | -71.77 |
+| complexRefs | 22.12 | 494803 | 9228632 | 37.77 |
 
 ## COMPLEXITY-COMPOSITION
 
 | Schema | Compilation (ms) | Valid (ops/sec) | Invalid (ops/sec) | Memory (KB) |
 |--------|------------------|-----------------|-------------------|-------------|
-| deepAllOf | 19.94 | 17485349 | 12721394 | -75.84 |
-| deepAnyOf | 16.74 | 4951067 | 4969099 | 437.27 |
-| deepOneOf | 19.62 | 4871327 | 4337459 | -45.00 |
-| mixedComposition | 15.25 | 972584 | 7923175 | -20.39 |
-| complexNot | 15.67 | 9269994 | 8130225 | -2.26 |
-| multiLayeredComposition | 14.85 | 4311914 | 5266598 | 397.56 |
-| wideComposition | 21.18 | 4953807 | 3651638 | -105.20 |
-| recursiveComposition | 26.12 | 5356143 | 9824448 | 3.02 |
+| deepAllOf | 15.56 | 17912279 | 13338850 | 71.77 |
+| deepAnyOf | 15.45 | 4294099 | 4599923 | 439.19 |
+| deepOneOf | 23.43 | 4605791 | 4032878 | -63.14 |
+| mixedComposition | 17.26 | 866706 | 7237043 | -44.48 |
+| complexNot | 15.03 | 8752537 | 5358762 | -87.39 |
+| multiLayeredComposition | 14.36 | 2659186 | 4770247 | -19.85 |
+| wideComposition | 21.07 | 3956300 | 1641204 | 234.41 |
+| recursiveComposition | 14.38 | 4626502 | 9841797 | -64.05 |
 
 ## COMPLEXITY-FORMATS
 
 | Schema | Compilation (ms) | Valid (ops/sec) | Invalid (ops/sec) | Memory (KB) |
 |--------|------------------|-----------------|-------------------|-------------|
-| bulkEmailValidation | 15.70 | 50098 | 12374269 | -112.29 |
-| bulkUuidValidation | 15.89 | 3071949 | 10069939 | -6.41 |
-| bulkDateTimeValidation | 16.83 | 5048 | 10619906 | -20.72 |
-| bulkUriValidation | 18.44 | 9902 | 11709781 | 53.32 |
-| mixedFormats100Items | 36.12 | 383449 | 10128388 | -102.27 |
-| nestedFormats | 16.19 | 12045 | 13570065 | -28.86 |
-| allFormatsObject | 19.78 | 458637 | 5698920 | 149.02 |
-| repeatedFormatValidation | 25.60 | 28441 | 12430113 | -94.08 |
-| deepFormatNesting | 23.00 | 476545 | 5575834 | 5.48 |
-| formatIntensive | 20.22 | 26780 | 8815043 | 428.50 |
+| bulkEmailValidation | 13.24 | 45516 | 14217801 | 404.03 |
+| bulkUuidValidation | 12.40 | 52764 | 13020710 | -58.46 |
+| bulkDateTimeValidation | 19.40 | 4321 | 7764468 | -29.76 |
+| bulkUriValidation | 30.45 | 9731 | 11598458 | -56.12 |
+| mixedFormats100Items | 40.06 | 4990 | 7381244 | 517.77 |
+| nestedFormats | 20.12 | 12521 | 13234353 | -105.14 |
+| allFormatsObject | 27.89 | 259559 | 5883668 | -12.09 |
+| repeatedFormatValidation | 29.69 | 25338 | 11500563 | -34.73 |
+| deepFormatNesting | 42.45 | 386531 | 4535426 | 6.18 |
+| formatIntensive | 25.87 | 24201 | 3756258 | 445.06 |
 
 ## COMPLEXITY-PATTERNS
 
 | Schema | Compilation (ms) | Valid (ops/sec) | Invalid (ops/sec) | Memory (KB) |
 |--------|------------------|-----------------|-------------------|-------------|
-| manySimplePatterns | 28.29 | 2989294 | 3413348 | 20.78 |
-| complexPatterns | 17.78 | 1288256 | 6966886 | -78.20 |
-| arrayWithPatterns | 16.38 | 24798 | 12647165 | -45.36 |
-| nestedPatterns | 19.00 | 3766962 | 6955539 | 459.82 |
-| patternProperties50 | 22.08 | 2753533 | 8823224 | -81.54 |
+| manySimplePatterns | 41.81 | 311729 | 3298140 | 68.63 |
+| complexPatterns | 40.02 | 819318 | 6545959 | -110.37 |
+| arrayWithPatterns | 31.63 | 22867 | 11958200 | -42.58 |
+| nestedPatterns | 30.07 | 3360961 | 8210484 | 8.06 |
+| patternProperties50 | 33.09 | 108891 | 7759689 | -56.23 |
 
 ## SCALE-ARRAYS
 
 | Schema | Compilation (ms) | Valid (ops/sec) | Invalid (ops/sec) | Memory (KB) |
 |--------|------------------|-----------------|-------------------|-------------|
-| array1KItems | 12.14 | 16216 | 12401804 | -19.44 |
-| array10KItems | 19.12 | 9492 | 14688789 | -34.24 |
-| arrayNestedArrays | 19.24 | 47285 | 13036779 | 485.28 |
-| arrayMixedTypes1K | 16.41 | 18667435 | 14054123 | -61.16 |
+| array1KItems | 14.48 | 15086 | 8264387 | 467.47 |
+| array10KItems | 26.15 | 7706 | 13256041 | -75.91 |
+| arrayNestedArrays | 26.81 | 42531 | 6294831 | -31.20 |
+| arrayMixedTypes1K | 30.25 | 16951676 | 13522178 | -13.47 |
 
 ## SCALE-NESTING
 
 | Schema | Compilation (ms) | Valid (ops/sec) | Invalid (ops/sec) | Memory (KB) |
 |--------|------------------|-----------------|-------------------|-------------|
-| nesting50Levels | 38.10 | 2179125 | 4965910 | 124.78 |
-| nesting100Levels | 23.18 | 5824779 | 2351775 | -66.74 |
-| nestingAllOfChain | 18.55 | 15767341 | 10060943 | 410.06 |
+| nesting50Levels | 25.32 | 1923180 | 6521346 | 746.57 |
+| nestingAllOfChain | 31.24 | 10189518 | 3503066 | -138.55 |
 
 ## SCALE-OBJECTS
 
 | Schema | Compilation (ms) | Valid (ops/sec) | Invalid (ops/sec) | Memory (KB) |
 |--------|------------------|-----------------|-------------------|-------------|
-| object50Props | 20.24 | 238464 | 3647599 | -41.91 |
-| object100Props | 60.00 | 131729 | 2370904 | 80.95 |
-| object500Props | 21.08 | 4230 | 10101709 | -127.11 |
-| object1000Props | 18.54 | 1888 | 9530392 | 462.44 |
+| object50Props | 43.35 | 249829 | 3370096 | 570.30 |
+| object100Props | 49.63 | 136062 | 2370192 | 68.53 |
+| object500Props | 27.30 | 3636 | 9669847 | -117.15 |
+| object1000Props | 39.32 | 1826 | 9045594 | 461.50 |
 
 ## SCALE-REFS
 
 | Schema | Compilation (ms) | Valid (ops/sec) | Invalid (ops/sec) | Memory (KB) |
 |--------|------------------|-----------------|-------------------|-------------|
-| references | 13.94 | 5201496 | 11674188 | -48.85 |
-| refs100Times | 48.87 | 2333786 | 1921070 | 204.26 |
-| refs500Times | 18.74 | 8703 | 12818952 | 165.30 |
-| refs1000Times | 13.04 | 3235 | 14703562 | -45.63 |
-| recursiveRefs | 28.50 | 2738217 | 11589776 | 13.63 |
-| chainedRefs | 15.01 | 15120679 | 30300343 | 451.90 |
-| complexRefGraph | 14.17 | 3287154 | 1099010 | 9.66 |
+| references | 26.14 | 6753264 | 2571494 | -75.21 |
+| refs100Times | 91.94 | 114984 | 2011517 | 291.66 |
+| refs500Times | 42.50 | 8811 | 12283225 | -352.47 |
+| refs1000Times | 21.97 | 3118 | 12575850 | -7.51 |
+| recursiveRefs | 12.93 | 3153301 | 11228574 | 6.63 |
+| chainedRefs | 32.46 | 13005526 | 29126010 | 444.13 |
+| complexRefGraph | 17.37 | 3291642 | 1073077 | 45.78 |
 

@@ -1,6 +1,6 @@
 import typescript from "rollup-plugin-typescript2";
-import { visualizer } from "rollup-plugin-visualizer";
-import filesize from "rollup-plugin-filesize";
+// import { visualizer } from "rollup-plugin-visualizer";
+// import filesize from "rollup-plugin-filesize";
 
 // No terser/minification - code must be readable for standalone serialization
 
