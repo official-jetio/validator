@@ -3954,12 +3954,11 @@ export class Compiler {
     result += `dataPath: \`${escapedDataPath}\`,`;
     result += `schemaPath: \`${escapedSchemaPath}\`,`;
     result += `keyword: "${error.keyword}",`;
-
+    if (error.expected) {
+      result += `expected: ${error.expected},`;
+    }
     if (this.options.verbose) {
       result += `value: ${error.value},`;
-      if (error.expected) {
-        result += `expected: ${error.expected},`;
-      }
     }
 
     let errorMessage;
