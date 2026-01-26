@@ -874,7 +874,6 @@ len_of("café"); // 4
 
 **Use case:** Validating `minLength`/`maxLength` for strings with emoji or special Unicode characters.
 
-**→ [See Full Utilities API Reference](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#utilities-api)**
 
 ---
 
@@ -896,18 +895,16 @@ const validate = jetValidator.compile(schema);
 
 **Benefits of switching:**
 
-- ⚡ 10-27x faster compilation
+- ⚡ 19x faster compilation
 - 📦 Smaller bundle size
-- 🎯 Built-in formats (no separate packages)
+- 🎯 Built-in formats and error messages (no separate packages)
 - ✨ Enhanced features (`elseIf`, better `$data`)
 
 **What's different:**
 
-- Error object structure (but more detailed)
-- Custom keywords use different API (more powerful)
-- Meta-schema setup is easier
-
-**→ [See Migration Guide](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#migration-from-ajv)**
+- Error object structure
+- Custom keywords use different API
+- Meta-schema setup with cli
 
 ---
 
@@ -925,7 +922,7 @@ const validate = jetValidator.compile(schema);
 ### Consider Alternatives If:
 
 ⚠️ You need 100% JSON Schema spec compliance (we're at 99.5%)  
-⚠️ You're already heavily invested in AJV ecosystem with custom plugins (we offer the same custom keywords but contexts are simpler and different, although much more easy to use and better)
+⚠️ You're already heavily invested in AJV ecosystem with custom plugins (we offer the same custom keywords but contexts are simpler and different, although much more easy to use)
 ⚠️ You need streaming validation for extremely large documents
 
 ---
@@ -937,7 +934,7 @@ const validate = jetValidator.compile(schema);
 jet-validator eliminates infinite recursion through a unique resolution approach. Unlike other validators that resolve references during traversal (causing stack overflow), jet-validator:
 
 1. **Collects** all references and identifiers
-2. **Assigns** unique function names to each location
+2. **Assigns** unique function names to each location when inlining is impossible
 3. **Resolves** references by replacing them with function calls
 
 This architecture enables both lightning-fast compilation and bulletproof circular reference handling.
@@ -951,14 +948,14 @@ This architecture enables both lightning-fast compilation and bulletproof circul
 Traditional validators:
 
 ```typescript
-// Slow: 20ms per compilation
+// Slow: 10-20ms per compilation
 const validate = ajv.compile(schema); // Must cache!
 ```
 
 jet-validator:
 
 ```typescript
-// Fast: 1-2ms per compilation
+// Fast: 0.7ms per compilation
 const validate = jetValidator.compile(schema); // Can recompile!
 ```
 
@@ -1127,7 +1124,7 @@ We welcome contributions! jet-validator is a community project and we appreciate
 ```bash
 # Clone the repo
 git clone https://github.com/official-jetio/validator
-cd jet-validator
+cd validator
 
 # Install dependencies
 npm install
@@ -1145,8 +1142,7 @@ npm run test:draft6
 npm run test
 
 # Run benchmarks
-npm run benchmark
-npm run benchmark:compare
+node --expose-gc --max-old-space-size=4096 --max-semi-space-size=64 benchmarks/jet-validator-benchmark.js
 ```
 
 ### Testing Philosophy
@@ -1160,7 +1156,7 @@ jet-validator uses the official [JSON Schema Test Suite](https://github.com/json
 3. Run the official test suite: `npm run test:draft2020-12` (or appropriate draft)
 4. Check compliance rate - aim to maintain or improve current 99.5%+ compliance
 
-**The test runner** (`tests/test-runner.ts`) validates against:
+**The test runner** (`tests/test.ts`) validates against:
 
 - 1,261+ tests for Draft 2020-12
 - 1,227+ tests for Draft 2019-09
@@ -1280,22 +1276,9 @@ We track bugs and feature requests using GitHub Issues.
 ---
 
 ## ⚠️ Benchmark Methodology & Hardware Notes
-
-The benchmarks took hours to run due to laptop hardware and the billions of operations performed. The `array100KItems` benchmark alone—validating 100K array items with 1,000 warmups, 10,000 iterations, and 5 runs—was particularly intensive.
-
 **Performance on Better Hardware:**
 
 Results will vary significantly on better hardware. While absolute numbers will improve across the board, jet-validator is expected to maintain its performance advantages, especially in compilation speed.
-
-**Implementation Differences:**
-
-Unlike AJV, jet-validator doesn't inline `$ref`s by default. This design choice:
-
-- Reduces code bloat
-- Enables proper tracing for `unevaluatedItems`/`unevaluatedProperties`
-- Maintains cleaner stack traces for debugging
-
-Optional inlining is a feature we plan to add in the future for users who prefer maximum runtime performance over bundle size.
 
 ---
 
