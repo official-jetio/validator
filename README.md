@@ -363,28 +363,14 @@ For transparency, here are the keywords jet-validator intentionally does not sup
 
 ### Summary
 
-- **Compilation:** 10-27x faster than AJV (1.33ms vs 13.20ms average)
-- **Valid data validation:** 7% faster overall (2.44M vs 2.28M ops/sec)
-- **Invalid data validation:** 24% faster overall (4.15M vs 3.36M ops/sec)
-- **Win rate:** 49.2% on valid data, 66.2% on invalid data
-- **Overall winner:** 71.8% of all benchmarks
+🚀 **Compilation:** 19x faster (1.47ms vs 28.29ms)
+✅ **Valid Data:** 58% win rate (36/62)
+🛡️ **Invalid Data:** 73% win rate (45/62)
+🏆 **Overall:** 72% win rate (89/124)
 
-**Key Wins:**
+[📊 Full Benchmark Report](https://github.com/official-jetio/validator/blob/main/benchmarks/results/COMPARISON.md) | [📈 Detailed Results](https://github.com/official-jetio/validator/tree/main/benchmarks/results/)
 
-- Composition operations: 240-284% faster
-- Pattern matching: Up to 88% faster
-- Integer validation: 48-120% faster
-- Object validation at scale: 28-51% faster
-
-**Where AJV leads:**
-
-- Deeply chained $refs: 88% faster
-- Deep allOf chains: 68% faster
-- Complex conditionals: 36% faster
-
-[📊 Full Benchmark Report](https://github.com/official-jetio/validator/blob/main/benchmark/results/COMPARISON.md) | [📈 Detailed Results](https://github.com/official-jetio/validator/tree/main/benchmark/results/)
-
-_Tested against AJV v8.17.1 using official benchmarks with 65 schemas, 1000 warmups, 10000 iterations, 5 runs per test_
+_Tested against AJV v8.17.1 using official benchmarks with 65 schemas, 1000 warmups, 10000 iterations, 30 runs per test_
 
 ---
 
@@ -1318,11 +1304,10 @@ Optional inlining is a feature we plan to add in the future for users who prefer
 jet-validator has proven itself as a strong contender for JSON Schema validation in the Node.js ecosystem, offering:
 
 ✅ **99.5% JSON Schema compliance** - More spec-compliant than AJV in many areas  
-✅ **10-27x faster compilation** - Game-changer for serverless  
-✅ **7% faster valid data** - Better average throughput  
-✅ **24% faster invalid data** - Better security posture  
-✅ **49% valid win rate** - More common-case wins  
-✅ **66% invalid win rate** - Dominant error detection
+🚀 **Compilation:** 19x faster (1.47ms vs 28.29ms) on average - Game-changer for serverless
+✅ **Valid Data:** 58% win rate (36/62)
+🛡️ **Invalid Data:** 73% win rate (45/62)
+🏆 **Overall:** 72% win rate (89/124)
 
 **jet-validator is the clear choice for:**
 
@@ -1331,12 +1316,10 @@ jet-validator has proven itself as a strong contender for JSON Schema validation
 - Real-world schema validation
 - Applications requiring fast compilation
 - Security-focused applications (invalid data detection)
-
-**Consider AJV for:**
-
-- Extremely deep composition chains (>10 levels)
 - Heavy reliance on complex $ref graphs
 - Schemas with complex conditional logic
+- Extremely deep composition chains (>10 levels)
+
 
 ---
 
@@ -1355,7 +1338,7 @@ MIT © [Great Venerable](https://github.com/greatvenerable)
 - **[npm Package](https://www.npmjs.com/package/@jetio/validator)**
 - **[GitHub Repository](https://github.com/@jetio/validator)**
 - **[Complete Documentation (20k+ lines)](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md)**
-- **[Benchmark Results](https://github.com/official-jetio/validator/blob/main/benchmark/results/COMPARISON.md)**
+- **[Benchmark Results](https://github.com/official-jetio/validator/blob/main/benchmarks/results/COMPARISON.md)**
 - **[Issue Tracker](https://github.com/official-jetio/validator/issues)**
 - **[GitHub Discussions](https://github.com/official-jetio/validator/discussions)**
 
