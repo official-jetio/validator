@@ -7,6 +7,9 @@ bundle-analysis.html
 .DS_Store
 tests/func.js
 tests/lolo.ts
+tests/lolo.js
 tests/lolo2.ts
+tests/lolo2.js
 tests/ttt.txt
 tests/test2.ts
+func.js
