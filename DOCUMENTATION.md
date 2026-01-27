@@ -282,7 +282,7 @@
 - **⚡ Lightning Fast Compilation** - 20-44x faster compilation than ajv (Sub-Millisecond compilation)
 - **✅ Full JSON Schema Support** - Draft 06, 07, 2019-09, 2020-12
 - **🎯 Highly Compliant** - Passes JSON Schema Test Suite (only 6 extreme edge case failures)
-- **📦 Smaller Bundle** - X kB vs ajv's Y kB, with built-in format validators
+- **📦 Smaller Bundle** - 26kB with built-in format validators and custom error messages
 - **🎯 Zero Dependencies** - Pure TypeScript implementation
 - **💪 TypeScript-first** - Full type safety
 - **🔧 Built-in Formats** - Full format support included, no external packages needed
