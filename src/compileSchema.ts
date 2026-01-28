@@ -21,7 +21,6 @@ import {
   ValidateKeywordDefinition,
 } from "./types/keywords";
 import { JetValidator } from "./jet-validator";
-import { Console } from "console";
 export type Extra = { before: string; after: string; refAfter?: string };
 
 interface ErrorInfo {

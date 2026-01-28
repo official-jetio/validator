@@ -1130,7 +1130,10 @@ cd validator
 npm install
 
 # Build the project
-npm run build
+cd JSON-Schema-Test-Suite/remotes
+python3 -m http.server 1234 # Start local server for test suite
+cd ..
+cd ..
 
 # Run JSON Schema Test Suite
 npm run test:draft2020-12
@@ -1142,6 +1145,7 @@ npm run test:draft6
 npm run test
 
 # Run benchmarks
+npm run build
 node --expose-gc --max-old-space-size=4096 --max-semi-space-size=64 benchmarks/jet-validator-benchmark.js
 ```
 
@@ -1183,7 +1187,7 @@ jet-validator uses the official [JSON Schema Test Suite](https://github.com/json
 
 ### Understanding the Codebase
 
-The resolver (`src/compiler/resolver.ts`) is the heart of jet-validator. It handles:
+The resolver (`src/resolver.ts`) is the heart of jet-validator. It handles:
 
 - Schema resolution and reference tracking
 - `$ref`, `$dynamicRef`, `$anchor` resolution
@@ -1191,8 +1195,9 @@ The resolver (`src/compiler/resolver.ts`) is the heart of jet-validator. It hand
 - Circular reference prevention
 - Three-phase resolution process
 
-If you're working on the resolver, please be extra careful - it's complex but battle-tested against 3,000+ official test cases.
-
+If you're working on the resolver, please be extra careful - it's complex same with the compileSchema.ts but battle-tested against 3,000+ official test cases.
+They might look complex but once you are familiar with the code, everything looks simple.
+The compiler doesn't use any special ast approach or module just simple string concatenation.
 ### Questions?
 
 - 💬 **Discussions:** [GitHub Discussions](https://github.com/official-jetio/validator/discussions)
