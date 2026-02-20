@@ -1,6 +1,6 @@
 # jet-validator
 
-**The Fastest JSON Schema Validator in JavaScript**
+**The Fastest JSON Schema Validator in JavaScript with Json Schema Compliant Type Inference**
 
 [![npm version](https://img.shields.io/npm/v/@jetio/validator.svg)](https://www.npmjs.com/package/@jetio/validator) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Bundle Size](https://img.shields.io/bundlephobia/minzip/@jetio/validator)](https://bundlephobia.com/package/@jetio/validator)
 
@@ -8,9 +8,11 @@
 
 ## 🚀 Why jet-validator?
 
-**5-44x faster compilation** | **26KB gzipped** | **Zero dependencies** | **JSON Schema Draft 06-2020-12**
+**TypeScript Inference** | **5-44x faster compilation** | **26KB gzipped** | **Zero dependencies** | **JSON Schema Draft 06-2020-12**
 
 jet-validator compiles JSON Schemas into highly optimized validation functions in **sub-millisecond time**. Unlike traditional validators that interpret schemas at runtime, jet-validator generates specialized code tailored to your exact schema structure.
+
+Full TypeScript Type Inference that mirrors run time performance via [@jetio/schema-builder](https://www.npmjs.com/package/@jetio/schema-builder)
 
 Built with simplicity in mind.
 
@@ -18,9 +20,10 @@ Just one import for all supported drafts, check full documentation for how to sp
 
 ### Key Features
 
-- ⚡ **Lightning Fast** - 5-44x faster compilation than AJV (sub-millisecond compilation)
+- ⚡ **Lightning Fast** - 19x faster compilation than AJV (sub-millisecond compilation)
+- 🔧 Type inference including support for advanced keywords - allOf, oneOf, anyOf, If/Then/ElseIf/Else, unevaluated and additional items/properties, patternProperties etc.
 - ✅ **Highly Compliant** - 99.5%+ compliance on JSON Schema Test Suite across all supported drafts
-- 📦 **Smaller Bundle** - <26KB with built-in format validators and custom error messages(no external packages needed)
+- 📦 **Smaller Bundle** - 26KB Gzipped with built-in format validators and custom error messages(no external packages needed)
 - 📝 **Built-in Formats** - email, uri, date-time, uuid, and more included (no extra packages!)
 - ⚠️ **Custom Error Messages** - Flexible error customization with `errorMessage` keyword
 - 🎯 **Zero Dependencies** - Pure TypeScript implementation
@@ -31,9 +34,9 @@ Just one import for all supported drafts, check full documentation for how to sp
 - 🌐 **Async Schema Loading** - Load schemas from HTTP, databases, or file systems
 - 🚫 **No Infinite Recursion** - Smart resolution process prevents stack overflow errors
 
-## 🛠️ Schema Builder
+## 🛠️ Schema Builder with TypeScript Inference
 
-Want a fluent, type-safe API for building schemas? Check out [@jetio/schema-builder](https://www.npmjs.com/package/@jetio/schema-builder):
+Want a fluent, type-safe API for building schemas with automatic typescript types? Check out [@jetio/schema-builder](https://www.npmjs.com/package/@jetio/schema-builder):
 ```typescript
 import { SchemaBuilder, JetValidator } from "@jetio/schema-builder";
 
@@ -47,11 +50,230 @@ const schema = new SchemaBuilder()
   .required(["name", "email"])
   .build();
 
+// Type Inference
+type User = Jet.Infer<typeof schema>
+
 const validator = new JetValidator();
 const validate = validator.compile(schema);
 ```
 
 The schema-builder package includes this validator, so you get both in one install.
+
+## What Makes JetValidator Different
+
+### 1. Full TypeScript Type Inference
+
+**Types that mirror runtime validation exactly.**
+
+Build schemas with [@jetio/schema-builder](https://www.npmjs.com/package/@jetio/schema-builder):
+```typescript
+import { SchemaBuilder as s } from '@jetio/schema-builder';
+
+const schema = s.object({
+  type: s.enum(['admin', 'user']),
+  permissions: s.string()
+}).oneOf([
+  s.object({ 
+    type: s.const('admin'), 
+    permissions: s.const('all') 
+  }),
+  s.object({ 
+    type: s.const('user'), 
+    permissions: s.const('read') 
+  })
+]);
+
+// Automatically inferred as discriminated union:
+type User = 
+  | { type: 'admin'; permissions: 'all' }
+  | { type: 'user'; permissions: 'read' };
+```
+
+**Advanced features:**
+- ✅ Discriminated unions from `oneOf`
+- ✅ Pattern properties as template literals
+- ✅ Conditional type narrowing
+- ✅ Deep object merging
+- ✅ Exclusive unions with conflict detection
+
+→ [See @jetio/schema-builder](https://www.npmjs.com/package/@jetio/schema-builder)
+
+---
+
+### 2. elseIf Conditionals
+
+**Clean conditional validation without deep nesting.**
+
+Standard JSON Schema:
+```typescript
+// Deeply nested if/else chains
+{
+  if: { properties: { type: { const: 'A' } } },
+  then: { properties: { value: { minimum: 100 } } },
+  else: {
+    if: { properties: { type: { const: 'B' } } },
+    then: { properties: { value: { minimum: 50 } } },
+    else: { /* ... */ }
+  }
+}
+```
+
+JetValidator:
+```typescript
+// Clean and flat
+{
+  if: { properties: { type: { const: 'A' } } },
+  then: { properties: { value: { minimum: 100 } } },
+  elseIf: [
+    {
+      if: { properties: { type: { const: 'B' } } },
+      then: { properties: { value: { minimum: 50 } } }
+    }
+  ],
+  else: { properties: { value: { minimum: 0 } } }
+}
+```
+
+With schema builder:
+```typescript
+const schema = s.object({ type: s.string(), value: s.number() })
+  .if(s => s.properties({ type: s.const('A') }))
+  .then(s => s.properties({ value: s.minimum(100) }))
+  .elseIf(s => s.properties({ type: s.const('B') }))
+  .then(s => s.properties({ value: s.minimum(50) }))
+  .else(s => s.properties({ value: s.minimum(0) }));
+```
+
+---
+
+### 3. No Stack Overflow Errors
+
+**Three-phase resolution eliminates infinite recursion.**
+
+1. **Phase 1:** Collect all references and identifiers
+2. **Phase 2:** Assign unique function names
+3. **Phase 3:** Resolve references to function calls
+
+**Result:** Complex schemas with circular references never cause stack overflow.
+```typescript
+// This works perfectly (causes issues in some validators)
+const schema = {
+  $id: 'https://example.com/tree',
+  type: 'object',
+  properties: {
+    value: { type: 'number' },
+    left: { $ref: '#' },   // Circular
+    right: { $ref: '#' }   // Circular
+  }
+};
+```
+
+---
+
+### 4. Advanced $data References
+
+**Compare values within your data at validation time.**
+```typescript
+const schema = {
+  type: 'object',
+  properties: {
+    password: { type: 'string', minLength: 8 },
+    confirmPassword: {
+      type: 'string',
+      const: { $data: '1/password' }  // Must match
+    },
+    minPrice: { type: 'number' },
+    maxPrice: { type: 'number' },
+    currentPrice: {
+      type: 'number',
+      minimum: { $data: '1/minPrice' },
+      maximum: { $data: '1/maxPrice' }
+    }
+  }
+};
+```
+
+Works with: const, enum, min/max, pattern, and more.
+
+---
+
+### 5. Three Custom Keyword Types
+
+**Different types for different use cases:**
+```typescript
+// Type 1: Code keywords (inline generation)
+jetValidator.addKeyword({
+  keyword: 'range',
+  code: (value, schema, context) => `...`
+});
+
+// Type 2: Compile keywords (return function)
+jetValidator.addKeyword({
+  keyword: 'divisibleBy',
+  compile: (value) => (data) => data % value === 0
+});
+
+// Type 3: Validate keywords (async capable)
+jetValidator.addKeyword({
+  keyword: 'uniqueEmail',
+  async: true,
+  validate: async (value, data) => !(await db.exists(data))
+});
+```
+
+---
+
+### 6. Macro System
+
+**Transform schemas at compile time.**
+```typescript
+jetValidator.addKeyword({
+  keyword: 'username',
+  macro: (value, schema) => ({
+    type: 'string',
+    minLength: 3,
+    maxLength: 20,
+    pattern: '^[a-zA-Z0-9_]+$'
+  })
+});
+
+// Use it
+const schema = {
+  properties: {
+    username: { username: true }  // Expands to full validation
+  }
+};
+```
+
+---
+
+### 7. Reference Inlining Optimization
+
+**Automatically eliminates function call overhead.**
+
+When safe, references are inlined instead of generating function calls:
+```typescript
+// Instead of function calls:
+if (!validate_name(data.name)) return false;
+
+// Generates inlined code:
+if (typeof data.name !== 'string' || data.name.length < 2) return false;
+```
+
+**Result:** Up to 80% reduction in function calls.
+
+---
+
+### 8. Zero Dependencies
+
+Everything included in 26kB Gzipped:
+
+✅ Format validators (email, uri, date, uuid, etc.)
+✅ Custom error messages
+✅ $data references
+✅ Type coercion
+✅ Custom keywords
+✅ Macro system
 
 ### What Fast Compilation Enables
 
@@ -355,7 +577,31 @@ For transparency, here are the keywords jet-validator intentionally does not sup
 
 ---
 
-## ⚡ Performance Benchmarks
+## ⚡ Performance
+
+### Why Compilation Speed Matters
+
+**Fast compilation enables new patterns:**
+```typescript
+// For simple schemas compile on every request (no caching needed)
+app.post('/validate', (req) => {
+  const schema = generateSchema(req.user);
+  const validate = jetValidator.compile(schema); // 1.4ms
+  return validate(req.body);
+});
+```
+
+**Serverless cold starts:**
+- 20 routes: 560ms → 28ms compilation time
+- **532ms faster cold start**
+
+**Dynamic schemas:**
+- Generate based on user config
+- Hot-reload without restart
+- No caching infrastructure needed (depending on schema complexity)
+
+
+### Benchmarks
 
 **Environment:** Ubuntu 1.6GHz laptop under realistic load (browser, IDE, system services)
 
@@ -914,6 +1160,7 @@ const validate = jetValidator.compile(schema);
 
 ✅ **High-throughput APIs** - Validate thousands of requests per second  
 ✅ **Dynamic schemas** - Generate and compile schemas on-the-fly  
+✅ TypeScript projects
 ✅ **Serverless functions** - Fast cold starts with quick compilation  
 ✅ **Real-time validation** - Hot-reload schemas without restart  
 ✅ **Complex validation logic** - Advanced `$data` and conditional validation  
@@ -1102,9 +1349,10 @@ const validateUser = createValidatorForUser("user");
 ---
 
 ## Acknowledgments
+The idea of this validator and its feature sets where heavily inspired by Ajv, from compilation approach to custom keywords and $data, even some formats though approch is entirely different.
 
-- Format validation patterns follow RFC and ISO specifications
-- Inspired by the performance goals of AJV
+Special thanks to the JSON Schema community for maintaining excellent 
+specifications and comprehensive test suites.
 
 ## 🤝 Contributing
 
@@ -1291,7 +1539,7 @@ Results will vary significantly on better hardware. While absolute numbers will 
 
 jet-validator has proven itself as a strong contender for JSON Schema validation in the Node.js ecosystem, offering:
 
-✅ **99.5% JSON Schema compliance** - More spec-compliant than AJV in many areas  
+✅ **99.5% JSON Schema compliance** - More spec-compliant  
 🚀 **Compilation:** 19x faster (1.47ms vs 28.29ms) on average - Game-changer for serverless
 ✅ **Valid Data:** 58% win rate (36/62)
 🛡️ **Invalid Data:** 73% win rate (45/62)
