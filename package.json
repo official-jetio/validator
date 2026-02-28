@@ -35,7 +35,7 @@
     "test:6": "ts-node tests/test.ts ./JSON-Schema-Test-Suite/tests/draft6"
   },
   "bin": {
-    "jet-meta": "./dist/cli.js"
+    "jet-meta": "dist/cli.js"
   },
   "keywords": [
     "json-schema",
