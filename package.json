@@ -1,6 +1,6 @@
 {
   "name": "@jetio/validator",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "The fastest JSON Schema validator for JavaScript and TypeScript with Type Inference. Supports Draft 06, 07, 2019-09, and 2020-12.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
