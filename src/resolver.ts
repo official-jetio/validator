@@ -919,7 +919,6 @@ export class SchemaResolver {
     urlParts: { path: string; hash?: string },
     context: InitializedResolutionContext,
   ): void {
-    if (!ref.startsWith("http")) return;
 
     const baseUrl = urlParts.path;
     const fragment = urlParts.hash;
@@ -1576,7 +1575,7 @@ export class SchemaResolver {
       identifierToPath = preprocessResult.identifierToPath;
       collectedRefs.push(...preprocessResult.collectedRefs);
 
-      if (preprocessResult.collectedRefs.length > 0) {
+    
         for (const ref of preprocessResult.collectedRefs) {
           if (ref === "#") continue;
           if (preprocessResult.localIdentifiers.includes(ref)) continue;
@@ -1589,11 +1588,11 @@ export class SchemaResolver {
           if (shouldSkip) continue;
 
           const urlParts = splitUrlIntoPathAndFragment(ref);
-          const isHttpRef =
-            ref.startsWith("http") &&
-            !preprocessResult.localIdentifiers.includes(urlParts.path);
+          const isExternalRef =
+          !ref.startsWith("#") &&
+          !preprocessResult.localIdentifiers.includes(urlParts.path);
 
-          if (isHttpRef) {
+          if (isExternalRef) {
             this.resolveExternalSchemaSync(
               ref,
               preprocessResult.identifiers,
@@ -1608,7 +1607,7 @@ export class SchemaResolver {
             );
           }
         }
-      }
+      
     }
 
     // Handle inlining if enabled
@@ -1761,8 +1760,7 @@ export class SchemaResolver {
         }
 
         // Inline if the referenced path doesn't contain refs
-        if (referencedPath && !pathsContainingRefs?.has(referencedPath)) {
-          if (referencedPath !== "#") {
+        if (referencedPath && !pathsContainingRefs?.has(referencedPath)) { 
             const targetSchema = getSchemaAtPath(schema, referencedPath);
             delete schemaAtPath[refType];
             const objectKeys = Object.keys(schemaAtPath).length;
@@ -1806,7 +1804,7 @@ export class SchemaResolver {
 
             this.compilationContext.inliningStats.inlinedRefs++;
             return true;
-          }
+          
         } else if (referencedPath && this.options.debug) {
           console.log(
             `[Resolver - ${context.schemaId}] Skipping Inlining ${refType} at ${path} (${referencedPath} contains refs)`,
@@ -1833,7 +1831,6 @@ export class SchemaResolver {
               referencedPath &&
               !this.schemaIdToRefPaths.get(urlParts.path)?.has(referencedPath)
             ) {
-              if (referencedPath !== "#") {
                 const targetSchema = getSchemaAtPath(
                   externalSchema,
                   referencedPath,
@@ -1879,7 +1876,7 @@ export class SchemaResolver {
 
                 this.compilationContext.inliningStats.inlinedRefs++;
                 return true;
-              }
+              
             } else if (referencedPath && this.options.debug) {
               console.log(
                 `[Resolver - ${context.schemaId}] Skipping Inlining ${refType} at ${path} (${urlParts.path + referencedPath} contains refs) - (external schema)`,
@@ -2822,7 +2819,7 @@ export class SchemaResolver {
     }
     // Add external reference marker
     if (lookupKey && !lookupKey.startsWith("#/")) {
-      if (lookupKey.startsWith("http")) {
+      if (!lookupKey.startsWith("#")) {
         schema.$ref = schema.$ref + "**" + lookupKey;
       } else {
         schema.$ref = schema.$ref + "**#" + lookupKey.split("#")[1];

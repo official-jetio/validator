@@ -790,6 +790,7 @@ export class JetValidator {
 
     const resolver = new SchemaResolver(this, finalConfig);
     const resolved = resolver.resolveSync(schema);
+    console.log(resolved.schema)
     const validator = this.compileResolved(
       resolved.schema,
       schema,
