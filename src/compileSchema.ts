@@ -648,15 +648,14 @@ export class Compiler {
         ? accessPattern
         : "jv" + counter++;
     this.initializeDefault(src, schema, varName, accessPattern, inlined);
-    let shouldTrackProps;
-    let shouldTrackItems;
-    shouldTrackProps =
+   
+    const shouldTrackProps =
       schema?.unevaluatedProperties !== undefined ||
       trackingState.parentHasUnevaluatedProperties === true;
 
     trackingState.shouldTrackEvaluatedProperties = shouldTrackProps;
 
-    shouldTrackItems =
+    const shouldTrackItems =
       schema?.unevaluatedItems !== undefined ||
       trackingState.parentHasUnevaluatedItems === true;
     trackingState.shouldTrackEvaluatedItems = shouldTrackItems;
@@ -1184,7 +1183,7 @@ export class Compiler {
       );
       configs.pathContext.alt = `${pathContext.schema}/anyOf/${index}`;
       configs.pathContext.alt2 = `${pathContext.schema}/anyOf`;
-      let errorCountVar = "anyErrCnt" + counter++;
+      const errorCountVar = "anyErrCnt" + counter++;
       if (this.options.allErrors) {
         validatorFn = this.compileSchema(
           subSchema,
@@ -1341,7 +1340,7 @@ export class Compiler {
           true,
         );
       }
-      let errorCountVar = "oneErrCnt" + counter++;
+      const errorCountVar = "oneErrCnt" + counter++;
       if (this.options.allErrors) {
         src.push(`const ${errorCountVar} = ${this.errorVariable}.length;`);
         if (index === 0) firstLength = errorCountVar;
@@ -2869,7 +2868,7 @@ export class Compiler {
     src.push(`for (const ${key} in ${varName}) {`);
 
     addEvaluatedProperty(src, key, trackingState);
-    let checks = [];
+    const checks = [];
     if (explicitProps.length > 0) {
       const allowedCheck = explicitProps
         .map((keyItem) => `${key} === ${JSON.stringify(keyItem)}`)

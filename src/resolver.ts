@@ -919,7 +919,6 @@ export class SchemaResolver {
     urlParts: { path: string; hash?: string },
     context: InitializedResolutionContext,
   ): void {
-
     const baseUrl = urlParts.path;
     const fragment = urlParts.hash;
     const existingRefMap = this.externalSchemaRefMaps.get(baseUrl);
@@ -1448,7 +1447,7 @@ export class SchemaResolver {
     }
 
     // Clone schema on first call to avoid mutating the original
-    let schema = (
+    const schema = (
       context.isRootResolution ? structuredClone(rootSchema) : rootSchema
     ) as SchemaDefinition;
 
@@ -1556,7 +1555,7 @@ export class SchemaResolver {
     }
 
     // Clone schema on first call to avoid mutating the original
-    let schema = (
+    const schema = (
       context.isRootResolution ? structuredClone(rootSchema) : rootSchema
     ) as SchemaDefinition;
 
@@ -1575,39 +1574,37 @@ export class SchemaResolver {
       identifierToPath = preprocessResult.identifierToPath;
       collectedRefs.push(...preprocessResult.collectedRefs);
 
-    
-        for (const ref of preprocessResult.collectedRefs) {
-          if (ref === "#") continue;
-          if (preprocessResult.localIdentifiers.includes(ref)) continue;
+      for (const ref of preprocessResult.collectedRefs) {
+        if (ref === "#") continue;
+        if (preprocessResult.localIdentifiers.includes(ref)) continue;
 
-          const shouldSkip = this.shouldSkipReference(
-            ref,
-            context as ResolutionContext & { schemaId: string },
-            identifierToPath,
-          );
-          if (shouldSkip) continue;
+        const shouldSkip = this.shouldSkipReference(
+          ref,
+          context as ResolutionContext & { schemaId: string },
+          identifierToPath,
+        );
+        if (shouldSkip) continue;
 
-          const urlParts = splitUrlIntoPathAndFragment(ref);
-          const isExternalRef =
+        const urlParts = splitUrlIntoPathAndFragment(ref);
+        const isExternalRef =
           !ref.startsWith("#") &&
           !preprocessResult.localIdentifiers.includes(urlParts.path);
 
-          if (isExternalRef) {
-            this.resolveExternalSchemaSync(
-              ref,
-              preprocessResult.identifiers,
-              context,
-            );
-          } else if (ref.startsWith("#/") || !ref.startsWith("#")) {
-            this.resolveLocalReference(
-              schema,
-              ref,
-              identifierToPath,
-              context as ResolutionContext & { schemaId: string },
-            );
-          }
+        if (isExternalRef) {
+          this.resolveExternalSchemaSync(
+            ref,
+            preprocessResult.identifiers,
+            context,
+          );
+        } else if (ref.startsWith("#/") || !ref.startsWith("#")) {
+          this.resolveLocalReference(
+            schema,
+            ref,
+            identifierToPath,
+            context as ResolutionContext & { schemaId: string },
+          );
         }
-      
+      }
     }
 
     // Handle inlining if enabled
@@ -1760,51 +1757,50 @@ export class SchemaResolver {
         }
 
         // Inline if the referenced path doesn't contain refs
-        if (referencedPath && !pathsContainingRefs?.has(referencedPath)) { 
-            const targetSchema = getSchemaAtPath(schema, referencedPath);
-            delete schemaAtPath[refType];
-            const objectKeys = Object.keys(schemaAtPath).length;
-            if (objectKeys === 0) {
-              if (typeof targetSchema === "object") {
-                Object.assign(schemaAtPath, targetSchema);
-              } else {
-                schemaAtPath.__inlinedRef = targetSchema;
-              }
-            } else if (objectKeys === 1 && "$id" in schemaAtPath) {
-              if (typeof targetSchema === "object") {
-                const previousId = schemaAtPath.$id;
-                Object.assign(schemaAtPath, targetSchema);
-                schemaAtPath.$id = previousId;
-              } else {
-                schemaAtPath.__inlinedRef = targetSchema;
-              }
+        if (referencedPath && !pathsContainingRefs?.has(referencedPath)) {
+          const targetSchema = getSchemaAtPath(schema, referencedPath);
+          delete schemaAtPath[refType];
+          const objectKeys = Object.keys(schemaAtPath).length;
+          if (objectKeys === 0) {
+            if (typeof targetSchema === "object") {
+              Object.assign(schemaAtPath, targetSchema);
             } else {
               schemaAtPath.__inlinedRef = targetSchema;
             }
-            pathsContainingRefs?.delete(path);
-
-            const pathParts = path.split("/");
-            for (let j = pathParts.length - 1; j > 0; j--) {
-              const currentPath = pathParts.slice(0, j).join("/");
-              const childRefsCount = Array.from(
-                pathsContainingRefs || [],
-              ).filter((p) => p.startsWith(currentPath)).length;
-              if (childRefsCount === 1) {
-                pathsContainingRefs?.delete(currentPath);
-              } else {
-                break;
-              }
+          } else if (objectKeys === 1 && "$id" in schemaAtPath) {
+            if (typeof targetSchema === "object") {
+              const previousId = schemaAtPath.$id;
+              Object.assign(schemaAtPath, targetSchema);
+              schemaAtPath.$id = previousId;
+            } else {
+              schemaAtPath.__inlinedRef = targetSchema;
             }
+          } else {
+            schemaAtPath.__inlinedRef = targetSchema;
+          }
+          pathsContainingRefs?.delete(path);
 
-            if (this.options.debug) {
-              console.log(
-                `[Resolver - ${context.schemaId}] Inlining ${refType} at ${path} -> ${referencedPath}`,
-              );
+          const pathParts = path.split("/");
+          for (let j = pathParts.length - 1; j > 0; j--) {
+            const currentPath = pathParts.slice(0, j).join("/");
+            const childRefsCount = Array.from(pathsContainingRefs || []).filter(
+              (p) => p.startsWith(currentPath),
+            ).length;
+            if (childRefsCount === 1) {
+              pathsContainingRefs?.delete(currentPath);
+            } else {
+              break;
             }
+          }
 
-            this.compilationContext.inliningStats.inlinedRefs++;
-            return true;
-          
+          if (this.options.debug) {
+            console.log(
+              `[Resolver - ${context.schemaId}] Inlining ${refType} at ${path} -> ${referencedPath}`,
+            );
+          }
+
+          this.compilationContext.inliningStats.inlinedRefs++;
+          return true;
         } else if (referencedPath && this.options.debug) {
           console.log(
             `[Resolver - ${context.schemaId}] Skipping Inlining ${refType} at ${path} (${referencedPath} contains refs)`,
@@ -1831,52 +1827,51 @@ export class SchemaResolver {
               referencedPath &&
               !this.schemaIdToRefPaths.get(urlParts.path)?.has(referencedPath)
             ) {
-                const targetSchema = getSchemaAtPath(
-                  externalSchema,
-                  referencedPath,
-                );
-                delete schemaAtPath[refType];
-                const objectKeys = Object.keys(schemaAtPath).length;
-                if (objectKeys === 0) {
-                  if (typeof targetSchema === "object") {
-                    Object.assign(schemaAtPath, targetSchema);
-                  } else {
-                    schemaAtPath.__inlinedRef = targetSchema;
-                  }
-                } else if (objectKeys === 1 && "$id" in schemaAtPath) {
-                  if (typeof targetSchema === "object") {
-                    const previousId = schemaAtPath.$id;
-                    Object.assign(schemaAtPath, targetSchema);
-                    schemaAtPath.$id = previousId;
-                  } else {
-                    schemaAtPath.__inlinedRef = targetSchema;
-                  }
+              const targetSchema = getSchemaAtPath(
+                externalSchema,
+                referencedPath,
+              );
+              delete schemaAtPath[refType];
+              const objectKeys = Object.keys(schemaAtPath).length;
+              if (objectKeys === 0) {
+                if (typeof targetSchema === "object") {
+                  Object.assign(schemaAtPath, targetSchema);
                 } else {
                   schemaAtPath.__inlinedRef = targetSchema;
                 }
-                pathsContainingRefs?.delete(path);
-                const pathParts = path.split("/");
-                for (let j = pathParts.length - 1; j > 0; j--) {
-                  const currentPath = pathParts.slice(0, j).join("/");
-                  const childRefsCount = Array.from(
-                    pathsContainingRefs || [],
-                  ).filter((p) => p.startsWith(currentPath)).length;
-                  if (childRefsCount === 1) {
-                    pathsContainingRefs?.delete(currentPath);
-                  } else {
-                    break;
-                  }
+              } else if (objectKeys === 1 && "$id" in schemaAtPath) {
+                if (typeof targetSchema === "object") {
+                  const previousId = schemaAtPath.$id;
+                  Object.assign(schemaAtPath, targetSchema);
+                  schemaAtPath.$id = previousId;
+                } else {
+                  schemaAtPath.__inlinedRef = targetSchema;
                 }
-
-                if (this.options.debug) {
-                  console.log(
-                    `[Resolver] Inlining ${refType} at ${path} -> ${urlParts.path + referencedPath} - (external schema)`,
-                  );
+              } else {
+                schemaAtPath.__inlinedRef = targetSchema;
+              }
+              pathsContainingRefs?.delete(path);
+              const pathParts = path.split("/");
+              for (let j = pathParts.length - 1; j > 0; j--) {
+                const currentPath = pathParts.slice(0, j).join("/");
+                const childRefsCount = Array.from(
+                  pathsContainingRefs || [],
+                ).filter((p) => p.startsWith(currentPath)).length;
+                if (childRefsCount === 1) {
+                  pathsContainingRefs?.delete(currentPath);
+                } else {
+                  break;
                 }
+              }
 
-                this.compilationContext.inliningStats.inlinedRefs++;
-                return true;
-              
+              if (this.options.debug) {
+                console.log(
+                  `[Resolver] Inlining ${refType} at ${path} -> ${urlParts.path + referencedPath} - (external schema)`,
+                );
+              }
+
+              this.compilationContext.inliningStats.inlinedRefs++;
+              return true;
             } else if (referencedPath && this.options.debug) {
               console.log(
                 `[Resolver - ${context.schemaId}] Skipping Inlining ${refType} at ${path} (${urlParts.path + referencedPath} contains refs) - (external schema)`,
@@ -2357,13 +2352,9 @@ export class SchemaResolver {
         if (storedSchema) {
           externalSchema = storedSchema;
         } else if (loadSchema) {
-          try {
-            externalSchema = await loadSchema(baseUrl);
-            if (this.options.addUsedSchema) {
-              this.jetValidator.addSchema(externalSchema, baseUrl);
-            }
-          } catch (e) {
-            throw e;
+          externalSchema = await loadSchema(baseUrl);
+          if (this.options.addUsedSchema) {
+            this.jetValidator.addSchema(externalSchema, baseUrl);
           }
         }
       }
@@ -2374,7 +2365,7 @@ export class SchemaResolver {
       const newRefMap = new Map<string, string>();
 
       for (const entry of identifiers) {
-        let refMap = this.externalSchemaRefMaps.get(baseUrl) || new Map();
+        const refMap = this.externalSchemaRefMaps.get(baseUrl) || new Map();
         if (!this.externalSchemaRefMaps.has(baseUrl)) {
           this.externalSchemaRefMaps.set(baseUrl, refMap);
         }
@@ -2465,7 +2456,7 @@ export class SchemaResolver {
       const newRefMap = new Map<string, string>();
 
       for (const entry of identifiers) {
-        let refMap = this.externalSchemaRefMaps.get(baseUrl) || new Map();
+        const refMap = this.externalSchemaRefMaps.get(baseUrl) || new Map();
         if (!this.externalSchemaRefMaps.has(baseUrl)) {
           this.externalSchemaRefMaps.set(baseUrl, refMap);
         }
@@ -2525,7 +2516,7 @@ export class SchemaResolver {
     const baseUrl = urlParts.path;
     const fragment = urlParts.hash;
     // Ensure ref map exists
-    let refMap = this.externalSchemaRefMaps.get(baseUrl) || new Map();
+    const refMap = this.externalSchemaRefMaps.get(baseUrl) || new Map();
     if (!this.externalSchemaRefMaps.has(baseUrl)) {
       this.externalSchemaRefMaps.set(baseUrl, refMap);
     }
@@ -3060,7 +3051,7 @@ Finalizes a $dynamicRef by resolving it to a function name.
     let contextId = currentContextId;
     let contextBasePath = basePath;
     let contextAnchorMap = anchorToPathMap;
-    let contextDynamicAnchorMap = dynamicAnchorToPathMap;
+    const contextDynamicAnchorMap = dynamicAnchorToPathMap;
 
     // Process $id
     if (schema.$id) {

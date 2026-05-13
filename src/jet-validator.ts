@@ -495,7 +495,7 @@ export class JetValidator {
     }
 
     const finalId = this.aliases[metaSchemaId] ?? metaSchemaId;
-    let metaSchema = this.metaSchemas[finalId];
+    const metaSchema = this.metaSchemas[finalId];
     if (!metaSchema) {
       if (options?.strictSchema) {
         throw new Error(
@@ -536,7 +536,7 @@ export class JetValidator {
     options?: ValidatorOptions,
   ): Promise<{ valid: boolean; errors: any }> {
     let metaSchema;
-    let { metaSchema: mSchema, metaSchemaId } = this.getMetaSchema(
+    const { metaSchema: mSchema, metaSchemaId } = this.getMetaSchema(
       schema.$schema,
       options,
     );
@@ -561,7 +561,7 @@ export class JetValidator {
   }
 
   addMetaSchema(schema: SchemaDefinition, key?: string): this {
-    let Key = key || schema.$id;
+    const Key = key || schema.$id;
 
     if (!Key) {
       throw new Error("Meta-schema must have an $id or explicit key");
