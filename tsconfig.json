@@ -14,7 +14,7 @@
     "sourceMap": true /* Skip type checking all .d.ts files. */
   },
   "include": [
-    "src/**/*.ts",
+    "src/**/*.ts"
   ],
   "exclude": ["tests/**/*.ts", "node_modules"]
 }
