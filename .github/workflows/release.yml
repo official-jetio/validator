@@ -34,7 +34,7 @@ jobs:
 
       - name: Build
         run: npm run build
-
+ 
       # - name: Run JSON Schema Test Suite
       #   run: npm test
 
