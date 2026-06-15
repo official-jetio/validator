@@ -1,11 +1,12 @@
-import { loadMetaschema, type SchemaVersion } from "./metaschema-loader";
+import { loadMetaschema } from "./metaschema-loader";
+import { SchemaVersion } from "./metaschema-loader";
 import * as path from "path";
 
 async function main() {
   const args = process.argv.slice(2);
 
   if (args[0] === "load") {
-    args.shift(); // remove 'load'
+    args.shift();
   }
 
   const version = args[0] || "all";

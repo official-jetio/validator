@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "ESNext",
-    "rootDir": "."
+    "rootDir": "./scripts",
   },
   "include": ["scripts/**/*.ts"],
   "exclude": ["test/**/*.ts", "node_modules"]

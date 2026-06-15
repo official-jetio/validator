@@ -1,9 +1,6 @@
-import typescript from "rollup-plugin-typescript2";
+import typescript from "@rollup/plugin-typescript";
 // import { visualizer } from "rollup-plugin-visualizer";
 // import filesize from "rollup-plugin-filesize";
-
-// No terser/minification - code must be readable for standalone serialization
-
 export default [
   // ===========================================
   // CLI Build (metaschema loader)
@@ -20,7 +17,6 @@ export default [
     plugins: [
       typescript({
         tsconfig: "./tsconfig.cli.json",
-        include: ["scripts/**/*.ts"],
       }),
     ],
     external: ["path", "fs/promises"],
@@ -42,8 +38,6 @@ export default [
     plugins: [
       typescript({
         tsconfig: "./tsconfig.rollup.json",
-        clean: true,
-        include: ["src/**/*.ts"],
       }),
     ],
     external: [],
@@ -65,8 +59,6 @@ export default [
     plugins: [
       typescript({
         tsconfig: "./tsconfig.rollup.json",
-        clean: true,
-        include: ["src/**/*.ts"],
       }),
       // filesize({
       //   showGzippedSize: true,
@@ -93,13 +85,10 @@ export default [
     plugins: [
       typescript({
         tsconfig: "./tsconfig.rollup.json",
-        tsconfigOverride: {
-          compilerOptions: {
-            module: "ES2015",
-            target: "ES2018",
-          },
+        compilerOptions: {
+          module: "ES2015",
+          target: "ES2018",
         },
-        include: ["src/**/*.ts"],
       }),
       // filesize({
       //   showGzippedSize: true,

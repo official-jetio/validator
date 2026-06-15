@@ -22,7 +22,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "npm run clean && tsc && npm run bundle",
+    "build": "npm run clean && npm run bundle",
     "clean": "rm -rf dist/",
     "lint": "eslint src --ext .ts",
     "bundle": "rollup -c",
@@ -65,6 +65,7 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^1.0.0",
+    "@rollup/plugin-typescript": "^12.3.0",
     "@types/node": "^18.19.127",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
@@ -73,7 +74,6 @@
     "eslint": "^8.57.1",
     "rollup": "^2.79.2",
     "rollup-plugin-filesize": "^7.0.0",
-    "rollup-plugin-typescript2": "^0.36.0",
     "rollup-plugin-visualizer": "^5.14.0",
     "terser": "^5.46.0",
     "ts-node": "^10.9.2",
