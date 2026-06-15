@@ -1,4 +1,4 @@
-import { loadMetaschema, SchemaVersion } from "./metaschema-loader";
+import { loadMetaschema, type SchemaVersion } from "./metaschema-loader";
 import * as path from "path";
 
 async function main() {

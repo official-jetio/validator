@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-import { JetValidator } from "../src"; // Your validator
+import { JetValidator } from "../src"; 
 
 interface TestCase {
   description: string;
@@ -60,7 +60,6 @@ async function runTestSuite(
     failedTests: [],
   };
 
-  // Check if it's a single file or directory
   let testFiles: string[];
   if (fs.statSync(testPath).isFile()) {
     testFiles = [testPath];
@@ -95,7 +94,6 @@ async function runTestSuite(
           console.log(`       Error: ${compileError}`);
           console.log(`       ---`);
 
-          // If schema compilation fails, mark all tests in group as failed
           for (const test of testGroup.tests) {
             results.total++;
             results.failed++;
@@ -128,7 +126,6 @@ async function runTestSuite(
               results.failed++;
               fileFailures++;
 
-              // Only show detailed output if under limit
               if (fileFailures <= maxFailures) {
                 console.log(`    ❌ ${test.description}`);
                 console.log(
@@ -217,7 +214,6 @@ function getAllTestFiles(testDir: string): string[] {
       if (stat.isDirectory()) {
         // walkDir(fullPath);
       } else if (entry.endsWith(".json")) {
-        // Skip optional tests and remotes for now
         // if (!entry.includes("optional") && !entry.includes("remotes")) {
         files.push(fullPath);
         // }

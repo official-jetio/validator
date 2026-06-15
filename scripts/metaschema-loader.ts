@@ -95,7 +95,7 @@ async function parseExistingLoader(
     for (const version of Object.keys(METASCHEMA_CONFIGS)) {
       const funcName =
         "load" +
-        version.replace(/^draft[-\/]/, "Draft").replace(/[-\/\.]/g, "");
+        version.replace(/^draft[-/]/, "Draft").replace(/[-/.]/g, "");
       if (content.includes(`function ${funcName}(`)) {
         existingVersions.add(version as keyof typeof METASCHEMA_CONFIGS);
       }
@@ -126,19 +126,19 @@ async function generateLoaderFiles(
     const config = METASCHEMA_CONFIGS[version];
 
     const funcName =
-      "load" + version.replace(/^draft[-\/]/, "Draft").replace(/[-\/\.]/g, "");
+      "load" + version.replace(/^draft[-/]/, "Draft").replace(/[-/.]/g, "");
     functionNames.push(funcName);
 
-    const mainImportName = `schema_${version.replace(/[-\/\.]/g, "_")}`;
+    const mainImportName = `schema_${version.replace(/[-/.]/g, "_")}`;
     jsImports += `const ${mainImportName} = require('./${version}/schema.json');\n`;
 
     const subImports: Array<{ name: string; url: string }> = [];
     for (const subUrl of config.subSchemas) {
       const filename = subUrl.split("/meta/")[1];
       const subImportName = `schema_${version.replace(
-        /[-\/\.]/g,
+        /[-/.]/g,
         "_",
-      )}_${filename.replace(/[-\/\.]/g, "_")}`;
+      )}_${filename.replace(/[-/.]/g, "_")}`;
 
       jsImports += `const ${subImportName} = require('./${version}/meta/${filename}.json');\n`;
       subImports.push({ name: subImportName, url: subUrl });

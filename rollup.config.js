@@ -19,10 +19,11 @@ export default [
     },
     plugins: [
       typescript({
-        tsconfig: "./tsconfig.rollup.json",
+        tsconfig: "./tsconfig.cli.json",
+        include: ["scripts/**/*.ts"],
       }),
     ],
-    external: ["path", "fs/promises", "fs"],
+    external: ["path", "fs/promises"],
   },
 
   // ===========================================
@@ -42,6 +43,7 @@ export default [
       typescript({
         tsconfig: "./tsconfig.rollup.json",
         clean: true,
+        include: ["src/**/*.ts"],
       }),
     ],
     external: [],
@@ -64,6 +66,7 @@ export default [
       typescript({
         tsconfig: "./tsconfig.rollup.json",
         clean: true,
+        include: ["src/**/*.ts"],
       }),
       // filesize({
       //   showGzippedSize: true,
@@ -96,6 +99,7 @@ export default [
             target: "ES2018",
           },
         },
+        include: ["src/**/*.ts"],
       }),
       // filesize({
       //   showGzippedSize: true,

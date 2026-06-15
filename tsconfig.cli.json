@@ -4,6 +4,6 @@
     "module": "ESNext",
     "rootDir": "."
   },
-  "include": ["src/**/*.ts"],
+  "include": ["scripts/**/*.ts"],
   "exclude": ["test/**/*.ts", "node_modules"]
 }
