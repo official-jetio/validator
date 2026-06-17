@@ -648,7 +648,7 @@ export class Compiler {
         ? accessPattern
         : "jv" + counter++;
     this.initializeDefault(src, schema, varName, accessPattern, inlined);
-   
+
     const shouldTrackProps =
       schema?.unevaluatedProperties !== undefined ||
       trackingState.parentHasUnevaluatedProperties === true;
@@ -759,11 +759,16 @@ export class Compiler {
   ): void {
     if (accessPattern !== "rootData") {
       if (schema.default !== undefined && this.options.useDefaults) {
+        const condition =
+          this.options.useDefaults === "empty"
+            ? `${varName} === undefined || ${varName} === ""`
+            : `${varName} === undefined`;
+
         src.push(
           `let ${varName} = ${accessPattern};`,
-          `if (${varName} === undefined || ${varName} === null) {`,
-          `${varName} = ${JSON.stringify(schema.default)};`,
-          "}",
+          `if (${condition}) {`,
+          `  ${varName} = ${JSON.stringify(schema.default)};`,
+          `}`,
         );
       } else if (!inlined) {
         const keyword =
@@ -3216,7 +3221,12 @@ export class Compiler {
       }
     }
 
-    if (this.options.removeAdditional) {
+    if (
+      (this.options.removeAdditional === true &&
+        (typeof schema.additionalProperties === undefined ||
+          schema.additionalProperties === false)) ||
+      this.options.removeAdditional === "all"
+    ) {
       const newObjName = "newObj" + counter++;
       src.push(
         `const ${newObjName} = {};`,
@@ -3228,6 +3238,7 @@ export class Compiler {
         `${varName} = ${newObjName};`,
       );
     }
+
     for (const key of propertyKeys) {
       const stringified = JSON.stringify(key);
       if (dependentSchemasProps.has(key)) continue;

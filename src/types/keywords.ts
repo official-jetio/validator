@@ -7,15 +7,13 @@ import { ValidatorOptions } from "./validation";
 export interface KeywordDefinition {
   keyword: string; // Name of the keyword
   type?: SchemaType; // Only apply to these types (optional)
-  schemaType?: string | string[]; // Expected type of keyword value (optional)
+  schemaType?: SchemaType; // Expected type of keyword value (optional)
   implements?: string | string[]; // Other keywords this handles (optional)
   async?: boolean;
   // Macro function
 
   // Metadata
   metaSchema?: SchemaDefinition; // Schema to validate keyword value
-
-  // For future: compile, validate, code
 }
 
 export interface MacroKeywordDefinition extends KeywordDefinition {
@@ -34,8 +32,8 @@ export interface CodeKeywordDefinition extends KeywordDefinition {
   code?: CodeFunction;
 }
 
-export type MacroFunction = (
-  schemaValue: any, // The keyword's value
+export type MacroFunction<TValue = unknown> = (
+  schemaValue: TValue, // The keyword's value
   parentSchema: SchemaDefinition, // Full schema
   context?: MacroContext, // Compilation context
 ) => SchemaDefinition | boolean; // Returns expanded schema
@@ -53,36 +51,44 @@ export interface CompileContext {
 }
 
 // Placeholder types for future
-export type CompileFunction = (
-  schemaValue: any, // The keyword's value in schema
+export type CompileFunction<
+  TValue = unknown,
+  TData = unknown,
+  TRootData = unknown,
+> = (
+  schemaValue: TValue, // The keyword's value in schema
   parentSchema: SchemaDefinition, // Full schema
   context: CompileContext, // Compilation context
-) => CompiledValidateFunction;
+) => CompiledValidateFunction<TData, TRootData>;
 
-export type CompiledValidateFunction = (
-  data: any, // Current data being validated
-  rootData: any, // Original data passed to validate()
+export type CompiledValidateFunction<TData = unknown, TRootData = unknown> = (
+  data: TData, // Current data being validated
+  rootData: TRootData, // Original data passed to validate()
   dataPath: string,
 ) =>
   | boolean
   | KeywordValidationError
   | Promise<boolean | KeywordValidationError>;
 
-export type ValidateFunction = (
-  schemaValue: any, // Keyword value from schema
-  data: any, // Current data being validated
+export type ValidateFunction<
+  TValue = unknown,
+  TData = unknown,
+  TRootData = unknown,
+> = (
+  schemaValue: TValue, // Keyword value from schema
+  data: TData, // Current data being validated
   parentSchema: SchemaDefinition,
-  dataContext: ValidateDataContext,
+  dataContext: ValidateDataContext<TRootData>,
 ) =>
   | boolean
   | KeywordValidationError
   | Promise<boolean | KeywordValidationError>;
 
-export interface ValidateDataContext {
+export interface ValidateDataContext<TRootData = unknown> {
   dataPath: string; // Where in data (e.g., "/user/age")
-  rootData: any; // Original data
+  rootData: TRootData; // Original data
   schemaPath: string; // Where in schema
-  parentData?: any;
+  parentData?: unknown;
   parentDataProperty?: string | number;
 }
 
@@ -91,8 +97,8 @@ interface KeywordValidationError {
   [key: string]: any;
 }
 
-export type CodeFunction = (
-  schemaValue: any,
+export type CodeFunction<TValue = unknown> = (
+  schemaValue: TValue,
   parentSchema: SchemaDefinition,
   context: CodeContext,
 ) => string;

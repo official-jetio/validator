@@ -314,7 +314,7 @@ export class JetValidator {
     return structuredClone(this.schemas[key]);
   }
 
-  getCompiledSchema(key: string, config?: ValidatorOptions): Function {
+  getCompiledSchema(key: string, config?: ValidatorOptions): ErrorAttachedValidatorFn {
     if (this.schemas[key] !== undefined) {
       return this.compile(this.schemas[key], config);
     } else {
@@ -325,7 +325,7 @@ export class JetValidator {
   async getCompiledSchemaAsync(
     key: string,
     config?: ValidatorOptions,
-  ): Promise<Function> {
+  ): Promise<ErrorAttachedValidatorFn> {
     if (this.schemas[key] !== undefined) {
       return await this.compileAsync(this.schemas[key], config);
     } else {
@@ -517,7 +517,6 @@ export class JetValidator {
       return { valid: false, errors: [{ message: "metaSchema not found" }] };
     const validator = this.compile(metaSchema, {
       ...options,
-      logFunction: true,
       validateSchema: false,
     });
     const result = validator(schema);
@@ -731,8 +730,6 @@ export class JetValidator {
         }
       }
     }
-    const validatorKeys = Object.keys(formatValidators);
-    const validatorValues = Object.values(formatValidators);
 
     return new Function(
       "formatValidators",
@@ -936,7 +933,7 @@ export class JetValidator {
   }
 
   generateStandalone(
-    schema: object,
+    schema: SchemaDefinition,
     sconfig?: ValidatorOptions,
   ): {
     code: string;

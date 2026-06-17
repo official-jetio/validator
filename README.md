@@ -1,14 +1,16 @@
 # jet-validator
 
-**The Fastest JSON Schema Validator in JavaScript with Json Schema Compliant Type Inference**
+**The Fastest JSON Schema Validator in JavaScript — with spec-compliant TypeScript inference (19x faster than AJV)**
 
 [![npm version](https://img.shields.io/npm/v/@jetio/validator.svg)](https://www.npmjs.com/package/@jetio/validator) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Bundle Size](https://img.shields.io/bundlephobia/minzip/@jetio/validator)](https://bundlephobia.com/package/@jetio/validator)
 
 ---
 
+Drop-in replacement API. 19x faster compilation. Built-in formats and error messages. Type inference via @jetio/schema-builder. No stack overflows on circular refs. Same install, better defaults.
+
 ## 🚀 Why jet-validator?
 
-**TypeScript Inference** | **5-44x faster compilation** | **26KB gzipped** | **Zero dependencies** | **JSON Schema Draft 06-2020-12**
+**TypeScript Inference** | **72% faster validation** | **26KB gzipped** | **Zero dependencies** | **JSON Schema Draft 06-2020-12**
 
 jet-validator compiles JSON Schemas into highly optimized validation functions in **sub-millisecond time**. Unlike traditional validators that interpret schemas at runtime, jet-validator generates specialized code tailored to your exact schema structure.
 
@@ -16,13 +18,13 @@ Full TypeScript Type Inference that mirrors run time performance via [@jetio/sch
 
 Built with simplicity in mind.
 
-Just one import for all supported drafts, check full documentation for how to specify draft for $ref keyword for schema 07 and earlier.
+*One import handles all drafts.For Draft−07 and earlier,see the docs on specifying the draft for `$ref`*.
 
 ### Key Features
 
 - ⚡ **Lightning Fast** - 19x faster compilation than AJV (sub-millisecond compilation)
 - 🔧 Type inference including support for advanced keywords - allOf, oneOf, anyOf, If/Then/ElseIf/Else, unevaluated and additional items/properties, patternProperties etc.
-- ✅ **Highly Compliant** - 99.5%+ compliance on JSON Schema Test Suite across all supported drafts
+- ✅ **Highly Compliant** - 98–99.5% compliance on JSON Schema Test Suite across all supported drafts
 - 📦 **Smaller Bundle** - 26KB Gzipped with built-in format validators and custom error messages(no external packages needed)
 - 📝 **Built-in Formats** - email, uri, date-time, uuid, and more included (no extra packages!)
 - ⚠️ **Custom Error Messages** - Flexible error customization with `errorMessage` keyword
@@ -51,7 +53,7 @@ const schema = new SchemaBuilder()
   .build();
 
 // Type Inference
-type User = Jet.Infer<typeof schema>
+type User = Jet.Infer<typeof schema>;
 
 const validator = new JetValidator();
 const validate = validator.compile(schema);
@@ -69,18 +71,20 @@ Build schemas with [@jetio/schema-builder](https://www.npmjs.com/package/@jetio/
 ```typescript
 import { SchemaBuilder as s } from '@jetio/schema-builder';
 
-const schema = s.object({
-  type: s.enum(['admin', 'user']),
-  permissions: s.string()
-}).oneOf([
-  s.object({ 
-    type: s.const('admin'), 
-    permissions: s.const('all') 
+const schema = s.object()
+.properties({
+  type: (s) => s.enum(['admin', 'user']),
+  permissions: (s) => s.string()
+})
+.oneOf([
+  (s) => s.properties({
+    type: (s) => s.const('admin'),
+    permissions: (s) => s.const('all')
   }),
-  s.object({ 
-    type: s.const('user'), 
-    permissions: s.const('read') 
-  })
+  (s) => s.properties({
+    type: (s) => s.const('user'),
+    permissions: (s) => s.const('read')
+  }),
 ]);
 
 // Automatically inferred as discriminated union:
@@ -361,7 +365,7 @@ console.log(validate.errors);
 // }]
 ```
 
-**→ [See Getting Started Guide](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#-installation)**
+**→ [See Getting Started Guide](https://jet-validator-docs.vercel.app/#-installation)**
 
 ---
 
@@ -501,8 +505,7 @@ Failed: 8 (0.9%)
 <details>
 <summary>📋 View jet-validator failures (5 test)</summary>
 
-**properties.json (5 failure):**
-
+**properties.json (1 failure):**
 - `__proto__` property edge case
 **required.json (4 failures)** - JavaScript object property names `__proto__` property edge case
 
@@ -532,7 +535,7 @@ Failed: 5 (0.6%)
 **AJV:** _Specific version does not support Draft 06_
 
 <details>
-<summary>📋 View jet-validator failures (5 test)</summary>
+<summary>📋 View jet-validator failures (5 tests)</summary>
 
 **properties.json (1 failure):**
 **required.json (4 failures)** - JavaScript object property names `__proto__` property edge case
@@ -552,12 +555,12 @@ Due to our advanced resolution process, jet-validator never has infinite recursi
 Unlike other validators which exceed maximum call stack size on certain schemas,
 jet-validator's recursion only goes as deep as the data being validated.
 
-THERE IS NO INFINITE RECURSION IN jet-validator.
+jet-validator does not suffer from infinite recursion on any schema pattern.
 ```
 
 While AJV encounters stack overflow errors (`RangeError: Maximum call stack size exceeded`) on schemas with complex relative URI references, jet-validator handles these schemas without issue. Our three-phase resolution process (Collection → Assignment → Resolution) eliminates circular reference problems at compile time.
 
-**→ [Learn more about our Resolution Process](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#schema-resolution-process)**
+**→ [Learn more about our Resolution Process](https://jet-validator-docs.vercel.app/schema-references#schema-resolution-process)**
 
 ---
 
@@ -668,7 +671,7 @@ console.log(result); // false
 console.log(validate.errors); // Detailed error information
 ```
 
-**→ [See Basic Validation Examples](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#-basic-validation-examples)**
+**→ [See Basic Validation Examples](https://jet-validator-docs.vercel.app/getting-started#-basic-validation-examples)**
 
 ---
 
@@ -688,7 +691,7 @@ jetValidator.addSchema(schema, "user-schema");
 const validate = jetValidator.getSchema("user-schema");
 ```
 
-**→ [See Schema Management & Compilation](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#schema-management--compilation)**
+**→ [See Schema Management & Compilation](https://jet-validator-docs.vercel.app/schema-management)**
 
 ---
 
@@ -720,7 +723,7 @@ const jetValidator = new JetValidator({
 });
 ```
 
-**→ [See All Configuration Options](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#️-configuration-options)**
+**→ [See All Configuration Options](https://jet-validator-docs.vercel.app/getting-started#%EF%B8%8F-configuration-options)**
 
 ---
 
@@ -772,7 +775,7 @@ console.log(validate.errors); // Custom error messages included
 }
 ```
 
-**→ [See Error Handling Guide](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#error-handling)**
+**→ [See Error Handling Guide](https://jet-validator-docs.vercel.app/error-handling)**
 
 ---
 
@@ -822,7 +825,7 @@ const schema = {
 };
 ```
 
-**→ [See Complete Error Handling Guide](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#error-handling)**
+**→ [See Complete Custom Error Guide](https://jet-validator-docs.vercel.app/custom-error-messages)**
 
 ---
 
@@ -860,7 +863,7 @@ const jetValidator = new JetValidator({
 const validate = await jetValidator.compileAsync(schema);
 ```
 
-**→ [See Schema References & Composition](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#schema-references--composition)**
+**→ [See Schema References & Composition](https://jet-validator-docs.vercel.app/schema-references)**
 
 ---
 
@@ -882,7 +885,7 @@ const validate = jetValidator.compile(schema);
 const isValid = jetValidator.validateSchema(schema);
 ```
 
-**→ [See Meta-Schema System](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#meta-schema-system)**
+**→ [See Meta-Schema System](https://jet-validator-docs.vercel.app/meta-schemas)**
 
 ---
 
@@ -923,7 +926,7 @@ jetValidator.addFormat("unique-email", {
 });
 ```
 
-**→ [See Format Validation Guide](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#format-validation)**
+**→ [See Format Validation Guide](https://jet-validator-docs.vercel.app/format-validation)**
 
 ---
 
@@ -956,7 +959,7 @@ const jetValidator = new JetValidator({ $data: true });
 const validate = jetValidator.compile(schema);
 ```
 
-**→ [See $data References Guide](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#data)**
+**→ [See $data References Guide](https://jet-validator-docs.vercel.app/advanced-validation)**
 
 ---
 
@@ -994,7 +997,7 @@ Enhanced conditional validation without deep nesting:
 }
 ```
 
-**→ [See elseIf Keyword Guide](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#elseif-keyword)**
+**→ [See elseIf Keyword Guide](https://jet-validator-docs.vercel.app/else-if)**
 
 ---
 
@@ -1025,7 +1028,7 @@ console.log(validate(4)); // true
 console.log(validate(5)); // false
 ```
 
-**→ [See Custom Keywords Guide](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#custom-keywords)**
+**→ [See Custom Keywords Guide](https://jet-validator-docs.vercel.app/custom-keywords)**
 
 ---
 
@@ -1154,7 +1157,7 @@ const validate = jetValidator.compile(schema);
 
 - Error object structure
 - Custom keywords use different API
-- Meta-schema setup with cli
+- Meta-schema setup with cli tool
 
 ---
 
@@ -1173,12 +1176,12 @@ const validate = jetValidator.compile(schema);
 ### Consider Alternatives If:
 
 ⚠️ You need 100% JSON Schema spec compliance (we're at 99.5%)  
-⚠️ You're already heavily invested in AJV ecosystem with custom plugins (we offer the same custom keywords but contexts are simpler and different, although much more easy to use)
+⚠️ You depend on specific AJV plugins (ajv-formats, ajv-keywords) — we have equivalents but the API differs
 ⚠️ You need streaming validation for extremely large documents
 
 ---
 
-## 🌟 What Makes jet-validator Different?
+## Our Resolution Process
 
 ### 1. Three-Phase Resolution Process
 
@@ -1190,7 +1193,7 @@ jet-validator eliminates infinite recursion through a unique resolution approach
 
 This architecture enables both lightning-fast compilation and bulletproof circular reference handling.
 
-**→ [Learn more about the resolution process](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#schema-resolution-process)**
+**→ [Learn more about the resolution process](https://jet-validator-docs.vercel.app/schema-references#schema-resolution-process)**
 
 ---
 
@@ -1266,7 +1269,7 @@ const validate = jetValidator.compile(formSchema);
 
 // Automatically converts strings to correct types
 const data = { age: "25", agree: "true" };
-validate(data);
+validate(data); // { age: 25, agree: true }
 console.log(data); // { age: '25', agree: 'true' }
 // Note: JetValidator does not modify original data objects
 ```
@@ -1289,7 +1292,7 @@ const jetValidator = new JetValidator({ useDefaults: true });
 const validate = jetValidator.compile(configSchema);
 
 const config = {};
-validate(config);
+validate(config); // {port: 3000, host: "localhost", ssl: false }
 console.log(config); // {}
 // Note: JetValidator does not modify original data objects
 ```
@@ -1324,36 +1327,36 @@ const validateUser = createValidatorForUser("user");
 
 **Getting Started:**
 
-- [Installation & Setup](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#-installation)
-- [Quick Start Guide](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#-quick-start)
-- [Choosing Schema Language](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#-choosing-schema-language)
+- [Installation & Setup](https://jet-validator-docs.vercel.app/#-installation)
+- [Quick Start Guide](https://jet-validator-docs.vercel.app/#-quick-start)
+- [Choosing Schema Language](https://jet-validator-docs.vercel.app/getting-started#-choosing-schema-language)
 
 **Core Concepts:**
 
-- [Configuration Options](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#️-configuration-options)
-- [Schema Compilation](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#compiling-schemas)
-- [Validation Methods](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#validation)
-- [Schema Management](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#schema-management)
-- [Error Handling](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#error-handling)
+- [Configuration Options](https://jet-validator-docs.vercel.app/getting-started#%EF%B8%8F-configuration-options)
+- [Schema Compilation](https://jet-validator-docs.vercel.app/schema-management#compiling-schemas)
+- [Validation Methods](https://jet-validator-docs.vercel.app/schema-management#validation)
+- [Schema Management](https://jet-validator-docs.vercel.app/schema-management)
+- [Error Handling](https://jet-validator-docs.vercel.app/error-handling)
 
 **Advanced Features:**
 
-- [Schema References & Composition](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#schema-references--composition)
-- [Meta-Schema System](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#meta-schema-system)
-- [$data References](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#data)
-- [elseIf Conditionals](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#elseif-keyword)
-- [Format Validation](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#format-validation)
-- [Custom Keywords](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#custom-keywords)
-- [Utilities API](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md#utilities-api)
+- [Schema References & Composition](https://jet-validator-docs.vercel.app/schema-references)
+- [Meta-Schema System](https://jet-validator-docs.vercel.app/meta-schemas)
+- [$data References](https://jet-validator-docs.vercel.app/advanced-validation)
+- [elseIf Conditionals](https://jet-validator-docs.vercel.app/else-if)
+- [Format Validation](https://jet-validator-docs.vercel.app/format-validation)
+- [Custom Keywords](https://jet-validator-docs.vercel.app/custom-keywords)
+- [Utilities API](https://jet-validator-docs.vercel.app/utilities)
 
 **Complete Documentation:**
 
-- [📖 Full Documentation (20k+ lines)](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md) - Everything in one searchable file
+- [📖 Full Documentation (20k+ lines)](https://jet-validator-docs.vercel.app) - Everything in one searchable file
 
 ---
 
 ## Acknowledgments
-The idea of this validator and its feature sets where heavily inspired by Ajv, from compilation approach to custom keywords and $data, even some formats though approch is entirely different.
+The idea of this validator and its feature sets were heavily inspired by Ajv, from compilation approach to custom keywords and $data, even some formats though approach is entirely different.
 
 Special thanks to the JSON Schema community for maintaining excellent 
 specifications and comprehensive test suites.
@@ -1468,7 +1471,7 @@ We track bugs and feature requests using GitHub Issues.
 ### Before Filing an Issue
 
 1. **Search existing issues** - Your issue might already be reported
-2. **Check the documentation** - The answer might be in the [20k+ line docs](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md)
+2. **Check the documentation** - The answer might be in the [20k+ line docs](https://jet-validator-docs.vercel.app)
 3. **Try the latest version** - `npm install @jetio/validator@latest`
 
 ### Types of Issues
@@ -1489,7 +1492,7 @@ We track bugs and feature requests using GitHub Issues.
   - Issues are for bugs and features only
 
 - 📖 **Documentation:** Docs are unclear or missing information
-  - [Improve docs →](https://github.com/official-jetio/validator/issues/new?labels=documentation)
+  - [Improve docs →](https://github.com/official-jetio/jet-validator-doc/issues/new?labels=documentation)
 
 ### Good Bug Report Template
 
@@ -1563,7 +1566,7 @@ jet-validator has proven itself as a strong contender for JSON Schema validation
 
 ---
 
-Whether jet-validator is the "new king" depends on your use case, but the numbers speak for themselves.
+Whether jet-validator is a better alternative depends on your use case, but the numbers speak for themselves.
 
 ---
 
@@ -1576,8 +1579,8 @@ MIT © [Great Venerable](https://github.com/greatvenerable)
 ## 🔗 Links
 
 - **[npm Package](https://www.npmjs.com/package/@jetio/validator)**
-- **[GitHub Repository](https://github.com/@jetio/validator)**
-- **[Complete Documentation (20k+ lines)](https://github.com/official-jetio/validator/blob/main/DOCUMENTATION.md)**
+- **[GitHub Repository](https://github.com/official-jetio/validator)**
+- **[Complete Documentation (20k+ lines)](https://jet-validator-docs.vercel.app)**
 - **[Benchmark Results](https://github.com/official-jetio/validator/blob/main/benchmarks/results/COMPARISON.md)**
 - **[Issue Tracker](https://github.com/official-jetio/validator/issues)**
 - **[GitHub Discussions](https://github.com/official-jetio/validator/discussions)**

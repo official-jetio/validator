@@ -110,6 +110,7 @@ export interface BaseSchema<T = any> {
   $defs?: Record<string, SchemaDefinition | boolean>;
   definitions?: Record<string, SchemaDefinition | boolean>;
 
+  /** @internal — used by code generation; do not set manually */
   __functionName?: string;
   allFormats?: string[];
   errorMessage?: string | Record<string, any>;

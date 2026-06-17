@@ -3,7 +3,7 @@ import { SchemaDefinition } from "./schema";
 export interface ValidationError {
   dataPath: string;
   schemaPath: string;
-  rule: string;
+  keyword: string;
   value?: any;
   expected?: any;
   message: string;
