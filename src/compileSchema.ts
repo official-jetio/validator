@@ -53,6 +53,7 @@ interface PathContext {
   $data: string;
   alt?: string;
   alt2?: string;
+  mapping?: string;
 }
 
 interface TrackingState {
@@ -2662,7 +2663,6 @@ export class Compiler {
       const prop = "prop" + counter++;
       src.push(`const ${prop} = ${requiredArrayExpr}[${i}];`);
       addEvaluatedProperty(src, prop, trackingState);
-
       src.push(
         `if (${
           extra.before
@@ -2727,6 +2727,7 @@ export class Compiler {
               const errorMessage = JSON.stringify(
                 `Missing required field: ${prop} in data.`,
               );
+              pathContext.mapping = `/required/${prop}/any`;
               const pstring = JSON.stringify(prop);
               src.push(
                 `if (${
@@ -2830,14 +2831,16 @@ export class Compiler {
       const parent =
         trackingState.parentHasUnevaluatedProperties ||
         trackingState.hasOwnUnevaluatedProperties;
+
       const patternValidation = this.compileSchema(
         schema.patternProperties![pattern],
         {
-          schema: `${pathContext.schema}/patternProperties/${JSON.stringify(pattern)}`,
+          schema: `${pathContext.schema}/patternProperties/` + pattern,
           data: `${pathContext.data}/\${${key}}`,
           $data: `${pathContext.$data}/\${${key}}`,
           alt: pathContext.alt,
           alt2: pathContext.alt2,
+          mapping: `/patternProperties/` + pattern,
         },
         {
           isSubschema: true,
@@ -3018,7 +3021,7 @@ export class Compiler {
     if (extra.before != "") src.push(`if(${extra.before} true){`);
     const key = "key" + counter++;
     src.push(`for (const ${key} in ${varName}) {`);
-
+    pathContext;
     const propertyNameValidation = this.compileSchema(
       schema.propertyNames!,
       {
@@ -3027,6 +3030,7 @@ export class Compiler {
         $data: `${pathContext.$data}/\${${key}}`,
         alt: pathContext.alt,
         alt2: pathContext.alt2,
+        mapping: `/propertyNames`,
       },
       {},
       key,
@@ -3149,8 +3153,9 @@ export class Compiler {
       const stringifiedField = JSON.stringify(field);
       addEvaluatedProperty(src, stringifiedField, trackingState);
       const currentSchemaPath = pathContext.schema;
-      pathContext.schema = `${pathContext.schema}/${requiredSource}/${triggerProperty}/`;
-
+      const currentMapping = pathContext.mapping;
+      pathContext.schema = `${pathContext.schema}/${requiredSource}/${triggerProperty}`;
+      pathContext.mapping = `/${requiredSource}/${triggerProperty}/${field}`;
       src.push(
         `if (${
           extra.before
@@ -3163,11 +3168,12 @@ export class Compiler {
               triggerProperty,
             )} + " is present."`,
             dataPath: `${pathContext.data}/${field}`,
-            schemaPath: `${currentSchemaPath}/${requiredSource}/${triggerProperty}`,
+            schemaPath: pathContext.schema,
           },
         )}${extra.after}}`,
       );
       pathContext.schema = currentSchemaPath;
+      pathContext.mapping = currentMapping;
     }
   }
 
@@ -3188,6 +3194,7 @@ export class Compiler {
       `${requiredSource}/${property}`,
       rootSchema,
     );
+    configs.pathContext.mapping = `/${requiredSource}/${property}`;
     const depValidatorFn = this.compileSchema(
       depSchema,
       configs.pathContext,
@@ -3256,6 +3263,7 @@ export class Compiler {
           schema,
           `/${key}`,
         );
+        configs.pathContext.mapping = `/properties/${key}`;
         const propertyValidation = this.compileSchema(
           properties[key],
           configs.pathContext,
@@ -3985,6 +3993,57 @@ export class Compiler {
           errorMessage = schemaAtPath.errorMessage[error.keyword];
           if (!errorMessage)
             errorMessage = schemaAtPath.errorMessage["_jetError"];
+        }
+      }
+      if (
+        (!errorMessage || typeof errorMessage === "object") &&
+        pathContext.mapping
+      ) {
+        const mapSplit = pathContext.mapping.split("/");
+        let deduction;
+        if (mapSplit.length > 3) {
+          const lastSlash = mapSplit[mapSplit.length - 1];
+          deduction = 1 + lastSlash.length;
+        } else {
+          deduction = 0;
+        }
+        const fPath = pathContext.schema.slice(
+          0,
+          -(pathContext.mapping.length - deduction),
+        );
+        const schemaAtPath = getSchemaAtPath(this.schema, fPath);
+
+        if (
+          schemaAtPath &&
+          typeof schemaAtPath === "object" &&
+          "errorMessage" in schemaAtPath
+        ) {
+          if (typeof schemaAtPath.errorMessage === "string") {
+            errorMessage = schemaAtPath.errorMessage;
+          } else if (typeof schemaAtPath.errorMessage === "object") {
+            errorMessage = schemaAtPath.errorMessage[error.keyword];
+    
+            if (!errorMessage || typeof errorMessage === "object") {
+              errorMessage = getSchemaAtPath(
+                schemaAtPath.errorMessage,
+                "#" + pathContext.mapping,
+              );
+              if (typeof errorMessage === "object")
+                errorMessage = errorMessage[error.keyword];
+              if (!errorMessage) {
+                errorMessage = getSchemaAtPath(
+                  schemaAtPath.errorMessage,
+                  "#" + pathContext.mapping.slice(0, -deduction),
+                );
+                if (typeof errorMessage === "object")
+                  errorMessage = errorMessage[error.keyword];
+              }
+            }
+            if (!errorMessage || typeof errorMessage === "object")
+              errorMessage = schemaAtPath.errorMessage["_jetError"];
+            if (errorMessage && typeof errorMessage === "object")
+              errorMessage = undefined;
+          }
         }
       }
       if (pathContext.alt && !errorMessage) {

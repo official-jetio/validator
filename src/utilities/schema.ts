@@ -23,6 +23,7 @@ export const incompatibleKeywords = {
     "exclusiveMinimum",
     "exclusiveMaximum",
     "multipleOf",
+    "required"
   ],
   number: [
     "properties",
@@ -46,6 +47,7 @@ export const incompatibleKeywords = {
     "contains",
     "minContains",
     "maxContains",
+    "required"
   ],
   integer: [
     "properties",
@@ -69,6 +71,7 @@ export const incompatibleKeywords = {
     "contains",
     "minContains",
     "maxContains",
+    "required"
   ],
   boolean: [
     "properties",
@@ -97,6 +100,7 @@ export const incompatibleKeywords = {
     "contains",
     "minContains",
     "maxContains",
+    "required"
   ],
   array: [
     "properties",
@@ -116,6 +120,7 @@ export const incompatibleKeywords = {
     "dependencies",
     "dependentRequired",
     "dependentSchemas",
+    "required"
   ],
   object: [
     "items",
@@ -163,6 +168,7 @@ export const incompatibleKeywords = {
     "dependencies",
     "dependentRequired",
     "dependentSchemas",
+    "required"
   ],
 };
 

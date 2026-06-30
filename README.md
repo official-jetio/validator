@@ -445,13 +445,13 @@ Failed: 21 (1.7%)
 ```
 Total tests: 1227
 Passed: 1206 (98.3%)
-Failed: 23 (1.7%)
+Failed: 21 (1.7%)
 ```
 
 <details>
-<summary>📋 View jet-validator failures (23 tests)</summary>
+<summary>📋 View jet-validator failures (22 tests)</summary>
 
-**recursiveRef.json (13 failures):**
+**recursiveRef.json (11 failures):**
 
 - `$recursiveRef` and `$recursiveAnchor` are **intentionally not supported**
 - These keywords are confusing and serve little practical purpose
@@ -461,7 +461,7 @@ Failed: 23 (1.7%)
 
 - `defs.json` (1) - Metaschema validation edge case recursiveAnchor
 - `properties.json` (1) - `__proto__` property edge case
-**required.json (4 failures)** - JavaScript object property names `__proto__` property edge case
+- `required.json (4 failures)` - JavaScript object property names `__proto__` property edge case
 - `ref.json` (1) - Recursive anchor interaction
 - `unevaluatedItems.json` (1) - Recursive reference evaluation
 - `unevaluatedProperties.json` (1) - Recursive reference evaluation
@@ -507,7 +507,9 @@ Failed: 8 (0.9%)
 
 **properties.json (1 failure):**
 - `__proto__` property edge case
-**required.json (4 failures)** - JavaScript object property names `__proto__` property edge case
+
+**required.json (4 failures)** 
+- JavaScript object property names `__proto__` property edge case
 
 </details>
 
@@ -538,9 +540,9 @@ Failed: 5 (0.6%)
 <summary>📋 View jet-validator failures (5 tests)</summary>
 
 **properties.json (1 failure):**
-**required.json (4 failures)** - JavaScript object property names `__proto__` property edge case
-
 - `__proto__` property edge case
+**required.json (4 failures)** 
+- JavaScript object property names `__proto__` property edge case
 
 </details>
 

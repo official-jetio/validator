@@ -861,13 +861,11 @@ export class JetValidator {
   }
 
   logErrors(errors: any, indent = 0) {
-    const spacer = "  ".repeat(indent); // Create indentation
+    const spacer = "  ".repeat(indent);
 
     if (Array.isArray(errors)) {
-      // If the input is an array (like subErrors), iterate through each error
       errors.forEach((err) => this.logErrors(err, indent));
     } else if (errors && typeof errors === "object") {
-      // If the input is a single error object
       console.log(
         `${spacer}❌ Validation Failed: ${errors.message || "Unknown error"}`,
       );
@@ -885,7 +883,7 @@ export class JetValidator {
       }
       if (errors.subErrors) {
         console.log(`${spacer}   - Sub-errors:`);
-        this.logErrors(errors.subErrors, indent + 1); // Recursive call for nested errors
+        this.logErrors(errors.subErrors, indent + 1);
       }
     }
   }

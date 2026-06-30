@@ -1,19 +1,16 @@
-// types/keywords.ts
+
 
 import { Extra } from "../compileSchema";
 import { SchemaDefinition, SchemaType } from "./schema";
 import { ValidatorOptions } from "./validation";
 
 export interface KeywordDefinition {
-  keyword: string; // Name of the keyword
-  type?: SchemaType; // Only apply to these types (optional)
-  schemaType?: SchemaType; // Expected type of keyword value (optional)
-  implements?: string | string[]; // Other keywords this handles (optional)
+  keyword: string; 
+  type?: SchemaType; 
+  schemaType?: SchemaType; 
+  implements?: string | string[]; 
   async?: boolean;
-  // Macro function
-
-  // Metadata
-  metaSchema?: SchemaDefinition; // Schema to validate keyword value
+  metaSchema?: SchemaDefinition; 
 }
 
 export interface MacroKeywordDefinition extends KeywordDefinition {
@@ -32,63 +29,54 @@ export interface CodeKeywordDefinition extends KeywordDefinition {
   code?: CodeFunction;
 }
 
-export type MacroFunction<TValue = unknown> = (
-  schemaValue: TValue, // The keyword's value
-  parentSchema: SchemaDefinition, // Full schema
-  context?: MacroContext, // Compilation context
-) => SchemaDefinition | boolean; // Returns expanded schema
+export type MacroFunction = (
+  schemaValue: any, 
+  parentSchema: SchemaDefinition, 
+  context?: MacroContext, 
+) => SchemaDefinition | boolean; 
 
 export interface MacroContext {
-  schemaPath: string; // Path in schema
-  rootSchema: SchemaDefinition; // Root schema
-  opts: ValidatorOptions; // Validator options
+  schemaPath: string; 
+  rootSchema: SchemaDefinition; 
+  opts: ValidatorOptions; 
 }
 
 export interface CompileContext {
-  schemaPath: string; // Path in schema
-  rootSchema: SchemaDefinition; // Root schema
-  opts: ValidatorOptions; // Validator options
+  schemaPath: string; 
+  rootSchema: SchemaDefinition; 
+  opts: ValidatorOptions; 
 }
 
-// Placeholder types for future
-export type CompileFunction<
-  TValue = unknown,
-  TData = unknown,
-  TRootData = unknown,
-> = (
-  schemaValue: TValue, // The keyword's value in schema
-  parentSchema: SchemaDefinition, // Full schema
-  context: CompileContext, // Compilation context
-) => CompiledValidateFunction<TData, TRootData>;
+export type CompileFunction = (
+  schemaValue: any, 
+  parentSchema: SchemaDefinition, 
+  context: CompileContext, 
+) => CompiledValidateFunction;
 
-export type CompiledValidateFunction<TData = unknown, TRootData = unknown> = (
-  data: TData, // Current data being validated
-  rootData: TRootData, // Original data passed to validate()
+export type CompiledValidateFunction = (
+  data: any, 
+  rootData: any, 
   dataPath: string,
 ) =>
   | boolean
   | KeywordValidationError
   | Promise<boolean | KeywordValidationError>;
 
-export type ValidateFunction<
-  TValue = unknown,
-  TData = unknown,
-  TRootData = unknown,
-> = (
-  schemaValue: TValue, // Keyword value from schema
-  data: TData, // Current data being validated
+export type ValidateFunction = (
+  schemaValue: any, 
+  data: any, 
   parentSchema: SchemaDefinition,
-  dataContext: ValidateDataContext<TRootData>,
+  dataContext: ValidateDataContext,
 ) =>
   | boolean
   | KeywordValidationError
   | Promise<boolean | KeywordValidationError>;
 
-export interface ValidateDataContext<TRootData = unknown> {
-  dataPath: string; // Where in data (e.g., "/user/age")
-  rootData: TRootData; // Original data
-  schemaPath: string; // Where in schema
-  parentData?: unknown;
+export interface ValidateDataContext {
+  dataPath: string; 
+  rootData: any; 
+  schemaPath: string; 
+  parentData?: any;
   parentDataProperty?: string | number;
 }
 
@@ -97,8 +85,8 @@ interface KeywordValidationError {
   [key: string]: any;
 }
 
-export type CodeFunction<TValue = unknown> = (
-  schemaValue: TValue,
+export type CodeFunction = (
+  schemaValue: any,
   parentSchema: SchemaDefinition,
   context: CodeContext,
 ) => string;
@@ -110,12 +98,13 @@ export type codeError = {
   value?: string;
   [key: string]: any;
 };
+
 export interface CodeContext {
-  dataVar: string; // Variable name for current data (e.g., "var1")
-  dataPath: string; // Path to data (e.g., "/user/email")
-  schemaPath: string; // Path in schema (e.g., "#/properties/user/properties/email")
-  accessPattern?: string; // Full access pattern (e.g., "var1['email']"),
-  errorVariable?: string; // ← ADD THIS: "allErrors" or undefined
+  dataVar: string; 
+  dataPath: string; 
+  schemaPath: string; 
+  accessPattern?: string; 
+  errorVariable?: string; 
   allErrors: boolean;
   functionName: string;
   extra: Extra;

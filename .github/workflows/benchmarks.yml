@@ -1,0 +1,94 @@
+name: Benchmarks
+
+# Manual trigger keeps long noisy runs off every push.
+# Run from the Actions tab; optionally tune volume from the inputs.
+on:
+  workflow_dispatch:
+    inputs:
+      compileRuns:
+        description: "Compile samples per schema (median taken). 10 is plenty; 30 is thorough."
+        required: false
+        default: "30"
+      benchmarkRuns:
+        description: "Validation runs per measurement."
+        required: false
+        default: "30"
+
+concurrency:
+  group: benchmarks-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330 # under the 360 hard cap, with headroom
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Record environment
+        run: |
+          {
+            echo "## Benchmark environment"
+            echo ""
+            echo "- Date: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            echo "- Node: $(node -v)"
+            echo "- npm: $(npm -v)"
+            echo "- OS: $(uname -a)"
+            echo "- CPU model: $(grep -m1 'model name' /proc/cpuinfo | cut -d: -f2 | xargs)"
+            echo "- CPU cores: $(nproc)"
+            echo "- Memory: $(free -h | awk '/Mem:/ {print $2}')"
+            echo ""
+            echo "> Hosted runner: CPU frequency is NOT pinned and the VM is shared."
+            echo "> Treat ratios (e.g. compile speedup) as stable; absolute ops/sec are hardware-dependent."
+          } | tee env-info.md
+
+      - name: Install dependencies
+        run: npm ci
+
+      # No separate build step: the Jet benchmark runs `npm run build` itself.
+
+      - name: Run JetValidator benchmark
+        env:
+          COMPILE_RUNS: ${{ github.event.inputs.compileRuns }}
+          BENCHMARK_RUNS: ${{ github.event.inputs.benchmarkRuns }}
+        run: npm run bench:jet
+
+      - name: Run AJV benchmark
+        env:
+          COMPILE_RUNS: ${{ github.event.inputs.compileRuns }}
+          BENCHMARK_RUNS: ${{ github.event.inputs.benchmarkRuns }}
+        run: npm run bench:ajv
+
+      - name: Compare results
+        run: npm run bench:compare
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-results
+          path: |
+            benchmarks/results/jetvalidator-latest.json
+            benchmarks/results/ajv-latest.json
+            benchmarks/results/comparison.md
+            benchmarks/results/jetvalidatorreport.md
+            benchmarks/results/ajvreport.md
+            env-info.md
+          retention-days: 90
+
+      - name: Job summary
+        if: always()
+        run: |
+          cat env-info.md >> "$GITHUB_STEP_SUMMARY"
+          if [ -f benchmarks/results/comparison.md ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            cat benchmarks/results/comparison.md >> "$GITHUB_STEP_SUMMARY"
+          fi
