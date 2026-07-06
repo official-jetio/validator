@@ -562,7 +562,7 @@ jet-validator does not suffer from infinite recursion on any schema pattern.
 
 While AJV encounters stack overflow errors (`RangeError: Maximum call stack size exceeded`) on schemas with complex relative URI references, jet-validator handles these schemas without issue. Our three-phase resolution process (Collection → Assignment → Resolution) eliminates circular reference problems at compile time.
 
-**→ [Learn more about our Resolution Process](https://jet-validator-docs.vercel.app/schema-references#schema-resolution-process)**
+**→ [Learn more about our Resolution Process](https://jet-validator-docs.vercel.app/references/resolution)**
 
 ---
 
@@ -686,7 +686,7 @@ jetValidator.addSchema(schema, "user-schema");
 const validate = jetValidator.getSchema("user-schema");
 ```
 
-**→ [See Schema Management & Compilation](https://jet-validator-docs.vercel.app/schema-management)**
+**→ [See Schema Management & Compilation](https://jet-validator-docs.vercel.app/core/compiling)**
 
 ---
 
@@ -770,7 +770,7 @@ console.log(validate.errors); // Custom error messages included
 }
 ```
 
-**→ [See Error Handling Guide](https://jet-validator-docs.vercel.app/error-handling)**
+**→ [See Error Handling Guide](https://jet-validator-docs.vercel.app/errors/error-handling)**
 
 ---
 
@@ -820,7 +820,7 @@ const schema = {
 };
 ```
 
-**→ [See Complete Custom Error Guide](https://jet-validator-docs.vercel.app/custom-error-messages)**
+**→ [See Complete Custom Error Guide](https://jet-validator-docs.vercel.app/errors/error-messages-basics)**
 
 ---
 
@@ -858,7 +858,7 @@ const jetValidator = new JetValidator({
 const validate = await jetValidator.compileAsync(schema);
 ```
 
-**→ [See Schema References & Composition](https://jet-validator-docs.vercel.app/schema-references)**
+**→ [See Schema References & Composition](https://jet-validator-docs.vercel.app/references/static-refs)**
 
 ---
 
@@ -880,7 +880,7 @@ const validate = jetValidator.compile(schema);
 const isValid = jetValidator.validateSchema(schema);
 ```
 
-**→ [See Meta-Schema System](https://jet-validator-docs.vercel.app/meta-schemas)**
+**→ [See Meta-Schema System](https://jet-validator-docs.vercel.app/meta-schemas/meta-schema-basics)**
 
 ---
 
@@ -921,7 +921,7 @@ jetValidator.addFormat("unique-email", {
 });
 ```
 
-**→ [See Format Validation Guide](https://jet-validator-docs.vercel.app/format-validation)**
+**→ [See Format Validation Guide](https://jet-validator-docs.vercel.app/extensibility/format-validation)**
 
 ---
 
@@ -954,7 +954,7 @@ const jetValidator = new JetValidator({ $data: true });
 const validate = jetValidator.compile(schema);
 ```
 
-**→ [See $data References Guide](https://jet-validator-docs.vercel.app/advanced-validation)**
+**→ [See $data References Guide](https://jet-validator-docs.vercel.app/advanced/data-keyword)**
 
 ---
 
@@ -992,7 +992,7 @@ Enhanced conditional validation without deep nesting:
 }
 ```
 
-**→ [See elseIf Keyword Guide](https://jet-validator-docs.vercel.app/else-if)**
+**→ [See elseIf Keyword Guide](https://jet-validator-docs.vercel.app/advanced/else-if)**
 
 ---
 
@@ -1023,7 +1023,7 @@ console.log(validate(4)); // true
 console.log(validate(5)); // false
 ```
 
-**→ [See Custom Keywords Guide](https://jet-validator-docs.vercel.app/custom-keywords)**
+**→ [See Custom Keywords Guide](https://jet-validator-docs.vercel.app/extensibility/keywords/keyword-types)**
 
 ---
 
@@ -1188,7 +1188,7 @@ jet-validator eliminates infinite recursion through a unique resolution approach
 
 This architecture enables both lightning-fast compilation and bulletproof circular reference handling.
 
-**→ [Learn more about the resolution process](https://jet-validator-docs.vercel.app/schema-references#schema-resolution-process)**
+**→ [Learn more about the resolution process](https://jet-validator-docs.vercel.app/references/resolution)**
 
 ---
 
@@ -1329,24 +1329,23 @@ const validateUser = createValidatorForUser("user");
 **Core Concepts:**
 
 - [Configuration Options](https://jet-validator-docs.vercel.app/getting-started#%EF%B8%8F-configuration-options)
-- [Schema Compilation](https://jet-validator-docs.vercel.app/schema-management#compiling-schemas)
-- [Validation Methods](https://jet-validator-docs.vercel.app/schema-management#validation)
-- [Schema Management](https://jet-validator-docs.vercel.app/schema-management)
-- [Error Handling](https://jet-validator-docs.vercel.app/error-handling)
+- [Schema Compilation](https://jet-validator-docs.vercel.app/core/compiling)
+- [Validation Methods](https://jet-validator-docs.vercel.app/core/validating)
+- [Schema Management](https://jet-validator-docs.vercel.app/core/schema-registry)
+- [Error Handling](https://jet-validator-docs.vercel.app/errors/error-handling)
 
 **Advanced Features:**
 
-- [Schema References & Composition](https://jet-validator-docs.vercel.app/schema-references)
-- [Meta-Schema System](https://jet-validator-docs.vercel.app/meta-schemas)
-- [$data References](https://jet-validator-docs.vercel.app/advanced-validation)
-- [elseIf Conditionals](https://jet-validator-docs.vercel.app/else-if)
-- [Format Validation](https://jet-validator-docs.vercel.app/format-validation)
-- [Custom Keywords](https://jet-validator-docs.vercel.app/custom-keywords)
-- [Utilities API](https://jet-validator-docs.vercel.app/utilities)
+- [Schema References & Composition](https://jet-validator-docs.vercel.app/references/static-refs)
+- [Meta-Schema System](https://jet-validator-docs.vercel.app/meta-schemas/meta-schema-basics)
+- [$data References](https://jet-validator-docs.vercel.app/advanced/data-keyword)
+- [elseIf Conditionals](https://jet-validator-docs.vercel.app/advanced/else-if)
+- [Format Validation](https://jet-validator-docs.vercel.app/extensibility/format-validation)
+- [Custom Keywords](https://jet-validator-docs.vercel.app/extensibility/keywords/keyword-types)
 
 **Complete Documentation:**
 
-- [📖 Full Documentation (20k+ lines)](https://jet-validator-docs.vercel.app) - Everything in one searchable file
+- [📖 Full Documentation](https://jet-validator-docs.vercel.app) - Everything in one searchable file
 
 ---
 
@@ -1466,7 +1465,7 @@ We track bugs and feature requests using GitHub Issues.
 ### Before Filing an Issue
 
 1. **Search existing issues** - Your issue might already be reported
-2. **Check the documentation** - The answer might be in the [20k+ line docs](https://jet-validator-docs.vercel.app)
+2. **Check the documentation** - The answer might be in the [full docs](https://jet-validator-docs.vercel.app)
 3. **Try the latest version** - `npm install @jetio/validator@latest`
 
 ### Types of Issues
