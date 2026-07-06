@@ -609,23 +609,16 @@ app.post('/validate', (req) => {
 - Hot-reload without restart
 - No caching infrastructure needed (depending on schema complexity)
 
-
 ### Benchmarks
 
-**Environment:** Ubuntu 1.6GHz laptop under realistic load (browser, IDE, system services)
+> 🔄 Re-running against the latest version — updated numbers coming soon.
 
-**Why under load?** Production servers are never idle. These results reflect real-world conditions.
+**Environment:** Ubuntu 1.6GHz laptop under realistic load
 
-### Summary
-
-🚀 **Compilation:** 19x faster (1.47ms vs 28.29ms)
-✅ **Valid Data:** 58% win rate (36/62)
-🛡️ **Invalid Data:** 73% win rate (45/62)
-🏆 **Overall:** 72% win rate (89/124)
-
-[📊 Full Benchmark Report](https://github.com/official-jetio/validator/blob/main/benchmarks/results/COMPARISON.md) | [📈 Detailed Results](https://github.com/official-jetio/validator/tree/main/benchmarks/results/)
-
-_Tested against AJV v8.17.1 using official benchmarks with 65 schemas, 1000 warmups, 10000 iterations, 30 runs per test_
+- 🚀 Compilation: ~19x faster (1.47ms vs 28.29ms)
+- ✅ Valid data: 58% win rate (36/62)
+- 🛡️ Invalid data: 73% win rate (45/62)
+- 🏆 Overall: 72% win rate (89/124)
 
 ---
 

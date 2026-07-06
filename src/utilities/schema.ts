@@ -233,4 +233,5 @@ export const baseSchemaKeys: Set<string> = new Set([
   "$dynamicRef",
   "$anchor",
   "$vocabulary",
+  "errorMessage"
 ]);

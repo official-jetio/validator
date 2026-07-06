@@ -51,8 +51,6 @@ interface PathContext {
   schema: string;
   data: string;
   $data: string;
-  alt?: string;
-  alt2?: string;
   mapping?: string;
 }
 
@@ -357,8 +355,6 @@ export class Compiler {
         schema: `${pathContext.schema}/${pathSegment ?? ""}`,
         data: `${pathContext.data}${dataSegment ?? ""}`,
         $data: `${pathContext.$data}${dataSegment ?? ""}`,
-        alt: pathContext.alt,
-        alt2: pathContext.alt2,
       },
       trackingState: {
         parentHasUnevaluatedProperties: parentUnevProp,
@@ -908,7 +904,6 @@ export class Compiler {
           }`,
           data: "${path.data}",
           $data: pathContext.$data,
-          alt: key.path.startsWith("#") ? key : "#" + key.path,
         },
         {
           parentHasUnevaluatedProperties: includesPropRef,
@@ -1187,8 +1182,7 @@ export class Compiler {
         `anyOf/${index}`,
         schema,
       );
-      configs.pathContext.alt = `${pathContext.schema}/anyOf/${index}`;
-      configs.pathContext.alt2 = `${pathContext.schema}/anyOf`;
+      configs.pathContext.mapping = `/anyOf/${index}`;
       const errorCountVar = "anyErrCnt" + counter++;
       if (this.options.allErrors) {
         validatorFn = this.compileSchema(
@@ -1321,8 +1315,7 @@ export class Compiler {
         `oneOf/${index}`,
         schema,
       );
-      configs.pathContext.alt = `${pathContext.schema}/oneOf/${index}`;
-      configs.pathContext.alt2 = `${pathContext.schema}/oneOf`;
+      configs.pathContext.mapping = `/oneOf/${index}`;
       if (this.options.allErrors) {
         validatorFn = this.compileSchema(
           subSchema,
@@ -1465,8 +1458,7 @@ export class Compiler {
         `allOf/${index}`,
         schema,
       );
-      configs.pathContext.alt = `${pathContext.schema}/allOf/${index}`;
-      configs.pathContext.alt2 = `${pathContext.schema}/allOf`;
+      configs.pathContext.mapping = `/allOf/${index}`;
       const validatorFn = this.compileSchema(
         subSchema,
         configs.pathContext,
@@ -1557,8 +1549,7 @@ export class Compiler {
         `then`,
         schema,
       );
-      configs.pathContext.alt = `${pathContext.schema}/then`;
-      configs.pathContext.alt2 = undefined;
+      configs.pathContext.mapping = `/then`;
       const thenValidatorFn = this.compileSchema(
         schema.then,
         configs.pathContext,
@@ -1588,8 +1579,7 @@ export class Compiler {
         `else`,
         schema,
       );
-      configs.pathContext.alt = `${pathContext.schema}/else`;
-      configs.pathContext.alt2 = undefined;
+      configs.pathContext.mapping = "/else";
       const elseValidatorFn = this.compileSchema(
         schema.else,
         configs.pathContext,
@@ -1684,8 +1674,7 @@ export class Compiler {
           `elseIf/${index}/then`,
           schema,
         );
-        configs.pathContext.alt = `${pathContext.schema}/elseIf/${index}/then`;
-        configs.pathContext.alt2 = undefined;
+        configs.pathContext.mapping = `/elseIf/${index}/then`;
         const thenValidatorFn = this.compileSchema(
           cond.then,
           configs.pathContext,
@@ -2727,7 +2716,6 @@ export class Compiler {
               const errorMessage = JSON.stringify(
                 `Missing required field: ${prop} in data.`,
               );
-              pathContext.mapping = `/required/${prop}/any`;
               const pstring = JSON.stringify(prop);
               src.push(
                 `if (${
@@ -2838,8 +2826,6 @@ export class Compiler {
           schema: `${pathContext.schema}/patternProperties/` + pattern,
           data: `${pathContext.data}/\${${key}}`,
           $data: `${pathContext.$data}/\${${key}}`,
-          alt: pathContext.alt,
-          alt2: pathContext.alt2,
           mapping: `/patternProperties/` + pattern,
         },
         {
@@ -2874,7 +2860,7 @@ export class Compiler {
     if (extra.before != "") src.push(`if(${extra.before} true){`);
     const key = "key" + counter++;
     src.push(`for (const ${key} in ${varName}) {`);
-
+    console.log(allowedProperties);
     addEvaluatedProperty(src, key, trackingState);
     const checks = [];
     if (explicitProps.length > 0) {
@@ -2906,8 +2892,7 @@ export class Compiler {
         schema: `${pathContext.schema}/additionalProperties`,
         data: `${pathContext.data}/\${${key}}`,
         $data: `${pathContext.$data}/\${${key}}`,
-        alt: pathContext.alt,
-        alt2: pathContext.alt2,
+        mapping: "/additionalProperties",
       },
       {},
       `${varName}[${key}]`,
@@ -3028,8 +3013,6 @@ export class Compiler {
         schema: `${pathContext.schema}/propertyNames`,
         data: `${pathContext.data}/\${${key}}`,
         $data: `${pathContext.$data}/\${${key}}`,
-        alt: pathContext.alt,
-        alt2: pathContext.alt2,
         mapping: `/propertyNames`,
       },
       {},
@@ -3300,6 +3283,8 @@ export class Compiler {
     );
 
     if (schema.unevaluatedProperties === false) {
+      const currentMapping = pathContext.mapping;
+      pathContext.mapping = "/unevaluatedProperties";
       src.push(
         `if (${unName}.length > 0) {${this.buildErrorReturn(pathContext, {
           keyword: "unevaluatedProperties",
@@ -3310,6 +3295,7 @@ export class Compiler {
           schemaPath: `${pathContext.schema}/unevaluatedProperties`,
         })}${extra.after}}`,
       );
+      pathContext.mapping = currentMapping;
     } else if (schema.unevaluatedProperties === true) {
       if (trackingState.parentHasUnevaluatedProperties) {
         const key = "key" + counter++;
@@ -3332,8 +3318,7 @@ export class Compiler {
           data: `${pathContext.data}/\${${unKeyName}}`,
           $data: `${pathContext.$data}/\${${unKeyName}}`,
           schema: `${pathContext.schema}/unevaluatedProperties/\${${unKeyName}}`,
-          alt: pathContext.alt,
-          alt2: pathContext.alt2,
+          mapping: "/unevaluatedProperties",
         },
         configs.trackingState,
         `${varName}[${unKeyName}]`,
@@ -3591,12 +3576,9 @@ export class Compiler {
             schema: `${pathContext.schema}/${
               schema.prefixItems !== undefined ? "prefixItems" : "items"
             }/${index}`,
-            alt: `${pathContext.schema}/${
+            mapping: `/${
               schema.prefixItems !== undefined ? "prefixItems" : "items"
             }/${index}`,
-            alt2: `${pathContext.schema}/${
-              schema.prefixItems !== undefined ? "prefixItems" : "items"
-            }`,
             data: `${pathContext.data}/${index}`,
             $data: `${pathContext.$data}/${index}`,
           },
@@ -3613,9 +3595,10 @@ export class Compiler {
         src.push(itemValidation, "}");
       });
     }
-
-    if (Array.isArray(schema.items)) {
+    if (Array.isArray(schema.items) && schema.items.length > 0) {
       if (schema.additionalItems === false) {
+        const currentMapping = pathContext.mapping;
+        pathContext.mapping = "/additionalItems";
         src.push(
           `if (${extra.before}${varName}.length > ${
             schema.items.length
@@ -3626,8 +3609,9 @@ export class Compiler {
             expected: schema.items.length as any as string,
           })}${extra.after}}`,
         );
+        pathContext.mapping = currentMapping;
       } else if (
-        schema.additionalItems &&
+        schema.additionalItems !== undefined &&
         typeof schema.additionalItems === "object"
       ) {
         const itemValidator = "i" + counter++;
@@ -3642,8 +3626,7 @@ export class Compiler {
             schema: `${pathContext.schema}/additionalItems/\${${itemValidator}}`,
             data: `${pathContext.data}/\${${itemValidator}}`,
             $data: `${pathContext.$data}/\${${itemValidator}}`,
-            alt: pathContext.alt,
-            alt2: pathContext.alt2,
+            mapping: "/additionalItems",
           },
           {},
           `${varName}[${itemValidator}]`,
@@ -3676,6 +3659,8 @@ export class Compiler {
 
       if (schema.prefixItems !== undefined && schema.prefixItems.length > 0) {
         if (schema.items === false) {
+          const currentMapping = pathContext.mapping;
+          pathContext.mapping = "/items";
           src.push(
             `if (${extra.before}len${itemValidator} > ${
               schema.prefixItems.length
@@ -3686,6 +3671,7 @@ export class Compiler {
               expected: String(schema.prefixItems.length),
             })}${extra.after}}`,
           );
+          pathContext.mapping = currentMapping;
         } else {
           if (extra.before != "") src.push(`if(${extra.before} true){`);
           src.push(
@@ -3712,8 +3698,7 @@ export class Compiler {
             schema: `${pathContext.schema}/items`,
             data: `${pathContext.data}/\${${itemValidator}}`,
             $data: `${pathContext.$data}/\${${itemValidator}}`,
-            alt: pathContext.alt,
-            alt2: pathContext.alt2,
+            mapping: "/items",
           },
           {},
           `${varName}[${itemValidator}]`,
@@ -3895,6 +3880,8 @@ export class Compiler {
     );
 
     if (schema.unevaluatedItems === false) {
+      const currentMapping = pathContext.mapping;
+      pathContext.mapping = "/unevaluatedItems";
       src.push(
         `if (${extra.before}${unName}.length > 0) {${this.buildErrorReturn(
           pathContext,
@@ -3908,6 +3895,7 @@ export class Compiler {
           },
         )}${extra.after}}`,
       );
+      pathContext.mapping = currentMapping;
     } else if (schema.unevaluatedItems === true) {
       if (trackingState.parentHasUnevaluatedItems) {
         src.push(
@@ -3929,8 +3917,7 @@ export class Compiler {
           data: `${pathContext.data}/\${${unKeyName}}`,
           $data: `${pathContext.$data}/\${${unKeyName}}`,
           schema: `${pathContext.schema}/unevaluatedItems/\${${unKeyName}}`,
-          alt: pathContext.alt,
-          alt2: pathContext.alt2,
+          mapping: "/unevaluatedItems",
         },
         configs.trackingState,
         `${varName}[${unKeyName}]`,
@@ -3980,7 +3967,7 @@ export class Compiler {
 
     let errorMessage;
     if (this.options.errorMessage && typeof this.schema !== "boolean") {
-      let schemaAtPath = getSchemaAtPath(this.schema, pathContext.schema);
+      const schemaAtPath = getSchemaAtPath(this.schema, pathContext.schema);
 
       if (
         schemaAtPath &&
@@ -3995,6 +3982,7 @@ export class Compiler {
             errorMessage = schemaAtPath.errorMessage["_jetError"];
         }
       }
+
       if (
         (!errorMessage || typeof errorMessage === "object") &&
         pathContext.mapping
@@ -4022,51 +4010,37 @@ export class Compiler {
             errorMessage = schemaAtPath.errorMessage;
           } else if (typeof schemaAtPath.errorMessage === "object") {
             errorMessage = schemaAtPath.errorMessage[error.keyword];
-    
+
             if (!errorMessage || typeof errorMessage === "object") {
-              errorMessage = getSchemaAtPath(
+              const errAtPath = getSchemaAtPath(
                 schemaAtPath.errorMessage,
                 "#" + pathContext.mapping,
               );
-              if (typeof errorMessage === "object")
+
+              errorMessage = errAtPath;
+              if (typeof errorMessage === "object") {
                 errorMessage = errorMessage[error.keyword];
-              if (!errorMessage) {
-                errorMessage = getSchemaAtPath(
+              }
+
+              if (!errorMessage && deduction > 0) {
+                const errorAtPath = getSchemaAtPath(
                   schemaAtPath.errorMessage,
                   "#" + pathContext.mapping.slice(0, -deduction),
                 );
-                if (typeof errorMessage === "object")
+
+                errorMessage = errorAtPath;
+                if (typeof errorMessage === "object") {
                   errorMessage = errorMessage[error.keyword];
+                  if (!errorMessage && typeof errorAtPath === "object")
+                    errorMessage = errorAtPath["_jetError"];
+                }
               }
+
+              if (!errorMessage && typeof errAtPath === "object")
+                errorMessage = errAtPath["_jetError"];
             }
-            if (!errorMessage || typeof errorMessage === "object")
-              errorMessage = schemaAtPath.errorMessage["_jetError"];
             if (errorMessage && typeof errorMessage === "object")
               errorMessage = undefined;
-          }
-        }
-      }
-      if (pathContext.alt && !errorMessage) {
-        schemaAtPath = getSchemaAtPath(this.schema, pathContext.alt);
-        if (
-          typeof schemaAtPath === "object" &&
-          "errorMessage" in schemaAtPath
-        ) {
-          let presentAtPath = schemaAtPath.errorMessage;
-          if (typeof schemaAtPath.errorMessage === "object") {
-            const errorPath =
-              "#" + pathContext.schema.replace(pathContext.alt, "");
-            presentAtPath = getSchemaAtPath(
-              schemaAtPath.errorMessage,
-              errorPath,
-            ) as any;
-          }
-
-          if (typeof presentAtPath === "string") {
-            errorMessage = presentAtPath;
-          } else if (typeof presentAtPath === "object") {
-            errorMessage = presentAtPath[error.keyword];
-            if (!errorMessage) errorMessage = presentAtPath["_jetError"];
           }
         }
       }
@@ -4076,25 +4050,11 @@ export class Compiler {
         if (typeof rootErrorMessage === "string") {
           errorMessage = rootErrorMessage;
         } else if (typeof rootErrorMessage === "object") {
-          let errorAtPath = getSchemaAtPath(
+          const errorAtPath = getSchemaAtPath(
             rootErrorMessage,
             pathContext.schema,
           );
-          if (
-            typeof errorAtPath === "object" &&
-            Object.keys(errorAtPath).length === 0 &&
-            pathContext.alt
-          ) {
-            errorAtPath = getSchemaAtPath(rootErrorMessage, pathContext.alt);
-          }
-
-          if (
-            typeof errorAtPath === "object" &&
-            Object.keys(errorAtPath).length === 0 &&
-            pathContext.alt2
-          ) {
-            errorAtPath = getSchemaAtPath(rootErrorMessage, pathContext.alt2);
-          }
+         
           if (typeof errorAtPath === "string") {
             errorMessage = errorAtPath;
           } else if (typeof errorAtPath === "object") {

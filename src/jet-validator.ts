@@ -303,7 +303,7 @@ export class JetValidator {
 
   //#region
   addSchema(schema: SchemaDefinition, id?: string): void {
-    const key = id || schema.$id;
+    const key = id || schema.$id || schema.id;
     if (!key)
       throw Error("Attempting to register a schema that has no defined id.");
     schema.$id = key;
@@ -314,7 +314,10 @@ export class JetValidator {
     return structuredClone(this.schemas[key]);
   }
 
-  getCompiledSchema(key: string, config?: ValidatorOptions): ErrorAttachedValidatorFn {
+  getCompiledSchema(
+    key: string,
+    config?: ValidatorOptions,
+  ): ErrorAttachedValidatorFn {
     if (this.schemas[key] !== undefined) {
       return this.compile(this.schemas[key], config);
     } else {
@@ -430,7 +433,9 @@ export class JetValidator {
           typeof schema === "string"
             ? this.compilationCache.get(schema)
             : this.compilationCache.get(
-                (finalSchema as SchemaDefinition).$id ?? finalSchema,
+                (finalSchema as SchemaDefinition).$id ??
+                  (finalSchema as SchemaDefinition).id ??
+                  finalSchema,
               );
         if (func) validator = func;
       }
@@ -462,7 +467,9 @@ export class JetValidator {
           typeof schema === "string"
             ? this.compilationCache.get(schema)
             : this.compilationCache.get(
-                (finalSchema as SchemaDefinition).$id ?? finalSchema,
+                (finalSchema as SchemaDefinition).$id ??
+                  (finalSchema as SchemaDefinition).id ??
+                  finalSchema,
               );
         if (func) validator = func;
       }
@@ -496,44 +503,42 @@ export class JetValidator {
 
     const finalId = this.aliases[metaSchemaId] ?? metaSchemaId;
     const metaSchema = this.metaSchemas[finalId];
-    if (!metaSchema) {
-      if (options?.strictSchema) {
-        throw new Error(
-          `Meta-schema "${metaSchemaId}" is not loaded.\n` +
-            `Load it using: loadDraft07(jetValidator) or loadAllMetaSchemas(jetValidator)\n` +
-            `Or disable validation: new JetValidator({ validateSchema: false })`,
-        );
-      }
-    }
     return { metaSchema, metaSchemaId };
   }
 
   validateSchemaSync(
     schema: SchemaDefinition,
     options?: ValidatorOptions,
-  ): { valid: boolean; errors: any } {
-    const { metaSchema } = this.getMetaSchema(schema.$schema, options);
+  ): ValidationResult {
+    const { metaSchema, metaSchemaId } = this.getMetaSchema(
+      schema.$schema,
+      options,
+    );
     if (!metaSchema)
-      return { valid: false, errors: [{ message: "metaSchema not found" }] };
+      return {
+        valid: false,
+        errors: [
+          {
+            dataPath: "/",
+            schemaPath: "#",
+            notFound: true,
+            keyword: metaSchemaId,
+            message: "metaSchema not found",
+          },
+        ],
+      };
     const validator = this.compile(metaSchema, {
       ...options,
       validateSchema: false,
     });
     const result = validator(schema);
-
-    if (!result && options?.strictSchema) {
-      console.log(validator.errors);
-      throw Error();
-    }
-    if (!result) validator.errors[0]["metaSchemaError"] = true;
-
     return { valid: result, errors: validator.errors };
   }
 
   async validateSchemaAsync(
     schema: SchemaDefinition,
     options?: ValidatorOptions,
-  ): Promise<{ valid: boolean; errors: any }> {
+  ): Promise<ValidationResult> {
     let metaSchema;
     const { metaSchema: mSchema, metaSchemaId } = this.getMetaSchema(
       schema.$schema,
@@ -544,23 +549,30 @@ export class JetValidator {
     } else {
       metaSchema = await this.options.loadSchema(metaSchemaId);
     }
+    if (!metaSchema)
+      return {
+        valid: false,
+        errors: [
+          {
+            dataPath: "/",
+            schemaPath: "#",
+            notFound: true,
+            keyword: metaSchemaId,
+            message: "metaSchema not found",
+          },
+        ],
+      };
     const validator = await this.compileAsync(metaSchema, {
       ...options,
       validateSchema: false,
       async: true,
     });
     const result = await validator(schema);
-
-    if (!result && options?.strictSchema) {
-      console.log(validator.errors);
-      throw Error();
-    }
-    if (!result) validator.errors[0]["metaSchemaError"] = true;
     return { valid: result, errors: validator.errors };
   }
 
   addMetaSchema(schema: SchemaDefinition, key?: string): this {
-    const Key = key || schema.$id;
+    const Key = key || schema.$id || schema.id;
 
     if (!Key) {
       throw new Error("Meta-schema must have an $id or explicit key");
@@ -768,19 +780,21 @@ export class JetValidator {
     ) {
       const result = this.validateSchemaSync(schema, {
         metaSchema: finalConfig?.metaSchema,
+        cache: true,
       });
       if (!result.valid) {
-        const validator = (data: any) => result.valid;
-        (validator as any).errors = result.errors || [];
-        return validator as ErrorAttachedValidatorFn;
+        throw result.errors;
       }
     }
+
     if (finalConfig.cache && typeof schema !== "boolean") {
       if (
         this.compilationCache.has(schema?.$id!) ||
+        this.compilationCache.has(schema?.id!) ||
         this.compilationCache.has(schema)
       ) {
         return (this.compilationCache.get(schema?.$id!) ??
+          this.compilationCache.get(schema?.id!) ??
           this.compilationCache.get(schema))!;
       }
     }
@@ -810,10 +824,12 @@ export class JetValidator {
   ): Promise<ErrorAttachedValidatorFn> {
     const schema =
       typeof fschema === "boolean" ? fschema : (fschema as SchemaDefinition);
+
     const finalConfig = {
       ...this.options,
       ...config,
     };
+
     if (
       typeof schema === "object" &&
       finalConfig.validateSchema &&
@@ -821,20 +837,21 @@ export class JetValidator {
     ) {
       const result = await this.validateSchemaAsync(schema, {
         metaSchema: finalConfig?.metaSchema,
+        cache: true,
       });
       if (!result.valid) {
-        const validator = (data: any) => result.valid;
-        (validator as any).errors = result.errors || [];
-        return validator as ErrorAttachedValidatorFn;
+        throw result.errors;
       }
     }
 
     if (finalConfig.cache && typeof schema !== "boolean") {
       if (
         this.compilationCache.has(schema?.$id!) ||
+        this.compilationCache.has(schema?.id!) ||
         this.compilationCache.has(schema)
       ) {
         return (this.compilationCache.get(schema?.$id!) ??
+          this.compilationCache.get(schema?.id!) ??
           this.compilationCache.get(schema))!;
       }
     }
@@ -853,8 +870,10 @@ export class JetValidator {
       finalConfig,
       resolved.compileContext,
     );
-    if (finalConfig.cache && typeof schema === "object") {
-      this.compilationCache.set(schema, validator);
+    
+    if (finalConfig.cache && typeof schema === "object" && schema !== null) {
+      const schem = schema as { $id?: string; id?: string };
+      this.compilationCache.set(schem.$id ?? schem.id ?? schema, validator);
     }
 
     return validator;
