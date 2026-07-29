@@ -2860,7 +2860,6 @@ export class Compiler {
     if (extra.before != "") src.push(`if(${extra.before} true){`);
     const key = "key" + counter++;
     src.push(`for (const ${key} in ${varName}) {`);
-    console.log(allowedProperties);
     addEvaluatedProperty(src, key, trackingState);
     const checks = [];
     if (explicitProps.length > 0) {
