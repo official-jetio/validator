@@ -1,6 +1,6 @@
 {
   "name": "@jetio/validator",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "description": "Compile schema to functions with Type Inference. Supports Draft 06, 07, 2019-09, and 2020-12.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
