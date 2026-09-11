@@ -70,7 +70,7 @@ validateUser(data); // true | false
 
 > **Note:** base schemas (types, ranges, `required`, `$ref`) emit with zero imports. Custom formats or keywords are inlined or imported explicitly, still with no library dependency.
 
-**[Standalone Code Generation Guide](https://jet-validator-docs.vercel.app/build/standalone-basics)**
+**[Standalone Code Generation Guide](https://jet-validator-docs.vercel.app/standalone/basics)**
 
 ---
 
@@ -444,8 +444,8 @@ const validate = new JetValidator().compile(schema);
 ## Documentation
 
 - [Full Documentation](https://jet-validator-docs.vercel.app)
-- [Standalone Codegen](https://jet-validator-docs.vercel.app/build/standalone-basics)
-- [Configuration Options](https://jet-validator-docs.vercel.app/getting-started#%EF%B8%8F-configuration-options)
+- [Standalone Codegen](https://jet-validator-docs.vercel.app/standalone/basics)
+- [Configuration Options](https://jet-validator-docs.vercel.app/configuration/getting-started)
 - [Schema References and Composition](https://jet-validator-docs.vercel.app/references/static-refs)
 - [Meta-Schema System](https://jet-validator-docs.vercel.app/meta-schemas/meta-schema-basics)
 
