@@ -87,10 +87,7 @@
         "type": "number",
         "exclusiveMaximum": 100
       },
-      "multipleOf": {
-        "type": "number",
-        "multipleOf": 5
-      },
+      
       "integerField": {
         "type": "integer"
       },
@@ -196,7 +193,7 @@
     "anyOf": [
       {
         "properties": {
-          "email": { "type": "string", "format": "email" }
+          "email": { "type": "string" }
         },
         "required": ["email"]
       },

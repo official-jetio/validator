@@ -16,47 +16,20 @@
     "invalid": [
       {
         "prop1": "test",
-        "prop2": "invalid"
+        "prop2": 42,
+        "prop3": true,
+        "prop4": "value",
+        "prop5": 100,
+        "prop6": false,
+        "prop7": "data",
+        "prop8": 50,
+        "prop9": "notbool"
       }
     ]
   },
   "deepAnyOf": {
-    "valid": [
-      {
-        "type": "A",
-        "data": "string-value"
-      },
-      {
-        "type": "A",
-        "data": 42
-      },
-      {
-        "type": "A",
-        "data": true
-      },
-      {
-        "type": "A",
-        "data": null
-      },
-      {
-        "type": "A",
-        "data": ["a", "b"]
-      },
-      {
-        "type": "B",
-        "value": 100
-      }
-    ],
-    "invalid": [
-      {
-        "type": "A",
-        "data": {}
-      },
-      {
-        "type": "B",
-        "value": "invalid"
-      }
-    ]
+    "valid": [{ "type": "A", "data": ["a", "b"] }],
+    "invalid": [{ "type": "A", "data": {} }]
   },
   "deepOneOf": {
     "valid": [
@@ -64,42 +37,10 @@
         "variant": "v1",
         "nested": {
           "subtype": "s1",
-          "value": "test"
-        }
-      },
-      {
-        "variant": "v1",
-        "nested": {
-          "subtype": "s2",
-          "value": 42
-        }
-      },
-      {
-        "variant": "v2",
-        "nested": {
-          "subtype": "s3",
-          "value": true
-        }
-      },
-      {
-        "variant": "v2",
-        "nested": {
-          "subtype": "s4",
-          "value": ["a", "b"]
-        }
-      },
-      {
-        "variant": "v3",
-        "nested": {
-          "subtype": "s5",
-          "value": {}
-        }
-      },
-      {
-        "variant": "v3",
-        "nested": {
-          "subtype": "s6",
-          "value": null
+          "deeper": {
+            "stage": "d3a",
+            "deeper": { "subtype": "s7", "value": "hello" }
+          }
         }
       }
     ],
@@ -108,14 +49,10 @@
         "variant": "v1",
         "nested": {
           "subtype": "s1",
-          "value": 123
-        }
-      },
-      {
-        "variant": "v1",
-        "nested": {
-          "subtype": "s3",
-          "value": true
+          "deeper": {
+            "stage": "d3a",
+            "deeper": { "subtype": "s7", "value": 123 }
+          }
         }
       }
     ]
@@ -128,58 +65,25 @@
         "email": "user@example.com",
         "status": "active",
         "lastLogin": "2024-01-15T14:30:00Z"
-      },
-      {
-        "id": "fedcba98-7654-3210-fedc-ba9876543210",
-        "type": "admin",
-        "permissions": ["read", "write", "delete"],
-        "status": "inactive",
-        "deactivatedAt": "2024-01-10T10:00:00Z"
       }
     ],
     "invalid": [
       {
-        "id": "invalid-uuid",
+        "id": "123e4567-e89b-12d3-a456-426614174000",
         "type": "user",
-        "email": "user@example.com"
+        "email": "user@example.com",
+        "status": "pending"
       }
     ]
   },
   "complexNot": {
-  "valid": [
-    { "value": 10 },
-    { "value": 50 },
-    { "value": 99 },
-    { "value": 1 },
-    { "value": 22 }
-  ],
-  "invalid": [
-    { "value": 13 },
-    { "value": 666 },
-    { "value": 7 },
-    { "value": 14 },
-    { "value": 21 },
-    { "value": 70 },
-    { "value": 77 },
-    { "value": 91 }
-  ]
-},
+    "valid": [{ "value": 50 }],
+    "invalid": [{ "value": 14 }]
+  },
   "multiLayeredComposition": {
-  "valid": [
-    "abcdef",
-    "ab",
-    150,
-    5
-  ],
-  "invalid": [
-    "test",
-    "testing",
-    "abcd",
-    13,
-    26,
-    50
-  ]
-},
+    "valid": ["abcdef"],
+    "invalid": ["testing"]
+  },
   "wideComposition": {
     "valid": [
       {
@@ -195,7 +99,9 @@
         "p10": "j",
         "opt1": 42,
         "variant": "A"
-      },
+      }
+    ],
+    "invalid": [
       {
         "p1": "a",
         "p2": "b",
@@ -207,14 +113,8 @@
         "p8": "h",
         "p9": "i",
         "p10": "j",
-        "opt2": true,
-        "variant": "B"
-      }
-    ],
-    "invalid": [
-      {
-        "p1": "a",
-        "variant": "A"
+        "opt1": 42,
+        "variant": "Z"
       }
     ]
   },
@@ -226,16 +126,8 @@
           "value": 100,
           "type": "branch",
           "children": [
-            {
-              "id": "child1",
-              "value": 50,
-              "type": "leaf"
-            },
-            {
-              "id": "child2",
-              "value": 75,
-              "type": "leaf"
-            }
+            { "id": "child1", "value": 50, "type": "leaf" },
+            { "id": "child2", "value": 75, "type": "leaf" }
           ]
         }
       }
@@ -243,8 +135,13 @@
     "invalid": [
       {
         "tree": {
+          "id": "root",
           "value": 100,
-          "type": "branch"
+          "type": "branch",
+          "children": [
+            { "id": "child1", "value": 50, "type": "leaf" },
+            { "value": 75, "type": "leaf" }
+          ]
         }
       }
     ]

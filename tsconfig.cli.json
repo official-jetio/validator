@@ -2,8 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "ESNext",
-    "rootDir": "./scripts",
+    "rootDir": "./scripts"
   },
   "include": ["scripts/**/*.ts"],
-  "exclude": ["test/**/*.ts", "node_modules"]
+  "exclude": ["test/**/*.ts", "tests/**/*.ts", "node_modules"]
 }

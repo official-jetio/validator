@@ -7,24 +7,24 @@ export interface ValidationError {
   value?: any;
   expected?: any;
   message: string;
-  [key: string]: any
+  [key: string]: any;
 }
 
 export interface ValidationResult {
   valid: boolean;
-  errors?: ValidationError[];
+  errors: null | ValidationError[];
 }
 
 export type ValidationFunction = (data: any) => boolean;
 
 export type ErrorAttachedValidatorFn = ValidationFunction & {
-  errors: ValidationError[];
+  errors: null | ValidationError[];
 };
 
 export interface ValidatorOptions {
   allErrors?: boolean;
   draft?: "draft2019-09" | "draft2020-12" | "draft7" | "draft6";
-  verbose?: boolean;
+  verbose?: boolean | "value" | "path";
   loopEnum?: number;
   debug?: boolean;
   loopRequired?: number;
@@ -37,7 +37,7 @@ export interface ValidatorOptions {
   formats?: string[];
   validateFormats?: boolean;
   loadSchema?: (uri: string) => Promise<SchemaDefinition> | SchemaDefinition;
-  removeAdditional?: boolean | "all" | "failing";
+  removeAdditional?: boolean | "all";
   useDefaults?: boolean | "empty";
   coerceTypes?: boolean | "array";
   cache?: boolean;
@@ -52,4 +52,3 @@ export interface ValidatorOptions {
   addUsedSchema?: boolean;
   errorMessage?: boolean;
 }
-

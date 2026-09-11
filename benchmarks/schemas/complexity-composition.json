@@ -45,11 +45,15 @@
                                 "allOf": [
                                   {
                                     "type": "object",
-                                    "properties": { "prop8": { "type": "number" } }
+                                    "properties": {
+                                      "prop8": { "type": "number" }
+                                    }
                                   },
                                   {
                                     "type": "object",
-                                    "properties": { "prop9": { "type": "boolean" } }
+                                    "properties": {
+                                      "prop9": { "type": "boolean" }
+                                    }
                                   }
                                 ]
                               }
@@ -94,14 +98,16 @@
               }
             ]
           }
-        }
+        },
+        "required": ["type", "data"]
       },
       {
         "type": "object",
         "properties": {
           "type": { "const": "B" },
           "value": { "type": "number" }
-        }
+        },
+        "required": ["type", "value"]
       }
     ]
   },
@@ -117,14 +123,119 @@
                 "type": "object",
                 "properties": {
                   "subtype": { "const": "s1" },
-                  "value": { "type": "string" }
+                  "deeper": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "stage": { "const": "d3a" },
+                          "deeper": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s7" },
+                                  "value": { "type": "string" }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s8" },
+                                  "value": { "type": "number" }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "stage": { "const": "d3b" },
+                          "deeper": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s9" },
+                                  "value": { "type": "boolean" }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s10" },
+                                  "value": {
+                                    "type": "array",
+                                    "items": { "type": "string" }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               },
               {
                 "type": "object",
                 "properties": {
                   "subtype": { "const": "s2" },
-                  "value": { "type": "number" }
+                  "deeper": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "stage": { "const": "e2a" },
+                          "deeper": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s11" },
+                                  "value": { "type": "object" }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s12" },
+                                  "value": { "type": "null" }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "stage": { "const": "e2b" },
+                          "deeper": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s13" },
+                                  "value": { "type": "string" }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s14" },
+                                  "value": { "type": "number" }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               }
             ]
@@ -141,14 +252,85 @@
                 "type": "object",
                 "properties": {
                   "subtype": { "const": "s3" },
-                  "value": { "type": "boolean" }
+                  "deeper": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "stage": { "const": "d3a" },
+                          "deeper": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s7" },
+                                  "value": { "type": "string" }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s8" },
+                                  "value": { "type": "number" }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "stage": { "const": "d3b" },
+                          "deeper": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s9" },
+                                  "value": { "type": "boolean" }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s10" },
+                                  "value": {
+                                    "type": "array",
+                                    "items": { "type": "string" }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               },
               {
                 "type": "object",
                 "properties": {
                   "subtype": { "const": "s4" },
-                  "value": { "type": "array", "items": { "type": "string" } }
+                  "deeper": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "subtype": { "const": "s15" },
+                          "value": { "type": "boolean" }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "subtype": { "const": "s16" },
+                          "value": { "type": "number" }
+                        }
+                      }
+                    ]
+                  }
                 }
               }
             ]
@@ -165,14 +347,85 @@
                 "type": "object",
                 "properties": {
                   "subtype": { "const": "s5" },
-                  "value": { "type": "object" }
+                  "deeper": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "stage": { "const": "d3a" },
+                          "deeper": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s7" },
+                                  "value": { "type": "string" }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s8" },
+                                  "value": { "type": "number" }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "stage": { "const": "d3b" },
+                          "deeper": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s9" },
+                                  "value": { "type": "boolean" }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "subtype": { "const": "s10" },
+                                  "value": {
+                                    "type": "array",
+                                    "items": { "type": "string" }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               },
               {
                 "type": "object",
                 "properties": {
                   "subtype": { "const": "s6" },
-                  "value": { "type": "null" }
+                  "deeper": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "subtype": { "const": "s17" },
+                          "value": { "type": "object" }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "subtype": { "const": "s18" },
+                          "value": { "type": "null" }
+                        }
+                      }
+                    ]
+                  }
                 }
               }
             ]
@@ -313,10 +566,22 @@
       { "properties": { "opt5": { "type": "null" } }, "required": ["opt5"] }
     ],
     "oneOf": [
-      { "properties": { "variant": { "const": "A" } }, "required": ["variant"] },
-      { "properties": { "variant": { "const": "B" } }, "required": ["variant"] },
-      { "properties": { "variant": { "const": "C" } }, "required": ["variant"] },
-      { "properties": { "variant": { "const": "D" } }, "required": ["variant"] },
+      {
+        "properties": { "variant": { "const": "A" } },
+        "required": ["variant"]
+      },
+      {
+        "properties": { "variant": { "const": "B" } },
+        "required": ["variant"]
+      },
+      {
+        "properties": { "variant": { "const": "C" } },
+        "required": ["variant"]
+      },
+      {
+        "properties": { "variant": { "const": "D" } },
+        "required": ["variant"]
+      },
       { "properties": { "variant": { "const": "E" } }, "required": ["variant"] }
     ]
   },

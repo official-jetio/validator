@@ -1,6 +1,5 @@
 import typescript from "@rollup/plugin-typescript";
-// import { visualizer } from "rollup-plugin-visualizer";
-// import filesize from "rollup-plugin-filesize";
+import bundleSize from 'rollup-plugin-bundle-size';
 export default [
   // ===========================================
   // CLI Build (metaschema loader)
@@ -39,6 +38,7 @@ export default [
       typescript({
         tsconfig: "./tsconfig.rollup.json",
       }),
+      bundleSize(),
     ],
     external: [],
   },
@@ -60,10 +60,7 @@ export default [
       typescript({
         tsconfig: "./tsconfig.rollup.json",
       }),
-      // filesize({
-      //   showGzippedSize: true,
-      //   showBrotliSize: true,
-      // }),
+      bundleSize(),
     ],
     external: [],
   },
@@ -90,10 +87,7 @@ export default [
           target: "ES2018",
         },
       }),
-      // filesize({
-      //   showGzippedSize: true,
-      //   showBrotliSize: true,
-      // }),
+      bundleSize(),
       // visualizer({
       //   filename: "bundle-analysis.html",
       //   open: false,

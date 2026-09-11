@@ -1,24 +1,39 @@
-import { Compiler } from "./compileSchema";
-import { FAST_FORMAT_VALIDATORS, FULL_FORMAT_VALIDATORS } from "./formats";
-import { SchemaResolver } from "./resolver";
+import {
+  FAST_FORMAT_VALIDATORS,
+  FULL_FORMAT_VALIDATORS,
+} from "./utilities/formats";
 import { SchemaDefinition } from "./types/schema";
 import {
   ErrorAttachedValidatorFn,
+  ValidationError,
   ValidationResult,
   ValidatorOptions,
 } from "./types/validation";
 import {
   CodeKeywordDefinition,
-  CompiledValidateFunction,
   CompileKeywordDefinition,
   KeywordDefinition,
   MacroKeywordDefinition,
-  ValidateFunction,
   ValidateKeywordDefinition,
 } from "./types/keywords";
 import { FormatDefinition } from "./types/format";
-import { canonicalStringify, deepEqual, len_of } from "./utilities";
-import { baseSchemaKeys } from "./utilities/schema";
+
+import { baseSchemaKeys, incompatibleKeywords } from "./utilities/schema";
+import { Compilation } from "./compilation/compilation";
+const validTypes = Object.keys(incompatibleKeywords);
+
+export const aliases: Record<string, string> = {
+  "draft-06": "https://json-schema.org/draft-06/schema",
+  "draft-07": "https://json-schema.org/draft-07/schema",
+  "draft/2019-09": "https://json-schema.org/draft/2019-09/schema",
+  "draft/2020-12": "https://json-schema.org/draft/2020-12/schema",
+};
+
+type KeywordDef =
+  | MacroKeywordDefinition
+  | CompileKeywordDefinition
+  | ValidateKeywordDefinition
+  | CodeKeywordDefinition;
 
 export class JetValidator {
   private schemas: Record<string, SchemaDefinition> = {};
@@ -26,15 +41,9 @@ export class JetValidator {
   private customKeywords: Map<string, KeywordDefinition> = new Map();
   private formatValidators: Record<string, FormatDefinition>;
   private hasMacros: boolean = false;
-  private compilationCache: Map<object | string, ErrorAttachedValidatorFn>;
+  private compilation: Compilation;
   options: Required<ValidatorOptions>;
   private counter: number = 0;
-  private aliases: Record<string, string> = {
-    "draft-06": "https://json-schema.org/draft-06/schema",
-    "draft-07": "https://json-schema.org/draft-07/schema",
-    "draft/2019-09": "https://json-schema.org/draft/2019-09/schema",
-    "draft/2020-12": "https://json-schema.org/draft/2020-12/schema",
-  };
   constructor(options: ValidatorOptions = {}) {
     this.options = {
       allErrors: options.allErrors ?? false,
@@ -71,15 +80,16 @@ export class JetValidator {
       addUsedSchema: options.addUsedSchema ?? true,
       errorMessage: options.errorMessage ?? false,
     };
-    if (this.options.formatMode !== false) {
-      this.formatValidators =
-        this.options.formatMode === "full"
-          ? { ...FULL_FORMAT_VALIDATORS }
-          : { ...FAST_FORMAT_VALIDATORS };
-    } else {
-      this.formatValidators = {};
-    }
-    this.compilationCache = new Map();
+
+    this.formatValidators = this.initFormatValidators();
+    this.compilation = new Compilation(this);
+  }
+
+  private initFormatValidators(): Record<string, FormatDefinition> {
+    if (this.options.formatMode === false) return {};
+    return this.options.formatMode === "full"
+      ? { ...FULL_FORMAT_VALIDATORS }
+      : { ...FAST_FORMAT_VALIDATORS };
   }
 
   //#region
@@ -118,11 +128,9 @@ export class JetValidator {
       return validator(value);
     } else {
       const validate = validator.validate;
-      if (validate instanceof RegExp) {
-        return validate.test(value);
-      } else {
-        return validate(value);
-      }
+      return validate instanceof RegExp
+        ? validate.test(value)
+        : validate(value);
     }
   }
 
@@ -150,13 +158,7 @@ export class JetValidator {
   //#endregion
 
   //#region
-  addKeyword(
-    definition:
-      | MacroKeywordDefinition
-      | CompileKeywordDefinition
-      | ValidateKeywordDefinition
-      | CodeKeywordDefinition,
-  ): this {
+  addKeyword(definition: KeywordDef): this {
     if (baseSchemaKeys.has(definition.keyword)) {
       throw new Error(
         `Keyword "${definition.keyword}" is a predefined keyword and cannot be registered.`,
@@ -187,24 +189,11 @@ export class JetValidator {
     return this.hasMacros;
   }
 
-  getKeyword(
-    keyword: string,
-  ):
-    | MacroKeywordDefinition
-    | CompileKeywordDefinition
-    | ValidateKeywordDefinition
-    | CodeKeywordDefinition
-    | undefined {
+  getKeyword(keyword: string): KeywordDef | undefined {
     return this.customKeywords.get(keyword);
   }
 
-  private validateKeywordDefinition(
-    def:
-      | MacroKeywordDefinition
-      | CompileKeywordDefinition
-      | ValidateKeywordDefinition
-      | CodeKeywordDefinition,
-  ): void {
+  private validateKeywordDefinition(def: KeywordDef): void {
     const approaches: any[] = [];
     if ("macro" in def && (def as any).macro)
       approaches.push((def as any).macro);
@@ -227,14 +216,6 @@ export class JetValidator {
     }
 
     if ((def as any).schemaType) {
-      const validTypes = [
-        "string",
-        "number",
-        "boolean",
-        "array",
-        "object",
-        "null",
-      ];
       const types = Array.isArray((def as any).schemaType)
         ? (def as any).schemaType
         : [(def as any).schemaType];
@@ -249,15 +230,6 @@ export class JetValidator {
     }
 
     if ((def as any).type) {
-      const validTypes = [
-        "string",
-        "number",
-        "integer",
-        "boolean",
-        "array",
-        "object",
-        "null",
-      ];
       const types = Array.isArray((def as any).type)
         ? (def as any).type
         : [(def as any).type];
@@ -288,7 +260,7 @@ export class JetValidator {
   }
 
   getAddedKeywords(): string[] {
-    return Object.keys(this.customKeywords);
+    return [...this.customKeywords.keys()];
   }
 
   clearKeywords(): void {
@@ -318,22 +290,22 @@ export class JetValidator {
     key: string,
     config?: ValidatorOptions,
   ): ErrorAttachedValidatorFn {
-    if (this.schemas[key] !== undefined) {
-      return this.compile(this.schemas[key], config);
-    } else {
+    const schema = this.schemas[key];
+    if (schema === undefined) {
       throw Error(`Schema ${key} not found in registry.`);
     }
+    return this.compile(schema, config);
   }
 
   async getCompiledSchemaAsync(
     key: string,
     config?: ValidatorOptions,
   ): Promise<ErrorAttachedValidatorFn> {
-    if (this.schemas[key] !== undefined) {
-      return await this.compileAsync(this.schemas[key], config);
-    } else {
+    const schema = this.schemas[key];
+    if (schema === undefined) {
       throw Error(`Schema ${key} not found in registry.`);
     }
+    return this.compileAsync(schema, config);
   }
 
   isSchemaAdded(key: string): boolean {
@@ -348,7 +320,7 @@ export class JetValidator {
     if (pattern === undefined) {
       this.schemas = {};
       if (this.options.cache) {
-        this.compilationCache.clear();
+        this.compilation.clearCache();
       }
       return;
     }
@@ -358,10 +330,11 @@ export class JetValidator {
       }
       delete this.schemas[pattern];
       if (this.options.cache) {
-        this.compilationCache.delete(pattern);
+        this.compilation.deleteCacheKey(pattern);
       }
       return;
     }
+
     if (pattern instanceof RegExp) {
       const keys = Object.keys(this.schemas);
       let removed = 0;
@@ -370,7 +343,7 @@ export class JetValidator {
         if (pattern.test(key)) {
           delete this.schemas[key];
           if (this.options.cache) {
-            this.compilationCache.delete(key);
+            this.compilation.deleteCacheKey(key);
           }
           removed++;
         }
@@ -378,9 +351,12 @@ export class JetValidator {
 
       if (removed === 0) {
         console.warn(`No schemas matched pattern: ${pattern}`);
+      } else {
+        console.warn(`Removed ${removed} schemas matching pattern: ${pattern}`);
       }
       return;
     }
+
     if (typeof pattern === "object") {
       const keys = Object.keys(this.schemas);
       let found = false;
@@ -389,7 +365,7 @@ export class JetValidator {
         if (this.schemas[key] === pattern) {
           delete this.schemas[key];
           if (this.options.cache) {
-            this.compilationCache.delete(key);
+            this.compilation.deleteCacheKey(key);
           }
           found = true;
           break;
@@ -407,6 +383,9 @@ export class JetValidator {
 
   clearSchemas(): void {
     this.schemas = {};
+    if (this.options.cache) {
+      this.compilation.clearCache();
+    }
   }
 
   getAllSchemas(): Record<string, SchemaDefinition> {
@@ -415,38 +394,29 @@ export class JetValidator {
   //#endregion
 
   //#region
+
+  private resolveRegisteredSchema(
+    schema: object | boolean | string,
+  ): object | boolean | undefined {
+    if (typeof schema === "object" || typeof schema === "boolean") {
+      return schema;
+    }
+    return this.schemas[schema];
+  }
+
   validate(
     schema: object | boolean | string,
     data: any,
     config?: ValidatorOptions,
   ): ValidationResult {
-    let finalSchema;
-    if (typeof schema === "object" || typeof schema === "boolean") {
-      finalSchema = schema;
-    } else {
-      finalSchema = this.schemas[schema];
-    }
-    if (finalSchema !== undefined) {
-      let validator;
-      if (typeof finalSchema !== "boolean") {
-        const func =
-          typeof schema === "string"
-            ? this.compilationCache.get(schema)
-            : this.compilationCache.get(
-                (finalSchema as SchemaDefinition).$id ??
-                  (finalSchema as SchemaDefinition).id ??
-                  finalSchema,
-              );
-        if (func) validator = func;
-      }
-      if (!validator) {
-        validator = this.compile(finalSchema, config);
-      }
-      const valid = validator(data);
-      return { valid, errors: validator.errors };
-    } else {
+    const finalSchema = this.resolveRegisteredSchema(schema);
+    if (finalSchema === undefined) {
       throw Error(`Schema ${schema} was not found in registry.`);
     }
+
+    const validator = this.compile(finalSchema, config);
+    const valid = validator(data);
+    return { valid, errors: validator.errors };
   }
 
   async validateAsync(
@@ -454,33 +424,14 @@ export class JetValidator {
     data: any,
     config?: ValidatorOptions,
   ): Promise<ValidationResult> {
-    let finalSchema;
-    if (typeof schema === "object" || typeof schema === "boolean") {
-      finalSchema = schema;
-    } else {
-      finalSchema = this.schemas[schema];
-    }
-    if (finalSchema !== undefined) {
-      let validator;
-      if (typeof finalSchema !== "boolean") {
-        const func =
-          typeof schema === "string"
-            ? this.compilationCache.get(schema)
-            : this.compilationCache.get(
-                (finalSchema as SchemaDefinition).$id ??
-                  (finalSchema as SchemaDefinition).id ??
-                  finalSchema,
-              );
-        if (func) validator = func;
-      }
-      if (!validator) {
-        validator = await this.compileAsync(finalSchema, config);
-      }
-      const valid = await validator(data);
-      return { valid, errors: validator.errors };
-    } else {
+    const finalSchema = this.resolveRegisteredSchema(schema);
+    if (finalSchema === undefined) {
       throw Error(`Schema ${schema} was not found in registry.`);
     }
+
+    const validator = await this.compileAsync(finalSchema, config);
+    const valid = await validator(data);
+    return { valid, errors: validator.errors };
   }
 
   //#endregion
@@ -490,20 +441,31 @@ export class JetValidator {
     $schema?: string,
     options?: ValidatorOptions,
   ): { metaSchema: object | undefined; metaSchemaId: string } {
-    let metaSchemaId: string | undefined = options?.metaSchema;
-
-    if (!metaSchemaId && $schema) {
-      metaSchemaId = $schema;
-    }
+    let metaSchemaId: string | undefined = options?.metaSchema ?? $schema;
 
     if (!metaSchemaId) {
       metaSchemaId =
         this.options.metaSchema || "https://json-schema.org/draft-07/schema";
     }
 
-    const finalId = this.aliases[metaSchemaId] ?? metaSchemaId;
+    const finalId = aliases[metaSchemaId] ?? metaSchemaId;
     const metaSchema = this.metaSchemas[finalId];
     return { metaSchema, metaSchemaId };
+  }
+
+  private metaSchemaNotFound(metaSchemaId: string): ValidationResult {
+    return {
+      valid: false,
+      errors: [
+        {
+          dataPath: "",
+          schemaPath: "#",
+          notFound: true,
+          keyword: metaSchemaId,
+          message: "metaSchema not found",
+        },
+      ],
+    };
   }
 
   validateSchemaSync(
@@ -514,19 +476,9 @@ export class JetValidator {
       schema.$schema,
       options,
     );
-    if (!metaSchema)
-      return {
-        valid: false,
-        errors: [
-          {
-            dataPath: "/",
-            schemaPath: "#",
-            notFound: true,
-            keyword: metaSchemaId,
-            message: "metaSchema not found",
-          },
-        ],
-      };
+    if (!metaSchema) {
+      return this.metaSchemaNotFound(metaSchemaId);
+    }
     const validator = this.compile(metaSchema, {
       ...options,
       validateSchema: false,
@@ -539,30 +491,16 @@ export class JetValidator {
     schema: SchemaDefinition,
     options?: ValidatorOptions,
   ): Promise<ValidationResult> {
-    let metaSchema;
-    const { metaSchema: mSchema, metaSchemaId } = this.getMetaSchema(
+    const { metaSchema, metaSchemaId } = this.getMetaSchema(
       schema.$schema,
       options,
     );
-    if (mSchema) {
-      metaSchema = mSchema;
-    } else {
-      metaSchema = await this.options.loadSchema(metaSchemaId);
+    const resolvedMeta =
+      metaSchema ?? (await this.options.loadSchema(metaSchemaId));
+    if (!resolvedMeta) {
+      return this.metaSchemaNotFound(metaSchemaId);
     }
-    if (!metaSchema)
-      return {
-        valid: false,
-        errors: [
-          {
-            dataPath: "/",
-            schemaPath: "#",
-            notFound: true,
-            keyword: metaSchemaId,
-            message: "metaSchema not found",
-          },
-        ],
-      };
-    const validator = await this.compileAsync(metaSchema, {
+    const validator = await this.compileAsync(resolvedMeta, {
       ...options,
       validateSchema: false,
       async: true,
@@ -577,7 +515,7 @@ export class JetValidator {
     if (!Key) {
       throw new Error("Meta-schema must have an $id or explicit key");
     }
-    const schemaKey = this.aliases[Key] ?? Key;
+    const schemaKey = aliases[Key] ?? Key;
     if (!(schemaKey in this.metaSchemas)) {
       this.metaSchemas[schemaKey] = structuredClone(schema);
     }
@@ -585,181 +523,15 @@ export class JetValidator {
     return this;
   }
   //#endregion
+
   clearRegistries(): void {
     this.schemas = {};
-    this.formatValidators = {};
+    this.formatValidators = this.initFormatValidators();
     this.clearKeywords();
-    if (this.options.cache) {
-      this.compilationCache.clear();
-    }
+    this.compilation.clearCache();
   }
 
-  private compileResolved(
-    resolvedSchema: SchemaDefinition | boolean,
-    mainSchema: SchemaDefinition | boolean,
-    refables: any[],
-    allFormats: Set<string>,
-    allKeywords: Set<string>,
-    config: ValidatorOptions,
-    compileContext: {
-      hasUnevaluatedProperties: boolean;
-      hasUnevaluatedItems: boolean;
-      hasRootReference: boolean;
-      referencedFunctions: string[];
-      uses$Data: boolean;
-    },
-  ): ErrorAttachedValidatorFn {
-    const includesItemsRef = compileContext.hasUnevaluatedItems;
-    const includesPropRef = compileContext.hasUnevaluatedProperties;
-    const fconfig = {
-      ...config,
-    };
-    const has$Data = compileContext.uses$Data;
-    if (typeof resolvedSchema === "boolean") fconfig.allErrors = false;
-    const compiler = new Compiler(
-      refables,
-      mainSchema,
-      fconfig,
-      this,
-      allKeywords,
-      compileContext,
-      false,
-    );
-    let source;
-    if (compileContext.hasRootReference) {
-      source = compiler.compileSchema(
-        resolvedSchema,
-        {
-          schema: `\${path.schema}`,
-          data: "${path.data}",
-          $data: "",
-        },
-        {
-          parentHasUnevaluatedProperties: includesPropRef,
-          parentUnevaluatedPropVar: includesPropRef
-            ? "evaluatedProperties"
-            : undefined,
-          parentHasUnevaluatedItems: includesItemsRef,
-          parentUnevaluatedItemVar: includesItemsRef
-            ? "evaluatedItems"
-            : undefined,
-          isSubschema: true,
-        },
-        "rootData",
-      );
-    } else {
-      source = compiler.compileSchema(
-        resolvedSchema,
-        undefined,
-        undefined,
-        "rootData",
-      );
-    }
-    const keywords = compiler.getCompiledKeywords();
-    const formatValidators: Record<string, any> = {};
-    const customKeywords = new Map<
-      string,
-      CompiledValidateFunction | ValidateFunction
-    >(keywords.compiledKeywords);
-    for (const keywordDef of keywords.validateKeywords) {
-      const validate = (
-        this.customKeywords.get(keywordDef) as ValidateKeywordDefinition
-      )?.validate;
-      if (validate) customKeywords.set(keywordDef, validate);
-    }
-
-    const asyncPrefix = config.async ? "async " : "";
-    let functionDeclaration = "validate(rootData";
-    if (compileContext.hasRootReference) {
-      if (includesItemsRef || includesPropRef) {
-        if (includesPropRef)
-          functionDeclaration = functionDeclaration + ",evaluatedProperties";
-        if (includesItemsRef)
-          functionDeclaration = functionDeclaration + ",evaluatedItems";
-      }
-    }
-    if (compileContext.hasRootReference)
-      functionDeclaration = functionDeclaration + ",path";
-    functionDeclaration = functionDeclaration + ")";
-    const finalSource = `
-    ${compiler.hoistedFunctions.join("")}
-    ${asyncPrefix}function ${functionDeclaration}{${
-      compileContext.hasRootReference
-        ? 'if (!path) {path = { schema: "#", data: "" };}'
-        : ""
-    }${source}${
-      fconfig.allErrors
-        ? `validate.errors = allErrors; return allErrors.length == 0`
-        : "return true"
-    };} return validate;
-    `;
-    if (config.logFunction) {
-      console.log(finalSource);
-    }
-
-    const regexParams: string[] = [];
-    const regexArgs: RegExp[] = [];
-
-    if (compiler.regexCache.size > 0) {
-      for (const [key, value] of compiler.regexCache.entries()) {
-        regexParams.push(value);
-        regexArgs.push(new RegExp(key));
-      }
-    }
-    if (typeof resolvedSchema !== "boolean") {
-      if (has$Data) {
-        const formatKeys =
-          Array.isArray(fconfig.formats) && fconfig.formats.length > 0
-            ? fconfig.formats
-            : Object.keys(this.formatValidators);
-
-        for (const validatorKey of formatKeys) {
-          const validator = this.formatValidators[validatorKey];
-          if (validator) {
-            if (
-              typeof validator === "function" ||
-              validator instanceof RegExp
-            ) {
-              formatValidators[validatorKey] = validator;
-            } else {
-              formatValidators[validatorKey] = validator.validate;
-            }
-          }
-        }
-      } else if (allFormats.size > 0) {
-        for (const validatorKey of allFormats) {
-          const validator = this.formatValidators[validatorKey];
-          if (validator) {
-            if (
-              typeof validator === "function" ||
-              validator instanceof RegExp
-            ) {
-              formatValidators[validatorKey] = validator;
-            } else {
-              formatValidators[validatorKey] = validator.validate;
-            }
-          }
-        }
-      }
-    }
-
-    return new Function(
-      "formatValidators",
-      "deepEqual",
-      "canonicalStringify",
-      "customKeywords",
-      "len_of",
-      ...regexParams,
-      finalSource,
-    )(
-      formatValidators,
-      deepEqual,
-      canonicalStringify,
-      customKeywords,
-      len_of,
-      ...regexArgs,
-    ) as ErrorAttachedValidatorFn;
-  }
+  //#region compile
 
   compile(
     fschema: object | boolean,
@@ -767,11 +539,7 @@ export class JetValidator {
   ): ErrorAttachedValidatorFn {
     const schema =
       typeof fschema === "boolean" ? fschema : (fschema as SchemaDefinition);
-
-    const finalConfig = {
-      ...this.options,
-      ...config,
-    };
+    const finalConfig = { ...this.options, ...config };
 
     if (
       typeof schema === "object" &&
@@ -779,7 +547,7 @@ export class JetValidator {
       (finalConfig.metaSchema || schema.$schema)
     ) {
       const result = this.validateSchemaSync(schema, {
-        metaSchema: finalConfig?.metaSchema,
+        metaSchema: finalConfig.metaSchema,
         cache: true,
       });
       if (!result.valid) {
@@ -787,35 +555,7 @@ export class JetValidator {
       }
     }
 
-    if (finalConfig.cache && typeof schema !== "boolean") {
-      if (
-        this.compilationCache.has(schema?.$id!) ||
-        this.compilationCache.has(schema?.id!) ||
-        this.compilationCache.has(schema)
-      ) {
-        return (this.compilationCache.get(schema?.$id!) ??
-          this.compilationCache.get(schema?.id!) ??
-          this.compilationCache.get(schema))!;
-      }
-    }
-
-    const resolver = new SchemaResolver(this, finalConfig);
-    const resolved = resolver.resolveSync(schema);
-    const validator = this.compileResolved(
-      resolved.schema,
-      schema,
-      resolved.refables,
-      resolved.allFormats,
-      resolved.keywords,
-      finalConfig,
-      resolved.compileContext,
-    );
-
-    if (finalConfig.cache && typeof schema === "object" && schema !== null) {
-      const schem = schema as { $id?: string; id?: string };
-      this.compilationCache.set(schem.$id ?? schem.id ?? schema, validator);
-    }
-    return validator;
+    return this.compilation.compile(fschema, finalConfig);
   }
 
   async compileAsync(
@@ -824,11 +564,7 @@ export class JetValidator {
   ): Promise<ErrorAttachedValidatorFn> {
     const schema =
       typeof fschema === "boolean" ? fschema : (fschema as SchemaDefinition);
-
-    const finalConfig = {
-      ...this.options,
-      ...config,
-    };
+    const finalConfig = { ...this.options, ...config };
 
     if (
       typeof schema === "object" &&
@@ -836,7 +572,7 @@ export class JetValidator {
       (finalConfig.metaSchema || schema.$schema)
     ) {
       const result = await this.validateSchemaAsync(schema, {
-        metaSchema: finalConfig?.metaSchema,
+        metaSchema: finalConfig.metaSchema,
         cache: true,
       });
       if (!result.valid) {
@@ -844,42 +580,23 @@ export class JetValidator {
       }
     }
 
-    if (finalConfig.cache && typeof schema !== "boolean") {
-      if (
-        this.compilationCache.has(schema?.$id!) ||
-        this.compilationCache.has(schema?.id!) ||
-        this.compilationCache.has(schema)
-      ) {
-        return (this.compilationCache.get(schema?.$id!) ??
-          this.compilationCache.get(schema?.id!) ??
-          this.compilationCache.get(schema))!;
-      }
-    }
-
-    const resolver = new SchemaResolver(this, finalConfig);
-    const resolved = await resolver.resolveAsync(
-      schema,
-      finalConfig.loadSchema,
-    );
-    const validator = this.compileResolved(
-      resolved.schema,
-      schema,
-      resolved.refables,
-      resolved.allFormats,
-      resolved.keywords,
-      finalConfig,
-      resolved.compileContext,
-    );
-    
-    if (finalConfig.cache && typeof schema === "object" && schema !== null) {
-      const schem = schema as { $id?: string; id?: string };
-      this.compilationCache.set(schem.$id ?? schem.id ?? schema, validator);
-    }
-
-    return validator;
+    return this.compilation.compileAsync(fschema, finalConfig);
   }
 
-  logErrors(errors: any, indent = 0) {
+  generateStandalone(
+    schema: SchemaDefinition | object,
+    gopts?: { functionName: string },
+    sconfig?: ValidatorOptions,
+  ): {
+    code: string;
+    functionName: string;
+    formatSetup?: string;
+    imports: string[];
+  } {
+    return this.compilation.generateStandalone(schema, gopts, sconfig);
+  }
+
+  logErrors(errors: ValidationError | ValidationError[], indent = 0) {
     const spacer = "  ".repeat(indent);
 
     if (Array.isArray(errors)) {
@@ -894,12 +611,13 @@ export class JetValidator {
       if (errors.schemaPath) {
         console.log(`${spacer}   - Schema Path: ${errors.schemaPath}`);
       }
-      if (errors.rule) {
-        console.log(`${spacer}   - Rule: ${errors.rule}`);
+      if (errors.keyword) {
+        console.log(`${spacer}   - Keyword: ${errors.keyword}`);
       }
       if (errors.expected) {
         console.log(`${spacer}   - Expected: ${errors.expected}`);
       }
+
       if (errors.subErrors) {
         console.log(`${spacer}   - Sub-errors:`);
         this.logErrors(errors.subErrors, indent + 1);
@@ -920,7 +638,8 @@ export class JetValidator {
       .replace(/\/(\d+)/g, "[$1]")
       .replace(/\//g, ".");
   }
-  getFieldErrors(errors: any[]): Record<string, string[]> {
+
+  getFieldErrors(errors: ValidationError[]): Record<string, string[]> {
     const byField: Record<string, string[]> = {};
 
     for (const error of errors) {
@@ -933,7 +652,7 @@ export class JetValidator {
   }
 
   errorsText(
-    errors: any[],
+    errors: ValidationError[],
     options?: { separator?: string; dataVar?: string },
   ): string {
     const sep = options?.separator ?? ", ";
@@ -947,448 +666,5 @@ export class JetValidator {
         return `${fullPath}: ${e.message}`;
       })
       .join(sep);
-  }
-
-  generateStandalone(
-    schema: SchemaDefinition,
-    sconfig?: ValidatorOptions,
-  ): {
-    code: string;
-    functionName: string;
-    formatSetup?: string;
-    imports: string[];
-  } {
-    const code: string[] = [];
-    const formatImports: string[] = [];
-    const config = { ...this.options, ...sconfig };
-    let generatedFunctionName;
-    if (this.counter === 0) {
-      generatedFunctionName = "validate" + this.counter;
-    } else {
-      generatedFunctionName = "validate" + this.counter++;
-    }
-    const resolver = new SchemaResolver(this, config);
-    resolver.rootFunctionName = generatedFunctionName;
-    const resolved = resolver.resolveSync(schema);
-    const includesItemsRef = resolved.compileContext.hasUnevaluatedItems;
-    const includesPropRef = resolved.compileContext.hasUnevaluatedProperties;
-    const has$Data = resolved.compileContext.uses$Data;
-
-    const compiler = new Compiler(
-      resolved.refables,
-      schema,
-      { ...config },
-      this,
-      resolved.keywords,
-      resolved.compileContext,
-    );
-    compiler.mainFunctionName = generatedFunctionName;
-    let source;
-    if (resolved.compileContext.hasRootReference) {
-      source = compiler.compileSchema(
-        resolved.schema,
-        {
-          schema: `\${path.schema}`,
-          data: "${path.data}",
-          $data: "",
-        },
-        {
-          parentHasUnevaluatedProperties: includesPropRef,
-          parentUnevaluatedPropVar: includesPropRef
-            ? "evaluatedProperties"
-            : undefined,
-          parentHasUnevaluatedItems: includesItemsRef,
-          parentUnevaluatedItemVar: includesItemsRef
-            ? "evaluatedItems"
-            : undefined,
-          isSubschema: true,
-        },
-        "rootData",
-      );
-    } else {
-      source = compiler.compileSchema(
-        resolved.schema,
-        undefined,
-        undefined,
-        "rootData",
-      );
-    }
-
-    const keywords = compiler.getCompiledKeywords();
-
-    if (keywords.hasCompileKeyword) {
-      code.push(`const compilerOptions = ${JSON.stringify(config)};\n`);
-      code.push(`const mainRootSchema = ${JSON.stringify(schema)};\n`);
-    }
-    const inlinedFormats = new Set<string>();
-    if (has$Data) {
-      this.inlineAllConfiguredFormats(code, config, inlinedFormats);
-      this.createFormatObject(code, config, inlinedFormats);
-    } else if (resolved.allFormats.size > 0) {
-      this.inlineUsedFormats(
-        code,
-        resolved.allFormats,
-        config,
-        formatImports,
-        inlinedFormats,
-      );
-    }
-
-    for (const keywordDef of keywords.validateKeywords) {
-      const validate = (
-        this.customKeywords.get(keywordDef) as ValidateKeywordDefinition
-      )?.validate;
-      if (validate) {
-        code.push(`const ${keywordDef} = ${validate.toString()};\n`);
-      }
-    }
-    if (compiler.needslen_of) code.push(len_of.toString() + ";");
-    if (compiler.needsStringify) code.push(canonicalStringify.toString() + ";");
-    if (compiler.needsDeepEqual) code.push(deepEqual.toString() + ";");
-    const asyncPrefix = config.async ? "async " : "";
-    let functionDeclaration = "validate(rootData";
-
-    if (resolved.compileContext.hasRootReference) {
-      if (includesItemsRef || includesPropRef) {
-        if (includesPropRef) functionDeclaration += ",evaluatedProperties";
-        if (includesItemsRef) functionDeclaration += ",evaluatedItems";
-      }
-      functionDeclaration += ",path";
-    }
-    functionDeclaration += ")";
-    let regexDeclaration = "";
-    if (compiler.regexCache.size > 0) {
-      for (const [key, value] of compiler.regexCache.entries()) {
-        regexDeclaration =
-          regexDeclaration +
-          `const ${value} = new RegExp(${JSON.stringify(key)});\n`;
-      }
-    }
-    code.push(compiler.hoistedFunctions.join(""));
-    const finalSource = `
-      ${asyncPrefix}function ${functionDeclaration} {
-      ${regexDeclaration}${
-        resolved.compileContext.hasRootReference
-          ? '\n  if (!path) { path = { schema: "#", data: "" }; }'
-          : ""
-      }
-      ${source}
-      ${
-        this.options.allErrors
-          ? `validate.errors = allErrors; return allErrors.length == 0`
-          : " return true"
-      }
-    }
-`;
-    code.push(finalSource);
-    let formatSetup: string | undefined;
-    if (formatImports.length > 0) {
-      formatSetup = this.generateFormatSetup(formatImports);
-    }
-
-    return {
-      code: code.join("\n"),
-      functionName: generatedFunctionName,
-      formatSetup,
-      imports: formatImports,
-    };
-  }
-
-  private inlineUsedFormats(
-    code: string[],
-    usedFormats: Set<string>,
-    config: ValidatorOptions,
-    formatImports: string[],
-    inlinedFormats: Set<string>,
-  ): void {
-    const overwrittenFormats = config.overwrittenFormats || [];
-
-    code.push("// Format validators\n");
-    for (const formatName of usedFormats) {
-      if (inlinedFormats.has(formatName)) continue;
-
-      const validator = this.formatValidators[formatName];
-
-      if (!validator) {
-        formatImports.push(formatName);
-        continue;
-      }
-
-      const isOverwritten = overwrittenFormats.includes(formatName);
-      if (typeof validator === "function" || validator instanceof RegExp) {
-        this.resolveFormats(
-          validator,
-          code,
-          formatName,
-          inlinedFormats,
-          isOverwritten,
-          formatImports,
-        );
-      } else if (typeof validator === "object" && "validate" in validator) {
-        this.resolveFormats(
-          validator.validate,
-          code,
-          formatName,
-          inlinedFormats,
-          isOverwritten,
-          formatImports,
-        );
-      }
-    }
-
-    code.push("\n");
-  }
-
-  private resolveFormats(
-    validator: RegExp | ((value: any) => boolean | Promise<boolean>),
-    code: string[],
-    formatName: string,
-    inlinedFormats: Set<string>,
-    isOverwritten: boolean,
-    formatImports: string[],
-  ) {
-    if (validator instanceof RegExp) {
-      const safeName = this.getSafeFormatName(formatName);
-      code.push(
-        `const ${safeName} = new RegExp(${JSON.stringify(validator.source)}, '${
-          validator.flags
-        }');\n`,
-      );
-      inlinedFormats.add(formatName);
-    } else if (typeof validator === "function") {
-      if (isOverwritten) {
-        const fnString = validator.toString();
-        if (this.isSelfContained(fnString)) {
-          code.push(
-            `const ${this.getSafeFormatName(formatName)} = ${fnString};\n`,
-          );
-          inlinedFormats.add(formatName);
-        } else {
-          formatImports.push(formatName);
-        }
-      } else {
-        const needsExternalDeps = this.formatNeedsExternalDeps(formatName);
-
-        if (needsExternalDeps) {
-          this.inlineFormatWithDeps(code, formatName, inlinedFormats);
-        } else {
-          if (validator.name) {
-            code.push(`${validator.toString()};\n`);
-          } else {
-            code.push(
-              `const ${this.getSafeFormatName(
-                formatName,
-              )} = ${validator.toString()};\n`,
-            );
-          }
-
-          inlinedFormats.add(formatName);
-        }
-      }
-    }
-  }
-
-  private inlineAllConfiguredFormats(
-    code: string[],
-    config: ValidatorOptions,
-    inlinedFormats: Set<string>,
-  ): void {
-    const configuredFormats = config.formats ?? [];
-
-    code.push("// Format validators (all configured for $data support)\n");
-
-    if (configuredFormats?.length > 0) {
-      for (const formatName of configuredFormats) {
-        if (inlinedFormats.has(formatName)) continue;
-
-        const validator = this.formatValidators[formatName];
-        if (validator) {
-          if (validator instanceof RegExp || typeof validator === "function") {
-            this.resolve$DataFormat(
-              validator,
-              formatName,
-              inlinedFormats,
-              code,
-            );
-          } else if (typeof validator === "object" && "validate" in validator) {
-            this.resolve$DataFormat(
-              validator.validate,
-              formatName,
-              inlinedFormats,
-              code,
-            );
-          }
-        }
-      }
-    } else if (config.formatMode === "fast" || config.formatMode === "full") {
-      const validators = this.formatValidators;
-
-      for (const [formatName, validator] of Object.entries(validators)) {
-        if (inlinedFormats.has(formatName)) continue;
-
-        if (validator instanceof RegExp || typeof validator === "function") {
-          this.resolve$DataFormat(validator, formatName, inlinedFormats, code);
-        } else if (typeof validator === "object" && "validate" in validator) {
-          this.resolve$DataFormat(
-            validator.validate,
-            formatName,
-            inlinedFormats,
-            code,
-          );
-        }
-      }
-    }
-
-    code.push("\n");
-  }
-  private resolve$DataFormat(
-    validator: RegExp | ((value: any) => boolean | Promise<boolean>),
-    formatName: string,
-    inlinedFormats: Set<string>,
-    code: string[],
-  ) {
-    if (validator instanceof RegExp) {
-      const safeName = this.getSafeFormatName(formatName);
-      code.push(
-        `const ${safeName} = new RegExp(${JSON.stringify(validator.source)}, '${
-          validator.flags
-        }');\n`,
-      );
-      inlinedFormats.add(formatName);
-    } else if (typeof validator === "function") {
-      this.inlineFormatWithDeps(code, formatName, inlinedFormats);
-    }
-  }
-
-  private createFormatObject(
-    code: string[],
-    config: ValidatorOptions,
-    inlinedFormats: Set<string>,
-  ): void {
-    code.push("// Format object for $data access\n");
-    code.push("const formatValidators = {\n");
-
-    const formatsToMap: string[] = [];
-
-    if (config.formats && config.formats.length > 0) {
-      formatsToMap.push(...config.formats);
-    } else if (config.formatMode === "fast" || config.formatMode === "full") {
-      const validators =
-        config.formatMode === "fast"
-          ? FAST_FORMAT_VALIDATORS
-          : FULL_FORMAT_VALIDATORS;
-      formatsToMap.push(...Object.keys(validators));
-    }
-
-    for (const formatName of formatsToMap) {
-      if (inlinedFormats.has(formatName)) {
-        const safeName = this.getSafeFormatName(formatName);
-        code.push(`  "${formatName}": ${safeName},\n`);
-      }
-    }
-
-    code.push("};\n\n");
-  }
-
-  private getSafeFormatName(formatName: string): string {
-    return "format_" + formatName.replace(/[^a-zA-Z0-9]/g, "_");
-  }
-
-  private formatNeedsExternalDeps(formatName: string): boolean {
-    const formatsWithDeps = new Set(["date-time", "iso-date-time", "time"]);
-
-    return formatsWithDeps.has(formatName);
-  }
-
-  private inlineFormatWithDeps(
-    code: string[],
-    formatName: string,
-    inlinedFormats: Set<string>,
-  ): void {
-    const validator = this.formatValidators[formatName];
-    if (!validator || typeof validator !== "function") return;
-
-    if (inlinedFormats.has(formatName)) return;
-
-    switch (formatName) {
-      case "date-time":
-        code.push(`// date-time format with dependencies\n`);
-        if (!inlinedFormats.has("date")) {
-          code.push(this.serializeFormatFunction("date"));
-          inlinedFormats.add("date");
-        }
-        if (!inlinedFormats.has("time")) {
-          code.push(this.serializeFormatFunction("time"));
-          inlinedFormats.add("time");
-        }
-        code.push(`${validator.toString()};\n`);
-        inlinedFormats.add(formatName);
-        break;
-
-      case "iso-date-time":
-        code.push(`// iso-date-time format with dependencies\n`);
-        if (!inlinedFormats.has("date")) {
-          code.push(this.serializeFormatFunction("date"));
-          inlinedFormats.add("date");
-        }
-        if (!inlinedFormats.has("iso-time")) {
-          code.push(this.serializeFormatFunction("iso-time"));
-          inlinedFormats.add("iso-time");
-        }
-        code.push(`${validator.toString()};\n`);
-        inlinedFormats.add(formatName);
-        break;
-
-      case "time":
-        code.push(`// time format with dependencies\n`);
-        code.push(`${validator.toString()};\n`);
-        inlinedFormats.add(formatName);
-        break;
-
-      default:
-        code.push(`${validator.toString()};\n`);
-        inlinedFormats.add(formatName);
-    }
-  }
-
-  private serializeFormatFunction(formatName: string): string {
-    const validator = this.formatValidators[formatName];
-
-    if (!validator) return "";
-
-    if (validator instanceof RegExp) {
-      const safeName = this.getSafeFormatName(formatName);
-      return `const ${safeName} = new RegExp(${JSON.stringify(
-        validator.source,
-      )}, '${validator.flags}');\n`;
-    }
-
-    if (typeof validator === "function") {
-      return `${validator.toString()};\n`;
-    }
-
-    return "";
-  }
-
-  private isSelfContained(fnString: string): boolean {
-    const externalPatterns = [/\bimport\s+/, /\brequire\(/, /\bfetch\(/];
-
-    return !externalPatterns.some((pattern) => pattern.test(fnString));
-  }
-
-  private generateFormatSetup(formatImports: string[]): string {
-    const lines = [
-      "// Format validators that need to be provided",
-      "// Import these and pass them to the validator\n",
-      "const formatValidators = {",
-    ];
-
-    for (const format of formatImports) {
-      lines.push(`  ${format}: /* import your ${format} validator */,`);
-    }
-
-    lines.push("};\n");
-
-    return lines.join("\n");
   }
 }

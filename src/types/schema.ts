@@ -93,7 +93,7 @@ export interface BaseSchema<T = any> {
   oneOf?: (SchemaDefinition | boolean)[];
   if?: SchemaDefinition | boolean;
   then?: SchemaDefinition | boolean;
-  elseIf?: { if?: SchemaDefinition; then?: SchemaDefinition }[];
+  elseIf?: { if: SchemaDefinition; then: SchemaDefinition }[];
   else?: SchemaDefinition | boolean;
   const?: any | $data;
   enum?: any[] | $data;
